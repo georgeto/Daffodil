@@ -1,0 +1,45 @@
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio
+- Native multi-targeting support for Visual Studio 2003 in Visual Studio 2010
+
+Rev. 1  [2010-06-12]
+Rev. 2  [2010-10-03]
+Rev. 3  [2010-10-06]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(VCTargetsPath)\Platforms\Win32\PlatformToolsets\v71\ImportBefore\*.props" Condition="Exists('$(VCTargetsPath)\Platforms\Win32\PlatformToolsets\v71\ImportBefore')" />
+  <PropertyGroup>
+    <PlatformToolsetVersion>71</PlatformToolsetVersion>
+    <VCInstallDir>$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\7.1\Setup\VC@ProductDir)</VCInstallDir>
+    <VCInstallDir Condition="'$(VCInstallDir)' == ''">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VisualStudio\7.1\Setup\VC@ProductDir)</VCInstallDir>
+    <VCInstallDir Condition="'$(VCInstallDir)' == ''">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VCExpress\7.1\Setup\VC@ProductDir)</VCInstallDir>
+    <VCInstallDir Condition="'$(VCInstallDir)' == ''">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VCExpress\7.1\Setup\VC@ProductDir)</VCInstallDir>
+    <VSInstallDir>$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\7.1\Setup\VS@ProductDir)</VSInstallDir>
+    <VSInstallDir Condition="'$(VSInstallDir)' == ''">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VisualStudio\7.1\Setup\VS@ProductDir)</VSInstallDir>
+    <VSInstallDir Condition="'$(VSInstallDir)' == ''">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VCExpress\7.1\Setup\VS@ProductDir)</VSInstallDir>
+    <VSInstallDir Condition="'$(VSInstallDir)' == ''">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VCExpress\7.1\Setup\VS@ProductDir)</VSInstallDir>
+    <WindowsSdkDir Condition="'$(WindowsSdkDir)' == ''">$(VCInstallDir)PlatformSDK\</WindowsSdkDir>
+    <FrameworkDir Condition="'$(UseEnv)' != 'true'">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework@InstallRoot)</FrameworkDir>
+    <FrameworkDir Condition="'$(FrameworkDir)' == ''">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\.NETFramework@InstallRoot)</FrameworkDir>
+    <FrameworkSdkDir Condition="'$(UseEnv)' != 'true'">$(VSInstallDir)SDK\v1.1\</FrameworkSdkDir>
+    <FrameworkVersion Condition="'$(UseEnv)' != 'true'">v1.1.4322.573</FrameworkVersion>
+    <ExecutablePath Condition="'$(ExecutablePath)' == ''">$(VCInstallDir)bin;$(VCInstallDir)PlatformSDK\bin;$(VCInstallDir)PlatformSDK\common\bin;$(VSInstallDir)Common7\Tools\bin;$(VSInstallDir)Common7\tools;$(VSInstallDir)Common7\ide;$(ProgramFiles)\HTML Help Workshop;$(FrameworkSDKDir)bin;$(FrameworkDir)$(FrameworkVersion);$(VSInstallDir);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);</ExecutablePath>
+    <IncludePath Condition="'$(IncludePath)' == ''">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(VCInstallDir)PlatformSDK\include;$(VCInstallDir)PlatformSDK\common\include;$(FrameworkSDKDir)include;</IncludePath>
+    <ReferencePath Condition="'$(ReferencePath)' == ''">$(FrameworkDir)$(FrameworkVersion);$(VCInstallDir)atlmfc\lib;</ReferencePath>
+    <LibraryPath Condition="'$(LibraryPath)' == ''">$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(VCInstallDir)atlmfc\lib\i386;$(VCInstallDir)PlatformSDK\lib;$(VCInstallDir)PlatformSDK\common\lib;$(FrameworkSDKDir)lib;$(VSInstallDir);$(VSInstallDir)lib;</LibraryPath>
+    <SourcePath Condition="'$(SourcePath)' == ''">$(VCInstallDir)atlmfc\src\mfc;$(VCInstallDir)atlmfc\src\atl;$(VCInstallDir)crt\src;</SourcePath>
+    <ExcludePath Condition="'$(ExcludePath)' == ''">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(VCInstallDir)PlatformSDK\include;$(VCInstallDir)PlatformSDK\common\include;$(FrameworkSDKDir)include;$(FrameworkDir)$(FrameworkVersion);$(VCInstallDir)atlmfc\lib;</ExcludePath>
+    <NativeExecutablePath Condition="'$(NativeExecutablePath)' == ''">$(ExecutablePath)</NativeExecutablePath>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Platforms\Win32\PlatformToolsets\v71\ImportAfter\*..props" Condition="Exists('$(VCTargetsPath)\Platforms\Win32\PlatformToolsets\v71\ImportAfter')" />
+</Project>

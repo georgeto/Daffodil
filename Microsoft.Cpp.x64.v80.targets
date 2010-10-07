@@ -1,0 +1,44 @@
+﻿<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio
+- Native multi-targeting support for Visual Studio 2005 in Visual Studio 2010
+
+Rev. 1  [2010-06-12]
+Rev. 2  [2010-10-03]
+Rev. 3  [2010-10-06]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(VCTargetsPath)\Platforms\X64\ImportBefore\*.v80.targets" Condition="Exists('$(VCTargetsPath)\Platforms\X64\ImportBefore')" />
+
+  <UsingTask TaskName="VCMessage" AssemblyName="Microsoft.Build.CppTasks.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+
+  <PropertyGroup>
+    <PlatformPrepareForBuildDependsOn>PlatformToolsetPrepareForBuild;$(PlatformPrepareForBuildDependsOn)</PlatformPrepareForBuildDependsOn>
+  </PropertyGroup>
+
+  <!-- *******************************************************************************************
+        PlatformToolsetPrepareForBuild target
+       ******************************************************************************************* -->
+  <Target Name="PlatformToolsetPrepareForBuild" DependsOnTargets="_DetermineManagedStateFromCL;$(PlatformToolsetPrepareForBuildDependsOn)">
+    <!-- If the project is targeting any other CLR version than v2.0, v3.0, v3.5, issue a warning -->
+    <VCMessage Condition="'$(ManagedAssembly)' == 'true' and 
+                          '$(TargetFrameworkVersion)' != 'v3.5' and
+                          '$(TargetFrameworkVersion)' != 'v3.0' and
+                          '$(TargetFrameworkVersion)' != 'v2.0' and
+                          '$(DesignTimeBuild)'!='true'"
+            Code="MSB8002" Type="Warning" Arguments="$(PlatformToolset);$(TargetFrameworkVersion)"/>
+    <VCMessage Condition="'$(VCInstallDir)'!='' and '$(PROCESSOR_ARCHITECTURE)'=='x86' and !Exists('$(VCInstallDir)bin\x86_amd64')" Code="MSB8014" Type="Error" Arguments="$(VCInstallDir)bin\x86_amd64" />
+    <VCMessage Condition="'$(VCInstallDir)'!='' and '$(PROCESSOR_ARCHITECTURE)'=='x64' and !Exists('$(VCInstallDir)bin\amd64')" Code="MSB8014" Type="Error" Arguments="$(VCInstallDir)bin\amd64" />
+  </Target>
+
+  <Import Project="$(VCTargetsPath)\Platforms\X64\ImportAfter\*.v80.targets" Condition="Exists('$(VCTargetsPath)\Platforms\X64\ImportAfter')" />
+</Project>
