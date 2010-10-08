@@ -1,13 +1,54 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daffodil.CPPTasks.Win32.v71", "Daffodil.CPPTasks.Win32.v71\Daffodil.CPPTasks.Win32.v71.csproj", "{5B3D41D8-4443-4CF7-AC7A-8C29F4C01672}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daffodil.CPPTasks.Win32.v71", "Platforms\Win32\v71\Daffodil.CPPTasks.Win32.v71\Daffodil.CPPTasks.Win32.v71.csproj", "{5B3D41D8-4443-4CF7-AC7A-8C29F4C01672}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daffodil.CPPTasks.Win32.v70", "Daffodil.CPPTasks.Win32.v70\Daffodil.CPPTasks.Win32.v70.csproj", "{1C38F015-2CC0-4535-BCBC-089ED120057A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daffodil.CPPTasks.Win32.v70", "Platforms\Win32\v70\Daffodil.CPPTasks.Win32.v70\Daffodil.CPPTasks.Win32.v70.csproj", "{1C38F015-2CC0-4535-BCBC-089ED120057A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daffodil.CPPTasks.Win32.v60", "Daffodil.CPPTasks.Win32.v60\Daffodil.CPPTasks.Win32.v60.csproj", "{953B7C97-A1C5-4536-844E-F1B769E1F4BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daffodil.CPPTasks.Win32.v60", "Platforms\Win32\v60\Daffodil.CPPTasks.Win32.v60\Daffodil.CPPTasks.Win32.v60.csproj", "{953B7C97-A1C5-4536-844E-F1B769E1F4BD}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Daffodil.ENU", "Daffodil.ENU\Daffodil.ENU.vdproj", "{D187AAE4-19B4-437C-9D40-10BAF8843622}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v80", "v80", "{9B856956-AC8D-44C2-B1D2-E437DCD586F7}"
+	ProjectSection(SolutionItems) = preProject
+		Platforms\Win32\v80\Microsoft.Cpp.Win32.v80.props = Platforms\Win32\v80\Microsoft.Cpp.Win32.v80.props
+		Platforms\Win32\v80\Microsoft.Cpp.Win32.v80.targets = Platforms\Win32\v80\Microsoft.Cpp.Win32.v80.targets
+		Platforms\X64\v80\Microsoft.Cpp.x64.v80.props = Platforms\X64\v80\Microsoft.Cpp.x64.v80.props
+		Platforms\X64\v80\Microsoft.Cpp.x64.v80.targets = Platforms\X64\v80\Microsoft.Cpp.x64.v80.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v71", "v71", "{C54FB516-C2CC-431F-850F-80DEBD114751}"
+	ProjectSection(SolutionItems) = preProject
+		Platforms\Win32\v71\1033\cl.xml = Platforms\Win32\v71\1033\cl.xml
+		Platforms\Win32\v71\1033\lib.xml = Platforms\Win32\v71\1033\lib.xml
+		Platforms\Win32\v71\1033\link.xml = Platforms\Win32\v71\1033\link.xml
+		Platforms\Win32\v71\Microsoft.Cpp.Win32.v71.props = Platforms\Win32\v71\Microsoft.Cpp.Win32.v71.props
+		Platforms\Win32\v71\Microsoft.Cpp.Win32.v71.targets = Platforms\Win32\v71\Microsoft.Cpp.Win32.v71.targets
+		Platforms\Win32\v71\1033\midl.xml = Platforms\Win32\v71\1033\midl.xml
+		Platforms\Win32\v71\1033\mt.xml = Platforms\Win32\v71\1033\mt.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v70", "v70", "{EA20F8DF-CB63-4F31-B6C4-A48942EE7436}"
+	ProjectSection(SolutionItems) = preProject
+		Platforms\Win32\v70\1033\cl.xml = Platforms\Win32\v70\1033\cl.xml
+		Platforms\Win32\v70\1033\lib.xml = Platforms\Win32\v70\1033\lib.xml
+		Platforms\Win32\v70\1033\link.xml = Platforms\Win32\v70\1033\link.xml
+		Platforms\Win32\v70\Microsoft.Cpp.Win32.v70.props = Platforms\Win32\v70\Microsoft.Cpp.Win32.v70.props
+		Platforms\Win32\v70\Microsoft.Cpp.Win32.v70.targets = Platforms\Win32\v70\Microsoft.Cpp.Win32.v70.targets
+		Platforms\Win32\v70\1033\midl.xml = Platforms\Win32\v70\1033\midl.xml
+		Platforms\Win32\v70\1033\mt.xml = Platforms\Win32\v70\1033\mt.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v60", "v60", "{1DDC5E6A-54FD-4088-8A2A-C9C9B5BB6B32}"
+	ProjectSection(SolutionItems) = preProject
+		Platforms\Win32\v60\1033\cl.xml = Platforms\Win32\v60\1033\cl.xml
+		Platforms\Win32\v60\1033\lib.xml = Platforms\Win32\v60\1033\lib.xml
+		Platforms\Win32\v60\1033\link.xml = Platforms\Win32\v60\1033\link.xml
+		Platforms\Win32\v60\Microsoft.Cpp.Win32.v60.props = Platforms\Win32\v60\Microsoft.Cpp.Win32.v60.props
+		Platforms\Win32\v60\Microsoft.Cpp.Win32.v60.targets = Platforms\Win32\v60\Microsoft.Cpp.Win32.v60.targets
+		Platforms\Win32\v60\1033\midl.xml = Platforms\Win32\v60\1033\midl.xml
+		Platforms\Win32\v60\1033\mt.xml = Platforms\Win32\v60\1033\mt.xml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,5 +73,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5B3D41D8-4443-4CF7-AC7A-8C29F4C01672} = {C54FB516-C2CC-431F-850F-80DEBD114751}
+		{1C38F015-2CC0-4535-BCBC-089ED120057A} = {EA20F8DF-CB63-4F31-B6C4-A48942EE7436}
+		{953B7C97-A1C5-4536-844E-F1B769E1F4BD} = {1DDC5E6A-54FD-4088-8A2A-C9C9B5BB6B32}
 	EndGlobalSection
 EndGlobal

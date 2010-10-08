@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio
+- Native multi-targeting support for Visual Studio 2003 in Visual Studio 2010
+
+Rev. 1  [2010-10-07]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+  
+  This file is a derivative work based on the file of the same name that is
+  included with Visual Studio 2010. The original file bears the copyright
+  notice reproduced below. Implicit authorization from Microsoft to create and
+  distribute derivative works is deduced from comments in the files and
+  documentation which describe ways to customize the build system by making
+  changes to these files.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="Mt" PageTemplate="tool" DisplayName="Manifest Tool" SwitchPrefix="/" Order="30" xmlns="http://schemas.microsoft.com/build/2009/properties" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+  <Rule.Categories>
+    <Category Name="General" DisplayName="General" />
+    <Category Name="Input and Output" DisplayName="Input and Output" />
+    <Category Name="Isolated COM" DisplayName="Isolated COM" />
+    <Category Name="Advanced" DisplayName="Advanced" />
+    <Category Name="Command Line" DisplayName="Command Line" Subtype="CommandLine" />
+  </Rule.Categories>
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" ItemType="Manifest" Label="" HasConfigurationCondition="true" />
+  </Rule.DataSource>
+  <BoolProperty Name="SuppressStartupBanner" DisplayName="Suppress Startup Banner" Description="Runs without displaying standard Microsoft copyright data. (-nologo)" Category="General" Switch="nologo" F1Keyword="VC.Project.VCManifestTool.SuppressStartupBanner">
+  </BoolProperty>
+  <BoolProperty Name="VerboseOutput" DisplayName="Verbose Output" Description="Displays additional information during manifest generation. (-verbose)" Category="General" Switch="verbose" F1Keyword="VC.Project.VCManifestTool.VerboseOutput">
+  </BoolProperty>
+  <StringProperty Name="AssemblyIdentity" DisplayName="Assembly Identity" Description="The identity string contains the attributes of the assemblyIdentity element. (-identity:[identity string])" Category="General" Switch="identity:" F1Keyword="VC.Project.VCManifestTool.AssemblyIdentity">
+  </StringProperty>
+  <StringListProperty CommandLineValueSeparator=" " Subtype="file" Name="AdditionalManifestFiles" DisplayName="Additional Manifest Files" Description="Used to specify manifests that need to be processed. (-manifest [manifest1] [manifest2] ...)" Category="Input and Output" Switch="manifest" Separator=" " F1Keyword="VC.Project.VCManifestTool.AdditionalManifestFiles">
+  </StringListProperty>
+  <StringProperty Name="InputResourceManifests" DisplayName="Input Resource Manifests" Description="Input the manifest from a resource of type RT_MANIFEST with the specified id. (-inputresource:[file];#[resource ID])" Category="Input and Output" Switch="inputresource:" F1Keyword="VC.Project.VCManifestTool.InputResourceManifests">
+  </StringProperty>
+  <BoolProperty Name="EmbedManifest" DisplayName="Embed Manifest" Description="Specifies if the manifest file should be embedded in the assembly or created as a stand-alone file." Category="Input and Output" IncludeInCommandLine="false" F1Keyword="VC.Project.VCManifestTool.EmbedManifest">
+    <BoolProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="" Label="" HasConfigurationCondition="true" />
+    </BoolProperty.DataSource>
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="OutputManifestFile" DisplayName="Output Manifest File" Description="Output the manifest to a resource of type RT_MANIFEST with the specified id. (-out:[file];#[resource ID])" Category="Input and Output" Switch="out:" F1Keyword="VC.Project.VCManifestTool.OutputManifestFile">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="ResourceOutputFileName" DisplayName="Manifest Resource File" Description="Specifies the output resources file used to embed the manifest into the project output." Category="Input and Output" F1Keyword="VC.Project.VCManifestTool.ResourceOutputFileName">
+    <StringProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="ManifestResourceCompile" Label="" HasConfigurationCondition="true" />
+    </StringProperty.DataSource>
+  </StringProperty>
+  <BoolProperty Name="GenerateCatalogFiles" DisplayName="Generate Catalog Files" Description="Generates .cdf files to make catalogs. (/makecdfs)" Category="Input and Output" Switch="makecdfs" F1Keyword="VC.Project.VCManifestTool.GenerateCatalogFiles">
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="DependencyInformationFile" DisplayName="Dependency Information File" Description="Specifies the dependency information file used by Visual Studio to track build dependency information for the manifest tool." Category="Input and Output" Visible="false" F1Keyword="VC.Project.VCManifestTool.DependencyInformationFile">
+  </StringProperty>
+  <StringProperty Name="OutputResourceManifests" DisplayName="Output Resource Manifests" Description="Output the manifest to a resource of type RT_MANIFEST with the specified id. resource_id is restricted to be a non-negative 16 bit number. (-outputresource:file[;[#]resource_id])" Category="Input and Output" Switch="outputresource:" Visible="false" F1Keyword="VC.Project.VCManifestTool.OutputResourceManifest">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="ManifestFromManagedAssembly" DisplayName="Generate Manifest From ManagedAssembly" Description="Generates a manifest from a managed assembly. (-managedassemblyname:[file])" Category="Input and Output" Switch="managedassemblyname:" F1Keyword="VC.Project.VCManifestTool.ManifestFromManagedAssembly">
+  </StringProperty>
+  <BoolProperty Name="SuppressDependencyElement" DisplayName="Suppress Dependency Element" Description="Used with -managedassembly. suppresses the generation of dependency elements in the final manifest. (-nodependency)" Category="Input and Output" Switch="nodependency" F1Keyword="VC.Project.VCManifestTool.SuppressDependencyElement">
+  </BoolProperty>
+  <BoolProperty Name="GenerateCategoryTags" DisplayName="Generate Category Tags" Description="Used with -managedassembly. -category causes the category tags to be generated. (-category)" Category="Input and Output" Switch="category" F1Keyword="VC.Project.VCManifestTool.GenerateCategoryTags">
+  </BoolProperty>
+  <BoolProperty Name="EnableDPIAwareness" DisplayName="Enable DPI Awareness" Description="Adds information to the manifest that marks the application as DPI-aware." Category="Input and Output" F1Keyword="VC.Project.VCManifestTool.EnableDPIAwareness">
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="TypeLibraryFile" DisplayName="Type Library File" Description="Specifies the type library to use for regfree COM manifest support. (-tlb:[file])" Category="Isolated COM" Switch="tlb:" F1Keyword="VC.Project.VCManifestTool.TypeLibraryFile">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="RegistrarScriptFile" DisplayName="Registrar Script File" Description="Specifies the registrar script file to use for regfree COM manifest support. (-rgs:[file])" Category="Isolated COM" Switch="rgs:" F1Keyword="VC.Project.VCManifestTool.RegistrarScriptFile">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="ComponentFileName" DisplayName="Component File Name" Description="Specifies the file name of the component that is built from the .tlb or .rgs specified. (-dll:[file])" Category="Isolated COM" Switch="dll:" F1Keyword="VC.Project.VCManifestTool.ComponentFileName">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="ReplacementsFile" DisplayName="Replacements File" Description="Specifies the file that contains values for replaceable strings in the RGS file. (replacements:[file])" Category="Isolated COM" Switch="replacements:" F1Keyword="VC.Project.VCManifestTool.ReplacementsFile">
+  </StringProperty>
+  <BoolProperty Name="UpdateFileHashes" DisplayName="Update File Hashes" Description="Computes the hash of files specified in the file elements and updates the hash attribute with this value. (hashupdate:[path])" Category="Advanced" Switch="hashupdate" F1Keyword="VC.Project.VCManifestTool.UpdateFileHashes">
+    <Argument Property="UpdateFileHashesSearchPath" IsRequired="false" />
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="UpdateFileHashesSearchPath" DisplayName="Update File Hashes Search Path" Description="Specifies the search path to use when updating the file hashes." Category="Advanced" Separator=":" F1Keyword="VC.Project.VCManifestTool.UpdateFileHashesSearchPath">
+  </StringProperty>
+  <StringProperty Subtype="folder" Name="TrackerLogDirectory" DisplayName="Tracker Log Directory" Description="Tracker Log Directory." IncludeInCommandLine="false" Visible="false">
+  </StringProperty>
+  <StringProperty Name="AdditionalOptions" DisplayName="Additional Options" Description="Additional Options" Category="Command Line" F1Keyword="vc.project.AdditionalOptionsPage">
+  </StringProperty>
+</Rule>
