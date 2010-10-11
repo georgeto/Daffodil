@@ -1,12 +1,9 @@
 ﻿<!--
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Daffodil for Visual Studio
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 6 in Visual Studio 2010
 
-Rev. 4  [2010-10-07]
-Rev. 3  [2010-10-06]
-Rev. 2  [2010-10-03]
-Rev. 1  [2010-06-12]
+Beta 2  [2010-10-10]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -31,18 +28,21 @@ Credits
   <UsingTask TaskName="LIBA"     AssemblyFile="Daffodil.CPPTasks.Win32.v60.dll" />
   <UsingTask TaskName="BSCMakeA" AssemblyFile="Daffodil.CPPTasks.Win32.v60.dll" />
 
+  <Target Name="CoreResGen" DependsOnTargets="$(CoreResGenDependsOn)" />
+
+  
+  <!-- *******************************************************************************************
+        PlatformToolsetPrepareForBuild target
+       ******************************************************************************************* -->
   <PropertyGroup>
     <PlatformPrepareForBuildDependsOn>PlatformToolsetPrepareForBuild;$(PlatformPrepareForBuildDependsOn)</PlatformPrepareForBuildDependsOn>
   </PropertyGroup>
 
-  <!-- *******************************************************************************************
-        PlatformToolsetPrepareForBuild target
-       ******************************************************************************************* -->
   <Target Name="PlatformToolsetPrepareForBuild" DependsOnTargets="_DetermineManagedStateFromCL;$(PlatformToolsetPrepareForBuildDependsOn)">
     <!-- If the project is a managed assembly, issue a warning -->
-    <VCMessage Condition="'$(ManagedAssembly)' == 'true' and
-                          '$(DesignTimeBuild)'!='true'"
-            Code="MSB8002" Type="Warning" Arguments="$(PlatformToolset);$(TargetFrameworkVersion)"/>
+    <Message Condition="'$(ManagedAssembly)' == 'true' and 
+                        '$(DesignTimeBuild)'!='true'"
+           Text="warning: Specified platform toolset ($(PlatformToolset)) does not support managed code. ManagedAssembly property will be ignored."/>
   </Target>
 
   
@@ -73,31 +73,6 @@ Credits
             Files="%(ClCompile.PrecompiledHeaderOutputFile)" />
 
     <!-- Precompiled headers - need to build them first -->
-    <!-- Removed the following switches:
-        AdditionalUsingDirectories         ="%(ClCompile.AdditionalUsingDirectories)"
-        BasicRuntimeChecks                 ="%(ClCompile.BasicRuntimeChecks)"
-        BufferSecurityCheck                ="%(ClCompile.BufferSecurityCheck)"
-        CompileAsManaged                   ="%(ClCompile.CompileAsManaged)"
-        CreateHotpatchableImage            ="%(CLCompile.CreateHotpatchableImage)"
-        EnableEnhancedInstructionSet       ="%(ClCompile.EnableEnhancedInstructionSet)"
-        EnablePREfast                      ="%(ClCompile.EnablePREfast)"
-        ErrorReporting                     ="%(ClCompile.ErrorReporting)"
-        ExpandAttributedSource             ="%(ClCompile.ExpandAttributedSource)"
-        FloatingPointExceptions            ="%(ClCompile.FloatingPointExceptions)"
-        FloatingPointModel                 ="%(ClCompile.FloatingPointModel)"
-        ForceConformanceInForLoopScope     ="%(ClCompile.ForceConformanceInForLoopScope)"
-        GenerateXMLDocumentationFiles      ="%(ClCompile.GenerateXMLDocumentationFiles)"
-        MultiProcessorCompilation          ="%(ClCompile.MultiProcessorCompilation)"
-        OpenMPSupport                      ="%(ClCompile.OpenMPSupport)"
-        ProcessorNumber                    ="%(ClCompile.ProcessorNumber)"
-        SmallerTypeCheck                   ="%(ClCompile.SmallerTypeCheck)"
-        TreatSpecificWarningsAsErrors      ="%(ClCompile.TreatSpecificWarningsAsErrors)"
-        TreatWChar_tAsBuiltInType          ="%(ClCompile.TreatWChar_tAsBuiltInType)"
-        UseFullPaths                       ="%(ClCompile.UseFullPaths)"
-        UseUnicodeForAssemblerListing      ="%(ClCompile.UseUnicodeForAssemblerListing)"
-        WholeProgramOptimization           ="%(ClCompile.WholeProgramOptimization)"
-        XMLDocumentationFileName           ="%(ClCompile.XMLDocumentationFileName)"
-    -->
     <CLA Condition="'%(ClCompile.PrecompiledHeader)' == 'Create' and '%(ClCompile.ExcludedFromBuild)'!='true'"
         BuildingInIDE                      ="$(BuildingInsideVisualStudio)"
         Sources                            ="@(ClCompile)"
@@ -165,31 +140,6 @@ Credits
     </CLA>
 
     <!-- Rest of the sources -->
-    <!-- Removed the following switches:
-        AdditionalUsingDirectories         ="%(ClCompile.AdditionalUsingDirectories)"
-        BasicRuntimeChecks                 ="%(ClCompile.BasicRuntimeChecks)"
-        BufferSecurityCheck                ="%(ClCompile.BufferSecurityCheck)"
-        CompileAsManaged                   ="%(ClCompile.CompileAsManaged)"
-        CreateHotpatchableImage            ="%(CLCompile.CreateHotpatchableImage)"
-        EnableEnhancedInstructionSet       ="%(ClCompile.EnableEnhancedInstructionSet)"
-        EnablePREfast                      ="%(ClCompile.EnablePREfast)"
-        ErrorReporting                     ="%(ClCompile.ErrorReporting)"
-        ExpandAttributedSource             ="%(ClCompile.ExpandAttributedSource)"
-        FloatingPointExceptions            ="%(ClCompile.FloatingPointExceptions)"
-        FloatingPointModel                 ="%(ClCompile.FloatingPointModel)"
-        ForceConformanceInForLoopScope     ="%(ClCompile.ForceConformanceInForLoopScope)"
-        GenerateXMLDocumentationFiles      ="%(ClCompile.GenerateXMLDocumentationFiles)"
-        MultiProcessorCompilation          ="%(ClCompile.MultiProcessorCompilation)"
-        OpenMPSupport                      ="%(ClCompile.OpenMPSupport)"
-        ProcessorNumber                    ="%(ClCompile.ProcessorNumber)"
-        SmallerTypeCheck                   ="%(ClCompile.SmallerTypeCheck)"
-        TreatSpecificWarningsAsErrors      ="%(ClCompile.TreatSpecificWarningsAsErrors)"
-        TreatWChar_tAsBuiltInType          ="%(ClCompile.TreatWChar_tAsBuiltInType)"
-        UseFullPaths                       ="%(ClCompile.UseFullPaths)"
-        UseUnicodeForAssemblerListing      ="%(ClCompile.UseUnicodeForAssemblerListing)"
-        WholeProgramOptimization           ="%(ClCompile.WholeProgramOptimization)"
-        XMLDocumentationFileName           ="%(ClCompile.XMLDocumentationFileName)"
-    -->
     <CLA Condition="'%(ClCompile.PrecompiledHeader)' != 'Create' and '%(ClCompile.ExcludedFromBuild)'!='true'"
         BuildingInIDE                      ="$(BuildingInsideVisualStudio)"
         Sources                            ="@(ClCompile)"
@@ -265,13 +215,6 @@ Credits
   <Target Name="Link"
           Condition="'@(Link)' != ''">
 
-    <ItemGroup>
-      <_EmbedManagedResourceFile Include="@(Link->Metadata('EmbedManagedResourceFile')->Distinct())" />
-      <_EmbedManagedResourceFile Include="@(Link->Metadata('AddModuleNamesToAssembly')->Distinct())" />
-      <_EmbedManagedResourceFile Condition="'%(EmbeddedResource.LogicalName)' == '' and '%(EmbeddedResource.WithCulture)' != 'true'" Include="@(EmbeddedResource->'$(IntermediateOutputPath)%(ManifestResourceName).resources')" />
-      <_EmbedManagedResourceFile Condition="'%(EmbeddedResource.LogicalName)' != '' and '%(EmbeddedResource.WithCulture)' != 'true'" Include="@(EmbeddedResource->'$(IntermediateOutputPath)%(ManifestResourceName).resources,%(LogicalName)')" />
-    </ItemGroup>
-
     <PropertyGroup>
       <Link_MinimalRebuildFromTracking Condition="'@(Link->AnyHaveMetadataValue('MinimalRebuildFromTracking', 'false'))' == 'true'">false</Link_MinimalRebuildFromTracking>
       <Link_MinimalRebuildFromTracking Condition="'$(BuildType)' != 'Build' or '$(ForceRebuild)' == 'true'" >false</Link_MinimalRebuildFromTracking>
@@ -280,46 +223,6 @@ Credits
       <LinkYieldDuringToolExecution Condition="'$(LinkYieldDuringToolExecution)' == '' and '%(Link.LinkTimeCodeGeneration)' == 'UseLinkTimeCodeGeneration'">true</LinkYieldDuringToolExecution>
     </PropertyGroup>
 
-    <!--<ItemGroup>
-      <LinkA>
-        <ProfileGuidedDatabase Condition="'%(Link.LinkTimeCodeGeneration)' != 'PGOptimization' and
-                                            '%(Link.LinkTimeCodeGeneration)' != 'PGUpdate' and
-                                            '%(Link.LinkTimeCodeGeneration)' != 'PGInstrument'"></ProfileGuidedDatabase>
-      </LinkA>
-    </ItemGroup>-->
-
-    <!-- Removed the following switches:
-        AddModuleNamesToAssembly       ="%(Link.AddModuleNamesToAssembly)"
-        AllowIsolation                 ="%(Link.AllowIsolation)"
-        AssemblyDebug                  ="%(Link.AssemblyDebug)"
-        AssemblyLinkResource           ="%(Link.AssemblyLinkResource)"
-        CLRImageType                   ="%(Link.CLRImageType)"
-        CLRSupportLastError            ="%(Link.CLRSupportLastError)"
-        CLRThreadAttribute             ="%(Link.CLRThreadAttribute)"
-        CLRUnmanagedCodeCheck          ="%(Link.CLRUnmanagedCodeCheck)"
-        CreateHotPatchableImage        ="%(Link.CreateHotPatchableImage)"
-        DataExecutionPrevention        ="%(Link.DataExecutionPrevention)"
-        DelaySign                      ="%(Link.DelaySign)"
-        EnableUAC                      ="%(Link.EnableUAC)"
-        GenerateManifest               ="$(GenerateManifest)"
-        ImageHasSafeExceptionHandlers  ="%(Link.ImageHasSafeExceptionHandlers)"
-        KeyContainer                   ="%(Link.KeyContainer)"
-        KeyFile                        ="%(Link.KeyFile)"
-        LinkErrorReporting             ="%(Link.LinkErrorReporting)"
-        LinkTimeCodeGeneration         ="%(Link.LinkTimeCodeGeneration)"
-        ManifestFile                   ="%(Link.ManifestFile)"
-        ProfileGuidedDatabase          ="%(Link.ProfileGuidedDatabase)"
-        RandomizedBaseAddress          ="%(Link.RandomizedBaseAddress)"
-        TerminalServerAware            ="%(Link.TerminalServerAware)"
-        TreatLinkerWarningAsErrors     ="%(Link.TreatLinkerWarningAsErrors)"
-        TurnOffAssemblyGeneration      ="%(Link.TurnOffAssemblyGeneration)"
-        TypeLibraryFile                ="%(Link.TypeLibraryFile)"
-        TypeLibraryResourceID          ="%(Link.TypeLibraryResourceID)"
-        UACExecutionLevel              ="%(Link.UACExecutionLevel)"
-        UACUIAccess                    ="%(Link.UACUIAccess)"
-      Added:
-        OptimizeWin98                  ="%(Link.OptimizeWin98)"
-    -->
     <LinkA
         BuildingInIDE                  ="$(BuildingInsideVisualStudio)"
         Sources                        ="@(Link)"
@@ -331,7 +234,6 @@ Credits
         BaseAddress                    ="%(Link.BaseAddress)"
         DelayLoadDLLs                  ="%(Link.DelayLoadDLLs)"
         Driver                         ="%(Link.Driver)"
-        EmbedManagedResourceFile       ="@(_EmbedManagedResourceFile)"
         EnableCOMDATFolding            ="%(Link.EnableCOMDATFolding)"
         EntryPointSymbol               ="%(Link.EntryPointSymbol)"
         FixedBaseAddress               ="%(Link.FixedBaseAddress)"
@@ -349,7 +251,6 @@ Credits
         LargeAddressAware              ="%(Link.LargeAddressAware)"
         LinkDLL                        ="%(Link.LinkDLL)"
         LinkIncremental                ="$(LinkIncremental)"
-        LinkStatus                     ="%(Link.LinkStatus)"
         MapExports                     ="%(Link.MapExports)"
         MapFileName                    ="%(Link.MapFileName)"
         MergedIDLBaseFileName          ="%(Link.MergedIDLBaseFileName)"
@@ -420,10 +321,6 @@ Credits
       <LibToolArchitecture Condition="'$(LibToolArchitecture)' == ''">$(DefaultToolArchitecture)</LibToolArchitecture>
     </PropertyGroup>
 
-
-    <!-- Removed the following switches:
-      ErrorReporting                  ="%(Lib.LinkErrorReporting)"
-    -->
     <LIBA
       Sources                         ="@(Lib)"
 
@@ -435,7 +332,6 @@ Credits
       ForceSymbolReferences           ="%(Lib.ForceSymbolReferences)"
       IgnoreAllDefaultLibraries       ="%(Lib.IgnoreAllDefaultLibraries)"
       IgnoreSpecificDefaultLibraries  ="%(Lib.IgnoreSpecificDefaultLibraries)"
-      LinkTimeCodeGeneration          ="%(Lib.LinkTimeCodeGeneration)"
       ModuleDefinitionFile            ="%(Lib.ModuleDefinitionFile)"
       Name                            ="%(Lib.Name)"
       OutputFile                      ="%(Lib.OutputFile)"
@@ -443,7 +339,6 @@ Credits
       SubSystem                       ="%(Lib.SubSystem)"
       SuppressStartupBanner           ="%(Lib.SuppressStartupBanner)"
       TargetMachine                   ="%(Lib.TargetMachine)"
-      TreatLibWarningAsErrors         ="%(Lib.TreatLibWarningAsErrors)"
       Verbose                         ="%(Lib.Verbose)"
 
       TrackerLogDirectory             ="%(Lib.TrackerLogDirectory)"
@@ -478,9 +373,7 @@ Credits
       <LibToolArchitecture Condition="'$(LibToolArchitecture)' == ''">$(DefaultToolArchitecture)</LibToolArchitecture>
     </PropertyGroup>
 
-    <!-- Removed the following switches:
-      ErrorReporting                  ="%(Lib.LinkErrorReporting)"
-    -->
+
     <LIBA
       Sources                         ="@(ImpLib)"
 
@@ -492,7 +385,6 @@ Credits
       ForceSymbolReferences           ="%(ImpLib.ForceSymbolReferences)"
       IgnoreAllDefaultLibraries       ="%(ImpLib.IgnoreAllDefaultLibraries)"
       IgnoreSpecificDefaultLibraries  ="%(ImpLib.IgnoreSpecificDefaultLibraries)"
-      LinkTimeCodeGeneration          ="%(ImpLib.LinkTimeCodeGeneration)"
       ModuleDefinitionFile            ="%(ImpLib.ModuleDefinitionFile)"
       Name                            ="%(ImpLib.Name)"
       OutputFile                      ="%(ImpLib.OutputFile)"
@@ -500,7 +392,6 @@ Credits
       SubSystem                       ="%(ImpLib.SubSystem)"
       SuppressStartupBanner           ="%(ImpLib.SuppressStartupBanner)"
       TargetMachine                   ="%(ImpLib.TargetMachine)"
-      TreatLibWarningAsErrors         ="%(ImpLib.TreatLibWarningAsErrors)"
       Verbose                         ="%(ImpLib.Verbose)"
 
       TrackerLogDirectory             ="%(ImpLib.TrackerLogDirectory)"

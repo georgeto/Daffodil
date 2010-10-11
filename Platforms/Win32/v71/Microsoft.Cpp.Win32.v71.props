@@ -1,12 +1,9 @@
 <!--
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Daffodil for Visual Studio
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2003 in Visual Studio 2010
 
-Rev. 4  [2010-10-07]
-Rev. 3  [2010-10-06]
-Rev. 2  [2010-10-03]
-Rev. 1  [2010-06-12]
+Beta 2  [2010-10-10]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -41,6 +38,12 @@ Credits
     <SourcePath Condition="'$(SourcePath)' == ''">$(VCInstallDir)atlmfc\src\mfc;$(VCInstallDir)atlmfc\src\atl;$(VCInstallDir)crt\src;</SourcePath>
     <ExcludePath Condition="'$(ExcludePath)' == ''">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(VCInstallDir)PlatformSDK\include;$(VCInstallDir)PlatformSDK\common\include;$(FrameworkSDKDir)include;$(FrameworkDir)$(FrameworkVersion);$(VCInstallDir)atlmfc\lib;</ExcludePath>
     <NativeExecutablePath Condition="'$(NativeExecutablePath)' == ''">$(ExecutablePath)</NativeExecutablePath>
+    <TargetFrameworkVersion Condition="'$(CLRSupport)' != '' and '$(CLRSupport)' != 'false' and '$(Registry:HKEY_LOCAL_MACHINE\Software\Microsoft\NET Framework Setup\NDP\v1.1.4322@Install)' == '1'">v2.0</TargetFrameworkVersion>
+    <TargetedRuntimeVersion>v1.1</TargetedRuntimeVersion>
+    <UpgradeSubsetToProfile>false</UpgradeSubsetToProfile>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    <ExecuteAsTool>false</ExecuteAsTool>
+    <CLRSupport Condition="'$(CLRSupport)' != '' and '$(CLRSupport)' != 'false'">true</CLRSupport>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Platforms\Win32\PlatformToolsets\v71\ImportAfter\*..props" Condition="Exists('$(VCTargetsPath)\Platforms\Win32\PlatformToolsets\v71\ImportAfter')" />
 </Project>

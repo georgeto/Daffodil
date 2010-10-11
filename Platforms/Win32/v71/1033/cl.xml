@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Daffodil for Visual Studio
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2003 in Visual Studio 2010
 
-Rev. 1  [2010-10-07]
+Beta 2  [2010-10-10]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -48,14 +48,6 @@ Credits
     <EnumValue Name="ProgramDatabase" Switch="Zi" DisplayName="Program Database" Description="Produces a program database (PDB) that contains type information and symbolic debugging information for use with the debugger. The symbolic debugging information includes the names and types of variables, as well as functions and line numbers. ">
     </EnumValue>
     <EnumValue Name="EditAndContinue" Switch="ZI" DisplayName="Program Database for Edit And Continue" Description="Produces a program database, as described above, in a format that supports the Edit and Continue feature.">
-    </EnumValue>
-  </EnumProperty>
-  <EnumProperty Name="CompileAsManaged" DisplayName="Common Language RunTime Support" Description="Use the .NET runtime service.  This switch is incompatible with some other switches; see the documentation on the /clr family of switches for details." Category="General" F1Keyword="VC.Project.VCCLCompilerTool.CompileAsManaged">
-    <EnumValue Name="false" Switch="" DisplayName="No Common Language RunTime Support" Description="No Common Language RunTime Support">
-    </EnumValue>
-    <EnumValue Name="true" Switch="clr" DisplayName="Common Language RunTime Support" Description="Creates metadata for your application that can be consumed by other CLR applications, and allows your application to consume types and data in the metadata of other CLR components.">
-    </EnumValue>
-    <EnumValue Name="noAssembly" Switch="clr:noAssembly" DisplayName="Common Language RunTime Support (No Assembly)" Description="Enables CLR, but does not include embedded manifest in output.">
     </EnumValue>
   </EnumProperty>
   <BoolProperty ReverseSwitch="nologo-" Name="SuppressStartupBanner" DisplayName="Suppress Startup Banner" Description="Suppresses the display of the sign-on banner when the compiler starts up and display of informational messages during compiling." Category="General" Switch="nologo" F1Keyword="VC.Project.VCCLCompilerTool.SuppressStartupBanner">

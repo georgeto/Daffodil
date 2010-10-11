@@ -13,41 +13,80 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v80", "v80", "{9B856956-AC8
 	ProjectSection(SolutionItems) = preProject
 		Platforms\Win32\v80\Microsoft.Cpp.Win32.v80.props = Platforms\Win32\v80\Microsoft.Cpp.Win32.v80.props
 		Platforms\Win32\v80\Microsoft.Cpp.Win32.v80.targets = Platforms\Win32\v80\Microsoft.Cpp.Win32.v80.targets
-		Platforms\X64\v80\Microsoft.Cpp.x64.v80.props = Platforms\X64\v80\Microsoft.Cpp.x64.v80.props
-		Platforms\X64\v80\Microsoft.Cpp.x64.v80.targets = Platforms\X64\v80\Microsoft.Cpp.x64.v80.targets
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v71", "v71", "{C54FB516-C2CC-431F-850F-80DEBD114751}"
 	ProjectSection(SolutionItems) = preProject
-		Platforms\Win32\v71\1033\cl.xml = Platforms\Win32\v71\1033\cl.xml
-		Platforms\Win32\v71\1033\lib.xml = Platforms\Win32\v71\1033\lib.xml
-		Platforms\Win32\v71\1033\link.xml = Platforms\Win32\v71\1033\link.xml
 		Platforms\Win32\v71\Microsoft.Cpp.Win32.v71.props = Platforms\Win32\v71\Microsoft.Cpp.Win32.v71.props
 		Platforms\Win32\v71\Microsoft.Cpp.Win32.v71.targets = Platforms\Win32\v71\Microsoft.Cpp.Win32.v71.targets
-		Platforms\Win32\v71\1033\midl.xml = Platforms\Win32\v71\1033\midl.xml
-		Platforms\Win32\v71\1033\mt.xml = Platforms\Win32\v71\1033\mt.xml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v70", "v70", "{EA20F8DF-CB63-4F31-B6C4-A48942EE7436}"
 	ProjectSection(SolutionItems) = preProject
-		Platforms\Win32\v70\1033\cl.xml = Platforms\Win32\v70\1033\cl.xml
-		Platforms\Win32\v70\1033\lib.xml = Platforms\Win32\v70\1033\lib.xml
-		Platforms\Win32\v70\1033\link.xml = Platforms\Win32\v70\1033\link.xml
 		Platforms\Win32\v70\Microsoft.Cpp.Win32.v70.props = Platforms\Win32\v70\Microsoft.Cpp.Win32.v70.props
 		Platforms\Win32\v70\Microsoft.Cpp.Win32.v70.targets = Platforms\Win32\v70\Microsoft.Cpp.Win32.v70.targets
-		Platforms\Win32\v70\1033\midl.xml = Platforms\Win32\v70\1033\midl.xml
-		Platforms\Win32\v70\1033\mt.xml = Platforms\Win32\v70\1033\mt.xml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v60", "v60", "{1DDC5E6A-54FD-4088-8A2A-C9C9B5BB6B32}"
 	ProjectSection(SolutionItems) = preProject
-		Platforms\Win32\v60\1033\cl.xml = Platforms\Win32\v60\1033\cl.xml
-		Platforms\Win32\v60\1033\lib.xml = Platforms\Win32\v60\1033\lib.xml
-		Platforms\Win32\v60\1033\link.xml = Platforms\Win32\v60\1033\link.xml
 		Platforms\Win32\v60\Microsoft.Cpp.Win32.v60.props = Platforms\Win32\v60\Microsoft.Cpp.Win32.v60.props
 		Platforms\Win32\v60\Microsoft.Cpp.Win32.v60.targets = Platforms\Win32\v60\Microsoft.Cpp.Win32.v60.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1033", "1033", "{CAF58E46-E5F5-423F-9560-950CA7422E03}"
+	ProjectSection(SolutionItems) = preProject
+		Platforms\Win32\v60\1033\cl.xml = Platforms\Win32\v60\1033\cl.xml
+		Platforms\Win32\v60\1033\general.xml = Platforms\Win32\v60\1033\general.xml
+		Platforms\Win32\v60\1033\general_makefile.xml = Platforms\Win32\v60\1033\general_makefile.xml
+		Platforms\Win32\v60\1033\general_makefile_ps.xml = Platforms\Win32\v60\1033\general_makefile_ps.xml
+		Platforms\Win32\v60\1033\lib.xml = Platforms\Win32\v60\1033\lib.xml
+		Platforms\Win32\v60\1033\link.xml = Platforms\Win32\v60\1033\link.xml
 		Platforms\Win32\v60\1033\midl.xml = Platforms\Win32\v60\1033\midl.xml
 		Platforms\Win32\v60\1033\mt.xml = Platforms\Win32\v60\1033\mt.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1033", "1033", "{3161D7D2-5A93-4840-9470-9622CF95EFA2}"
+	ProjectSection(SolutionItems) = preProject
+		Platforms\Win32\v70\1033\cl.xml = Platforms\Win32\v70\1033\cl.xml
+		Platforms\Win32\v70\1033\general.xml = Platforms\Win32\v70\1033\general.xml
+		Platforms\Win32\v70\1033\general_makefile.xml = Platforms\Win32\v70\1033\general_makefile.xml
+		Platforms\Win32\v70\1033\general_makefile_ps.xml = Platforms\Win32\v70\1033\general_makefile_ps.xml
+		Platforms\Win32\v70\1033\lib.xml = Platforms\Win32\v70\1033\lib.xml
+		Platforms\Win32\v70\1033\link.xml = Platforms\Win32\v70\1033\link.xml
+		Platforms\Win32\v70\1033\midl.xml = Platforms\Win32\v70\1033\midl.xml
+		Platforms\Win32\v70\1033\mt.xml = Platforms\Win32\v70\1033\mt.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1033", "1033", "{10476236-3B5E-4D2B-98CD-B4E36C67AEB8}"
+	ProjectSection(SolutionItems) = preProject
+		Platforms\Win32\v71\1033\cl.xml = Platforms\Win32\v71\1033\cl.xml
+		Platforms\Win32\v71\1033\general.xml = Platforms\Win32\v71\1033\general.xml
+		Platforms\Win32\v71\1033\general_makefile.xml = Platforms\Win32\v71\1033\general_makefile.xml
+		Platforms\Win32\v71\1033\general_makefile_ps.xml = Platforms\Win32\v71\1033\general_makefile_ps.xml
+		Platforms\Win32\v71\1033\lib.xml = Platforms\Win32\v71\1033\lib.xml
+		Platforms\Win32\v71\1033\link.xml = Platforms\Win32\v71\1033\link.xml
+		Platforms\Win32\v71\1033\midl.xml = Platforms\Win32\v71\1033\midl.xml
+		Platforms\Win32\v71\1033\mt.xml = Platforms\Win32\v71\1033\mt.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Win32", "Win32", "{39B472F0-A079-4AC9-9F1D-2D36307C9EB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "X64", "X64", "{DE480805-EE0F-409F-92E6-21F60180D033}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v80", "v80", "{9740F9C3-F9C4-4570-99D2-9F98858B06D5}"
+	ProjectSection(SolutionItems) = preProject
+		Platforms\X64\v80\Microsoft.Cpp.x64.v80.props = Platforms\X64\v80\Microsoft.Cpp.x64.v80.props
+		Platforms\X64\v80\Microsoft.Cpp.x64.v80.targets = Platforms\X64\v80\Microsoft.Cpp.x64.v80.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1033", "1033", "{95C304C0-C29A-435E-A671-979F0FBE3AE7}"
+	ProjectSection(SolutionItems) = preProject
+		Platforms\X64\v80\1033\link.xml = Platforms\X64\v80\1033\link.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1033", "1033", "{99E657A1-4ADE-4AAC-8B07-9F8CF53AD3B0}"
+	ProjectSection(SolutionItems) = preProject
+		Platforms\Win32\v80\1033\link.xml = Platforms\Win32\v80\1033\link.xml
 	EndProjectSection
 EndProject
 Global
@@ -75,8 +114,18 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{5B3D41D8-4443-4CF7-AC7A-8C29F4C01672} = {C54FB516-C2CC-431F-850F-80DEBD114751}
+		{EA20F8DF-CB63-4F31-B6C4-A48942EE7436} = {39B472F0-A079-4AC9-9F1D-2D36307C9EB1}
+		{1DDC5E6A-54FD-4088-8A2A-C9C9B5BB6B32} = {39B472F0-A079-4AC9-9F1D-2D36307C9EB1}
+		{9B856956-AC8D-44C2-B1D2-E437DCD586F7} = {39B472F0-A079-4AC9-9F1D-2D36307C9EB1}
+		{C54FB516-C2CC-431F-850F-80DEBD114751} = {39B472F0-A079-4AC9-9F1D-2D36307C9EB1}
 		{1C38F015-2CC0-4535-BCBC-089ED120057A} = {EA20F8DF-CB63-4F31-B6C4-A48942EE7436}
+		{3161D7D2-5A93-4840-9470-9622CF95EFA2} = {EA20F8DF-CB63-4F31-B6C4-A48942EE7436}
 		{953B7C97-A1C5-4536-844E-F1B769E1F4BD} = {1DDC5E6A-54FD-4088-8A2A-C9C9B5BB6B32}
+		{CAF58E46-E5F5-423F-9560-950CA7422E03} = {1DDC5E6A-54FD-4088-8A2A-C9C9B5BB6B32}
+		{99E657A1-4ADE-4AAC-8B07-9F8CF53AD3B0} = {9B856956-AC8D-44C2-B1D2-E437DCD586F7}
+		{10476236-3B5E-4D2B-98CD-B4E36C67AEB8} = {C54FB516-C2CC-431F-850F-80DEBD114751}
+		{5B3D41D8-4443-4CF7-AC7A-8C29F4C01672} = {C54FB516-C2CC-431F-850F-80DEBD114751}
+		{9740F9C3-F9C4-4570-99D2-9F98858B06D5} = {DE480805-EE0F-409F-92E6-21F60180D033}
+		{95C304C0-C29A-435E-A671-979F0FBE3AE7} = {9740F9C3-F9C4-4570-99D2-9F98858B06D5}
 	EndGlobalSection
 EndGlobal

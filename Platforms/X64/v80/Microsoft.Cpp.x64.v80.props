@@ -1,12 +1,9 @@
 <!--
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Daffodil for Visual Studio
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2005 in Visual Studio 2010
 
-Rev. 4  [2010-10-07]
-Rev. 3  [2010-10-06]
-Rev. 2  [2010-10-03]
-Rev. 1  [2010-06-12]
+Beta 2  [2010-10-10]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -32,7 +29,6 @@ Credits
     <FrameworkSdkDir Condition="'$(FrameworkSdkDir)' == ''">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SDKs\.NETFrameWork\v2.0@InstallationFolder)</FrameworkSdkDir>
     <FrameworkSdkDir Condition="'$(FrameworkSdkDir)' == ''">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Microsoft SDKs\.NETFrameWork\v2.0@InstallationFolder)</FrameworkSdkDir>
     <FrameworkVersion Condition="'$(UseEnv)' != 'true'">v2.0.50727</FrameworkVersion>
-    <Framework35Version Condition="'$(UseEnv)' != 'true'">v3.5</Framework35Version>
     <ExecutablePath Condition="'$(ExecutablePath)' == ''">$(VCInstallDir)bin\x86_amd64;$(VCInstallDir)bin;$(VCInstallDir)PlatformSDK\bin;$(VCInstallDir)PlatformSDK\common\bin;$(VSInstallDir)Common7\Tools\bin;$(VSInstallDir)Common7\tools;$(VSInstallDir)Common7\ide;$(ProgramFiles)\HTML Help Workshop;$(FrameworkSDKDir)bin;$(FrameworkSDKDir)lib\win64;$(FrameworkDir)$(FrameworkVersion);$(FxCopDir);$(PATH);</ExecutablePath>
     <IncludePath Condition="'$(IncludePath)' == ''">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(VCInstallDir)PlatformSDK\include;$(VCInstallDir)PlatformSDK\common\include;$(FrameworkSDKDir)include;</IncludePath>
     <ReferencePath Condition="'$(ReferencePath)' == ''">$(VCInstallDir)atlmfc\lib\amd64;$(VCInstallDir)lib\amd64</ReferencePath>
@@ -40,6 +36,10 @@ Credits
     <SourcePath Condition="'$(SourcePath)' == ''">$(VCInstallDir)atlmfc\src\mfc;$(VCInstallDir)atlmfc\src\atl;$(VCInstallDir)crt\src;</SourcePath>
     <ExcludePath Condition="'$(ExcludePath)' == ''">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(VCInstallDir)PlatformSDK\include;$(FrameworkSDKDir)include;$(FrameworkDir)$(FrameworkVersion);$(VCInstallDir)atlmfc\lib\amd64;$(VCInstallDir)lib\amd64;</ExcludePath>
     <NativeExecutablePath Condition="'$(NativeExecutablePath)' == ''">$(VCInstallDir)bin\AMD64;$(VCInstallDir)VCPackages;$(VCInstallDir)PlatformSDK\bin\x64;$(VCInstallDir)PlatformSDK\bin\win64\x64;$(VCInstallDir)PlatformSDK\bin;$(FrameworkDir)\$(FrameworkVersion);$(FrameworkDir)\$(Framework35Version);$(PATH);</NativeExecutablePath>
+    <TargetFrameworkVersion Condition="'$(CLRSupport)' != '' and '$(CLRSupport)' != 'false' and '$(Registry:HKEY_LOCAL_MACHINE\Software\Microsoft\NET Framework Setup\NDP\v2.0.50727@Install)' == '1'">v2.0</TargetFrameworkVersion>
+    <TargetedRuntimeVersion>v2.0</TargetedRuntimeVersion>
+    <UpgradeSubsetToProfile>false</UpgradeSubsetToProfile>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Platforms\X64\PlatformToolsets\v80\ImportAfter\*..props" Condition="Exists('$(VCTargetsPath)\Platforms\X64\PlatformToolsets\v80\ImportAfter')" />
 </Project>

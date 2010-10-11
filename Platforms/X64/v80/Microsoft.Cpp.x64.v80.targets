@@ -1,12 +1,9 @@
 ﻿<!--
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Daffodil for Visual Studio
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2005 in Visual Studio 2010
 
-Rev. 4  [2010-10-07]
-Rev. 3  [2010-10-06]
-Rev. 2  [2010-10-03]
-Rev. 1  [2010-06-12]
+Beta 2  [2010-10-10]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -22,23 +19,318 @@ Credits
 
   <UsingTask TaskName="VCMessage" AssemblyName="Microsoft.Build.CppTasks.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
 
+  <!-- *******************************************************************************************
+        Compute Reference CL Inputs
+       ******************************************************************************************* -->
+  <!-- This will compute the references for the /FU switch on compiler. -->
+  <Target Name="ComputeReferenceCLInput"
+          DependsOnTargets="ResolveReferences"
+          Returns="@(ReferencePath)" >
+
+    <!-- Add additional switches to Cl.exe to support MultiTargeting -->
+    <ItemGroup>
+      <ClCompile Condition="'@(ClCompile)' != '' and '$(CLRSupport)' != 'false' and '$(CLRSupport)' != ''">
+        <AdditionalUsingDirectories>$(TargetFrameworkDirectory);%(ClCompile.AdditionalUsingDirectories)</AdditionalUsingDirectories>
+        <AdditionalOptions Condition="('$(TargetFrameworkVersion)' == 'v2.0')">/d1clr:nostdlib %(ClCompile.AdditionalOptions)</AdditionalOptions>
+      </ClCompile>
+    </ItemGroup>
+
+    <!-- Add the results to the ReferencePath and to Compiler /FU switch -->
+    <ItemGroup Condition="('@(ProjectReference)'!='' or '@(Reference)'!='')">
+      <ProjectReferenceToCompile Condition="'%(ReferencePath.ReferenceOutputAssembly)' != 'false'" Include="@(ReferencePath)" />
+      <ClCompile Condition="'%(ClCompile.CompileAsManaged)' != 'false' and '%(ClCompile.CompileAsManaged)' != ''">
+        <ForcedUsingFiles Condition="'%(ClCompile.ForcedUsingFiles)' == ''">@(ProjectReferenceToCompile)</ForcedUsingFiles>
+        <ForcedUsingFiles Condition="'%(ClCompile.ForcedUsingFiles)' != ''">%(ClCompile.ForcedUsingFiles);@(ProjectReferenceToCompile)</ForcedUsingFiles>
+      </ClCompile>
+      <__ReferenceCopyLocalPaths Include="@(ReferenceCopyLocalPaths->'$(OutDir)%(DestinationSubDirectory)%(Filename)%(Extension)')"/>
+      <_ReferenceCopyLocalPaths Include="%(__ReferenceCopyLocalPaths.FullPath)"/>
+      <!-- Convert to fullpath -->
+      <_ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths->'%(FullPath)')"/>
+      <!-- Remove any files that did not needed copying-->
+    </ItemGroup>
+
+    <!-- Write the references with CopyLocal flag to a tlog for cleaning -->
+    <WriteLinesToFile Condition="('@(ProjectReference)'!='' or '@(Reference)'!='')" File="$(IntDir)$(ProjectName).write.1.tlog" Lines="@(_ReferenceCopyLocalPaths)"/>
+
+    <Message Condition="'$(_REFERENCE_DEBUG)'=='true' and '%(ClCompile.CompileAsManaged)' != 'false' and '%(ClCompile.CompileAsManaged)' != ''" Text="ReferencePath=@(ReferencePath)" Importance="high" />
+
+    <ItemGroup>
+      <ProjectReferenceToCompile Remove="@(ProjectReferenceToCompile)" />
+      <_ReferenceCopyLocalPaths Remove="@(_ReferenceCopyLocalPaths)" />
+      <__ReferenceCopyLocalPaths Remove="@(__ReferenceCopyLocalPaths)" />
+    </ItemGroup>
+  </Target>
+
+  
+  <!-- *******************************************************************************************
+        PlatformToolsetPrepareForBuild target
+       ******************************************************************************************* -->
   <PropertyGroup>
     <PlatformPrepareForBuildDependsOn>PlatformToolsetPrepareForBuild;$(PlatformPrepareForBuildDependsOn)</PlatformPrepareForBuildDependsOn>
   </PropertyGroup>
 
-  <!-- *******************************************************************************************
-        PlatformToolsetPrepareForBuild target
-       ******************************************************************************************* -->
   <Target Name="PlatformToolsetPrepareForBuild" DependsOnTargets="_DetermineManagedStateFromCL;$(PlatformToolsetPrepareForBuildDependsOn)">
-    <!-- If the project is targeting any other CLR version than v2.0, v3.0, v3.5, issue a warning -->
-    <VCMessage Condition="'$(ManagedAssembly)' == 'true' and 
-                          '$(TargetFrameworkVersion)' != 'v3.5' and
-                          '$(TargetFrameworkVersion)' != 'v3.0' and
-                          '$(TargetFrameworkVersion)' != 'v2.0' and
-                          '$(DesignTimeBuild)'!='true'"
-            Code="MSB8002" Type="Warning" Arguments="$(PlatformToolset);$(TargetFrameworkVersion)"/>
-    <VCMessage Condition="'$(VCInstallDir)'!='' and '$(PROCESSOR_ARCHITECTURE)'=='x86' and !Exists('$(VCInstallDir)bin\x86_amd64')" Code="MSB8014" Type="Error" Arguments="$(VCInstallDir)bin\x86_amd64" />
-    <VCMessage Condition="'$(VCInstallDir)'!='' and '$(PROCESSOR_ARCHITECTURE)'=='x64' and !Exists('$(VCInstallDir)bin\amd64')" Code="MSB8014" Type="Error" Arguments="$(VCInstallDir)bin\amd64" />
+    <!-- If the project is targeting any other CLR version than v2.0, issue a warning -->
+    <Warning Condition="'$(ManagedAssembly)' == 'true' and 
+                        '$(TargetFrameworkVersion)' != 'v2.0' and
+                        '$(DesignTimeBuild)'!='true'"
+            Text="Specified platform toolset ($(PlatformToolset)) is not compatible with the targeted .NET Framework version ($(TargetFrameworkVersion)). Please ensure .NET Framework 2.0 is installed and no TargetFrameworkVersion override is in effect."/>
+  </Target>
+
+  <!-- *******************************************************************************************
+        Link
+       ******************************************************************************************* -->
+
+  <Target Name="Link"
+          Condition="'@(Link)' != ''">
+
+    <ItemGroup>
+      <_EmbedManagedResourceFile Include="@(Link->Metadata('EmbedManagedResourceFile')->Distinct())" />
+      <_EmbedManagedResourceFile Include="@(Link->Metadata('AddModuleNamesToAssembly')->Distinct())" />
+      <_EmbedManagedResourceFile Condition="'%(EmbeddedResource.LogicalName)' == '' and '%(EmbeddedResource.WithCulture)' != 'true'" Include="@(EmbeddedResource->'$(IntermediateOutputPath)%(ManifestResourceName).resources')" />
+      <_EmbedManagedResourceFile Condition="'%(EmbeddedResource.LogicalName)' != '' and '%(EmbeddedResource.WithCulture)' != 'true'" Include="@(EmbeddedResource->'$(IntermediateOutputPath)%(ManifestResourceName).resources,%(LogicalName)')" />
+    </ItemGroup>
+
+    <PropertyGroup>
+      <Link_MinimalRebuildFromTracking Condition="'@(Link->AnyHaveMetadataValue('MinimalRebuildFromTracking', 'false'))' == 'true'">false</Link_MinimalRebuildFromTracking>
+      <Link_MinimalRebuildFromTracking Condition="'$(BuildType)' != 'Build' or '$(ForceRebuild)' == 'true'" >false</Link_MinimalRebuildFromTracking>
+      <Link_MinimalRebuildFromTracking Condition="'$(Link_MinimalRebuildFromTracking)' == ''">true</Link_MinimalRebuildFromTracking>
+      <LinkToolArchitecture Condition="'$(LinkToolArchitecture)' == ''">$(DefaultToolArchitecture)</LinkToolArchitecture>
+      <LinkYieldDuringToolExecution Condition="'$(LinkYieldDuringToolExecution)' == '' and '%(Link.LinkTimeCodeGeneration)' == 'UseLinkTimeCodeGeneration'">true</LinkYieldDuringToolExecution>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Link>
+        <ProfileGuidedDatabase Condition="'%(Link.LinkTimeCodeGeneration)' != 'PGOptimization' and
+                                          '%(Link.LinkTimeCodeGeneration)' != 'PGUpdate' and
+                                          '%(Link.LinkTimeCodeGeneration)' != 'PGInstrument'"></ProfileGuidedDatabase>
+      </Link>
+    </ItemGroup>
+
+    <Link
+        BuildingInIDE                  ="$(BuildingInsideVisualStudio)"
+        Sources                        ="@(Link)"
+
+        AdditionalDependencies         ="%(Link.AdditionalDependencies)"
+        AdditionalLibraryDirectories   ="%(Link.AdditionalLibraryDirectories)"
+        AdditionalManifestDependencies ="%(Link.AdditionalManifestDependencies)"
+        AdditionalOptions              ="%(Link.AdditionalOptions)"
+        AddModuleNamesToAssembly       ="%(Link.AddModuleNamesToAssembly)"
+        AllowIsolation                 ="%(Link.AllowIsolation)"
+        AssemblyDebug                  ="%(Link.AssemblyDebug)"
+        AssemblyLinkResource           ="%(Link.AssemblyLinkResource)"
+        BaseAddress                    ="%(Link.BaseAddress)"
+        CLRImageType                   ="%(Link.CLRImageType)"
+        CLRSupportLastError            ="%(Link.CLRSupportLastError)"
+        CLRThreadAttribute             ="%(Link.CLRThreadAttribute)"
+        CLRUnmanagedCodeCheck          ="%(Link.CLRUnmanagedCodeCheck)"
+        CreateHotPatchableImage        ="%(Link.CreateHotPatchableImage)"
+        DataExecutionPrevention        ="%(Link.DataExecutionPrevention)"
+        DelayLoadDLLs                  ="%(Link.DelayLoadDLLs)"
+        DelaySign                      ="%(Link.DelaySign)"
+        Driver                         ="%(Link.Driver)"
+        EmbedManagedResourceFile       ="@(_EmbedManagedResourceFile)"
+        EnableCOMDATFolding            ="%(Link.EnableCOMDATFolding)"
+        EntryPointSymbol               ="%(Link.EntryPointSymbol)"
+        LinkErrorReporting             ="%(Link.LinkErrorReporting)"
+        FixedBaseAddress               ="%(Link.FixedBaseAddress)"
+        ForceFileOutput                ="%(Link.ForceFileOutput)"
+        ForceSymbolReferences          ="%(Link.ForceSymbolReferences)"
+        FunctionOrder                  ="%(Link.FunctionOrder)"
+        GenerateDebugInformation       ="%(Link.GenerateDebugInformation)"
+        GenerateManifest               ="$(GenerateManifest)"
+        GenerateMapFile                ="%(Link.GenerateMapFile)"
+        HeapCommitSize                 ="%(Link.HeapCommitSize)"
+        HeapReserveSize                ="%(Link.HeapReserveSize)"
+        IgnoreAllDefaultLibraries      ="%(Link.IgnoreAllDefaultLibraries)"
+        IgnoreEmbeddedIDL              ="%(Link.IgnoreEmbeddedIDL)"
+        IgnoreSpecificDefaultLibraries ="%(Link.IgnoreSpecificDefaultLibraries)"
+        ImageHasSafeExceptionHandlers  ="%(Link.ImageHasSafeExceptionHandlers)"
+        ImportLibrary                  ="%(Link.ImportLibrary)"
+        KeyContainer                   ="%(Link.KeyContainer)"
+        KeyFile                        ="%(Link.KeyFile)"
+        LargeAddressAware              ="%(Link.LargeAddressAware)"
+        LinkDLL                        ="%(Link.LinkDLL)"
+        LinkIncremental                ="$(LinkIncremental)"
+        LinkStatus                     ="%(Link.LinkStatus)"
+        LinkTimeCodeGeneration         ="%(Link.LinkTimeCodeGeneration)"
+        ManifestFile                   ="%(Link.ManifestFile)"
+        MapExports                     ="%(Link.MapExports)"
+        MapFileName                    ="%(Link.MapFileName)"
+        MergedIDLBaseFileName          ="%(Link.MergedIDLBaseFileName)"
+        MergeSections                  ="%(Link.MergeSections)"
+        MidlCommandFile                ="%(Link.MidlCommandFile)"
+        MinimumRequiredVersion         ="%(Link.MinimumRequiredVersion)"
+        ModuleDefinitionFile           ="%(Link.ModuleDefinitionFile)"
+        MSDOSStubFileName              ="%(Link.MSDOSStubFileName)"
+        OptimizeReferences             ="%(Link.OptimizeReferences)"
+        OutputFile                     ="%(Link.OutputFile)"
+        PreventDllBinding              ="%(Link.PreventDllBinding)"
+        Profile                        ="%(Link.Profile)"
+        ProfileGuidedDatabase          ="%(Link.ProfileGuidedDatabase)"
+        ProgramDatabaseFile            ="%(Link.ProgramDatabaseFile)"
+        RandomizedBaseAddress          ="%(Link.RandomizedBaseAddress)"
+        NoEntryPoint                   ="%(Link.NoEntryPoint)"
+        SectionAlignment               ="%(Link.SectionAlignment)"
+        SetChecksum                    ="%(Link.SetChecksum)"
+        ShowProgress                   ="%(Link.ShowProgress)"
+        SpecifySectionAttributes       ="%(Link.SpecifySectionAttributes)"
+        StackCommitSize                ="%(Link.StackCommitSize)"
+        StackReserveSize               ="%(Link.StackReserveSize)"
+        StripPrivateSymbols            ="%(Link.StripPrivateSymbols)"
+        SubSystem                      ="%(Link.SubSystem)"
+        SupportUnloadOfDelayLoadedDLL  ="%(Link.SupportUnloadOfDelayLoadedDLL)"
+        SupportNobindOfDelayLoadedDLL  ="%(Link.SupportNobindOfDelayLoadedDLL)"
+        SuppressStartupBanner          ="%(Link.SuppressStartupBanner)"
+        SwapRunFromCD                  ="%(Link.SwapRunFromCD)"
+        SwapRunFromNET                 ="%(Link.SwapRunFromNET)"
+        TargetMachine                  ="%(Link.TargetMachine)"
+        TerminalServerAware            ="%(Link.TerminalServerAware)"
+        TreatLinkerWarningAsErrors     ="%(Link.TreatLinkerWarningAsErrors)"
+        TurnOffAssemblyGeneration      ="%(Link.TurnOffAssemblyGeneration)"
+        TypeLibraryFile                ="%(Link.TypeLibraryFile)"
+        TypeLibraryResourceID          ="%(Link.TypeLibraryResourceID)"
+        Version                        ="%(Link.Version)"
+
+        TrackerLogDirectory            ="%(Link.TrackerLogDirectory)"
+
+        TLogReadFiles                  ="@(LinkTLogReadFiles)"
+        TLogWriteFiles                 ="@(LinkTLogWriteFiles)"
+        ToolExe                        ="$(LinkToolExe)"
+        ToolPath                       ="$(LinkToolPath)"
+        TrackFileAccess                ="$(TrackFileAccess)"
+        MinimalRebuildFromTracking     ="$(Link_MinimalRebuildFromTracking)"
+        ToolArchitecture               ="$(LinkToolArchitecture)"
+        TrackerFrameworkPath           ="$(LinkTrackerFrameworkPath)"
+        TrackerSdkPath                 ="$(LinkTrackerSdkPath)"
+
+        AcceptableNonZeroExitCodes     ="%(Link.AcceptableNonZeroExitCodes)"
+        YieldDuringToolExecution       ="$(LinkYieldDuringToolExecution)"
+        >
+      <Output TaskParameter="SkippedExecution" PropertyName="LinkSkippedExecution" />
+    </Link>
+
+    <Message Text="$(MSBuildProjectFile) -&gt; $(TargetPath)" Importance="High" Condition="'$(EmbedManifestBy' != 'LINK'"/>
+  </Target>
+
+  <Target Name="LinkEmbedManifest"
+          Condition="'@(Link)' != '' and '$(EmbedManifestBy)'=='LINK' and '$(LinkSkippedExecution)' != 'true'">
+
+    <ItemGroup>
+      <Link>
+        <ProfileGuidedDatabase Condition="'%(Link.LinkTimeCodeGeneration)' != 'PGOptimization' and
+                                          '%(Link.LinkTimeCodeGeneration)' != 'PGUpdate' and
+                                          '%(Link.LinkTimeCodeGeneration)' != 'PGInstrument'"></ProfileGuidedDatabase>
+      </Link>
+    </ItemGroup>
+
+    <PropertyGroup>
+      <LinkToolArchitecture Condition="'$(LinkToolArchitecture)' == ''">$(DefaultToolArchitecture)</LinkToolArchitecture>
+    </PropertyGroup>
+
+    <Link
+        BuildingInIDE                  ="$(BuildingInsideVisualStudio)"
+        Sources                        ="@(Link)"
+
+        AdditionalDependencies         ="%(Link.AdditionalDependencies)"
+        AdditionalLibraryDirectories   ="%(Link.AdditionalLibraryDirectories)"
+        AdditionalManifestDependencies ="%(Link.AdditionalManifestDependencies)"
+        AdditionalOptions              ="%(Link.AdditionalOptions)"
+        AddModuleNamesToAssembly       ="%(Link.AddModuleNamesToAssembly)"
+        AllowIsolation                 ="%(Link.AllowIsolation)"
+        AssemblyDebug                  ="%(Link.AssemblyDebug)"
+        AssemblyLinkResource           ="%(Link.AssemblyLinkResource)"
+        BaseAddress                    ="%(Link.BaseAddress)"
+        CLRImageType                   ="%(Link.CLRImageType)"
+        CLRSupportLastError            ="%(Link.CLRSupportLastError)"
+        CLRThreadAttribute             ="%(Link.CLRThreadAttribute)"
+        CLRUnmanagedCodeCheck          ="%(Link.CLRUnmanagedCodeCheck)"
+        CreateHotPatchableImage        ="%(Link.CreateHotPatchableImage)"
+        DataExecutionPrevention        ="%(Link.DataExecutionPrevention)"
+        DelayLoadDLLs                  ="%(Link.DelayLoadDLLs)"
+        DelaySign                      ="%(Link.DelaySign)"
+        Driver                         ="%(Link.Driver)"
+        EmbedManagedResourceFile       ="@(_EmbedManagedResourceFile)"
+        EnableCOMDATFolding            ="%(Link.EnableCOMDATFolding)"
+        EntryPointSymbol               ="%(Link.EntryPointSymbol)"
+        LinkErrorReporting             ="%(Link.LinkErrorReporting)"
+        FixedBaseAddress               ="%(Link.FixedBaseAddress)"
+        ForceFileOutput                ="%(Link.ForceFileOutput)"
+        ForceSymbolReferences          ="%(Link.ForceSymbolReferences)"
+        FunctionOrder                  ="%(Link.FunctionOrder)"
+        GenerateDebugInformation       ="%(Link.GenerateDebugInformation)"
+        GenerateManifest               ="$(GenerateManifest)"
+        GenerateMapFile                ="%(Link.GenerateMapFile)"
+        HeapCommitSize                 ="%(Link.HeapCommitSize)"
+        HeapReserveSize                ="%(Link.HeapReserveSize)"
+        IgnoreAllDefaultLibraries      ="%(Link.IgnoreAllDefaultLibraries)"
+        IgnoreEmbeddedIDL              ="%(Link.IgnoreEmbeddedIDL)"
+        IgnoreSpecificDefaultLibraries ="%(Link.IgnoreSpecificDefaultLibraries)"
+        ImageHasSafeExceptionHandlers  ="%(Link.ImageHasSafeExceptionHandlers)"
+        ImportLibrary                  ="%(Link.ImportLibrary)"
+        KeyContainer                   ="%(Link.KeyContainer)"
+        KeyFile                        ="%(Link.KeyFile)"
+        LargeAddressAware              ="%(Link.LargeAddressAware)"
+        LinkDLL                        ="%(Link.LinkDLL)"
+        LinkIncremental                ="$(LinkIncremental)"
+        LinkStatus                     ="%(Link.LinkStatus)"
+        LinkTimeCodeGeneration         ="%(Link.LinkTimeCodeGeneration)"
+        ManifestFile                   ="%(Link.ManifestFile)"
+        MapExports                     ="%(Link.MapExports)"
+        MapFileName                    ="%(Link.MapFileName)"
+        MergedIDLBaseFileName          ="%(Link.MergedIDLBaseFileName)"
+        MergeSections                  ="%(Link.MergeSections)"
+        MidlCommandFile                ="%(Link.MidlCommandFile)"
+        MinimumRequiredVersion         ="%(Link.MinimumRequiredVersion)"
+        ModuleDefinitionFile           ="%(Link.ModuleDefinitionFile)"
+        MSDOSStubFileName              ="%(Link.MSDOSStubFileName)"
+        OptimizeReferences             ="%(Link.OptimizeReferences)"
+        OutputFile                     ="%(Link.OutputFile)"
+        PreventDllBinding              ="%(Link.PreventDllBinding)"
+        Profile                        ="%(Link.Profile)"
+        ProfileGuidedDatabase          ="%(Link.ProfileGuidedDatabase)"
+        ProgramDatabaseFile            ="%(Link.ProgramDatabaseFile)"
+        RandomizedBaseAddress          ="%(Link.RandomizedBaseAddress)"
+        NoEntryPoint                   ="%(Link.NoEntryPoint)"
+        SectionAlignment               ="%(Link.SectionAlignment)"
+        SetChecksum                    ="%(Link.SetChecksum)"
+        ShowProgress                   ="%(Link.ShowProgress)"
+        SpecifySectionAttributes       ="%(Link.SpecifySectionAttributes)"
+        StackCommitSize                ="%(Link.StackCommitSize)"
+        StackReserveSize               ="%(Link.StackReserveSize)"
+        StripPrivateSymbols            ="%(Link.StripPrivateSymbols)"
+        SubSystem                      ="%(Link.SubSystem)"
+        SupportUnloadOfDelayLoadedDLL  ="%(Link.SupportUnloadOfDelayLoadedDLL)"
+        SupportNobindOfDelayLoadedDLL  ="%(Link.SupportNobindOfDelayLoadedDLL)"
+        SuppressStartupBanner          ="%(Link.SuppressStartupBanner)"
+        SwapRunFromCD                  ="%(Link.SwapRunFromCD)"
+        SwapRunFromNET                 ="%(Link.SwapRunFromNET)"
+        TargetMachine                  ="%(Link.TargetMachine)"
+        TerminalServerAware            ="%(Link.TerminalServerAware)"
+        TreatLinkerWarningAsErrors     ="%(Link.TreatLinkerWarningAsErrors)"
+        TurnOffAssemblyGeneration      ="%(Link.TurnOffAssemblyGeneration)"
+        TypeLibraryFile                ="%(Link.TypeLibraryFile)"
+        TypeLibraryResourceID          ="%(Link.TypeLibraryResourceID)"
+        Version                        ="%(Link.Version)"
+
+        TrackerLogDirectory            ="%(Link.TrackerLogDirectory)"
+
+        TLogReadFiles                  ="@(LinkTLogReadFiles)"
+        TLogWriteFiles                 ="@(LinkTLogWriteFiles)"
+        ToolExe                        ="$(LinkToolExe)"
+        ToolPath                       ="$(LinkToolPath)"
+        TrackFileAccess                ="$(TrackFileAccess)"
+        MinimalRebuildFromTracking     ="$(Link_MinimalRebuildFromTracking)"
+        ToolArchitecture               ="$(LinkToolArchitecture)"
+        TrackerFrameworkPath           ="$(LinkTrackerFrameworkPath)"
+        TrackerSdkPath                 ="$(LinkTrackerSdkPath)"
+
+        AcceptableNonZeroExitCodes     ="%(Link.AcceptableNonZeroExitCodes)"
+        YieldDuringToolExecution       ="$(LinkYieldDuringToolExecution)"
+        >
+    </Link>
+
+    <Message Text="$(MSBuildProjectFile) -&gt; $(TargetPath)" Importance="High" />
   </Target>
 
   <Import Project="$(VCTargetsPath)\Platforms\X64\ImportAfter\*.v80.targets" Condition="Exists('$(VCTargetsPath)\Platforms\X64\ImportAfter')" />

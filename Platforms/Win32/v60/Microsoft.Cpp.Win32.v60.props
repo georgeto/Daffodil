@@ -1,12 +1,9 @@
 <!--
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Daffodil for Visual Studio
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 6 in Visual Studio 2010
 
-Rev. 4  [2010-10-07]
-Rev. 3  [2010-10-06]
-Rev. 2  [2010-10-03]
-Rev. 1  [2010-06-12]
+Beta 2  [2010-10-10]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -35,6 +32,9 @@ Credits
     <SourcePath Condition="'$(SourcePath)' == ''">$(VCInstallDir)MFC\SRC;$(VCInstallDir)MFC\INCLUDE;$(VCInstallDir)ATL\INCLUDE;$(VCInstallDir)CRT\SRC;</SourcePath>
     <ExcludePath Condition="'$(ExcludePath)' == ''">$(VCInstallDir)INCLUDE;$(VCInstallDir)MFC\INCLUDE;$(VCInstallDir)ATL\INCLUDE;$(VCInstallDir)MFC\LIB;</ExcludePath>
     <NativeExecutablePath Condition="'$(NativeExecutablePath)' == ''">$(ExecutablePath)</NativeExecutablePath>
+    <TargetFrameworkVersion></TargetFrameworkVersion>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    <CLRSupport>false</CLRSupport>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Platforms\Win32\PlatformToolsets\v60\ImportAfter\*..props" Condition="Exists('$(VCTargetsPath)\Platforms\Win32\PlatformToolsets\v70\ImportAfter')" />
 </Project>
