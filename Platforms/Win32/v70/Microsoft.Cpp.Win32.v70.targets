@@ -3,7 +3,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2002 in Visual Studio 2010
 
-Beta 2  [2010-10-10]
+Beta 3  [2010-10-12]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -19,7 +19,7 @@ Credits
 
   <UsingTask TaskName="VCMessage" AssemblyName="Microsoft.Build.CppTasks.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
 
-  <!-- These tasks replace the built in CL, Link, and LIB tasks so the build process can be customized:
+  <!-- These tasks replace the built in tool tasks so the build process can be customized:
          - Response file must be output in ANSI encoding instead of Unicode
          - Build tool switches whose default value has since changed must be corrected
   -->

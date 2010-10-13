@@ -4,7 +4,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 6 in Visual Studio 2010
 
-Beta 2  [2010-10-10]
+Beta 3  [2010-10-12]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -61,10 +61,8 @@ Credits
     </EnumValue>
     <EnumValue Name="Level4" Switch="W4" DisplayName="Level4" Description="Level 4 displays all level 3 warnings plus informational warnings, which in most cases can be safely ignored.">
     </EnumValue>
-    <EnumValue Name="EnableAllWarnings" Switch="Wall" DisplayName="EnableAllWarnings" Description="Enables all warnings, including those disabled by default.">
-    </EnumValue>
   </EnumProperty>
-  <BoolProperty ReverseSwitch="WX-" Name="TreatWarningAsError" DisplayName="Treat Warnings As Errors" Description="Treats all compiler warnings as errors. For a new project, it may be best to use /WX in all compilations; resolving all warnings will ensure the fewest possible hard-to-find code defects." Category="General" Switch="WX" F1Keyword="VC.Project.VCCLCompilerTool.WarnAsError">
+  <BoolProperty Name="TreatWarningAsError" DisplayName="Treat Warnings As Errors" Description="Treats all compiler warnings as errors. For a new project, it may be best to use /WX in all compilations; resolving all warnings will ensure the fewest possible hard-to-find code defects." Category="General" Switch="WX" F1Keyword="VC.Project.VCCLCompilerTool.WarnAsError">
   </BoolProperty>
   <StringProperty Subtype="folder" Name="TrackerLogDirectory" DisplayName="Tracker Log Directory" Description="Tracker Log Directory." Category="General" IncludeInCommandLine="false" Visible="false">
   </StringProperty>
@@ -215,8 +213,6 @@ Credits
     <EnumValue Name="CompileAsCpp" Switch="TP" DisplayName="Compile as C++ Code" Description="Compile as C++ Code">
     </EnumValue>
   </EnumProperty>
-  <StringListProperty Name="DisableSpecificWarnings" DisplayName="Disable Specific Warnings" Description="Disable the desired warning numbers; put numbers in a semi-colon delimited list.     (/wd[num])" Category="Advanced" Switch="wd" F1Keyword="VC.Project.VCCLCompilerTool.DisableSpecificWarnings">
-  </StringListProperty>
   <StringListProperty Subtype="file" Name="ForcedIncludeFiles" DisplayName="Forced Include File" Description="one or more forced include files.     (/FI[name])" Category="Advanced" Switch="FI" F1Keyword="VC.Project.VCCLCompilerTool.ForcedIncludeFiles">
   </StringListProperty>
   <StringListProperty Subtype="file" Name="ForcedUsingFiles" DisplayName="Forced #using File" Description="Specifies one or more forced #using files.     (/FU[name])" Category="Advanced" Switch="FU" F1Keyword="VC.Project.VCCLCompilerTool.ForcedUsingFiles">

@@ -37,8 +37,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1033", "1033", "{CAF58E46-E
 	ProjectSection(SolutionItems) = preProject
 		Platforms\Win32\v60\1033\cl.xml = Platforms\Win32\v60\1033\cl.xml
 		Platforms\Win32\v60\1033\general.xml = Platforms\Win32\v60\1033\general.xml
-		Platforms\Win32\v60\1033\general_makefile.xml = Platforms\Win32\v60\1033\general_makefile.xml
-		Platforms\Win32\v60\1033\general_makefile_ps.xml = Platforms\Win32\v60\1033\general_makefile_ps.xml
 		Platforms\Win32\v60\1033\lib.xml = Platforms\Win32\v60\1033\lib.xml
 		Platforms\Win32\v60\1033\link.xml = Platforms\Win32\v60\1033\link.xml
 		Platforms\Win32\v60\1033\midl.xml = Platforms\Win32\v60\1033\midl.xml
@@ -49,8 +47,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1033", "1033", "{3161D7D2-5
 	ProjectSection(SolutionItems) = preProject
 		Platforms\Win32\v70\1033\cl.xml = Platforms\Win32\v70\1033\cl.xml
 		Platforms\Win32\v70\1033\general.xml = Platforms\Win32\v70\1033\general.xml
-		Platforms\Win32\v70\1033\general_makefile.xml = Platforms\Win32\v70\1033\general_makefile.xml
-		Platforms\Win32\v70\1033\general_makefile_ps.xml = Platforms\Win32\v70\1033\general_makefile_ps.xml
 		Platforms\Win32\v70\1033\lib.xml = Platforms\Win32\v70\1033\lib.xml
 		Platforms\Win32\v70\1033\link.xml = Platforms\Win32\v70\1033\link.xml
 		Platforms\Win32\v70\1033\midl.xml = Platforms\Win32\v70\1033\midl.xml
@@ -61,8 +57,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1033", "1033", "{10476236-3
 	ProjectSection(SolutionItems) = preProject
 		Platforms\Win32\v71\1033\cl.xml = Platforms\Win32\v71\1033\cl.xml
 		Platforms\Win32\v71\1033\general.xml = Platforms\Win32\v71\1033\general.xml
-		Platforms\Win32\v71\1033\general_makefile.xml = Platforms\Win32\v71\1033\general_makefile.xml
-		Platforms\Win32\v71\1033\general_makefile_ps.xml = Platforms\Win32\v71\1033\general_makefile_ps.xml
 		Platforms\Win32\v71\1033\lib.xml = Platforms\Win32\v71\1033\lib.xml
 		Platforms\Win32\v71\1033\link.xml = Platforms\Win32\v71\1033\link.xml
 		Platforms\Win32\v71\1033\midl.xml = Platforms\Win32\v71\1033\midl.xml
@@ -89,6 +83,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1033", "1033", "{99E657A1-4
 		Platforms\Win32\v80\1033\link.xml = Platforms\Win32\v80\1033\link.xml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daffodil.CPPTasks.Win32.v80", "Platforms\Win32\v80\Daffodil.CPPTasks.Win32.v80\Daffodil.CPPTasks.Win32.v80.csproj", "{26AE62FE-E423-4682-BA0C-C35F41DB6EEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daffodil.CPPTasks.x64.v80", "Platforms\X64\v80\Daffodil.CPPTasks.Win32.v80\Daffodil.CPPTasks.x64.v80.csproj", "{3094649B-13B7-4A18-8D51-2BB6F30C7E64}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "context", "context", "{CE6E5B00-4BC8-4F19-8B95-30DA5D50D7B2}"
+	ProjectSection(SolutionItems) = preProject
+		Platforms\Win32\v60\1033\context\general.xml = Platforms\Win32\v60\1033\context\general.xml
+		Platforms\Win32\v60\1033\context\general_makefile.xml = Platforms\Win32\v60\1033\context\general_makefile.xml
+		Platforms\Win32\v60\1033\context\general_makefile_ps.xml = Platforms\Win32\v60\1033\context\general_makefile_ps.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "context", "context", "{B11CF695-5900-4AEA-8DBA-44D4B32531D5}"
+	ProjectSection(SolutionItems) = preProject
+		Platforms\Win32\v70\1033\context\general.xml = Platforms\Win32\v70\1033\context\general.xml
+		Platforms\Win32\v70\1033\context\general_makefile.xml = Platforms\Win32\v70\1033\context\general_makefile.xml
+		Platforms\Win32\v70\1033\context\general_makefile_ps.xml = Platforms\Win32\v70\1033\context\general_makefile_ps.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "context", "context", "{1CDEAA9C-40F9-422B-8F8C-F4A9DB8CECE2}"
+	ProjectSection(SolutionItems) = preProject
+		Platforms\Win32\v71\1033\context\general.xml = Platforms\Win32\v71\1033\context\general.xml
+		Platforms\Win32\v71\1033\context\general_makefile.xml = Platforms\Win32\v71\1033\context\general_makefile.xml
+		Platforms\Win32\v71\1033\context\general_makefile_ps.xml = Platforms\Win32\v71\1033\context\general_makefile_ps.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +128,14 @@ Global
 		{953B7C97-A1C5-4536-844E-F1B769E1F4BD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D187AAE4-19B4-437C-9D40-10BAF8843622}.Debug|Any CPU.ActiveCfg = Debug
 		{D187AAE4-19B4-437C-9D40-10BAF8843622}.Release|Any CPU.ActiveCfg = Release
+		{26AE62FE-E423-4682-BA0C-C35F41DB6EEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26AE62FE-E423-4682-BA0C-C35F41DB6EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26AE62FE-E423-4682-BA0C-C35F41DB6EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26AE62FE-E423-4682-BA0C-C35F41DB6EEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3094649B-13B7-4A18-8D51-2BB6F30C7E64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3094649B-13B7-4A18-8D51-2BB6F30C7E64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3094649B-13B7-4A18-8D51-2BB6F30C7E64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3094649B-13B7-4A18-8D51-2BB6F30C7E64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -123,9 +150,14 @@ Global
 		{953B7C97-A1C5-4536-844E-F1B769E1F4BD} = {1DDC5E6A-54FD-4088-8A2A-C9C9B5BB6B32}
 		{CAF58E46-E5F5-423F-9560-950CA7422E03} = {1DDC5E6A-54FD-4088-8A2A-C9C9B5BB6B32}
 		{99E657A1-4ADE-4AAC-8B07-9F8CF53AD3B0} = {9B856956-AC8D-44C2-B1D2-E437DCD586F7}
+		{26AE62FE-E423-4682-BA0C-C35F41DB6EEA} = {9B856956-AC8D-44C2-B1D2-E437DCD586F7}
 		{10476236-3B5E-4D2B-98CD-B4E36C67AEB8} = {C54FB516-C2CC-431F-850F-80DEBD114751}
 		{5B3D41D8-4443-4CF7-AC7A-8C29F4C01672} = {C54FB516-C2CC-431F-850F-80DEBD114751}
+		{CE6E5B00-4BC8-4F19-8B95-30DA5D50D7B2} = {CAF58E46-E5F5-423F-9560-950CA7422E03}
+		{B11CF695-5900-4AEA-8DBA-44D4B32531D5} = {3161D7D2-5A93-4840-9470-9622CF95EFA2}
+		{1CDEAA9C-40F9-422B-8F8C-F4A9DB8CECE2} = {10476236-3B5E-4D2B-98CD-B4E36C67AEB8}
 		{9740F9C3-F9C4-4570-99D2-9F98858B06D5} = {DE480805-EE0F-409F-92E6-21F60180D033}
 		{95C304C0-C29A-435E-A671-979F0FBE3AE7} = {9740F9C3-F9C4-4570-99D2-9F98858B06D5}
+		{3094649B-13B7-4A18-8D51-2BB6F30C7E64} = {9740F9C3-F9C4-4570-99D2-9F98858B06D5}
 	EndGlobalSection
 EndGlobal

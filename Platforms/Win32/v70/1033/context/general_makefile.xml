@@ -2,9 +2,9 @@
 <!--
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
-- Native multi-targeting support for Visual Studio 2003 in Visual Studio 2010
+- Native multi-targeting support for Visual Studio 2002 in Visual Studio 2010
 
-Beta 2  [2010-10-10]
+Beta 3  [2010-10-12]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -44,6 +44,16 @@ Credits
                   Category="General" Default="$(ConfigurationName)"
                   Subtype="folder"
                   F1Keyword="VC.Project.VCConfiguration.IntermediateDirectory"/>
+  <EnumProperty Name="ConfigurationType" DisplayName="Configuration Type"
+                Description="Specifies the type of output this configuration generates."
+                Category="General"
+                F1Keyword="VC.Project.VCConfiguration.ConfigurationType">
+    <EnumValue Name="Makefile" DisplayName="Makefile" Description="Makefile" />
+    <EnumValue Name="Application" DisplayName="Application (.exe)" Description="Application (.exe)" />
+    <EnumValue Name="DynamicLibrary" DisplayName="Dynamic Library (.dll)" Description="Dynamic Library (.dll)" />
+    <EnumValue Name="StaticLibrary" DisplayName="Static library (.lib)" Description="Static Library (.lib)" />
+    <EnumValue Name="Utility" DisplayName="Utility" Description="Utility" />
+  </EnumProperty>
   <EnumProperty Name="CLRSupport" DisplayName="Common Language Runtime Support"
                 Description="Select the Common Language Runtime support your code uses."
                 Category="General"

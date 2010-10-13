@@ -27,6 +27,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_01CDD11478BF4D5383516D8CE29760D9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_0496EC2E87EC46F3B21E3081373AF690"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -39,7 +45,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_0D7685CAF4CA4C3E8B43726DEA536E5C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_11118D06AA084CAFA6D85066A5D75E0C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_13F8BB6E8EB6408D98A06A66D5B59BDC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -47,30 +65,6 @@
         {
         "MsmKey" = "8:_1E2E8E113602417EB92F1F952C222761"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_245117B16C93489B8A988684CE4926C9"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2482CF930EEFDA20C63EC4607DFA080A"
-        "OwnerKey" = "8:_0496EC2E87EC46F3B21E3081373AF690"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2482CF930EEFDA20C63EC4607DFA080A"
-        "OwnerKey" = "8:_F3AD15638D5549BA976195088382B930"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2482CF930EEFDA20C63EC4607DFA080A"
-        "OwnerKey" = "8:_4C6597877E844AA9B54565510CD2F0FC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -87,26 +81,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
-        "OwnerKey" = "8:_0496EC2E87EC46F3B21E3081373AF690"
+        "MsmKey" = "8:_365E4167EDC444DF834A45EADEBF2920"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
-        "OwnerKey" = "8:_F3AD15638D5549BA976195088382B930"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
-        "OwnerKey" = "8:_4C6597877E844AA9B54565510CD2F0FC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
-        "OwnerKey" = "8:_2482CF930EEFDA20C63EC4607DFA080A"
+        "MsmKey" = "8:_3C5B5B34A74446F8BD9927AA5755066B"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -118,6 +100,12 @@
         "Entry"
         {
         "MsmKey" = "8:_4D040A056B7E4C7BBEE046D670E9F5BF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4D3410D82BF64000ADC7A119659C37C9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -135,6 +123,36 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_5E918E23AC4428B2C6AC2B9B4EA223D1"
+        "OwnerKey" = "8:_8C04E5A00ED74FD9A7099E8E2BC3B087"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5E918E23AC4428B2C6AC2B9B4EA223D1"
+        "OwnerKey" = "8:_7FA86AC502DB42F39F628822FC33EA5B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5E918E23AC4428B2C6AC2B9B4EA223D1"
+        "OwnerKey" = "8:_0496EC2E87EC46F3B21E3081373AF690"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5E918E23AC4428B2C6AC2B9B4EA223D1"
+        "OwnerKey" = "8:_4C6597877E844AA9B54565510CD2F0FC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5E918E23AC4428B2C6AC2B9B4EA223D1"
+        "OwnerKey" = "8:_F3AD15638D5549BA976195088382B930"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_640459C0E76446BE8B1E8F8F285E174C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -147,13 +165,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_693A10FD7ED245BD80AC10EDEB2F3B07"
+        "MsmKey" = "8:_6AEDD877A05D4042A399229824162C81"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6AEDD877A05D4042A399229824162C81"
+        "MsmKey" = "8:_6B405E0C4DEB4CBBB1B4E61C9E4AFF7B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -189,7 +207,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_83E8F0B731714269AA1D71BD6410E345"
+        "MsmKey" = "8:_7FA86AC502DB42F39F628822FC33EA5B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8C04E5A00ED74FD9A7099E8E2BC3B087"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -213,13 +237,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A2CFAF2E050943E1AC419FE1296B384D"
+        "MsmKey" = "8:_AABBFEE94BEA4A659061C0A8147D127A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_AABBFEE94BEA4A659061C0A8147D127A"
+        "MsmKey" = "8:_B32F700403144701943038D5DE79F18E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -285,19 +309,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_EE2D89AC0A8E440B9C61E67BCFD56F5C"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_F3AD15638D5549BA976195088382B930"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F8343D8843154183883C09E85E7A7219"
+        "MsmKey" = "8:_FE9D540265104BB384360F5565E01065"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -316,6 +334,54 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0496EC2E87EC46F3B21E3081373AF690"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_7FA86AC502DB42F39F628822FC33EA5B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_7FA86AC502DB42F39F628822FC33EA5B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_5E918E23AC4428B2C6AC2B9B4EA223D1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F3AD15638D5549BA976195088382B930"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_8C04E5A00ED74FD9A7099E8E2BC3B087"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_8C04E5A00ED74FD9A7099E8E2BC3B087"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_4C6597877E844AA9B54565510CD2F0FC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_4C6597877E844AA9B54565510CD2F0FC"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -323,18 +389,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_0496EC2E87EC46F3B21E3081373AF690"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2482CF930EEFDA20C63EC4607DFA080A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -482,12 +536,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_01CDD11478BF4D5383516D8CE29760D9"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\context\\general_makefile_ps.xml"
+            "TargetName" = "8:general_makefile_ps.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_D92C9259493542E29793872E8DAD2CC1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_05E25DA78936423D84FDB4542B9AEF0B"
             {
             "SourcePath" = "8:..\\Platforms\\Win32\\v70\\Microsoft.Cpp.Win32.v70.props"
             "TargetName" = "8:Microsoft.Cpp.Win32.v70.props"
             "Tag" = "8:"
             "Folder" = "8:_F0D34960A8B4448DB14E7DF8BC739397"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0D7685CAF4CA4C3E8B43726DEA536E5C"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\context\\general.xml"
+            "TargetName" = "8:general.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_A38E7880462D41C68B2FA4235EF39019"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -522,6 +616,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_13F8BB6E8EB6408D98A06A66D5B59BDC"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v60\\1033\\context\\general.xml"
+            "TargetName" = "8:general.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_4444E5ED8CCB4513BB938562E5040BE5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1E2E8E113602417EB92F1F952C222761"
             {
             "SourcePath" = "8:..\\Platforms\\Win32\\v71\\Microsoft.Cpp.Win32.v71.props"
@@ -540,57 +654,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_245117B16C93489B8A988684CE4926C9"
-            {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v60\\1033\\general_makefile.xml"
-            "TargetName" = "8:general_makefile.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_CDADE5F4DE7F47ACBC8FEB124BB87892"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2482CF930EEFDA20C63EC4607DFA080A"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.Build.CPPTasks.Win32, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_2482CF930EEFDA20C63EC4607DFA080A"
-                    {
-                    "Name" = "8:Microsoft.Build.CPPTasks.Win32.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Microsoft.Build.CPPTasks.Win32.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_FDAF4284F5A54E5BAF21580C3C754E96"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_29757585A59646688F9445100B5C1033"
@@ -633,23 +696,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3C98116AE00C01C9BF8C97A46946F6A3"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_365E4167EDC444DF834A45EADEBF2920"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.Build.CPPTasks.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_3C98116AE00C01C9BF8C97A46946F6A3"
-                    {
-                    "Name" = "8:Microsoft.Build.CPPTasks.Common.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Microsoft.Build.CPPTasks.Common.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\Platforms\\Win32\\v60\\1033\\context\\general_makefile.xml"
+            "TargetName" = "8:general_makefile.xml"
             "Tag" = "8:"
-            "Folder" = "8:_FDAF4284F5A54E5BAF21580C3C754E96"
+            "Folder" = "8:_4444E5ED8CCB4513BB938562E5040BE5"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -660,8 +712,28 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
-            "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3C5B5B34A74446F8BD9927AA5755066B"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v60\\1033\\context\\general_makefile_ps.xml"
+            "TargetName" = "8:general_makefile_ps.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_4444E5ED8CCB4513BB938562E5040BE5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4D040A056B7E4C7BBEE046D670E9F5BF"
@@ -670,6 +742,26 @@
             "TargetName" = "8:Microsoft.Cpp.Win32.v70.targets"
             "Tag" = "8:"
             "Folder" = "8:_F0D34960A8B4448DB14E7DF8BC739397"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4D3410D82BF64000ADC7A119659C37C9"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\context\\general.xml"
+            "TargetName" = "8:general.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_D92C9259493542E29793872E8DAD2CC1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -724,6 +816,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5E918E23AC4428B2C6AC2B9B4EA223D1"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.Build.CPPTasks.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_5E918E23AC4428B2C6AC2B9B4EA223D1"
+                    {
+                    "Name" = "8:Microsoft.Build.CPPTasks.Common.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.Build.CPPTasks.Common.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_7AC4D2740D9841E59FD21EE758053412"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_640459C0E76446BE8B1E8F8F285E174C"
             {
             "SourcePath" = "8:..\\Platforms\\Win32\\v60\\1033\\mt.xml"
@@ -764,12 +887,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_693A10FD7ED245BD80AC10EDEB2F3B07"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6AEDD877A05D4042A399229824162C81"
             {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\general_makefile.xml"
-            "TargetName" = "8:general_makefile.xml"
+            "SourcePath" = "8:..\\Platforms\\Win32\\v80\\Microsoft.Cpp.Win32.v80.props"
+            "TargetName" = "8:Microsoft.Cpp.Win32.v80.props"
             "Tag" = "8:"
-            "Folder" = "8:_DB34DB95252A45319C03A50C76B43C53"
+            "Folder" = "8:_7AC4D2740D9841E59FD21EE758053412"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -784,12 +907,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6AEDD877A05D4042A399229824162C81"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6B405E0C4DEB4CBBB1B4E61C9E4AFF7B"
             {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v80\\Microsoft.Cpp.Win32.v80.props"
-            "TargetName" = "8:Microsoft.Cpp.Win32.v80.props"
+            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\context\\general_makefile_ps.xml"
+            "TargetName" = "8:general_makefile_ps.xml"
             "Tag" = "8:"
-            "Folder" = "8:_7AC4D2740D9841E59FD21EE758053412"
+            "Folder" = "8:_A38E7880462D41C68B2FA4235EF39019"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -904,26 +1027,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_83E8F0B731714269AA1D71BD6410E345"
-            {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\general_makefile_ps.xml"
-            "TargetName" = "8:general_makefile_ps.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_DB34DB95252A45319C03A50C76B43C53"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_92A2FD43AF8B436098CE54520478EB9C"
             {
             "SourcePath" = "8:..\\Platforms\\Win32\\v60\\1033\\lib.xml"
@@ -984,12 +1087,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A2CFAF2E050943E1AC419FE1296B384D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AABBFEE94BEA4A659061C0A8147D127A"
             {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\general_makefile_ps.xml"
-            "TargetName" = "8:general_makefile_ps.xml"
+            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\lib.xml"
+            "TargetName" = "8:lib.xml"
             "Tag" = "8:"
-            "Folder" = "8:_C9E9A0B46BE746A286E8639BFFA91A78"
+            "Folder" = "8:_DB34DB95252A45319C03A50C76B43C53"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1004,12 +1107,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AABBFEE94BEA4A659061C0A8147D127A"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B32F700403144701943038D5DE79F18E"
             {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\lib.xml"
-            "TargetName" = "8:lib.xml"
+            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\context\\general_makefile.xml"
+            "TargetName" = "8:general_makefile.xml"
             "Tag" = "8:"
-            "Folder" = "8:_DB34DB95252A45319C03A50C76B43C53"
+            "Folder" = "8:_A38E7880462D41C68B2FA4235EF39019"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1224,32 +1327,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EE2D89AC0A8E440B9C61E67BCFD56F5C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FE9D540265104BB384360F5565E01065"
             {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v60\\1033\\general_makefile_ps.xml"
-            "TargetName" = "8:general_makefile_ps.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_CDADE5F4DE7F47ACBC8FEB124BB87892"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F8343D8843154183883C09E85E7A7219"
-            {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\general_makefile.xml"
+            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\context\\general_makefile.xml"
             "TargetName" = "8:general_makefile.xml"
             "Tag" = "8:"
-            "Folder" = "8:_C9E9A0B46BE746A286E8639BFFA91A78"
+            "Folder" = "8:_D92C9259493542E29793872E8DAD2CC1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1371,6 +1454,17 @@
                                                                             "Property" = "8:_309E5D513F8146CEA36C6672C123477A"
                                                                                 "Folders"
                                                                                 {
+                                                                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_4444E5ED8CCB4513BB938562E5040BE5"
+                                                                                    {
+                                                                                    "Name" = "8:context"
+                                                                                    "AlwaysCreate" = "11:FALSE"
+                                                                                    "Condition" = "8:"
+                                                                                    "Transitive" = "11:FALSE"
+                                                                                    "Property" = "8:_1AA10EB64A314DD081A2592B6A347BB6"
+                                                                                        "Folders"
+                                                                                        {
+                                                                                        }
+                                                                                    }
                                                                                 }
                                                                             }
                                                                         }
@@ -1393,6 +1487,17 @@
                                                                             "Property" = "8:_838DD4FB5BD6466E9593388FB0167154"
                                                                                 "Folders"
                                                                                 {
+                                                                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_D92C9259493542E29793872E8DAD2CC1"
+                                                                                    {
+                                                                                    "Name" = "8:context"
+                                                                                    "AlwaysCreate" = "11:FALSE"
+                                                                                    "Condition" = "8:"
+                                                                                    "Transitive" = "11:FALSE"
+                                                                                    "Property" = "8:_9370F6D085E642EEB808AAEEF5C1DDF3"
+                                                                                        "Folders"
+                                                                                        {
+                                                                                        }
+                                                                                    }
                                                                                 }
                                                                             }
                                                                         }
@@ -1437,6 +1542,17 @@
                                                                             "Property" = "8:_2CF5D28F22EF4246AB43BA70C8B557FA"
                                                                                 "Folders"
                                                                                 {
+                                                                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_A38E7880462D41C68B2FA4235EF39019"
+                                                                                    {
+                                                                                    "Name" = "8:context"
+                                                                                    "AlwaysCreate" = "11:FALSE"
+                                                                                    "Condition" = "8:"
+                                                                                    "Transitive" = "11:FALSE"
+                                                                                    "Property" = "8:_C6E7904625F742F182BC7EEA900E15EF"
+                                                                                        "Folders"
+                                                                                        {
+                                                                                        }
+                                                                                    }
                                                                                 }
                                                                             }
                                                                         }
@@ -1549,15 +1665,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Daffodil for Visual Studio"
-        "ProductCode" = "8:{ABFB2AB4-5DBE-412C-92AB-B0086AD0C1BC}"
-        "PackageCode" = "8:{5DB109D1-12B1-4D11-ABD4-7F7156178BC8}"
+        "ProductCode" = "8:{ACAE2A84-4F52-421B-BFAC-731254ABB399}"
+        "PackageCode" = "8:{C248540D-CD0E-4895-B9FF-D7B15FCD99B6}"
         "UpgradeCode" = "8:{4165456A-14E4-4309-9426-D4777998D3DB}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.4"
+        "ProductVersion" = "8:1.0.5"
         "Manufacturer" = "8:ManuSoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.manusoft.com"
@@ -2119,6 +2235,62 @@
             "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:Built"
             "OutputProjectGuid" = "8:{1C38F015-2CC0-4535-BCBC-089ED120057A}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7FA86AC502DB42F39F628822FC33EA5B"
+            {
+            "SourcePath" = "8:..\\Platforms\\X64\\v80\\Daffodil.CPPTasks.Win32.v80\\obj\\Debug\\Daffodil.CPPTasks.x64.v80.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_4B726E60CD9C4603B7836849BCD8682D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:Built"
+            "OutputProjectGuid" = "8:{3094649B-13B7-4A18-8D51-2BB6F30C7E64}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_8C04E5A00ED74FD9A7099E8E2BC3B087"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v80\\Daffodil.CPPTasks.Win32.v80\\obj\\Debug\\Daffodil.CPPTasks.Win32.v80.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_7AC4D2740D9841E59FD21EE758053412"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:Built"
+            "OutputProjectGuid" = "8:{26AE62FE-E423-4682-BA0C-C35F41DB6EEA}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {
