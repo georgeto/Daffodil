@@ -4,7 +4,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 6 in Visual Studio 2010
 
-Beta 3  [2010-10-12]
+RC1  [2010-10-19]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -129,30 +129,6 @@ Credits
     <EnumValue Name="NotSet" DisplayName="Not Set" Description="Not Set" />
     <EnumValue Name="Unicode" DisplayName="Use Unicode Character Set" Description="Use Unicode Character Set" />
     <EnumValue Name="MultiByte" DisplayName="Use Multi-Byte Character Set" Description="Use Multi-Byte Character Set" />
-  </EnumProperty>
-  <EnumProperty Name="CLRSupport" DisplayName="Common Language Runtime Support"
-                Description="Specifies whether this configuration supports the Common Language Runtime. This is incompatible with some other settings, e.g. runtime checks. See help for /clr family of C++ compiler switches for full list of conflicts."
-                Category="ProjectDefaults"
-                F1Keyword="VC.Project.VCConfiguration.ManagedExtensions">
-    <EnumValue Name="false" DisplayName="No Common Language Runtime Support"
-               Description="No Common Language Runtime Support" />
-    <EnumValue Name="true" DisplayName="Common Language Runtime Support (/clr)"
-               Description="Common Language Runtime Support (/clr)"/>
-  </EnumProperty>
-  <EnumProperty Name="WholeProgramOptimization" DisplayName="Whole Program Optimization"
-                Description="Specifies that the program will be optimized across .obj boundaries; works best if C/C++ optimizations are turned on."
-                Category="ProjectDefaults"
-                F1Keyword="VC.Project.VCConfiguration.WholeProgramOptimization">
-    <EnumValue Name="false" DisplayName="No Whole Program Optimization"
-               Description="No Whole Program Optimization" />
-    <EnumValue Name="true" DisplayName="Use Link Time Code Generation"
-               Description="Use Link Time Code Generation"/>
-    <EnumValue Name="PGInstrument" DisplayName="Profile Guided Optimization - Instrument"
-               Description="Profile Guided Optimization - Instrument"/>
-    <EnumValue Name="PGOptimize" DisplayName="Profile Guided Optimization - Optimize"
-               Description="Profile Guided Optimization - Optimize"/>
-    <EnumValue Name="PGUpdate" DisplayName="Profile Guided Optimization - Update"
-               Description="Profile Guided Optimization - Update"/>
   </EnumProperty>
   <BoolProperty Name="UseDebugLibraries" DisplayName="Use Debug Libraries"
                 Description="Specifies whether this configuration should use debug libraries and debug switches"

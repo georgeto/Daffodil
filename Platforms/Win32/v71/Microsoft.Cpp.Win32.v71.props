@@ -3,7 +3,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2003 in Visual Studio 2010
 
-Beta 3  [2010-10-12]
+RC1  [2010-10-19]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -45,5 +45,13 @@ Credits
     <ExecuteAsTool>false</ExecuteAsTool>
     <CLRSupport Condition="'$(CLRSupport)' != '' and '$(CLRSupport)' != 'false'">true</CLRSupport>
   </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <FloatConsistency>Default</FloatConsistency>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <StringPooling>false</StringPooling>
+      <TargetProcessor>Blend</TargetProcessor>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Platforms\Win32\PlatformToolsets\v71\ImportAfter\*..props" Condition="Exists('$(VCTargetsPath)\Platforms\Win32\PlatformToolsets\v71\ImportAfter')" />
 </Project>

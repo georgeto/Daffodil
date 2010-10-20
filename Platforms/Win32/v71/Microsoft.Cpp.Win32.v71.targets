@@ -3,7 +3,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2003 in Visual Studio 2010
 
-Beta 3  [2010-10-12]
+RC1  [2010-10-19]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -18,6 +18,22 @@ Credits
   <Import Project="$(VCTargetsPath)\Platforms\Win32\ImportBefore\*.v71.targets" Condition="Exists('$(VCTargetsPath)\Platforms\Win32\ImportBefore')" />
 
   <UsingTask TaskName="VCMessage" AssemblyName="Microsoft.Build.CppTasks.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+
+  <PropertyGroup>
+    <UseGeneralSchema Condition="'$(UseDefaultPropertyPageSchemas)' != 'false' or '$(UseDefaultGeneralPropertyPageSchema)' != 'false'">true</UseGeneralSchema>
+    <GeneralSchemaFilename Condition="'$(ConfigurationType)' != 'Makefile'">general</GeneralSchemaFilename>
+    <GeneralSchemaFilename Condition="'$(ConfigurationType)' == 'Makefile'">general_makefile</GeneralSchemaFilename>
+    <ProjectRuleFilePath>$(VCTargetsPath)Platforms\$(Platform)\PlatformToolsets\$(PlatformToolset)\$(LangID)\context\$(GeneralSchemaFilename).xml</ProjectRuleFilePath>
+    <PropertySheetRuleFilePath>$(VCTargetsPath)Platforms\$(Platform)\PlatformToolsets\$(PlatformToolset)\$(LangID)\context\$(GeneralSchemaFilename)_ps.xml</PropertySheetRuleFilePath>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(UseGeneralSchema)' == 'true'">
+    <PropertyPageSchema Condition="Exists('$(ProjectRuleFilePath)')" Include="$(ProjectRuleFilePath)">
+      <Context>Project</Context>
+    </PropertyPageSchema>
+    <PropertyPageSchema Condition="Exists('$(PropertySheetRuleFilePath)')" Include="$(PropertySheetRuleFilePath)">
+      <Context>PropertySheet</Context>
+    </PropertyPageSchema>
+  </ItemGroup>
 
   <!-- These tasks replace the built in tool tasks so the build process can be customized:
          - Response file must be output in ANSI encoding instead of Unicode
@@ -234,6 +250,7 @@ Credits
         ExcludedInputPaths                 ="$(ExcludePath)"
         ExpandAttributedSource             ="%(ClCompile.ExpandAttributedSource)"
         FavorSizeOrSpeed                   ="%(ClCompile.FavorSizeOrSpeed)"
+        FloatConsistency                   ="%(ClCompile.FloatConsistency)"
         ForceConformanceInForLoopScope     ="%(ClCompile.ForceConformanceInForLoopScope)"
         ForcedIncludeFiles                 ="%(ClCompile.ForcedIncludeFiles)"
         ForcedUsingFiles                   ="%(ClCompile.ForcedUsingFiles)"
@@ -261,6 +278,7 @@ Credits
         StringPooling                      ="%(ClCompile.StringPooling)"
         StructMemberAlignment              ="%(ClCompile.StructMemberAlignment)"
         SuppressStartupBanner              ="%(ClCompile.SuppressStartupBanner)"
+        TargetProcessor                    ="%(ClCompile.TargetProcessor)"
         TreatSpecificWarningsAsErrors      ="%(ClCompile.TreatSpecificWarningsAsErrors)"
         TreatWarningAsError                ="%(ClCompile.TreatWarningAsError)"
         TreatWChar_tAsBuiltInType          ="%(ClCompile.TreatWChar_tAsBuiltInType)"
@@ -312,6 +330,7 @@ Credits
         ExcludedInputPaths                 ="$(ExcludePath)"
         ExpandAttributedSource             ="%(ClCompile.ExpandAttributedSource)"
         FavorSizeOrSpeed                   ="%(ClCompile.FavorSizeOrSpeed)"
+        FloatConsistency                   ="%(ClCompile.FloatConsistency)"
         ForceConformanceInForLoopScope     ="%(ClCompile.ForceConformanceInForLoopScope)"
         ForcedIncludeFiles                 ="%(ClCompile.ForcedIncludeFiles)"
         ForcedUsingFiles                   ="%(ClCompile.ForcedUsingFiles)"
@@ -339,6 +358,7 @@ Credits
         StringPooling                      ="%(ClCompile.StringPooling)"
         StructMemberAlignment              ="%(ClCompile.StructMemberAlignment)"
         SuppressStartupBanner              ="%(ClCompile.SuppressStartupBanner)"
+        TargetProcessor                    ="%(ClCompile.TargetProcessor)"
         TreatSpecificWarningsAsErrors      ="%(ClCompile.TreatSpecificWarningsAsErrors)"
         TreatWarningAsError                ="%(ClCompile.TreatWarningAsError)"
         TreatWChar_tAsBuiltInType          ="%(ClCompile.TreatWChar_tAsBuiltInType)"

@@ -4,7 +4,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2003 in Visual Studio 2010
 
-Beta 3  [2010-10-12]
+RC1  [2010-10-19]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -147,12 +147,6 @@ Credits
                Description="No Whole Program Optimization" />
     <EnumValue Name="true" DisplayName="Use Link Time Code Generation"
                Description="Use Link Time Code Generation"/>
-    <EnumValue Name="PGInstrument" DisplayName="Profile Guided Optimization - Instrument"
-               Description="Profile Guided Optimization - Instrument"/>
-    <EnumValue Name="PGOptimize" DisplayName="Profile Guided Optimization - Optimize"
-               Description="Profile Guided Optimization - Optimize"/>
-    <EnumValue Name="PGUpdate" DisplayName="Profile Guided Optimization - Update"
-               Description="Profile Guided Optimization - Update"/>
   </EnumProperty>
   <BoolProperty Name="UseDebugLibraries" DisplayName="Use Debug Libraries"
                 Description="Specifies whether this configuration should use debug libraries and debug switches"

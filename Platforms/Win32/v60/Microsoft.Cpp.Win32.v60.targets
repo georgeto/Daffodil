@@ -3,7 +3,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 6 in Visual Studio 2010
 
-Beta 3  [2010-10-12]
+RC1  [2010-10-19]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -19,6 +19,22 @@ Credits
 
   <UsingTask TaskName="VCMessage" AssemblyName="Microsoft.Build.CppTasks.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
 
+  <PropertyGroup>
+    <UseGeneralSchema Condition="'$(UseDefaultPropertyPageSchemas)' != 'false' or '$(UseDefaultGeneralPropertyPageSchema)' != 'false'">true</UseGeneralSchema>
+    <GeneralSchemaFilename Condition="'$(ConfigurationType)' != 'Makefile'">general</GeneralSchemaFilename>
+    <GeneralSchemaFilename Condition="'$(ConfigurationType)' == 'Makefile'">general_makefile</GeneralSchemaFilename>
+    <ProjectRuleFilePath>$(VCTargetsPath)Platforms\$(Platform)\PlatformToolsets\$(PlatformToolset)\$(LangID)\context\$(GeneralSchemaFilename).xml</ProjectRuleFilePath>
+    <PropertySheetRuleFilePath>$(VCTargetsPath)Platforms\$(Platform)\PlatformToolsets\$(PlatformToolset)\$(LangID)\context\$(GeneralSchemaFilename)_ps.xml</PropertySheetRuleFilePath>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(UseGeneralSchema)' == 'true'">
+    <PropertyPageSchema Condition="Exists('$(ProjectRuleFilePath)')" Include="$(ProjectRuleFilePath)">
+      <Context>Project</Context>
+    </PropertyPageSchema>
+    <PropertyPageSchema Condition="Exists('$(PropertySheetRuleFilePath)')" Include="$(PropertySheetRuleFilePath)">
+      <Context>PropertySheet</Context>
+    </PropertyPageSchema>
+  </ItemGroup>
+
   <!-- These tasks replace the built in tool tasks so the build process can be customized:
          - Response file must be output in ANSI encoding instead of Unicode
          - Build tool switches whose default value has since changed must be corrected
@@ -27,7 +43,7 @@ Credits
   <UsingTask TaskName="LinkA"    AssemblyFile="Daffodil.CPPTasks.Win32.v60.dll" />
   <UsingTask TaskName="LIBA"     AssemblyFile="Daffodil.CPPTasks.Win32.v60.dll" />
   <UsingTask TaskName="BSCMakeA" AssemblyFile="Daffodil.CPPTasks.Win32.v60.dll" />
-
+  
   <Target Name="CoreResGen" DependsOnTargets="$(CoreResGenDependsOn)" />
 
   
@@ -81,6 +97,8 @@ Credits
         AdditionalOptions                  ="%(ClCompile.AdditionalOptions)"
         AssemblerListingLocation           ="%(ClCompile.AssemblerListingLocation)"
         AssemblerOutput                    ="%(ClCompile.AssemblerOutput)"
+        AssumeNoAliasing                   ="%(ClCompile.AssumeNoAliasing)"
+        AssumeXFunctionAliasing            ="%(ClCompile.AssumeXFunctionAliasing)"
         BrowseInformation                  ="%(ClCompile.BrowseInformation)"
         BrowseInformationFile              ="%(ClCompile.BrowseInformationFile)"
         CallingConvention                  ="%(ClCompile.CallingConvention)"
@@ -91,10 +109,11 @@ Credits
         ExceptionHandling                  ="%(ClCompile.ExceptionHandling)"
         ExcludedInputPaths                 ="$(ExcludePath)"
         FavorSizeOrSpeed                   ="%(ClCompile.FavorSizeOrSpeed)"
+        FloatConsistency                   ="%(ClCompile.FloatConsistency)"
         ForcedIncludeFiles                 ="%(ClCompile.ForcedIncludeFiles)"
-        ForcedUsingFiles                   ="%(ClCompile.ForcedUsingFiles)"
         FunctionLevelLinking               ="%(ClCompile.FunctionLevelLinking)"
         IgnoreStandardIncludePath          ="%(ClCompile.IgnoreStandardIncludePath)"
+        IncrementalCompilation             ="%(ClCompile.IncrementalCompilation)"
         InlineFunctionExpansion            ="%(ClCompile.InlineFunctionExpansion)"
         IntrinsicFunctions                 ="%(ClCompile.IntrinsicFunctions)"
         MinimalRebuild                     ="%(ClCompile.MinimalRebuild)"
@@ -112,10 +131,10 @@ Credits
         ProgramDataBaseFileName            ="%(ClCompile.ProgramDataBaseFileName)"
         RuntimeLibrary                     ="%(ClCompile.RuntimeLibrary)"
         RuntimeTypeInfo                    ="%(ClCompile.RuntimeTypeInfo)"
-        ShowIncludes                       ="%(ClCompile.ShowIncludes)"
         StringPooling                      ="%(ClCompile.StringPooling)"
         StructMemberAlignment              ="%(ClCompile.StructMemberAlignment)"
         SuppressStartupBanner              ="%(ClCompile.SuppressStartupBanner)"
+        TargetProcessor                    ="%(ClCompile.TargetProcessor)"
         TreatWarningAsError                ="%(ClCompile.TreatWarningAsError)"
         UndefineAllPreprocessorDefinitions ="%(ClCompile.UndefineAllPreprocessorDefinitions)"
         UndefinePreprocessorDefinitions    ="%(ClCompile.UndefinePreprocessorDefinitions)"
@@ -147,6 +166,8 @@ Credits
         AdditionalOptions                  ="%(ClCompile.AdditionalOptions)"
         AssemblerListingLocation           ="%(ClCompile.AssemblerListingLocation)"
         AssemblerOutput                    ="%(ClCompile.AssemblerOutput)"
+        AssumeNoAliasing                   ="%(ClCompile.AssumeNoAliasing)"
+        AssumeXFunctionAliasing            ="%(ClCompile.AssumeXFunctionAliasing)"
         BrowseInformation                  ="%(ClCompile.BrowseInformation)"
         BrowseInformationFile              ="%(ClCompile.BrowseInformationFile)"
         CallingConvention                  ="%(ClCompile.CallingConvention)"
@@ -157,8 +178,8 @@ Credits
         ExceptionHandling                  ="%(ClCompile.ExceptionHandling)"
         ExcludedInputPaths                 ="$(ExcludePath)"
         FavorSizeOrSpeed                   ="%(ClCompile.FavorSizeOrSpeed)"
+        FloatConsistency                   ="%(ClCompile.FloatConsistency)"
         ForcedIncludeFiles                 ="%(ClCompile.ForcedIncludeFiles)"
-        ForcedUsingFiles                   ="%(ClCompile.ForcedUsingFiles)"
         FunctionLevelLinking               ="%(ClCompile.FunctionLevelLinking)"
         IgnoreStandardIncludePath          ="%(ClCompile.IgnoreStandardIncludePath)"
         InlineFunctionExpansion            ="%(ClCompile.InlineFunctionExpansion)"
@@ -178,10 +199,10 @@ Credits
         ProgramDataBaseFileName            ="%(ClCompile.ProgramDataBaseFileName)"
         RuntimeLibrary                     ="%(ClCompile.RuntimeLibrary)"
         RuntimeTypeInfo                    ="%(ClCompile.RuntimeTypeInfo)"
-        ShowIncludes                       ="%(ClCompile.ShowIncludes)"
         StringPooling                      ="%(ClCompile.StringPooling)"
         StructMemberAlignment              ="%(ClCompile.StructMemberAlignment)"
         SuppressStartupBanner              ="%(ClCompile.SuppressStartupBanner)"
+        TargetProcessor                    ="%(ClCompile.TargetProcessor)"
         TreatWarningAsError                ="%(ClCompile.TreatWarningAsError)"
         UndefineAllPreprocessorDefinitions ="%(ClCompile.UndefineAllPreprocessorDefinitions)"
         UndefinePreprocessorDefinitions    ="%(ClCompile.UndefinePreprocessorDefinitions)"
@@ -230,6 +251,7 @@ Credits
         AdditionalManifestDependencies ="%(Link.AdditionalManifestDependencies)"
         AdditionalOptions              ="%(Link.AdditionalOptions)"
         BaseAddress                    ="%(Link.BaseAddress)"
+        DebugInformationFormat         ="%(Link.DebugInformationFormat)"
         DelayLoadDLLs                  ="%(Link.DelayLoadDLLs)"
         Driver                         ="%(Link.Driver)"
         EnableCOMDATFolding            ="%(Link.EnableCOMDATFolding)"
@@ -260,7 +282,6 @@ Credits
         OptimizeReferences             ="%(Link.OptimizeReferences)"
         OptimizeWin98                  ="%(Link.OptimizeWin98)"
         OutputFile                     ="%(Link.OutputFile)"
-        PreventDllBinding              ="%(Link.PreventDllBinding)"
         Profile                        ="%(Link.Profile)"
         ProgramDatabaseFile            ="%(Link.ProgramDatabaseFile)"
         NoEntryPoint                   ="%(Link.NoEntryPoint)"

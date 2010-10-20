@@ -36,7 +36,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1033", "1033", "{CAF58E46-E5F5-423F-9560-950CA7422E03}"
 	ProjectSection(SolutionItems) = preProject
 		Platforms\Win32\v60\1033\cl.xml = Platforms\Win32\v60\1033\cl.xml
-		Platforms\Win32\v60\1033\general.xml = Platforms\Win32\v60\1033\general.xml
 		Platforms\Win32\v60\1033\lib.xml = Platforms\Win32\v60\1033\lib.xml
 		Platforms\Win32\v60\1033\link.xml = Platforms\Win32\v60\1033\link.xml
 		Platforms\Win32\v60\1033\midl.xml = Platforms\Win32\v60\1033\midl.xml
@@ -46,7 +45,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1033", "1033", "{3161D7D2-5A93-4840-9470-9622CF95EFA2}"
 	ProjectSection(SolutionItems) = preProject
 		Platforms\Win32\v70\1033\cl.xml = Platforms\Win32\v70\1033\cl.xml
-		Platforms\Win32\v70\1033\general.xml = Platforms\Win32\v70\1033\general.xml
 		Platforms\Win32\v70\1033\lib.xml = Platforms\Win32\v70\1033\lib.xml
 		Platforms\Win32\v70\1033\link.xml = Platforms\Win32\v70\1033\link.xml
 		Platforms\Win32\v70\1033\midl.xml = Platforms\Win32\v70\1033\midl.xml
@@ -56,7 +54,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1033", "1033", "{10476236-3B5E-4D2B-98CD-B4E36C67AEB8}"
 	ProjectSection(SolutionItems) = preProject
 		Platforms\Win32\v71\1033\cl.xml = Platforms\Win32\v71\1033\cl.xml
-		Platforms\Win32\v71\1033\general.xml = Platforms\Win32\v71\1033\general.xml
 		Platforms\Win32\v71\1033\lib.xml = Platforms\Win32\v71\1033\lib.xml
 		Platforms\Win32\v71\1033\link.xml = Platforms\Win32\v71\1033\link.xml
 		Platforms\Win32\v71\1033\midl.xml = Platforms\Win32\v71\1033\midl.xml
