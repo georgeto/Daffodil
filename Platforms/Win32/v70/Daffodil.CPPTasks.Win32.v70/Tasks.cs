@@ -77,6 +77,27 @@ namespace Daffodil.CPPTasks.Win32.v70
         base.AddActiveSwitchToolValue(switch2);
       }
     }
+    public override bool ForceConformanceInForLoopScope
+    {
+      get
+      {
+        return base.ForceConformanceInForLoopScope;
+      }
+      set
+      {
+        base.ActiveToolSwitches.Remove("ForceConformanceInForLoopScope");
+        ToolSwitch switch2 = new ToolSwitch(ToolSwitchType.Boolean);
+        switch2.DisplayName = "Force Conformance in For Loop Scope";
+        switch2.Description = "Used to implement standard C++ behavior for the for statement loops with Microsoft extensions (/Za, /Ze (Disable Language Extensions)). /Zc:forScope is on by default.";
+        switch2.ArgumentRelationList = new System.Collections.ArrayList();
+        switch2.SwitchValue = "/Zc:forScope";
+        switch2.ReverseSwitchValue = "";
+        switch2.Name = "ForceConformanceInForLoopScope";
+        switch2.BooleanValue = value;
+        base.ActiveToolSwitches.Add("ForceConformanceInForLoopScope", switch2);
+        base.AddActiveSwitchToolValue(switch2);
+      }
+    }
     public override bool FunctionLevelLinking
     {
       get
@@ -207,6 +228,27 @@ namespace Daffodil.CPPTasks.Win32.v70
         switch2.Value = value;
         switch2.MultiValues = true;
         base.ActiveToolSwitches.Add("TargetProcessor", switch2);
+        base.AddActiveSwitchToolValue(switch2);
+      }
+    }
+    public override bool TreatWChar_tAsBuiltInType
+    {
+      get
+      {
+        return base.TreatWChar_tAsBuiltInType;
+      }
+      set
+      {
+        base.ActiveToolSwitches.Remove("TreatWChar_tAsBuiltInType");
+        ToolSwitch switch2 = new ToolSwitch(ToolSwitchType.Boolean);
+        switch2.DisplayName = "Treat WChar_t As Built in Type";
+        switch2.Description = "When specified, the type wchar_t becomes a native type that maps to __wchar_t in the same way that short maps to __int16. /Zc:wchar_t is on by default.";
+        switch2.ArgumentRelationList = new System.Collections.ArrayList();
+        switch2.SwitchValue = "/Zc:wchar_t";
+        switch2.ReverseSwitchValue = "";
+        switch2.Name = "TreatWChar_tAsBuiltInType";
+        switch2.BooleanValue = value;
+        base.ActiveToolSwitches.Add("TreatWChar_tAsBuiltInType", switch2);
         base.AddActiveSwitchToolValue(switch2);
       }
     }

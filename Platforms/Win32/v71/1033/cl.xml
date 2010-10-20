@@ -212,9 +212,9 @@ Credits
   </EnumProperty>
   <BoolProperty Name="DisableLanguageExtensions" DisplayName="Disable Language Extensions" Description="Suppresses or enables language extensions.     (/Za)" Category="Language" Switch="Za" F1Keyword="VC.Project.VCCLCompilerTool.DisableLanguageExtensions">
   </BoolProperty>
-  <BoolProperty ReverseSwitch="" Name="TreatWChar_tAsBuiltInType" DisplayName="Treat WChar_t As Built in Type" Description="When specified, the type wchar_t becomes a native type that maps to __wchar_t in the same way that short maps to __int16. /Zc:wchar_t is on by default." Category="Language" Switch="Zc:wchar_t" F1Keyword="VC.Project.VCCLCompilerTool.TreatWChar_tAsBuiltInType">
+  <BoolProperty Name="TreatWChar_tAsBuiltInType" DisplayName="Treat WChar_t As Built in Type" Description="When specified, the type wchar_t becomes a native type that maps to __wchar_t in the same way that short maps to __int16. /Zc:wchar_t is on by default." Category="Language" Switch="Zc:wchar_t" F1Keyword="VC.Project.VCCLCompilerTool.TreatWChar_tAsBuiltInType">
   </BoolProperty>
-  <BoolProperty ReverseSwitch="" Name="ForceConformanceInForLoopScope" DisplayName="Force Conformance in For Loop Scope" Description="Used to implement standard C++ behavior for the for statement loops with Microsoft extensions (/Za, /Ze (Disable Language Extensions)). /Zc:forScope is on by default." Category="Language" Switch="Zc:forScope" F1Keyword="VC.Project.VCCLCompilerTool.ForceConformanceInForLoopScope">
+  <BoolProperty Name="ForceConformanceInForLoopScope" DisplayName="Force Conformance in For Loop Scope" Description="Used to implement standard C++ behavior for the for statement loops with Microsoft extensions (/Za, /Ze (Disable Language Extensions)). /Zc:forScope is on by default." Category="Language" Switch="Zc:forScope" F1Keyword="VC.Project.VCCLCompilerTool.ForceConformanceInForLoopScope">
   </BoolProperty>
   <BoolProperty ReverseSwitch="GR-" Name="RuntimeTypeInfo" DisplayName="Enable Run-Time Type Information" Description="Adds code for checking C++ object types at run time (runtime type information).     (/GR, /GR-)" Category="Language" Switch="GR" F1Keyword="VC.Project.VCCLCompilerTool.RuntimeTypeInfo">
   </BoolProperty>
