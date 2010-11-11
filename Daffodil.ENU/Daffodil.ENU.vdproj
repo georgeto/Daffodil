@@ -70,13 +70,13 @@
         "Entry"
         {
         "MsmKey" = "8:_2482CF930EEFDA20C63EC4607DFA080A"
-        "OwnerKey" = "8:_8C04E5A00ED74FD9A7099E8E2BC3B087"
+        "OwnerKey" = "8:_F3AD15638D5549BA976195088382B930"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_2482CF930EEFDA20C63EC4607DFA080A"
-        "OwnerKey" = "8:_F3AD15638D5549BA976195088382B930"
+        "OwnerKey" = "8:_8C04E5A00ED74FD9A7099E8E2BC3B087"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -124,13 +124,13 @@
         "Entry"
         {
         "MsmKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
-        "OwnerKey" = "8:_8C04E5A00ED74FD9A7099E8E2BC3B087"
+        "OwnerKey" = "8:_F3AD15638D5549BA976195088382B930"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
-        "OwnerKey" = "8:_F3AD15638D5549BA976195088382B930"
+        "OwnerKey" = "8:_8C04E5A00ED74FD9A7099E8E2BC3B087"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1630,15 +1630,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Daffodil for Visual Studio"
-        "ProductCode" = "8:{984F20C2-A30B-40DB-9040-FEB49BDC08CD}"
-        "PackageCode" = "8:{D235CE90-BB34-4E08-9947-D4B6F733348A}"
+        "ProductCode" = "8:{4D6BB2AD-3FF8-46DD-8C87-F5796BE4A16D}"
+        "PackageCode" = "8:{6712856E-40D0-436E-A7CD-503B0690F278}"
         "UpgradeCode" = "8:{4165456A-14E4-4309-9426-D4777998D3DB}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.7"
+        "ProductVersion" = "8:1.0.8"
         "Manufacturer" = "8:ManuSoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.manusoft.com"

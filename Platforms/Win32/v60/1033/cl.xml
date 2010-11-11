@@ -4,7 +4,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 6 in Visual Studio 2010
 
-RC1  [2010-10-19]
+1.0  [2010-11-10]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -104,7 +104,7 @@ Credits
   </EnumProperty>
   <BoolProperty ReverseSwitch="Oy-" Name="OmitFramePointers" DisplayName="Omit Frame Pointers" Description="Suppresses creation of frame pointers on the call stack." Category="Optimization" Switch="Oy" F1Keyword="VC.Project.VCCLCompilerTool.OmitFramePointers">
   </BoolProperty>
-  <EnumProperty Name="FloatConsistency" DisplayName="Improve Float Consistency" Description="Controls the use of optimzations that affect floating-point tests for equality and inequality. (/Op)." Category="Optimization">
+  <EnumProperty Name="FloatConsistency" DisplayName="Improve Float Consistency" Description="Controls the use of optimizations that affect floating-point tests for equality and inequality. (/Op)." Category="Optimization">
     <EnumValue Name="Default" Switch="" DisplayName="Default" Description="Use default based on other compiler settings.">
     </EnumValue>
     <EnumValue Name="Disabled" Switch="Op-" DisplayName="Disabled" Description="Enables floating point optimization at the expense of consistency.">

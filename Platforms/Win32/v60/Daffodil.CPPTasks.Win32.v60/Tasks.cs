@@ -87,7 +87,7 @@ namespace Daffodil.CPPTasks.Win32.v60
         base.ActiveToolSwitches.Remove("FloatConsistency");
         ToolSwitch switch2 = new ToolSwitch(ToolSwitchType.String);
         switch2.DisplayName = "Improve Float Consistency";
-        switch2.Description = "Controls the use of optimzations that affect floating-point tests for equality and inequality. (/Op)";
+        switch2.Description = "Controls the use of optimizations that affect floating-point tests for equality and inequality. (/Op)";
         switch2.ArgumentRelationList = new System.Collections.ArrayList();
         string[][] switchMap = new string[][] { new string[] { "Default", "" }, new string[] { "Disabled", "/Op-" }, new string[] { "Enabled", "/Op" } };
         switch2.SwitchValue = base.ReadSwitchMap("FloatConsistency", switchMap, value);
