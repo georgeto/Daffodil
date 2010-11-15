@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
+- Native multi-targeting support for Visual Studio 6 in Visual Studio 2010
+
+2.0 Alpha 1  [2010-11-15]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+  
+  This file is a derivative work based on the file of the same name that is
+  included with Visual Studio 2010. The original file bears the copyright
+  notice reproduced below. Implicit authorization from Microsoft to create and
+  distribute derivative works is deduced from comments in the files and
+  documentation which describe ways to customize the build system by making
+  changes to these files.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="MIDL" PageTemplate="tool" DisplayName="MIDL" SwitchPrefix="/" Order="60" xmlns="http://schemas.microsoft.com/build/2009/properties" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+  <Rule.Categories>
+    <Category Name="General" DisplayName="常规"/>
+    <Category Name="Output" DisplayName="输出"/>
+    <Category Name="Advanced" DisplayName="高级"/>
+    <Category Name="Command Line" DisplayName="命令行" Subtype="CommandLine"/>
+  </Rule.Categories>
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" ItemType="Midl" Label="" HasConfigurationCondition="true"/>
+  </Rule.DataSource>
+  <StringListProperty Name="PreprocessorDefinitions" DisplayName="预处理器定义" Description="指定一个或多个定义，包括 MIDL 宏(/D[宏]" Category="General" Switch="D " F1Keyword="VC.Project.VCMidlTool.PreprocessorDefinitions">
+  </StringListProperty>
+  <StringListProperty Subtype="folder" Name="AdditionalIncludeDirectories" DisplayName="附加包含目录" Description="指定一个或多个要添加到包含路径中的目录(/I[路径])" Category="General" Switch="I" F1Keyword="VC.Project.VCMidlTool.AdditionalIncludeDirectories">
+  </StringListProperty>
+  <BoolProperty Name="IgnoreStandardIncludePath" DisplayName="忽略标准包含路径" Description="忽略当前目录和 INCLUDE 目录" Category="General" Switch="no_def_idir" F1Keyword="VC.Project.VCMidlTool.IgnoreStandardIncludePath">
+  </BoolProperty>
+  <BoolProperty Name="MkTypLibCompatible" DisplayName="与 MkTypLib 兼容" Description="强制与 mktyplib.exe 2.03 版兼容(/mktyplib203)" Category="General" Switch="mktyplib203" F1Keyword="VC.Project.VCMidlTool.MkTypLibCompatible">
+  </BoolProperty>
+  <EnumProperty Name="WarningLevel" DisplayName="警告等级" Description="选择 MIDL 代码错误的严格性(/Wn)" Category="General" F1Keyword="VC.Project.VCMidlTool.WarningLevel">
+    <EnumValue Name="0" Switch="W0" DisplayName="1">
+    </EnumValue>
+    <EnumValue Name="1" Switch="W1" DisplayName="1">
+    </EnumValue>
+    <EnumValue Name="2" Switch="W2" DisplayName="2">
+    </EnumValue>
+    <EnumValue Name="3" Switch="W3" DisplayName="3">
+    </EnumValue>
+    <EnumValue Name="4" Switch="W4" DisplayName="4">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty Name="WarnAsError" DisplayName="将警告视为错误" Description="允许 MIDL 将所有警告都视为错误(/WX)" Category="General" Switch="WX" F1Keyword="VC.Project.VCMidlTool.WarnAsError">
+  </BoolProperty>
+  <BoolProperty Name="SuppressStartupBanner" DisplayName="取消显示启动版权标志" Description="取消显示启动版权标志和信息消息(/nologo)" Category="General" Switch="nologo" F1Keyword="VC.Project.VCMidlTool.SuppressStartupBanner">
+  </BoolProperty>
+  <EnumProperty Name="DefaultCharType" DisplayName="C 编译器字符类型" Description="指定将用于编译所生成代码的 C 编译器的默认字符类型。(/char signed|unsigned|ascii7)" Category="General" F1Keyword="VC.Project.VCMidlTool.DefaultCharType">
+    <EnumValue Name="Signed" Switch="char signed" DisplayName="已签名" Description="已签名">
+    </EnumValue>
+    <EnumValue Name="Unsigned" Switch="char unsigned" DisplayName="未签名" Description="未签名">
+    </EnumValue>
+    <EnumValue Name="Ascii" Switch="char ascii7" DisplayName="ASCII" Description="ASCII">
+    </EnumValue>
+  </EnumProperty>
+  <EnumProperty Name="TargetEnvironment" DisplayName="目标环境" Description="指定目标环境(/env win32|dos|win16|mac)" Category="General" F1Keyword="VC.Project.VCMidlTool.TargetEnvironment">
+    <EnumValue Name="NotSet" Switch="" DisplayName="未设置" Description="Win32">
+    </EnumValue>
+    <EnumValue Name="Win32" Switch="env win32" DisplayName="Microsoft Windows 32 位" Description="Win32">
+    </EnumValue>
+    <EnumValue Name="DOS" Switch="env dos" DisplayName="Microsoft MS-DOS" Description="MS-DOS">
+    </EnumValue>
+    <EnumValue Name="Win16" Switch="env win16" DisplayName="Microsoft Windows 16 位" Description="Win16">
+    </EnumValue>
+    <EnumValue Name="Mac" Switch="env mac" DisplayName="Apple Macintosh (680x0)" Description="Macintosh">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty Name="GenerateStublessProxies" DisplayName="生成无存根(Stub)代理" Description="为对象接口生成带有扩展名和无存根(Stub)代理的完全解析的存根(Stub)(/Oicf, /Oif)" Category="General" Switch="Oicf" F1Keyword="VC.Project.VCMidlTool.GenerateStublessProxies">
+  </BoolProperty>
+  <BoolProperty Name="SuppressCompilerWarnings" DisplayName="取消显示编译器警告" Description="取消显示编译器警告消息(/no_warn)" Category="General" Switch="no_warn" F1Keyword="VC.Project.VCMidlTool.SuppressCompilerWarnings">
+  </BoolProperty>
+  <BoolProperty Name="ApplicationConfigurationMode" DisplayName="应用程序配置模式" Description="允许在 IDL 文件中使用选定的 ACF 特性(/app_config)" Category="General" Switch="app_config" F1Keyword="VC.Project.VCMidlTool.ApplicationConfigurationMode">
+  </BoolProperty>
+  <IntProperty Name="LocaleID" DisplayName="区域设置 ID" Description="指定输入文件的 LCID、文件名和目录路径(/lcid DECIMAL)" Category="General" Switch="lcid" Separator=" " F1Keyword="VC.Project.VCMidlTool.LocaleID">
+  </IntProperty>
+  <StringProperty Name="OutputDirectory" DisplayName="输出目录" Description="输出目录(/out [目录])" Category="Output" Switch="out" F1Keyword="VC.Project.VCMidlTool.OutputDirectory">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="HeaderFileName" DisplayName="头文件" Description="指定所生成的头文件的名称(/h filename)" Category="Output" Switch="h" Separator=" " F1Keyword="VC.Project.VCMidlTool.HeaderFileName">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="DllDataFileName" DisplayName="DllData 文件" Description="指定 DLLDATA 文件的名称(/dlldata filename)" Category="Output" Switch="dlldata" Separator=" " F1Keyword="VC.Project.VCMidlTool.DLLDataFileName">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="InterfaceIdentifierFileName" DisplayName="IID 文件" Description="指定接口标识符文件的名称(/iid filename)" Category="Output" Switch="iid" Separator=" " F1Keyword="VC.Project.VCMidlTool.InterfaceIdentifierFileName">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="ProxyFileName" DisplayName="代理文件" Description="指定代理文件的名称(/proxy filename)" Category="Output" Switch="proxy" Separator=" " F1Keyword="VC.Project.VCMidlTool.ProxyFileName">
+  </StringProperty>
+  <BoolProperty ReverseSwitch="notlb" Name="GenerateTypeLibrary" DisplayName="生成类型库" Description="指定不生成类型库([/notlb] 表示不生成)" Category="Output" F1Keyword="VC.Project.VCMidlTool.GenerateTypeLibrary">
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="TypeLibraryName" DisplayName="类型库" Description="指定类型库文件的名称(/tlb filename)" Category="Output" Switch="tlb" Separator=" " F1Keyword="VC.Project.VCMidlTool.TypeLibraryName">
+  </StringProperty>
+  <EnumProperty Name="GenerateClientFiles" DisplayName="生成客户端存根(Stub)文件" Description="只生成客户端存根(Stub)文件(/client [stub|none])" Category="Output" F1Keyword="VC.Project.VCMidlTool.GenerateClientFiles">
+    <EnumValue Name="Stub" Switch="client stub" DisplayName="存根(Stub)" Description="存根(Stub)">
+    </EnumValue>
+    <EnumValue Name="None" Switch="client none" DisplayName="无" Description="无">
+    </EnumValue>
+  </EnumProperty>
+  <EnumProperty Name="GenerateServerFiles" DisplayName="生成服务器存根(Stub)文件" Description="只生成服务器存根(Stub)文件(/server [stub|none])" Category="Output" F1Keyword="VC.Project.VCMidlTool.GenerateServerFiles">
+    <EnumValue Name="Stub" Switch="server stub" DisplayName="存根(Stub)" Description="存根(Stub)">
+    </EnumValue>
+    <EnumValue Name="None" Switch="server none" DisplayName="无" Description="无">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Subtype="file" Name="ClientStubFile" DisplayName="客户端存根(Stub)文件" Description="指定客户端存根(Stub)文件(/cstub [文件])" Category="Output" Switch="cstub" Separator=" " F1Keyword="VC.Project.VCMidlTool.ClientStubFile">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="ServerStubFile" DisplayName="服务器存根(Stub)文件" Description="指定服务器存根(Stub)文件(/sstub [文件])" Category="Output" Switch="sstub" Separator=" " F1Keyword="VC.Project.VCMidlTool.ServerStubFile">
+  </StringProperty>
+  <EnumProperty Name="TypeLibFormat" DisplayName="类型库格式" Description="指定类型库文件的格式([/oldtlb|/newtlb])" Category="Output" F1Keyword="VC.Project.VCMidlTool.TypeLibFormat">
+    <EnumValue Name="NewFormat" Switch="newtlb" DisplayName="NewFormat" Description="新格式">
+    </EnumValue>
+    <EnumValue Name="OldFormat" Switch="oldtlb" DisplayName="OldFormat" Description="旧格式">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Name="CPreprocessOptions" DisplayName="C 预处理选项" Description="指定要传递给 C 编译器预处理器的开关(/cpp_opt switches)" Category="Advanced" Switch="cpp_opt" Separator=" " F1Keyword="VC.Project.VCMidlTool.CPreprocessOptions">
+  </StringProperty>
+  <StringListProperty Name="UndefinePreprocessorDefinitions" DisplayName="取消预处理器定义" Description="指定取消一个或多个定义，包括 MIDL 宏(/U[宏])" Category="Advanced" Switch="U" F1Keyword="VC.Project.VCMidlTool.UndefinePreprocessorDefinitions">
+  </StringListProperty>
+  <EnumProperty Name="EnableErrorChecks" DisplayName="启用错误检查" Description="选择错误检查选项([/error all|none])" Category="Advanced" F1Keyword="VC.Project.VCMidlTool.EnableErrorChecks">
+    <EnumValue Name="EnableCustom" Switch="" DisplayName="EnableCustom" Description="全部">
+    </EnumValue>
+    <EnumValue Name="All" Switch="error all" DisplayName="全部" Description="全部">
+    </EnumValue>
+    <EnumValue Name="None" Switch="error none" DisplayName="无" Description="无">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty Name="ErrorCheckAllocations" DisplayName="检查分配" Description="检查内存不足错误(/error allocation)" Category="Advanced" Switch="error allocation" F1Keyword="VC.Project.VCMidlTool.ErrorCheckAllocations">
+  </BoolProperty>
+  <BoolProperty Name="ErrorCheckBounds" DisplayName="检查边界" Description="对照传输长度规范进行检查大小(/error bounds_check)" Category="Advanced" Switch="error bounds_check" F1Keyword="VC.Project.VCMidlTool.ErrorCheckBounds">
+  </BoolProperty>
+  <BoolProperty Name="ErrorCheckEnumRange" DisplayName="检查枚举范围" Description="检查枚举值是否在允许范围内(/error enum)" Category="Advanced" Switch="error enum" F1Keyword="VC.Project.VCMidlTool.ErrorCheckEnumRange">
+  </BoolProperty>
+  <BoolProperty Name="ErrorCheckRefPointers" DisplayName="检查引用指针" Description="检查引用指针是否为非 null (/error ref)" Category="Advanced" Switch="error ref" F1Keyword="VC.Project.VCMidlTool.ErrorCheckRefPointers">
+  </BoolProperty>
+  <BoolProperty Name="ErrorCheckStubData" DisplayName="检查存根(Stub)数据" Description="发出对服务器端存根(Stub)数据有效性的其他检查(/error stub_data)" Category="Advanced" Switch="error stub_data" F1Keyword="VC.Project.VCMidlTool.ErrorCheckStubData">
+  </BoolProperty>
+  <BoolProperty ReverseSwitch="no_robust" Name="ValidateAllParameters" DisplayName="验证参数" Description="生成其他信息以验证参数(/robust|/no_robust)" Category="Advanced" Switch="robust" F1Keyword="VC.Project.VCMidlTool.ValidateParameters">
+  </BoolProperty>
+  <EnumProperty Name="StructMemberAlignment" DisplayName="结构成员对齐" Description="指定目标系统中的结构的封装级别(/ZpN)" Category="Advanced" F1Keyword="VC.Project.VCMidlTool.StructMemberAlignment">
+    <EnumValue Name="NotSet" Switch="" DisplayName="未设置" Description="未设置">
+    </EnumValue>
+    <EnumValue Name="1" Switch="Zp1" DisplayName="1 字节" Description="Zp1">
+    </EnumValue>
+    <EnumValue Name="2" Switch="Zp2" DisplayName="2 字节" Description="Zp2">
+    </EnumValue>
+    <EnumValue Name="4" Switch="Zp4" DisplayName="4 字节" Description="Zp4">
+    </EnumValue>
+    <EnumValue Name="8" Switch="Zp8" DisplayName="8 字节" Description="Zp8">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Subtype="file" Name="RedirectOutputAndErrors" DisplayName="重定向输出" Description="将输出从屏幕重定向到文件(/o file)" Category="Advanced" Switch="o" Separator=" " F1Keyword="VC.Project.VCMidlTool.RedirectOutputAndErrors">
+  </StringProperty>
+  <StringProperty Subtype="folder" Name="TrackerLogDirectory" DisplayName="跟踪器日志目录" Description="跟踪器日志目录。" IncludeInCommandLine="false" Visible="false">
+  </StringProperty>
+  <StringProperty Name="AdditionalOptions" DisplayName="附加选项" Description="附加选项" Category="Command Line" F1Keyword="vc.project.AdditionalOptionsPage">
+  </StringProperty>
+</Rule>

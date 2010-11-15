@@ -4,7 +4,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 6 in Visual Studio 2010
 
-1.0  [2010-11-10]
+2.0 Alpha 1  [2010-11-15]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -53,6 +53,13 @@ Credits
     <EnumValue Name="DynamicLibrary" DisplayName="Dynamic Library (.dll)" Description="Dynamic Library (.dll)" />
     <EnumValue Name="StaticLibrary" DisplayName="Static library (.lib)" Description="Static Library (.lib)" />
     <EnumValue Name="Utility" DisplayName="Utility" Description="Utility" />
+  </EnumProperty>
+  <EnumProperty Name="CLRSupport" DisplayName="Common Language Runtime Support"
+                Description="Specifies whether this configuration supports the Common Language Runtime. This is incompatible with some other settings, e.g. runtime checks. See help for /clr family of C++ compiler switches for full list of conflicts."
+                Category="ProjectDefaults" Visible="false"
+                F1Keyword="VC.Project.VCConfiguration.ManagedExtensions">
+    <EnumValue Name="false" DisplayName="No Common Language Runtime Support"
+               Description="No Common Language Runtime Support" />
   </EnumProperty>
   <StringProperty Name="BuildLogFile" DisplayName="Build Log File"
                   Description="Specifies the build log file to write to when build logging is enabled."

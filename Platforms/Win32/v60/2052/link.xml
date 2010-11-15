@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
+- Native multi-targeting support for Visual Studio 6 in Visual Studio 2010
+
+2.0 Alpha 1  [2010-11-15]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+  
+  This file is a derivative work based on the file of the same name that is
+  included with Visual Studio 2010. The original file bears the copyright
+  notice reproduced below. Implicit authorization from Microsoft to create and
+  distribute derivative works is deduced from comments in the files and
+  documentation which describe ways to customize the build system by making
+  changes to these files.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="Link" PageTemplate="tool" DisplayName="链接器" SwitchPrefix="/" Order="20" xmlns="http://schemas.microsoft.com/build/2009/properties" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+  <Rule.Categories>
+    <Category Name="General" DisplayName="常规"/>
+    <Category Name="Input" DisplayName="输入"/>
+    <Category Name="Debugging" DisplayName="调试"/>
+    <Category Name="System" DisplayName="系统"/>
+    <Category Name="Optimization" DisplayName="优化"/>
+    <Category Name="Embedded IDL" DisplayName="嵌入的 IDL"/>
+    <Category Name="Advanced" DisplayName="高级"/>
+    <Category Name="Command Line" DisplayName="命令行" Subtype="CommandLine"/>
+  </Rule.Categories>
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" ItemType="Link" Label="" HasConfigurationCondition="true"/>
+  </Rule.DataSource>
+  <StringProperty Subtype="file" Name="OutputFile" DisplayName="输出文件" Description="/OUT 选项重写链接器创建的程序的默认名称和位置。" Category="General" Switch="OUT" Separator=":" F1Keyword="VC.Project.VCLinkerTool.OutputFile">
+  </StringProperty>
+  <EnumProperty Name="ShowProgress" DisplayName="显示进度" Description="打印链接器进度消息" Category="General" F1Keyword="VC.Project.VCLinkerTool.ShowProgress">
+    <EnumValue Name="NotSet" Switch="" DisplayName="未设置" Description="无详细信息。">
+    </EnumValue>
+    <EnumValue Name="LinkVerbose" Switch="VERBOSE" DisplayName="显示所有进度消息" Description="显示所有进度消息。">
+    </EnumValue>
+    <EnumValue Name="LinkVerboseLib" Switch="VERBOSE:Lib" DisplayName="对于搜索的库" Description="显示只指示所搜索的库的进度消息">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Name="Version" DisplayName="版本" Description="/VERSION 选项告知链接器将版本号置于 .exe 或 .dll 文件头中。使用 DUMPBIN /HEADERS 可查看 OPTIONAL HEADER VALUES 的映像版本字段，从而查看 /VERSION 的效果。" Category="General" Switch="VERSION" Separator=":" F1Keyword="VC.Project.VCLinkerTool.Version">
+  </StringProperty>
+  <BoolProperty ReverseSwitch="INCREMENTAL:NO" Name="LinkIncremental" DisplayName="启用增量链接" Description="启用增量链接。     (/INCREMENTAL:YES, /INCREMENTAL:NO)" Category="General" Switch="INCREMENTAL:YES" F1Keyword="VC.Project.VCLinkerTool.LinkIncremental">
+    <BoolProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="" Label="" HasConfigurationCondition="true"/>
+    </BoolProperty.DataSource>
+  </BoolProperty>
+  <BoolProperty Name="SuppressStartupBanner" DisplayName="取消显示启动版权标志" Description="/NOLOGO 选项禁止显示版权消息和版本号。" Category="General" Switch="NOLOGO" F1Keyword="VC.Project.VCLinkerTool.SuppressStartupBanner">
+  </BoolProperty>
+  <BoolProperty Name="IgnoreImportLibrary" DisplayName="忽略导入库" Description="指定不应将由此配置生成的导入库导入到依赖项目中。" Category="General" F1Keyword="VC.Project.VCLinkerTool.IgnoreImportLibrary">
+    <BoolProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="" Label="" HasConfigurationCondition="true"/>
+    </BoolProperty.DataSource>
+  </BoolProperty>
+  <BoolProperty Name="RegisterOutput" DisplayName="注册输出" Description="指定是否注册此生成的主输出。" Category="General" IncludeInCommandLine="false" F1Keyword="VC.Project.VCLinkerTool.RegisterOutput">
+  </BoolProperty>
+  <BoolProperty Name="PerUserRedirection" DisplayName="逐用户重定向" Description="启用“注册输出”后，“逐用户重定向”强制注册表将向 HKEY_CLASSES_ROOT 写入内容重定向为向 HKEY_CURRENT_USER 写入。" Category="General" IncludeInCommandLine="false" F1Keyword="VC.Project.VCLinkerTool.PerUserRedirection">
+  </BoolProperty>
+  <StringListProperty Subtype="folder" Name="AdditionalLibraryDirectories" DisplayName="附加库目录" Description="允许用户重写环境库路径(/LIBPATH:folder)" Category="General" Switch="LIBPATH:" F1Keyword="VC.Project.VCLinkerTool.AdditionalLibraryDirectories">
+  </StringListProperty>
+  <BoolProperty Name="LinkLibraryDependencies" DisplayName="链接库依赖项" Description="指定是否自动链接项目依赖项的库输出。" Category="General" IncludeInCommandLine="false" F1Keyword="VC.Project.VCLinkerTool.LinkLibraryDependencies">
+    <BoolProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="ProjectReference" Label="" HasConfigurationCondition="true"/>
+    </BoolProperty.DataSource>
+  </BoolProperty>
+  <BoolProperty Name="UseLibraryDependencyInputs" DisplayName="使用库依赖项输入" Description="指定在项目依赖项的库输出中进行链接时，是否使用对库管理器工具的输入，而不使用库文件本身。" Category="General" IncludeInCommandLine="false" F1Keyword="VC.Project.VCLinkerTool.UseLibraryDependencyInputs">
+    <BoolProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="ProjectReference" Label="" HasConfigurationCondition="true"/>
+    </BoolProperty.DataSource>
+  </BoolProperty>
+  <EnumProperty Name="ForceFileOutput" DisplayName="强制文件输出" Description="/FORCE 选项告知链接器创建 .exe 文件或 DLL，即使引用的符号未经定义或多次定义也是如此。这可能会创建无效的 exe 文件。" Category="General" F1Keyword="VC.Project.VCLinkerTool.ForceFileOutput">
+    <EnumValue Name="Enabled" Switch="FORCE" DisplayName="已启用" Description="不带参数的 /FORCE 表示多次定义和未解析。">
+    </EnumValue>
+    <EnumValue Name="MultiplyDefinedSymbolOnly" Switch="FORCE:MULTIPLE" DisplayName="仅限多次定义的符号" Description="使用 /FORCE:MULTIPLE 可创建输出文件，而不管 LINK 是否找到了符号的多个定义。">
+    </EnumValue>
+    <EnumValue Name="UndefinedSymbolOnly" Switch="FORCE:UNRESOLVED" DisplayName="仅限未定义的符号" Description="使用 /FORCE:UNRESOLVED 可创建输出文件，而不管 LINK 是否找到未定义的符号。如果未解析入口点符号，则将忽略 /FORCE:UNRESOLVED。">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Name="SpecifySectionAttributes" DisplayName="指定节特性" Description="/SECTION 选项将更改节的特性，以重写编译节的 .obj 文件时设置的特性。" Category="General" Switch="SECTION" Separator=":" F1Keyword="VC.Project.VCLinkerTool.SpecifySectionAttributes">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="MSDOSStubFileName" DisplayName="MS-DOS 存根(Stub)文件名" Description="/STUB 选项将 MS-DOS 存根(Stub)程序附加到 Win32 程序。" Category="General" Switch="STUB" Separator=":" Visible="false">
+  </StringProperty>
+  <StringProperty Subtype="folder" Name="TrackerLogDirectory" DisplayName="跟踪器日志目录" Description="跟踪器日志目录。" Category="General" IncludeInCommandLine="false" Visible="false">
+  </StringProperty>
+  <StringListProperty Subtype="file" Name="AdditionalDependencies" DisplayName="附加依赖项" Description="指定要添加到链接命令行的附加项[例如 kernel32.lib] " Category="Input" F1Keyword="VC.Project.VCLinkerTool.AdditionalDependencies">
+  </StringListProperty>
+  <BoolProperty Name="IgnoreAllDefaultLibraries" DisplayName="忽略所有默认库" Description="/NODEFAULTLIB 选项通知链接器从其在解析外部引用时搜索的库列表中移除一个或多个默认库。" Category="Input" Switch="NODEFAULTLIB" F1Keyword="VC.Project.VCLinkerTool.IgnoreAllDefaultLibraries">
+  </BoolProperty>
+  <StringListProperty Subtype="file" Name="IgnoreSpecificDefaultLibraries" DisplayName="忽略特定默认库" Description="指定要忽略的一个或多个默认库的名称；用分号分隔多个库。     (/NODEFAULTLIB:[名称, 名称, ...])" Category="Input" Switch="NODEFAULTLIB:" F1Keyword="VC.Project.VCLinkerTool.IgnoreDefaultLibraryNames">
+  </StringListProperty>
+  <StringProperty Subtype="file" Name="ModuleDefinitionFile" DisplayName="模块定义文件" Description="/DEF 选项将模块定义文件(.def)传递到链接器。只能为 LINK 指定一个 .def 文件。" Category="Input" Switch="DEF" Separator=":" F1Keyword="VC.Project.VCLinkerTool.ModuleDefinitionFile">
+  </StringProperty>
+  <StringListProperty Subtype="file" Name="ForceSymbolReferences" DisplayName="强制符号引用" Description="/INCLUDE 选项告知链接器将指定的符号添加到符号表中。" Category="Input" Switch="INCLUDE:" F1Keyword="VC.Project.VCLinkerTool.ForceSymbolReferences">
+  </StringListProperty>
+  <StringListProperty Subtype="file" Name="DelayLoadDLLs" DisplayName="延迟加载的 DLL" Description="/DELAYLOAD 选项导致延迟加载 DLL。dllname 指定要延迟加载的 DLL。" Category="Input" Switch="DELAYLOAD:" F1Keyword="VC.Project.VCLinkerTool.DelayLoadDLLS">
+  </StringListProperty>
+  <BoolProperty Name="GenerateDebugInformation" DisplayName="生成调试信息" Description="/DEBUG 选项可为 .exe 文件或 DLL 创建调试信息。" Category="Debugging" Switch="DEBUG" F1Keyword="VC.Project.VCLinkerTool.GenerateDebugInformation">
+  </BoolProperty>
+  <EnumProperty Name="DebugInformationFormat" DisplayName="Debug Information Format" Description="Specifies the type of debugging information generated by the linker.    (/DEBUGTYPE:[CV|COFF|BOTH])" Category="Debugging">
+    <EnumValue Name="CV" Switch="DEBUGTYPE:CV" DisplayName="Microsoft Format" Description="This option creates Microsoft Format debugging information.">
+    </EnumValue>
+    <EnumValue Name="COFF" Switch="DEBUGTYPE:COFF" DisplayName="COFF Format" Description="This option creates Common Object File Format (COFF) debugging information.">
+    </EnumValue>
+    <EnumValue Name="Both" Switch="DEBUGTYPE:BOTH" DisplayName="Both Formats" Description="This option creates both COFF debugging information and Microsoft Format debugging information.">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Subtype="file" Name="ProgramDatabaseFile" DisplayName="生成程序数据库文件" Description="默认情况下，当指定 /DEBUG 时，链接器将创建用于保存调试信息的程序数据库(PDB)。PDB 的默认文件名由程序的基名称和 .pdb 扩展名组成。" Category="Debugging" Switch="PDB" Separator=":" F1Keyword="VC.Project.VCLinkerTool.ProgramDatabaseFile">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="StripPrivateSymbols" DisplayName="去除私有符号" Description="当使用任何可生成 PDB 文件的编译器或链接器选项(/DEBUG、/Z7、/Zd 或 /Zi)生成程序映像时，/PDBSTRIPPED 选项将创建另一个程序数据库(PDB)文件。" Category="Debugging" Switch="PDBSTRIPPED" Separator=":" F1Keyword="VC.Project.VCLinkerTool.StripPrivateSymbols">
+  </StringProperty>
+  <BoolProperty Name="GenerateMapFile" DisplayName="生成映射文件" Description="/MAP 选项告知链接器创建映射文件。" Category="Debugging" Switch="MAP" F1Keyword="VC.Project.VCLinkerTool.GenerateMapFile">
+    <Argument Property="MapFileName" IsRequired="false"/>
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="MapFileName" DisplayName="映射文件名" Description="用户指定的映射文件的名称。该名称将会替换默认名称。" Category="Debugging" Separator=":" F1Keyword="VC.Project.VCLinkerTool.MapFileName">
+  </StringProperty>
+  <BoolProperty Name="MapExports" DisplayName="映射导出" Description="/MAPINFO 选项告知链接器在映射文件中包括指定的信息，该映射文件是在您指定 /MAP 选项时创建的。EXPORTS 告知链接器包括导出的函数。" Category="Debugging" Switch="MAPINFO:EXPORTS" F1Keyword="VC.Project.VCLinkerTool.MapExports">
+  </BoolProperty>
+  <EnumProperty Name="SubSystem" DisplayName="子系统" Description="/SUBSYSTEM 选项告知操作系统如何运行 .exe 文件。子系统的选择会影响链接器将选择的入口点符号(或入口点函数)。" Category="System" F1Keyword="VC.Project.VCLinkerTool.SubSystem">
+    <EnumProperty.Arguments>
+      <Argument Property="MinimumRequiredVersion" IsRequired="false"/>
+    </EnumProperty.Arguments>
+    <EnumValue Name="NotSet" Switch="" DisplayName="未设置" Description="未设置子系统。">
+    </EnumValue>
+    <EnumValue Name="Console" Switch="SUBSYSTEM:CONSOLE" DisplayName="控制台" Description="Win32 字符模式应用程序。操作系统会为控制台应用程序指定一个控制台。如果定义 main 或 wmain，则默认值是 CONSOLE。">
+    </EnumValue>
+    <EnumValue Name="Windows" Switch="SUBSYSTEM:WINDOWS" DisplayName="窗口" Description="应用程序不需要控制台，原因很可能是它会创建自己的窗口来与用户进行交互。如果定义 WinMain 或 wWinMain，则默认值是 WINDOWS。">
+    </EnumValue>
+    <EnumValue Name="Native" Switch="SUBSYSTEM:NATIVE" DisplayName="本机" Description="针对 Windows NT 的设备驱动程序。如果指定 /DRIVER:WDM，则默认值是 NATIVE。">
+    </EnumValue>
+    <EnumValue Name="EFI Application" Switch="SUBSYSTEM:EFI_APPLICATION" DisplayName="EFI 应用程序" Description="EFI 应用程序">
+    </EnumValue>
+    <EnumValue Name="EFI Boot Service Driver" Switch="SUBSYSTEM:EFI_BOOT_SERVICE_DRIVER" DisplayName="EFI 启动服务驱动程序" Description="EFI 启动服务驱动程序">
+    </EnumValue>
+    <EnumValue Name="EFI ROM" Switch="SUBSYSTEM:EFI_ROM" DisplayName="EFI ROM" Description="EFI ROM">
+    </EnumValue>
+    <EnumValue Name="EFI Runtime" Switch="SUBSYSTEM:EFI_RUNTIME_DRIVER" DisplayName="EFI 运行时" Description="EFI 运行时">
+    </EnumValue>
+    <EnumValue Name="WindowsCE" Switch="SUBSYSTEM:WINDOWSCE" DisplayName="WindowsCE" Description="在 Windows CE 设备上运行的应用程序。">
+    </EnumValue>
+    <EnumValue Name="POSIX" Switch="SUBSYSTEM:POSIX" DisplayName="POSIX" Description="与 Windows NT 中的 POSIX 子系统一起运行的应用程序。">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Name="MinimumRequiredVersion" DisplayName="所需的最低版本" Description="指定所需的子系统的最低版本。参数是介于 0 至 65,535 范围内的十进制数。" Category="System" Separator="," F1Keyword="VC.Project.VCLinkerTool.MinimumRequiredVersion">
+  </StringProperty>
+  <StringProperty Name="HeapReserveSize" DisplayName="堆保留大小" Description="指定虚拟内存中堆分配的合计大小。默认值是 1MB。    (/HEAP:reserve)" Category="System" Switch="HEAP" Separator=":" F1Keyword="VC.Project.VCLinkerTool.HeapReserveSize">
+    <Argument Property="HeapCommitSize" IsRequired="false" Separator=","/>
+  </StringProperty>
+  <StringProperty Name="HeapCommitSize" DisplayName="堆提交大小" Description="指定物理内存中堆分配的合计大小。默认值是 4KB。    (/HEAP:reserve,commit)" Category="System" F1Keyword="VC.Project.VCLinkerTool.HeapCommitSize">
+  </StringProperty>
+  <StringProperty Name="StackReserveSize" DisplayName="堆栈保留大小" Description="指定虚拟内存中堆栈分配的合计大小。默认值是 1MB。     (/STACK:reserve)" Category="System" Switch="STACK" Separator=":" F1Keyword="VC.Project.VCLinkerTool.StackReserveSize">
+    <Argument Property="StackCommitSize" IsRequired="false" Separator=","/>
+  </StringProperty>
+  <StringProperty Name="StackCommitSize" DisplayName="堆栈提交大小" Description="指定物理内存中堆栈分配的合计大小。默认值是 4KB。     (/STACK:reserve,commit)" Category="System" F1Keyword="VC.Project.VCLinkerTool.StackCommitSize">
+  </StringProperty>
+  <BoolProperty ReverseSwitch="LARGEADDRESSAWARE:NO" Name="LargeAddressAware" DisplayName="启用大地址" Description="/LARGEADDRESSAWARE 选项通知链接器应用程序可以处理大于 2 GB 的地址。默认情况下，如果未以其他方式在链接器行上指定 /LARGEADDRESSAWARE，则启用 /LARGEADDRESSAWARE:NO。" Category="System" Switch="LARGEADDRESSAWARE" F1Keyword="VC.Project.VCLinkerTool.LargeAddressAware">
+  </BoolProperty>
+  <BoolProperty Name="SwapRunFromCD" DisplayName="从 CD 交换运行" Description="/SWAPRUN 选项告知操作系统首先将链接器输出复制到一个交换文件，然后从该文件中运行映像。这是 Windows NT 4.0 (及更高版本)的一项功能。如果指定 CD，则操作系统会将可移动磁盘上的映像复制到一个页面文件中，然后再加载该映像。" Category="System" Switch="SWAPRUN:CD" F1Keyword="VC.Project.VCLinkerTool.SwapRunFromCD">
+  </BoolProperty>
+  <BoolProperty Name="SwapRunFromNET" DisplayName="从网络交换运行" Description="/SWAPRUN 选项告知操作系统首先将链接器输出复制到一个交换文件，然后从该文件中运行映像。这是 Windows NT 4.0 (及更高版本)的一项功能。如果指定 NET，则操作系统首先将二进制文件映像从网络位置复制到一个交换文件，然后从该文件中加载该映像。此选项对通过网络运行应用程序的情况非常有用。" Category="System" Switch="SWAPRUN:NET" F1Keyword="VC.Project.VCLinkerTool.SwapRunFromNet">
+  </BoolProperty>
+  <EnumProperty Name="Driver" DisplayName="驱动程序" Description="使用 /DRIVER 链接器选项可生成 Windows NT 内核模式驱动程序。" Category="System" F1Keyword="VC.Project.VCLinkerTool.driver">
+    <EnumValue Name="NotSet" Switch="" DisplayName="未设置" Description="默认驱动程序设置。">
+    </EnumValue>
+    <EnumValue Name="Driver" Switch="Driver" DisplayName="驱动程序" Description="驱动程序">
+    </EnumValue>
+    <EnumValue Name="UpOnly" Switch="DRIVER:UPONLY" DisplayName="仅 UP" Description="/DRIVER:UPONLY 指示链接器将 IMAGE_FILE_UP_SYSTEM_ONLY 位添加到输出标头中的特征，以指定这是一个单处理器(UP)驱动程序。操作系统将拒绝在多处理器(MP)系统上加载 UP 驱动程序。">
+    </EnumValue>
+    <EnumValue Name="WDM" Switch="DRIVER:WDM" DisplayName="WDM" Description="/DRIVER:WDM 指示链接器设置可选标头的 DllCharacteristics 字段中的 IMAGE_DLLCHARACTERISTICS_WDM_DRIVER 位。">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty ReverseSwitch="OPT:NOREF" Name="OptimizeReferences" DisplayName="引用" Description="/OPT:REF 将消除从未引用过的函数和/或数据，而 /OPT:NOREF 则保留从未引用过的函数和/或数据。 " Category="Optimization" Switch="OPT:REF" F1Keyword="VC.Project.VCLinkerTool.OptimizeReferences">
+  </BoolProperty>
+  <BoolProperty ReverseSwitch="OPT:NOWIN98" Name="OptimizeWin98" DisplayName="!# Optimize for Windows 98" Description="!# Align code on 4K boundaries. This improves performance on Windows 98 systems. (/OPT:WIN98, /OPT:NOWIN98) " Category="Optimization" Switch="OPT:WIN98">
+  </BoolProperty>
+  <BoolProperty ReverseSwitch="OPT:NOICF" Name="EnableCOMDATFolding" DisplayName="启用 COMDAT 折叠" Description="使用 /OPT:ICF[=iterations] 可执行相同 COMDAT 折叠。" Category="Optimization" Switch="OPT:ICF" F1Keyword="VC.Project.VCLinkerTool.EnableCOMDATFolding">
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="FunctionOrder" DisplayName="函数顺序" Description="/ORDER 选项告知 LINK 通过按预设的顺序将特定的 COMDAT 放置到映像中来优化程序。LINK 按指定的顺序将函数放置到映像中的每一节内。" Category="Optimization" Switch="ORDER" Separator=":@" F1Keyword="VC.Project.VCLinkerTool.FunctionOrder">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="MidlCommandFile" DisplayName="MIDL 命令" Description="指定 MIDL 命令行选项(/MIDL:@responsefile)" Category="Embedded IDL" Switch="MIDL" Separator=":@" F1Keyword="VC.Project.VCLinkerTool.MidlCommandFile">
+  </StringProperty>
+  <BoolProperty Name="IgnoreEmbeddedIDL" DisplayName="忽略嵌入的 IDL" Description="/IGNOREIDL 选项指定不应将源代码中的任何 IDL 特性处理到 .idl 文件中。" Category="Embedded IDL" Switch="IGNOREIDL" F1Keyword="VC.Project.VCLinkerTool.IgnoreEmbeddedIDL">
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="MergedIDLBaseFileName" DisplayName="合并的 IDL 基文件名" Description="/IDLOUT 选项指定 .idl 文件的名称和扩展名。" Category="Embedded IDL" Switch="IDLOUT" Separator=":" F1Keyword="VC.Project.VCLinkerTool.MergedIDLBaseFileName">
+  </StringProperty>
+  <StringProperty Name="EntryPointSymbol" DisplayName="入口点" Description="/ENTRY 选项将某个入口点函数指定为 .exe 文件或 DLL 的起始地址。" Category="Advanced" Switch="ENTRY" Separator=":" F1Keyword="VC.Project.VCLinkerTool.EntryPointSymbol">
+  </StringProperty>
+  <BoolProperty Name="NoEntryPoint" DisplayName="无入口点" Description="/NOENTRY 选项是创建纯资源 DLL 所必需的。使用此选项可防止 LINK 将对 _main 的引用链接到 DLL。" Category="Advanced" Switch="NOENTRY" F1Keyword="VC.Project.VCLinkerTool.ResourceOnlyDLL">
+  </BoolProperty>
+  <BoolProperty Name="SetChecksum" DisplayName="设置校验和" Description="/RELEASE 选项将在 .exe 文件头中设置校验和。" Category="Advanced" Switch="RELEASE" F1Keyword="VC.Project.VCLinkerTool.SetChecksum">
+  </BoolProperty>
+  <StringProperty Name="BaseAddress" DisplayName="基址" Description="设置程序的基址(/BASE:{address[,size] | @filename,key})" Category="Advanced" Switch="BASE" Separator=":" F1Keyword="VC.Project.VCLinkerTool.BaseAddress">
+  </StringProperty>
+  <BoolProperty ReverseSwitch="FIXED:NO" Name="FixedBaseAddress" DisplayName="固定基址" Description="创建只能在其首选基址加载的程序(/FIXED[:NO])" Category="Advanced" Switch="FIXED" F1Keyword="VC.Project.VCLinkerTool.FixedBaseAddress">
+  </BoolProperty>
+  <BoolProperty Name="SupportUnloadOfDelayLoadedDLL" DisplayName="卸载延迟加载的 DLL" Description="UNLOAD 限定符告知延迟加载 Helper 函数支持显式卸载 DLL。(/DELAY:UNLOAD)" Category="Advanced" Switch="DELAY:UNLOAD" F1Keyword="VC.Project.VCLinkerTool.SupportUnloadOfDelayLoadedDLL">
+  </BoolProperty>
+  <BoolProperty Name="SupportNobindOfDelayLoadedDLL" DisplayName="取消绑定延迟加载的 DLL" Description="NOBIND 限定符告知链接器不要在最终映像中包括可绑定的 IAT。默认设置是为延迟加载的 DLL 创建可绑定的 IAT。(/DELAY:NOBIND)" Category="Advanced" Switch="DELAY:NOBIND" F1Keyword="VC.Project.VCLinkerTool.SupportNobindOfDelayLoadedDLL">
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="ImportLibrary" DisplayName="导入库" Description="重写默认导入库名称(/IMPLIB:filename)" Category="Advanced" Switch="IMPLIB" Separator=":" F1Keyword="VC.Project.VCLinkerTool.ImportLIbrary">
+  </StringProperty>
+  <StringProperty Name="MergeSections" DisplayName="合并节" Description="/MERGE 选项可组合第一节(源)和第二节(目标)，并将生成的节命名为原目标节的名称。例如 /merge:.rdata=.text。" Category="Advanced" Switch="MERGE" Separator=":" F1Keyword="VC.Project.VCLinkerTool.MergeSections">
+  </StringProperty>
+  <EnumProperty Name="TargetMachine" DisplayName="目标计算机" Description="/MACHINE 选项指定程序的目标平台。" Category="Advanced" F1Keyword="VC.Project.VCLinkerTool.TargetMachine">
+    <EnumValue Name="NotSet" Switch="" DisplayName="未设置">
+    </EnumValue>
+    <EnumValue Name="MachineARM" Switch="MACHINE:ARM" DisplayName="MachineARM">
+    </EnumValue>
+    <EnumValue Name="MachineEBC" Switch="MACHINE:EBC" DisplayName="MachineEBC">
+    </EnumValue>
+    <EnumValue Name="MachineIA64" Switch="MACHINE:IA64" DisplayName="MachineIA64">
+    </EnumValue>
+    <EnumValue Name="MachineMIPS" Switch="MACHINE:MIPS" DisplayName="MachineMIPS">
+    </EnumValue>
+    <EnumValue Name="MachineMIPS16" Switch="MACHINE:MIPS16" DisplayName="MachineMIPS16">
+    </EnumValue>
+    <EnumValue Name="MachineMIPSFPU" Switch="MACHINE:MIPSFPU" DisplayName="MachineMIPSFPU">
+    </EnumValue>
+    <EnumValue Name="MachineMIPSFPU16" Switch="MACHINE:MIPSFPU16" DisplayName="MachineMIPSFPU16">
+    </EnumValue>
+    <EnumValue Name="MachineSH4" Switch="MACHINE:SH4" DisplayName="MachineSH4">
+    </EnumValue>
+    <EnumValue Name="MachineTHUMB" Switch="MACHINE:THUMB" DisplayName="MachineTHUMB">
+    </EnumValue>
+    <EnumValue Name="MachineX64" Switch="MACHINE:X64" DisplayName="MachineX64">
+    </EnumValue>
+    <EnumValue Name="MachineX86" Switch="MACHINE:X86" DisplayName="MachineX86">
+    </EnumValue>
+  </EnumProperty>
+  <IntProperty Name="SectionAlignment" DisplayName="部分的对齐方式" Description="/ALIGN 选项指定程序的线性地址空间内的每个部分的对齐方式。数字变量以字节为单位，并且必须是 2 的幂。" Category="Advanced" Switch="ALIGN" Separator=":" F1Keyword="VC.Project.VCLinkerTool.Alignment">
+  </IntProperty>
+  <BoolProperty Name="LinkDLL" Switch="DLL" Visible="false">
+  </BoolProperty>
+  <StringProperty Name="AdditionalOptions" DisplayName="附加选项" Description="附加选项" Category="Command Line" F1Keyword="vc.project.AdditionalOptionsPage">
+  </StringProperty>
+  <BoolProperty Name="BuildingInIDE" Visible="false">
+  </BoolProperty>
+</Rule>

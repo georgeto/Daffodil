@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
+- Native multi-targeting support for Visual Studio 2002 in Visual Studio 2010
+
+2.0 Alpha 1  [2010-11-15]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+  
+  This file is a derivative work based on the file of the same name that is
+  included with Visual Studio 2010. The original file bears the copyright
+  notice reproduced below. Implicit authorization from Microsoft to create and
+  distribute derivative works is deduced from comments in the files and
+  documentation which describe ways to customize the build system by making
+  changes to these files.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="LIB" PageTemplate="tool" DisplayName="Générateur de bibliothèques" SwitchPrefix="/" Order="40" xmlns="http://schemas.microsoft.com/build/2009/properties" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+  <Rule.Categories>
+    <Category Name="General" DisplayName="Général"/>
+    <Category Name="Command Line" DisplayName="Ligne de commande" Subtype="CommandLine"/>
+  </Rule.Categories>
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" ItemType="Lib" Label="" HasConfigurationCondition="true"/>
+  </Rule.DataSource>
+  <StringProperty Subtype="file" Name="OutputFile" DisplayName="Fichier de sortie" Description="L'option /OUT substitue le nom et l'emplacement par défaut du programme créé par lib." Category="General" Switch="OUT" Separator=":" F1Keyword="VC.Project.VCLibrarianTool.OutputFile">
+  </StringProperty>
+  <StringListProperty Subtype="file" Name="AdditionalDependencies" DisplayName="Dépendances supplémentaires" Description="Spécifie les éléments supplémentaires à ajouter à la ligne de commande de l'édition de liens (par exemple, kernel32.lib) " Category="General" F1Keyword="VC.Project.VCLibrarianTool.AdditionalDependencies">
+  </StringListProperty>
+  <StringListProperty Subtype="folder" Name="AdditionalLibraryDirectories" DisplayName="Répertoires de bibliothèques supplémentaires" Description="Permet à l'utilisateur de substituer le chemin d'accès de la bibliothèque d'environnement" Category="General" Switch="LIBPATH:" F1Keyword="VC.Project.VCLibrarianTool.AdditionalLibraryDirectories">
+  </StringListProperty>
+  <BoolProperty Name="SuppressStartupBanner" DisplayName="Suppression de la bannière de démarrage" Description="L'option /NOLOGO empêche l'affichage du message de copyright et du numéro de version. " Category="General" Switch="NOLOGO" F1Keyword="VC.Project.VCLibrarianTool.SuppressStartupBanner">
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="ModuleDefinitionFile" DisplayName="Nom de fichier de définition de module" Description="L'option /DEF passe un fichier de définition de module (.def) à LIB. Un seul fichier .def peut être passé à LIB." Category="General" Switch="DEF" Separator=":" F1Keyword="VC.Project.VCLibrarianTool.ModuleDefinitionFile">
+  </StringProperty>
+  <BoolProperty Name="IgnoreAllDefaultLibraries" DisplayName="Toutes bibliothèques par défaut ignorées" Description="L'option /NODEFAULTLIB indique à lib de supprimer une ou plusieurs bibliothèques par défaut dans la liste de recherche des bibliothèques lors de la résolution des références externes. " Category="General" Switch="NODEFAULTLIB" F1Keyword="VC.Project.VCLibrarianTool.IgnoreAllDefaultLibraries">
+  </BoolProperty>
+  <StringListProperty Subtype="file" Name="IgnoreSpecificDefaultLibraries" DisplayName="Bibliothèques par défaut spécifiques ignorées" Description="Bibliothèque à exclure lors de la résolution des références externes par lib." Category="General" Switch="NODEFAULTLIB:" F1Keyword="VC.Project.VCLibrarianTool.IgnoreDefaultLibraryNames">
+  </StringListProperty>
+  <StringListProperty Name="ExportNamedFunctions" DisplayName="Export des fonctions nommées" Description="Exporte une ou plusieurs fonctions spécifiées " Category="General" Switch="EXPORT:" F1Keyword="VC.Project.VCLibrarianTool.ExportNamedFunctions">
+  </StringListProperty>
+  <StringProperty Name="ForceSymbolReferences" DisplayName="Références des symboles forcées" Description="Force Lib à inclure une référence à ce symbole" Category="General" Switch="INCLUDE" Separator=":" F1Keyword="VC.Project.VCLibrarianTool.ForceSymbolReferences">
+  </StringProperty>
+  <BoolProperty Name="LinkLibraryDependencies" DisplayName="Dépendances de bibliothèque de liens" Description="Spécifie si les sorties de bibliothèque émanant des dépendances du projet sont automatiquement liées." Category="General" IncludeInCommandLine="false" F1Keyword="VC.Project.VCLibrarianTool.LinkLibraryDependencies">
+    <BoolProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="ProjectReference" Label="" HasConfigurationCondition="true"/>
+    </BoolProperty.DataSource>
+  </BoolProperty>
+  <StringProperty Name="DisplayLibrary" DisplayName="Affichage de la bibliothèque dans la sortie standard" Description="Affiche les informations sur la bibliothèque de sortie dans la sortie standard. La sortie peut être redirigée vers un fichier. Vous pouvez utiliser /LIST pour répertorier le contenu d'une bibliothèque existante sans le modifier." Category="General" Switch="LIST" Separator=":" Visible="false">
+  </StringProperty>
+  <EnumProperty Name="TargetMachine" DisplayName="Ordinateur cible" Description="L'option /MACHINE spécifie la plateforme cible du programme." Category="General" F1Keyword="VC.Project.VCLibrarianTool.TargetMachine">
+    <EnumValue Name="MachineARM" Switch="MACHINE:ARM" DisplayName="MachineARM" Description="MachineARM">
+    </EnumValue>
+    <EnumValue Name="MachineEBC" Switch="MACHINE:EBC" DisplayName="MachineEBC" Description="MachineEBC">
+    </EnumValue>
+    <EnumValue Name="MachineIA64" Switch="MACHINE:IA64" DisplayName="MachineIA64" Description="MachineIA64">
+    </EnumValue>
+    <EnumValue Name="MachineMIPS" Switch="MACHINE:MIPS" DisplayName="MachineMIPS" Description="MachineMIPS">
+    </EnumValue>
+    <EnumValue Name="MachineMIPS16" Switch="MACHINE:MIPS16" DisplayName="MachineMIPS16" Description="MachineMIPS16">
+    </EnumValue>
+    <EnumValue Name="MachineMIPSFPU" Switch="MACHINE:MIPSFPU" DisplayName="MachineMIPSFPU" Description="MachineMIPSFPU">
+    </EnumValue>
+    <EnumValue Name="MachineMIPSFPU16" Switch="MACHINE:MIPSFPU16" DisplayName="MachineMIPSFPU16" Description="MachineMIPSFPU16">
+    </EnumValue>
+    <EnumValue Name="MachineSH4" Switch="MACHINE:SH4" DisplayName="MachineSH4" Description="MachineSH4">
+    </EnumValue>
+    <EnumValue Name="MachineTHUMB" Switch="MACHINE:THUMB" DisplayName="MachineTHUMB" Description="MachineTHUMB">
+    </EnumValue>
+    <EnumValue Name="MachineX64" Switch="MACHINE:X64" DisplayName="MachineX64" Description="MachineX64">
+    </EnumValue>
+    <EnumValue Name="MachineX86" Switch="MACHINE:X86" DisplayName="MachineX86" Description="MachineX86">
+    </EnumValue>
+  </EnumProperty>
+  <EnumProperty Name="SubSystem" DisplayName="Sous-système" Description="L'option /SUBSYSTEM indique au système d'exploitation comment exécuter le fichier .exe. Le choix du sous-système conditionne le choix du symbole de point d'entrée (ou la fonction de point d'entrée) par l'Éditeur de liens." Category="General" F1Keyword="VC.Project.VCLibrarianTool.SubSystem">
+    <EnumProperty.Arguments>
+      <Argument Property="MinimumRequiredVersion" IsRequired="false"/>
+    </EnumProperty.Arguments>
+    <EnumValue Name="Console" Switch="SUBSYSTEM:CONSOLE" DisplayName="Console" Description="Application en mode caractères Win32. Le système d'exploitation fournit une console aux applications console. Si Main ou Wmain est défini, CONSOLE est la valeur par défaut.">
+    </EnumValue>
+    <EnumValue Name="Windows" Switch="SUBSYSTEM:WINDOWS" DisplayName="Windows" Description="L'application ne nécessite pas de console, car elle crée probablement ses propres fenêtres d'interaction avec l'utilisateur. Si WinMain ou wWinMain est défini, WINDOWS est la valeur par défaut.">
+    </EnumValue>
+    <EnumValue Name="Native" Switch="SUBSYSTEM:NATIVE" DisplayName="Natif" Description="Pilotes de périphérique pour Windows NT. Si /DRIVER:WDM est spécifié, NATIVE est la valeur par défaut.">
+    </EnumValue>
+    <EnumValue Name="EFI Application" Switch="SUBSYSTEM:EFI_APPLICATION" DisplayName="Application EFI" Description="Application EFI.">
+    </EnumValue>
+    <EnumValue Name="EFI Boot Service Driver" Switch="SUBSYSTEM:EFI_BOOT_SERVICE_DRIVER" DisplayName="Pilote de service d'amorçage EFI" Description="Pilote de service d'amorçage EFI.">
+    </EnumValue>
+    <EnumValue Name="EFI ROM" Switch="SUBSYSTEM:EFI_ROM" DisplayName="ROM EFI" Description="ROM EFI.">
+    </EnumValue>
+    <EnumValue Name="EFI Runtime" Switch="SUBSYSTEM:EFI_RUNTIME_DRIVER" DisplayName="Runtime EFI" Description="Runtime EFI.">
+    </EnumValue>
+    <EnumValue Name="WindowsCE" Switch="SUBSYSTEM:WINDOWSCE" DisplayName="WindowsCE" Description="Application qui s'exécute sur un appareil Windows CE.">
+    </EnumValue>
+    <EnumValue Name="POSIX" Switch="SUBSYSTEM:POSIX" DisplayName="POSIX" Description="Application qui s'exécute avec le sous-système POSIX dans Windows NT.">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Name="MinimumRequiredVersion" DisplayName="Version minimale requise" Description="Spécifie la version minimale requise pour le sous-système. Les arguments sont des chiffres décimaux compris entre 0 et 65 535." Category="General" Separator=",">
+  </StringProperty>
+  <StringListProperty Subtype="file" Name="RemoveObjects" DisplayName="Suppression d'objets" Description="Supprime l'objet spécifié dans la bibliothèque de sortie. LIB crée une bibliothèque de sortie en combinant tous les objets (dans des fichiers objets ou des bibliothèques), puis en supprimant les objets spécifiés avec /REMOVE." Category="General" Switch="REMOVE:" F1Keyword="VC.Project.VCLibrarianTool.RemoveObjects">
+  </StringListProperty>
+  <BoolProperty Name="Verbose" DisplayName="Commentaires" Description="Commentaires" Category="General" Switch="VERBOSE" F1Keyword="VC.Project.VCLibrarianTool.Verbose">
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="Name" DisplayName="Nom" Description="Lors de la génération d'une bibliothèque d'importation, spécifie le nom de la DLL pour laquelle la bibliothèque d'importation est générée." Category="General" Switch="NAME:" F1Keyword="VC.Project.VCLibrarianTool.Name">
+  </StringProperty>
+  <StringProperty Subtype="folder" Name="TrackerLogDirectory" DisplayName="Répertoire des journaux de Tracker" Description="Répertoire des journaux de Tracker." Category="General" IncludeInCommandLine="false" Visible="false">
+  </StringProperty>
+  <StringProperty Name="AdditionalOptions" DisplayName="Options supplémentaires" Description="Options supplémentaires" Category="Command Line" F1Keyword="vc.project.AdditionalOptionsPage">
+  </StringProperty>
+</Rule>

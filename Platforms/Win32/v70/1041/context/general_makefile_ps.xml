@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
+- Native multi-targeting support for Visual Studio 2002 in Visual Studio 2010
+
+2.0 Alpha 1  [2010-11-15]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+  
+  This file is a derivative work based on the file of the same name that is
+  included with Visual Studio 2010. The original file bears the copyright
+  notice reproduced below. Implicit authorization from Microsoft to create and
+  distribute derivative works is deduced from comments in the files and
+  documentation which describe ways to customize the build system by making
+  changes to these files.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="ConfigurationGeneral" DisplayName="全般" PageTemplate="generic" Description="全般" xmlns="http://schemas.microsoft.com/build/2009/properties">
+  <Rule.Categories>
+    <Category Name="General" DisplayName="全般" Description="全般"/>
+  </Rule.Categories>
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" Label="Configuration"/>
+  </Rule.DataSource>
+  <StringProperty Name="OutDir" DisplayName="出力ディレクトリ" Description="出力ファイル ディレクトリへの相対パスを指定します。環境変数を含めることができます。" Category="General" Default="$(SolutionDir)$(ConfigurationName)" Subtype="folder" F1Keyword="VC.Project.VCConfiguration.OutputDirectory"/>
+  <StringProperty Name="IntDir" DisplayName="中間ディレクトリ" Description="中間ファイル ディレクトリへの相対パスを指定します。環境変数を含めることができます。" Category="General" Default="$(ConfigurationName)" Subtype="folder" F1Keyword="VC.Project.VCConfiguration.IntermediateDirectory"/>
+  <EnumProperty Name="CLRSupport" DisplayName="共通言語ランタイム サポート" Description="コードで使用する共通言語ランタイム サポートを選択します。" Category="General" F1Keyword="VC.Project.VCConfiguration.ManagedExtensions">
+    <EnumValue Name="false" DisplayName="共通言語ランタイム サポートを使用しない" Description="共通言語ランタイム サポートを使用しません"/>
+    <EnumValue Name="true" Switch="clr" DisplayName="共通言語ランタイム サポート" Description="アプリケーションのメタデータを作成して、他の CLR アプリケーションで使用できるようにします。また、アプリケーションで、他の CLR コンポーネントのメタデータの型およびデータを使用できるようにします。"/>
+  </EnumProperty>
+  <StringProperty Name="BuildLogFile" DisplayName="ビルド ログ ファイル" Description="ビルドのログが有効になっている場合、書き込むビルド ログ ファイルを指定します。" F1Keyword="VC.Project.VCConfiguration.BuildLogFile" Category="General" Default="$(ProjectDir)\$(MSBuildProjectName).log" Subtype="file">
+    <StringProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="BuildLog" PersistedName="Path"/>
+    </StringProperty.DataSource>
+  </StringProperty>
+  <StringProperty Name="_ProjectFileVersion" DisplayName="プロジェクト ファイルのバージョン" Description="このプロジェクト ファイルの作成に使用する変換ツールのバージョンを指定します。" Category="General" Visible="false">
+    <StringProperty.DataSource>
+      <DataSource Persistence="ProjectFile"/>
+    </StringProperty.DataSource>
+  </StringProperty>
+</Rule>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
+- Native multi-targeting support for Visual Studio 2003 in Visual Studio 2010
+
+2.0 Alpha 1  [2010-11-15]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+  
+  This file is a derivative work based on the file of the same name that is
+  included with Visual Studio 2010. The original file bears the copyright
+  notice reproduced below. Implicit authorization from Microsoft to create and
+  distribute derivative works is deduced from comments in the files and
+  documentation which describe ways to customize the build system by making
+  changes to these files.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="ConfigurationGeneral" DisplayName="常规" PageTemplate="generic" Description="常规" xmlns="http://schemas.microsoft.com/build/2009/properties">
+  <Rule.Categories>
+    <Category Name="General" DisplayName="常规" Description="常规"/>
+  </Rule.Categories>
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" Label="Configuration"/>
+  </Rule.DataSource>
+  <StringProperty Name="OutDir" DisplayName="输出目录" Description="指定输出文件目录的相对路径；可以包含环境变量。" Category="General" Default="$(SolutionDir)$(ConfigurationName)" Subtype="folder" F1Keyword="VC.Project.VCConfiguration.OutputDirectory"/>
+  <StringProperty Name="IntDir" DisplayName="中间目录" Description="指定中间文件目录的相对路径；可以包含环境变量。" Category="General" Default="$(ConfigurationName)" Subtype="folder" F1Keyword="VC.Project.VCConfiguration.IntermediateDirectory"/>
+  <EnumProperty Name="ConfigurationType" DisplayName="配置类型" Description="指定此配置生成的输出类型。" Category="General" F1Keyword="VC.Project.VCConfiguration.ConfigurationType">
+    <EnumValue Name="Makefile" DisplayName="生成文件" Description="生成文件"/>
+    <EnumValue Name="Application" DisplayName="应用程序(.exe)" Description="应用程序(.exe)"/>
+    <EnumValue Name="DynamicLibrary" DisplayName="动态库(.dll)" Description="动态库(.dll)"/>
+    <EnumValue Name="StaticLibrary" DisplayName="静态库(.lib)" Description="静态库(.lib)"/>
+    <EnumValue Name="Utility" DisplayName="实用工具" Description="实用工具"/>
+  </EnumProperty>
+  <EnumProperty Name="CLRSupport" DisplayName="公共语言运行时支持" Description="选择您的代码所使用的公共语言运行时支持。" Category="General" F1Keyword="VC.Project.VCConfiguration.ManagedExtensions">
+    <EnumValue Name="false" DisplayName="无公共语言运行时支持" Description="无公共语言运行时支持"/>
+    <EnumValue Name="true" Switch="clr" DisplayName="公共语言运行时支持" Description="为您的应用程序创建可供其他 CLR 应用程序使用的元数据，并允许您的应用程序使用其他 CLR 组件的元数据中的类型和数据。"/>
+  </EnumProperty>
+  <StringProperty Name="BuildLogFile" DisplayName="生成日志文件" Description="指定启用生成记录时要写入的生成日志文件。" F1Keyword="VC.Project.VCConfiguration.BuildLogFile" Category="General" Default="$(ProjectDir)\$(MSBuildProjectName).log" Subtype="file">
+    <StringProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="BuildLog" PersistedName="Path"/>
+    </StringProperty.DataSource>
+  </StringProperty>
+  <StringProperty Name="_ProjectFileVersion" DisplayName="项目文件版本" Description="指定用于创建此项目文件的转换工具的版本。" Category="General" Visible="false">
+    <StringProperty.DataSource>
+      <DataSource Persistence="ProjectFile"/>
+    </StringProperty.DataSource>
+  </StringProperty>
+</Rule>

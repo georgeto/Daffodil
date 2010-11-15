@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
+- Native multi-targeting support for Visual Studio 2002 in Visual Studio 2010
+
+2.0 Alpha 1  [2010-11-15]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+  
+  This file is a derivative work based on the file of the same name that is
+  included with Visual Studio 2010. The original file bears the copyright
+  notice reproduced below. Implicit authorization from Microsoft to create and
+  distribute derivative works is deduced from comments in the files and
+  documentation which describe ways to customize the build system by making
+  changes to these files.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="ConfigurationGeneral" DisplayName="Allgemein" PageTemplate="generic" Description="Allgemein" xmlns="http://schemas.microsoft.com/build/2009/properties">
+  <Rule.Categories>
+    <Category Name="General" DisplayName="Allgemein" Description="Allgemein"/>
+    <Category Name="ProjectDefaults" DisplayName="Projektstandards" Description="Projektstandards"/>
+  </Rule.Categories>
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" Label="Configuration"/>
+  </Rule.DataSource>
+  <StringProperty Name="OutDir" DisplayName="Ausgabeverzeichnis" Description="Gibt einen relativen Pfad zum Ausgabedateiverzeichnis an (kann Umgebungsvariablen enthalten)." Category="General" Default="$(SolutionDir)$(Configuration)\" Subtype="folder" F1Keyword="VC.Project.VCConfiguration.OutputDirectory">
+                  <StringProperty.DataSource>
+                     <DataSource Persistence="ProjectFile" Label=""/>
+                  </StringProperty.DataSource>
+  </StringProperty>
+  <StringProperty Name="IntDir" DisplayName="Zwischenverzeichnis" Description="Gibt einen relativen Pfad zum Zwischendateiverzeichnis an (kann Umgebungsvariablen enthalten)." Category="General" Default="$(Configuration)\" Subtype="folder" F1Keyword="VC.Project.VCConfiguration.IntermediateDirectory">
+                  <StringProperty.DataSource>
+                     <DataSource Persistence="ProjectFile" Label=""/>
+                  </StringProperty.DataSource>
+  </StringProperty>
+  <StringProperty Name="TargetName" DisplayName="Zielname" Description="Gibt einen Dateinamen an, der von diesem Projekt generiert wird." F1Keyword="VC.Project.VCConfiguration.TargetName" Category="General" Default="$(ProjectName)">
+                  <StringProperty.DataSource>
+                     <DataSource Persistence="ProjectFile" Label=""/>
+                  </StringProperty.DataSource>
+  </StringProperty>
+  <StringProperty Name="TargetExt" DisplayName="Zielerweiterung" Description="Gibt eine Dateierweiterung an, die von diesem Projekt generiert wird. (Beispiel: .exe oder .dll)" F1Keyword="VC.Project.VCConfiguration.TargetExt" Category="General">
+                  <StringProperty.DataSource>
+                     <DataSource Persistence="ProjectFile" Label=""/>
+                  </StringProperty.DataSource>
+  </StringProperty>
+  <StringListProperty Name="ExtensionsToDeleteOnClean" DisplayName="Bei der Bereinigung zu löschende Erweiterungen" Description="Trennzeichengetrennte Platzhalterspezifikation dafür, welche Dateien im Zwischenverzeichnis bei der Bereinigung gelöscht oder erneut erstellt werden." Category="General" Separator=";" F1Keyword="VC.Project.VCConfiguration.DeleteExtensionsOnClean">
+                      <StringListProperty.DataSource>
+                            <DataSource Persistence="ProjectFile" Label=""/>
+                      </StringListProperty.DataSource>
+  </StringListProperty>
+  <StringProperty Name="BuildLogFile" DisplayName="Buildprotokolldatei" Description="Gibt die Buildprotokolldatei an, in die bei aktivierter Buildprotokollierung geschrieben wird." F1Keyword="VC.Project.VCConfiguration.BuildLogFile" Category="General" Default="$(ProjectDir)\$(MSBuildProjectName).log" Subtype="file">
+                  <StringProperty.DataSource>
+                     <DataSource Persistence="ProjectFile" ItemType="BuildLog" PersistedName="Path"/>
+                  </StringProperty.DataSource>
+  </StringProperty>
+  <!-- There is no InheritProjectPropertySheets in the project file. The property sheets will be expressed as explicit Imports.
+  <StringListProperty Name="InheritProjectPropertySheets" DisplayName="Inherit Project Property Sheets"
+                      Description="Specifies the project property sheets this configuration or property sheet inherits from."
+                      Category="General" Separator=";" Subtype="file" /> -->
+  <DynamicEnumProperty Name="PlatformToolset" DisplayName="Plattformtoolset" EnumProvider="Toolsets" Description="Gibt das für das Erstellen der aktuellen Konfiguration verwendete Toolset an. Ist diese Einstellung nicht festgelegt, wird das Standardtoolset verwendet." F1Keyword="VC.Project.VCConfiguration.PlatformToolset" Category="General"/>
+  <EnumProperty Name="ConfigurationType" DisplayName="Konfigurationstyp" Description="Gibt den Ausgabetyp an, der von dieser Konfiguration generiert wird." Category="ProjectDefaults" F1Keyword="VC.Project.VCConfiguration.ConfigurationType">
+    <EnumValue Name="Makefile" DisplayName="Makefile" Description="Makefile"/>
+    <EnumValue Name="Application" DisplayName="Anwendung (.exe)" Description="Anwendung (.exe)"/>
+    <EnumValue Name="DynamicLibrary" DisplayName="Dynamische Bibliothek (.dll)" Description="Dynamische Bibliothek (.dll)"/>
+    <EnumValue Name="StaticLibrary" DisplayName="Statische Bibliothek (.lib)" Description="Statische Bibliothek (.lib)"/>
+    <EnumValue Name="Utility" DisplayName="Hilfsprogramm" Description="Hilfsprogramm"/>
+  </EnumProperty>
+  <EnumProperty Name="UseOfMfc" DisplayName="Verwendung von MFC" Description="Gibt an, wie MFC von dieser Konfiguration verwendet wird." Category="ProjectDefaults" F1Keyword="VC.Project.VCConfiguration.useOfMfc">
+    <EnumValue Name="false" DisplayName="Windows-Standardbibliotheken verwenden" Description="Windows-Standardbibliotheken verwenden"/>
+    <EnumValue Name="Static" DisplayName="MFC in einer statischen Bibliothek verwenden" Description="MFC in einer statischen Bibliothek verwenden"/>
+    <EnumValue Name="Dynamic" DisplayName="MFC in einer gemeinsam genutzten DLL verwenden" Description="MFC in einer gemeinsam genutzten DLL verwenden"/>
+  </EnumProperty>
+  <EnumProperty Name="UseOfAtl" DisplayName="Verwendung von ATL" Description="Gibt an, wie ATL von dieser Konfiguration verwendet wird." Category="ProjectDefaults" F1Keyword="VC.Project.VCConfiguration.useOfATL">
+    <EnumValue Name="false" DisplayName="ATL wird nicht verwendet." Description="ATL wird nicht verwendet."/>
+    <EnumValue Name="Static" DisplayName="Statischer Link zu ATL" Description="Statischer Link zu ATL"/>
+    <EnumValue Name="Dynamic" DisplayName="Dynamischer Link zu ATL" Description="Dynamischer Link zu ATL"/>
+  </EnumProperty>
+  <EnumProperty Name="CharacterSet" DisplayName="Zeichensatz" Description="Weist den Compiler an, den angegebenen Zeichensatz zu verwenden; hilfreich bei Lokalisierungsproblemen." Category="ProjectDefaults" F1Keyword="VC.Project.VCConfiguration.CharacterSet">
+    <EnumValue Name="NotSet" DisplayName="Nicht festgelegt" Description="Nicht festgelegt"/>
+    <EnumValue Name="Unicode" DisplayName="Unicode-Zeichensatz verwenden" Description="Unicode-Zeichensatz verwenden"/>
+    <EnumValue Name="MultiByte" DisplayName="Multibyte-Zeichensatz verwenden" Description="Multibyte-Zeichensatz verwenden"/>
+  </EnumProperty>
+  <EnumProperty Name="CLRSupport" DisplayName="Common Language Runtime-Unterstützung" Description="Gibt an, ob diese Konfiguration Common Language Runtime unterstützt. Dies ist mit einigen anderen Einstellungen inkompatibel, z.B. Laufzeitüberprüfungen. In der Hilfe zu den /clr-Schaltern des C++-Compilers finden Sie eine Liste mit allen Konflikten." Category="ProjectDefaults" F1Keyword="VC.Project.VCConfiguration.ManagedExtensions">
+    <EnumValue Name="false" DisplayName="Keine Common Language Runtime-Unterstützung" Description="Keine Common Language Runtime-Unterstützung"/>
+    <EnumValue Name="true" DisplayName="Common Language Runtime-Unterstützung (/clr)" Description="Common Language Runtime-Unterstützung (/clr)"/>
+  </EnumProperty>
+  <EnumProperty Name="WholeProgramOptimization" DisplayName="Optimierung des gesamten Programms" Description="Gibt an, dass das Programm über die OBJ-Grenzen hinaus optimiert wird. Funktioniert am besten, wenn die  C/C++-Optimierungen aktiviert sind." Category="ProjectDefaults" F1Keyword="VC.Project.VCConfiguration.WholeProgramOptimization">
+    <EnumValue Name="false" DisplayName="Keine komplette Programmoptimierung" Description="Keine komplette Programmoptimierung"/>
+    <EnumValue Name="true" DisplayName="Link-Zeitcodegenerierung verwenden" Description="Link-Zeitcodegenerierung verwenden"/>
+  </EnumProperty>
+  <BoolProperty Name="UseDebugLibraries" DisplayName="Debugbibliotheken verwenden" Description="Gibt an, ob diese Konfiguration Debugbibliotheken und -schalter verwenden soll." Category="ProjectDefaults" Visible="false">
+  </BoolProperty>
+  <StringProperty Name="_ProjectFileVersion" DisplayName="Projektdateiversion" Description="Gibt die Version des zum Erstellen dieser Projektdatei verwendeten Konvertierungstools an." Category="General" Visible="false">
+    <StringProperty.DataSource>
+      <DataSource Persistence="ProjectFile"/>
+    </StringProperty.DataSource>
+  </StringProperty>
+</Rule>

@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
+- Native multi-targeting support for Visual Studio 2003 in Visual Studio 2010
+
+2.0 Alpha 1  [2010-11-15]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+  
+  This file is a derivative work based on the file of the same name that is
+  included with Visual Studio 2010. The original file bears the copyright
+  notice reproduced below. Implicit authorization from Microsoft to create and
+  distribute derivative works is deduced from comments in the files and
+  documentation which describe ways to customize the build system by making
+  changes to these files.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="CL" PageTemplate="tool" DisplayName="C/C++" SwitchPrefix="/" Order="10" xmlns="http://schemas.microsoft.com/build/2009/properties" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+  <Rule.Categories>
+    <Category Name="General" DisplayName="Общие"/>
+    <Category Name="Optimization" DisplayName="Оптимизация"/>
+    <Category Name="Preprocessor" DisplayName="Препроцессор"/>
+    <Category Name="Code Generation" DisplayName="Создание кода"/>
+    <Category Name="Language" DisplayName="Язык"/>
+    <Category Name="Precompiled Headers" DisplayName="Предварительно откомпилированные заголовки"/>
+    <Category Name="Output Files" DisplayName="Выходные файлы"/>
+    <Category Name="Browse Information" DisplayName="Информация об исходном коде"/>
+    <Category Name="Advanced" DisplayName="Дополнительно"/>
+    <Category Name="Command Line" DisplayName="Командная строка" Subtype="CommandLine"/>
+  </Rule.Categories>
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" ItemType="ClCompile" Label="" HasConfigurationCondition="true"/>
+  </Rule.DataSource>
+  <StringListProperty Subtype="folder" Name="AdditionalIncludeDirectories" DisplayName="Дополнительные каталоги включаемых файлов" Description="Определяет один или несколько каталогов, добавляемых к пути поиска включаемых файлов; для указания нескольких значений используется точка с запятой.     (/I[путь])" Category="General" Switch="I" F1Keyword="VC.Project.VCCLCompilerTool.AdditionalIncludeDirectories">
+  </StringListProperty>
+  <StringListProperty Subtype="folder" Name="AdditionalUsingDirectories" DisplayName="Разрешать ссылки #using" Description="Определяет один или несколько каталогов (имена каталогов разделяются точкой с запятой), в которых будут искаться имена, переданные директиве #using.  (/AI[путь])" Category="General" Switch="AI" F1Keyword="VC.Project.VCCLCompilerTool.AdditionalUsingDirectories">
+  </StringListProperty>
+  <EnumProperty Name="DebugInformationFormat" DisplayName="Формат отладочной информации" Description="Определяет тип отладочной информации, создаваемой компилятором.  При этом нужно чтобы параметры компоновщика были соответствующими.    (/Z7, Zd, /Zi, /ZI)" Category="General" F1Keyword="VC.Project.VCCLCompilerTool.DebugInformationFormat">
+    <EnumValue Name="OldStyle" Switch="Z7" DisplayName="C7 совместимо" Description="Выбрать тип отладочных данных, созданных для программы, а также определить, следует ли хранить эти данные в объектных файлах (.obj) или в базе данных программы (PDB).">
+    </EnumValue>
+    <EnumValue Name="LineNumbers" Switch="Zd" DisplayName="!# Line Numbers Only" Description="!# Produces an .obj file or executable (.exe) file containing only global and external symbol and line-number information (no symbolic debugging information).">
+    </EnumValue>
+    <EnumValue Name="ProgramDatabase" Switch="Zi" DisplayName="База данных программы" Description="Создание базы данных программы (PDB), содержащей сведения о типах и символьную отладочную информацию для использования с отладчиком. Символьная отладочная информация включает имена и типы переменных, а также функции и номера строк. ">
+    </EnumValue>
+    <EnumValue Name="EditAndContinue" Switch="ZI" DisplayName="База данных программы для операции &quot;Изменить и продолжить&quot;" Description="Создает базу данных программы, как описано выше, в формате, который поддерживает функцию &quot;Изменить и продолжить&quot;.">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty ReverseSwitch="nologo-" Name="SuppressStartupBanner" DisplayName="Отключить загрузочный баннер" Description="Отменяет отображение окна регистрации при запуске компилятора и отображение информационных сообщений во время компилирования." Category="General" Switch="nologo" F1Keyword="VC.Project.VCCLCompilerTool.SuppressStartupBanner">
+  </BoolProperty>
+  <EnumProperty Name="WarningLevel" DisplayName="Уровень предупреждений" Description="Выберите, как строго компилятор должен воспринимать ошибки в коде.     (/W0 - /W4)" Category="General" F1Keyword="VC.Project.VCCLCompilerTool.WarningLevel">
+    <EnumValue Name="TurnOffAllWarnings" Switch="W0" DisplayName="Отключить все предупреждения" Description="Уровень 0 отключает все предупреждения.">
+    </EnumValue>
+    <EnumValue Name="Level1" Switch="W1" DisplayName="Level1" Description="Уровень 1 отображает серьезные предупреждения. Уровень 1 - это стандартный уровень предупреждений в командной строке.">
+    </EnumValue>
+    <EnumValue Name="Level2" Switch="W2" DisplayName="Level2" Description="Уровень 2 отображает все предупреждения уровня 1 и предупреждения, менее серьезные, чем предупреждения уровня 1.">
+    </EnumValue>
+    <EnumValue Name="Level3" Switch="W3" DisplayName="Level3" Description="Уровень 3 отображает все предупреждения уровня 2 и все другие предупреждения, рекомендованные для производства.">
+    </EnumValue>
+    <EnumValue Name="Level4" Switch="W4" DisplayName="Level4" Description="Уровень 4 отображает все предупреждения уровня 3 и информационные предупреждения, которые в большинстве случаев можно игнорировать без последствий.">
+    </EnumValue>
+    <EnumValue Name="EnableAllWarnings" Switch="Wall" DisplayName="EnableAllWarnings" Description="Включает все предупреждения, включая предупреждения, отключенные по умолчанию.">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty ReverseSwitch="WX-" Name="TreatWarningAsError" DisplayName="Обрабатывать предупреждения как ошибки" Description="Интерпретирует все предупреждения компилятора как ошибки. Для нового проекта наиболее эффективным может быть использование /WX во всех компиляциях; разрешение всех предупреждений обеспечит минимальное число трудно выявляемых дефектов кода." Category="General" Switch="WX" F1Keyword="VC.Project.VCCLCompilerTool.WarnAsError">
+  </BoolProperty>
+  <StringProperty Subtype="folder" Name="TrackerLogDirectory" DisplayName="Каталог журнала отслеживания" Description="Каталог журнала отслеживания." Category="General" IncludeInCommandLine="false" Visible="false">
+  </StringProperty>
+  <EnumProperty Name="Optimization" DisplayName="Оптимизация" Description="Выберите параметр для оптимизации кода; выберите Custom, чтобы использовать особые параметры оптимизации.     (/Od, /O1, /O2, /Ox)" Category="Optimization" F1Keyword="VC.Project.VCCLCompilerTool.Optimization">
+    <EnumValue Name="Disabled" Switch="Od" DisplayName="Отключено" Description="Отключить оптимизацию.">
+    </EnumValue>
+    <EnumValue Name="MinSpace" Switch="O1" DisplayName="Минимальный размер" Description="Эквивалентно /Og /Os /Oy /Ob2 /Gs /GF /Gy">
+    </EnumValue>
+    <EnumValue Name="MaxSpeed" Switch="O2" DisplayName="Максимальная скорость" Description="Эквивалентно /Og /Oi /Ot /Oy /Ob2 /Gs /GF /Gy">
+    </EnumValue>
+    <EnumValue Name="Full" Switch="Ox" DisplayName="Полная оптимизация" Description="Эквивалентно /Og /Oi /Ot /Oy /Ob2">
+    </EnumValue>
+  </EnumProperty>
+  <EnumProperty Name="InlineFunctionExpansion" DisplayName="Развертывание подставляемых функций" Description="Выберите уровень замены подставляемых функций для построения.     (/Ob1, /Ob2)" Category="Optimization" F1Keyword="VC.Project.VCCLCompilerTool.InlineFunctionExpansion">
+    <EnumValue Name="Default" Switch="" DisplayName="По умолчанию">
+    </EnumValue>
+    <EnumValue Name="Disabled" Switch="Ob0" DisplayName="Отключено" Description="Отключает подстановку кода, которая включена по умолчанию.">
+    </EnumValue>
+    <EnumValue Name="OnlyExplicitInline" Switch="Ob1" DisplayName="Только __inline" Description="Раскрывает только функции, помеченные как inline, __inline, __forceinline или __inline либо, в функции-члене C++, определенные внутри объявления класса.">
+    </EnumValue>
+    <EnumValue Name="AnySuitable" Switch="Ob2" DisplayName="Любой подходящий" Description="Раскрывает функции, помеченные как inline или __inline и другие функции, выбираемые компилятором (раскрытие выполняется по решению компилятора и часто обозначается как &quot;автоподстановка&quot; (auto-inlining).">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty Name="IntrinsicFunctions" DisplayName="Включить подставляемые функции" Description="включает подставляемые функции.  Использование подставляемых функций приводит к более быстрому, но более объемному коду.     (/Oi)" Category="Optimization" Switch="Oi" F1Keyword="VC.Project.VCCLCompilerTool.EnableIntrinsicFunctions">
+  </BoolProperty>
+  <EnumProperty Name="FavorSizeOrSpeed" DisplayName="Предпочитать размер или скорость" Description="Нужно ли предпочитать размер кода или его скорость выполнения; &quot;Глобальная оптимизация&quot; должна быть включена.     (/Ot, /Os)" Category="Optimization" F1Keyword="VC.Project.VCCLCompilerTool.FavorSizeOrSpeed">
+    <EnumValue Name="Size" Switch="Os" DisplayName="Предпочитать краткость кода" Description="Предпочитать краткость кода. Минимизирует размер EXE- и DLL-файлов, предписывая компилятору предпочитать размер скорости.">
+    </EnumValue>
+    <EnumValue Name="Speed" Switch="Ot" DisplayName="Предпочитать скорость кода" Description="Предпочитать скорость кода. Максимизирует размер EXE- и DLL-файлов, предписывая компилятору предпочитать скорость размеру. (Задано по умолчанию). ">
+    </EnumValue>
+    <EnumValue Name="Neither" Switch="" DisplayName="Никакой" Description="Без оптимизации размера и скорости.">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty ReverseSwitch="Oy-" Name="OmitFramePointers" DisplayName="Опустить указатели на фреймы" Description="Отменяет создание указателей на фреймы в стеке вызовов." Category="Optimization" Switch="Oy" F1Keyword="VC.Project.VCCLCompilerTool.OmitFramePointers">
+  </BoolProperty>
+  <EnumProperty Name="FloatConsistency" DisplayName="!# Improve Float Consistency" Description="!# Controls the use of optimizations that affect floating-point tests for equality and inequality. (/Op)." Category="Optimization">
+    <EnumValue Name="Default" Switch="" DisplayName="!# Default" Description="!# Use default based on other compiler settings.">
+    </EnumValue>
+    <EnumValue Name="Disabled" Switch="Op-" DisplayName="!# Disabled" Description="!# Enables floating point optimization at the expense of consistency.">
+    </EnumValue>
+    <EnumValue Name="Enabled" Switch="Op" DisplayName="!# Enabled" Description="!# Improves the consistency of floating-point tests for equality and inequality.">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty Name="EnableFiberSafeOptimizations" DisplayName="Включить волоконно-безопасные оптимизации" Description="Включает оптимизацию пространства памяти при использовании волокон и доступа к локальному хранилищу потока.     (/GT)" Category="Optimization" Switch="GT" F1Keyword="VC.Project.VCCLCompilerTool.EnableFiberSafeOptimizations">
+  </BoolProperty>
+  <BoolProperty Name="WholeProgramOptimization" DisplayName="Оптимизация всей программы" Description="Включает межмодульную оптимизацию, откладывая создание кода до времени компоновки; требует включения параметра компоновщика &quot;Создание кода во время компоновки&quot;.     (/GL)" Category="Optimization" Switch="GL" F1Keyword="VC.Project.VCCLWCECompilerTool.WholeProgramOptimization">
+  </BoolProperty>
+  <StringListProperty Name="PreprocessorDefinitions" DisplayName="Определения препроцессора" Description="Определяет символы предварительной обработки в исходном файле." Category="Preprocessor" Switch="D " F1Keyword="VC.Project.VCCLCompilerTool.PreprocessorDefinitions">
+  </StringListProperty>
+  <StringListProperty Name="UndefinePreprocessorDefinitions" DisplayName="Отменить определения препроцессора" Description="Задает одну или несколько отмен определений препроцессора.     (/U[макрос])" Category="Preprocessor" Switch="U" F1Keyword="VC.Project.VCCLCompilerTool.UndefinePreprocessorDefinitions">
+  </StringListProperty>
+  <BoolProperty Name="UndefineAllPreprocessorDefinitions" DisplayName="Отменить все определения препроцессора" Description="Отменить все объявленные ранее определения препроцессора.     (/u)" Category="Preprocessor" Switch="u" F1Keyword="VC.Project.VCCLCompilerTool.UndefineAllPreprocessorDefinitions">
+  </BoolProperty>
+  <BoolProperty Name="IgnoreStandardIncludePath" DisplayName="Игнорировать стандартный путь включаемых файлов" Description="Запрещает компилятору поиск включаемых файлов в переменных среды INCLUDE." Category="Preprocessor" Switch="X" F1Keyword="VC.Project.VCCLCompilerTool.IgnoreStandardIncludePath">
+  </BoolProperty>
+  <BoolProperty Name="PreprocessToFile" DisplayName="Предварительно обработать в файл" Description="Предварительно обрабатывает исходные файлы C и C++ и записывает предварительно обработанные выходные данные в файл. Этот параметр отменяет компиляцию. OBJ-файл не создается." Category="Preprocessor" Switch="P" F1Keyword="VC.Project.VCCLCompilerTool.GeneratePreprocessedFile">
+  </BoolProperty>
+  <StringProperty Name="PreprocessOutputPath" DisplayName="Предварительно обработать путь выхода" Description="Указать путь выхода для препроцессора: Место по умолчанию аналогично месту исходного файла." Category="Preprocessor" Switch="Fi" Visible="false">
+  </StringProperty>
+  <BoolProperty Name="PreprocessSuppressLineNumbers" DisplayName="Предварительно обработать с отменой номеров строк" Description="Предварительно обработать без директив #line." Category="Preprocessor" Switch="EP" F1Keyword="VC.Project.VCCLCompilerTool.GeneratePreprocessedFile">
+  </BoolProperty>
+  <BoolProperty Name="PreprocessKeepComments" DisplayName="Оставлять комментарии" Description="Отменяет удаление комментариев из исходного кода; требует установки одного из параметров предварительной обработки.     (/C)" Category="Preprocessor" Switch="C" F1Keyword="VC.Project.VCCLCompilerTool.KeepComments">
+  </BoolProperty>
+  <BoolProperty Name="StringPooling" DisplayName="Включить объединение строк" Description="Разрешает компилятору создание одной копии для чтения одинаковых строк в образе программы и в памяти во время выполнения, что приводит к уменьшению размера программ. Такая оптимизация называется &quot;объединение строк&quot;. /O1, /O2, и /ZI  автоматически устанавливают параметр /GF. " Category="Code Generation" Switch="GF" F1Keyword="VC.Project.VCCLCompilerTool.StringPooling">
+  </BoolProperty>
+  <BoolProperty Name="MinimalRebuild" DisplayName="Включить минимальное перестроение" Description="Включает минимальное перестроение, которое определяет, нужно ли заново компилировать исходные файлы C++, содержащие измененные определения классов C++ (хранимые в файлах заголовка (.h))." Category="Code Generation" Switch="Gm" F1Keyword="VC.Project.VCCLCompilerTool.MinimalRebuild">
+  </BoolProperty>
+  <EnumProperty Name="ExceptionHandling" DisplayName="Включить C++ исключения" Description="Задает модель обработки исключений, используемую компилятором." Category="Code Generation" F1Keyword="VC.Project.VCCLCompilerTool.ExceptionHandling">
+    <EnumValue Name="Async" Switch="EHa" DisplayName="Да, с SEH исключениями" Description="Модель обработки исключений, перехватывающая асинхронные (структурированные) и синхронные (C++) исключения (/EHa)">
+    </EnumValue>
+    <EnumValue Name="Sync" Switch="EHsc" DisplayName="Да" Description="Модель обработки исключений, перехватывающая только исключения C++ и предписывающая компилятору считать, что внешние функции C никогда не выдают исключения C++. (/EHsc)">
+    </EnumValue>
+    <EnumValue Name="SyncCThrow" Switch="EHs" DisplayName="Да, с внешними функциями (Extern) C" Description="Модель обработки исключений, перехватывающая только исключения C++ и предписывающая компилятору считать, что внешние функции C выдают исключения C++. (/EHs)">
+    </EnumValue>
+    <EnumValue Name="false" Switch="" DisplayName="Нет" Description="Без обработки исключений.">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty Name="SmallerTypeCheck" DisplayName="Проверка меньших типов" Description="Включить проверку преобразований в меньшие типы. Несовместимо с любым типом оптимизации, кроме отладочной.     (/RTCc)" Category="Code Generation" Switch="RTCc" F1Keyword="VC.Project.VCCLCompilerTool.SmallerTypeCheck">
+  </BoolProperty>
+  <EnumProperty Name="BasicRuntimeChecks" DisplayName="Основные проверки времени выполнения" Description="Выполнить основные проверки времени выполнения. Несовместимо с любым типом оптимизации, кроме отладочной.     (/RTCs, /RTCu, /RTC1)" Category="Code Generation" F1Keyword="VC.Project.VCCLCompilerTool.BasicRuntimeChecks">
+    <EnumValue Name="StackFrameRuntimeCheck" Switch="RTCs" DisplayName="Фреймы стека" Description="Включает проверку ошибок во время выполнения фреймов стека">
+    </EnumValue>
+    <EnumValue Name="UninitializedLocalUsageCheck" Switch="RTCu" DisplayName="Неинициализированные переменные" Description="Сообщает, когда используется неинициализированная переменная.">
+    </EnumValue>
+    <EnumValue Name="EnableFastChecks" Switch="RTC1" DisplayName="Оба (/RTC1, эквивалентно /RTCsu)" Description="Эквивалент /RTCsu">
+    </EnumValue>
+    <EnumValue Name="Default" Switch="" DisplayName="По умолчанию" Description="Стандартные проверки времени выполнения.">
+    </EnumValue>
+  </EnumProperty>
+  <EnumProperty Name="TargetProcessor" DisplayName="Processor" Description="Direct the compiler to optimize code generation for the 80386, 80486, or Pentium® processors.     (/G3, /G4, /G5, /G6, /GB)." Category="Code Generation">
+    <EnumValue Name="80386" Switch="G3" DisplayName="80386" Description="Forces a value of 300 for the _M_IX86 preprocessor macro. The compiler ignores this option.">
+    </EnumValue>
+    <EnumValue Name="80486" Switch="G4" DisplayName="80486" Description="Forces a value of 400 for the _M_IX86 preprocessor macro. The compiler ignores this option.">
+    </EnumValue>
+    <EnumValue Name="Pentium" Switch="G5" DisplayName="Pentium" Description="Optimizes the code created to favor the Pentium. Use this option for programs meant only for the Pentium. This option forces a value of 500 for the _M_IX86 preprocessor macro.">
+    </EnumValue>
+    <EnumValue Name="PentiumPro" Switch="G6" DisplayName="Pentium Pro" Description="Optimizes the code created to favor the Pentium Pro. Use this option for programs meant only for the Pentium Pro. This option forces a value of 600 for the _M_IX86 preprocessor macro.">
+    </EnumValue>
+    <EnumValue Name="Blend" Switch="GB" DisplayName="Blend" Description="Blends the optimizations for the 80386 (/G3), 80486 (/G4), Pentium (/G5), and Pentium Pro (/G6) options. This option forces a value of 500 for the _M_IX86 preprocessor macro. This value is the default.">
+    </EnumValue>
+  </EnumProperty>
+  <EnumProperty Name="RuntimeLibrary" DisplayName="Библиотека времени выполнения" Description="определяет библиотеку времени выполнения для компоновки.     (/MT, /MTd, /MD, /MDd)" Category="Code Generation" F1Keyword="VC.Project.VCCLCompilerTool.RuntimeLibrary">
+    <EnumValue Name="MultiThreaded" Switch="MT" DisplayName="Многопоточная" Description="Предписывает приложению использовать многопоточную, статичную версию библиотеки времени выполнения.">
+    </EnumValue>
+    <EnumValue Name="MultiThreadedDebug" Switch="MTd" DisplayName="Многопоточная отладка" Description="Определяет параметры _DEBUG и _MT. Этот параметр также предписывает компилятору размещение имени библиотеки LIBCMTD.lib в .obj-файле, чтобы компоновщик использовал LIBCMTD.lib для разрешения внешних символов.">
+    </EnumValue>
+    <EnumValue Name="MultiThreadedDLL" Switch="MD" DisplayName="Многопоточный DLL" Description="Предписывает приложению использование многопоточной и зависящей от DLL версии библиотеки времени выполнения. Определяет параметры _MT и _DLL и предписывает компилятору размещение имени библиотеки MSVCRT.lib в .obj-файле.">
+    </EnumValue>
+    <EnumValue Name="MultiThreadedDebugDLL" Switch="MDd" DisplayName="Многопоточная отладка DLL" Description="Определяет параметры _DEBUG, _MT и _DLL и предписывает приложению использование отладочной многопоточной и зависящей от DLL версии библиотеки времени выполнения. Также предписывает компилятору размещение имени библиотеки MSVCRTD.lib в .obj-файле.">
+    </EnumValue>
+    <EnumValue Name="SingleThreaded" Switch="ML" DisplayName="!# Single-threaded" Description="!# Causes your application to use the single thread, static version of the run-time library.">
+    </EnumValue>
+    <EnumValue Name="SingleThreadedDebug" Switch="MLd" DisplayName="!# Single-threaded Debug" Description="!# Defines _DEBUG. This option also causes the compiler to place the library name LIBCD.lib into the .obj file so that the linker will use LIBCD.lib to resolve external symbols.">
+    </EnumValue>
+  </EnumProperty>
+  <EnumProperty Name="StructMemberAlignment" DisplayName="Выравнивание членов структур" Description="определяет границы выравнивания в 1, 2, 4 или 8 байт для членов структуры.     (/Zp[число])" Category="Code Generation" F1Keyword="VC.Project.VCCLCompilerTool.StructMemberAlignment">
+    <EnumValue Name="1Byte" Switch="Zp1" DisplayName="1 байт" Description="Упаковывает структуры в 1 байт. Эквивалентно /Zp.">
+    </EnumValue>
+    <EnumValue Name="2Bytes" Switch="Zp2" DisplayName="2 байт" Description="Упаковывает структуры в 2 байт.">
+    </EnumValue>
+    <EnumValue Name="4Bytes" Switch="Zp4" DisplayName="4 байт" Description="Упаковывает структуры в 4 байт.">
+    </EnumValue>
+    <EnumValue Name="8Bytes" Switch="Zp8" DisplayName="8 байт" Description="Упаковывает структуры в 8 байт (по умолчанию).">
+    </EnumValue>
+    <EnumValue Name="16Bytes" Switch="Zp16" DisplayName="16 байт" Description="Упаковывает структуры в 16 байт.">
+    </EnumValue>
+    <EnumValue Name="Default" Switch="" DisplayName="По умолчанию" Description="Стандартные настройки выравнивания.">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty Name="BufferSecurityCheck" DisplayName="Проверка переполнения буфера" Description="Проверка переполнения буфера; используется для защиты от внесения в систему вредоносного кода.  По умолчанию включено.     (/GS)" Category="Code Generation" Switch="GS" F1Keyword="VC.Project.VCCLCompilerTool.BufferSecurityCheck">
+  </BoolProperty>
+  <BoolProperty Name="FunctionLevelLinking" DisplayName="Включить компоновку на уровне функций" Description="Разрешает компилятору упаковывать отдельные функции в виде упакованных функций (COMDATs). Требуется для изменения и продолжения работы.     (/Gy)" Category="Code Generation" Switch="Gy" F1Keyword="VC.Project.VCCLCompilerTool.EnableFunctionLevelLinking">
+  </BoolProperty>
+  <EnumProperty Name="EnableEnhancedInstructionSet" DisplayName="Включить расширенный набор инструкций" Description="Включить использование инструкций процессоров, поддерживающих расширенные наборы инструкций (например, расширения SSE и SSE2 для IA-32). В настоящий момент доступно только при построении для x86-архитектуры.   (/arch:SSE, /arch:SSE2)" Category="Code Generation" F1Keyword="VC.Project.VCCLCompilerTool.EnableEnhancedInstructionSet">
+    <EnumValue Name="StreamingSIMDExtensions" Switch="arch:SSE" DisplayName="Поддержка SIMD (/arch:SSE)" Description="Поддержка SIMD (/arch:SSE)">
+    </EnumValue>
+    <EnumValue Name="StreamingSIMDExtensions2" Switch="arch:SSE2" DisplayName="Поддержка SIMD Extensions 2 (/arch:SSE2)" Description="Поддержка SIMD Extensions 2 (/arch:SSE2)">
+    </EnumValue>
+    <EnumValue Name="NotSet" Switch="" DisplayName="Не задано" Description="Не задано.">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty Name="DisableLanguageExtensions" DisplayName="Отключить расширения языка" Description="Отключает или включает расширения языка.     (/Za)" Category="Language" Switch="Za" F1Keyword="VC.Project.VCCLCompilerTool.DisableLanguageExtensions">
+  </BoolProperty>
+  <BoolProperty Name="TreatWChar_tAsBuiltInType" DisplayName="Считать WChar_t встроенным типом" Description="При наличии wchar_t становится собственным типом, сопоставляемым с __wchar_t так же, как и краткие схемы с __int16. /Zc:wchar_t включено только по умолчанию." Category="Language" Switch="Zc:wchar_t" F1Keyword="VC.Project.VCCLCompilerTool.TreatWChar_tAsBuiltInType">
+  </BoolProperty>
+  <BoolProperty Name="ForceConformanceInForLoopScope" DisplayName="Обеспечение согласования видимости переменных, объявленных в заголовке оператора for" Description="Используется для реализации стандартного поведения C++ для циклов оператора с расширениями Майкрософт (/Za, /Ze (отключить расширения языка)). /Zc:forScope_t включено по умолчанию." Category="Language" Switch="Zc:forScope" F1Keyword="VC.Project.VCCLCompilerTool.ForceConformanceInForLoopScope">
+  </BoolProperty>
+  <BoolProperty ReverseSwitch="GR-" Name="RuntimeTypeInfo" DisplayName="Включить информацию о типах времени выполнения" Description="Добавляет код для проверки типов объектов C++ во время выполнения (информация о типах времени выполнения).     (/GR, /GR-)" Category="Language" Switch="GR" F1Keyword="VC.Project.VCCLCompilerTool.RuntimeTypeInfo">
+  </BoolProperty>
+  <EnumProperty Name="PrecompiledHeader" DisplayName="Предварительно откомпилированный заголовок" Description="Создавать или использовать предварительно откомпилированный заголовочный файл : включает создание или использование предварительно откомпилированного заголовочного файла во время построения.     (/Yc, /YX, /Yu)" Category="Precompiled Headers" F1Keyword="VC.Project.VCCLCompilerTool.UsePrecompiledHeader">
+    <EnumValue Name="Create" Switch="Yc" DisplayName="Создать" Description="Предписывает компилятору создание предварительно скомпилированного заголовочного файла (.pch), представляющего состояние компиляции на определенном этапе.">
+      <Argument Property="PrecompiledHeaderFile" IsRequired="false"/>
+    </EnumValue>
+    <EnumValue Name="Automatic" Switch="YX" DisplayName="!# Automatic" Description="!# This option instructs the compiler to use a precompiled header file (.pch) if one exists or to create one if none exists.">
+      <Argument Property="PrecompiledHeaderFile" IsRequired="false" />
+    </EnumValue>
+    <EnumValue Name="Use" Switch="Yu" DisplayName="Использовать" Description="Предписывает компилятору использование существующего предварительно скомпилированного заголовочного файла (.pch) в текущей компиляции.">
+      <Argument Property="PrecompiledHeaderFile" IsRequired="false"/>
+    </EnumValue>
+    <EnumValue Name="NotUsing" Switch="" DisplayName="Не использовать предварительно скомпилированные заголовки" Description="Не использовать предварительно скомпилированные заголовки. ">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Subtype="file" Name="PrecompiledHeaderFile" DisplayName="Предварительно скомпилированный заголовочный файл" Description="Определяет имя создаваемого или используемого предварительно откомпилированного заголовочного файла. (/Yc[имя], /Yu[имя])" Category="Precompiled Headers" F1Keyword="VC.Project.VCCLCompilerTool.PrecompiledHeaderThrough">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="PrecompiledHeaderOutputFile" DisplayName="Предварительно скомпилированный заголовочный выходной файл" Description="Определяет путь либо имя создаваемого предварительно откомпилированного заголовочного файла. (/Fp[имя])" Category="Precompiled Headers" Switch="Fp" F1Keyword="VC.Project.VCCLCompilerTool.PrecompiledHeaderFile">
+  </StringProperty>
+  <BoolProperty Name="ExpandAttributedSource" DisplayName="Раскрывать атрибуты исходного кода" Description="Создавать файл с раскрытыми атрибутами, вставленными в файл исходного кода.     (/Fx)" Category="Output Files" Switch="Fx" F1Keyword="VC.Project.VCCLCompilerTool.ExpandAttributedSource">
+  </BoolProperty>
+  <EnumProperty Name="AssemblerOutput" DisplayName="Файл ассемблерного кода" Description="Определяет содержимое выходного файла с кодом на языке ассемблера.     (/FA, /FAc, /FAs, /FAcs)" Category="Output Files" F1Keyword="VC.Project.VCCLCompilerTool.AssemblerOutput">
+    <EnumValue Name="NoListing" Switch="" DisplayName="Без листинга" Description="Без листинга. ">
+    </EnumValue>
+    <EnumValue Name="AssemblyCode" Switch="FA" DisplayName="Только код сборки" Description="Код сборки; .asm">
+    </EnumValue>
+    <EnumValue Name="AssemblyAndMachineCode" Switch="FAc" DisplayName="Сборка вместе с машинным кодом" Description="Машинный код и код сборки; .cod">
+    </EnumValue>
+    <EnumValue Name="AssemblyAndSourceCode" Switch="FAs" DisplayName="Сборка с исходным кодом" Description="Исходный код и код сборки; .asm">
+    </EnumValue>
+    <EnumValue Name="All" Switch="FAcs" DisplayName="Сборка, машинный код и исходный код" Description="Сборка, машинный код и исходный код; .cod">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Subtype="file" Name="AssemblerListingLocation" DisplayName="Местоположение листинга ASM" Description="Определяет относительный путь, либо имя файла листинга ASM; может быть как именем файла, так и именем каталога.     (/Fa[имя])" Category="Output Files" Switch="Fa" F1Keyword="VC.Project.VCCLCompilerTool.AssemblerListingLocation">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="ObjectFileName" DisplayName="Имя объектного файла" Description="Определяет имя, переопределяющее имя по умолчанию для объектного файла; может быть как именем файла, так и именем каталога.     (/Fo[имя])" Category="Output Files" Switch="Fo" F1Keyword="VC.Project.VCCLCompilerTool.ObjectFile">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="ProgramDataBaseFileName" DisplayName="Имя файла базы данных программы" Description="Определяет имя создаваемого компилятором PDB-файла; также определяет базовое имя для требуемого IDB-файла, также создаваемого компилятором; может быть как именем файла, так и именем каталога.     (/Fd[имя])" Category="Output Files" Switch="Fd" F1Keyword="VC.Project.VCCLCompilerTool.ProgramDataBaseFileName">
+  </StringProperty>
+  <BoolProperty Name="BrowseInformation" DisplayName="Включить информацию об исходном коде" Description="Включить информацию об исходном коде : определяет уровень информации об исходном коде в bsc-файле.     (/FR)" Category="Browse Information" Switch="FR" F1Keyword="VC.Project.VCCLCompilerTool.BrowseInformation">
+    <Argument Property="BrowseInformationFile" IsRequired="false"/>
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="BrowseInformationFile" DisplayName="Файл информации об исходном коде" Description="Файл информации об исходном коде : определяет необязательное имя для файла информации об исходном коде.     (/FR[имя])" Category="Browse Information" F1Keyword="VC.Project.VCCLCompilerTool.BrowseInformationFile">
+  </StringProperty>
+  <EnumProperty Name="CallingConvention" DisplayName="Соглашение о вызовах" Description="Выберите для приложения соглашение о вызовах по умолчанию (можно переопределить в функции).     (/Gd, /Gr, /Gz)" Category="Advanced" F1Keyword="VC.Project.VCCLCompilerTool.CallingConvention">
+    <EnumValue Name="Cdecl" Switch="Gd" DisplayName="__cdecl" Description="Определяет __cdecl соглашение о вызовах для всех функций, кроме функций-членов C++ и функций с пометкой __stdcall или __fastcall.">
+    </EnumValue>
+    <EnumValue Name="FastCall" Switch="Gr" DisplayName="__fastcall" Description="Определяет __fastcall соглашение о вызовах для всех функций, кроме функций-членов C++ и функций с пометкой __cdecl или __stdcall. Все функции __fastcall должны иметь прототипы.">
+    </EnumValue>
+    <EnumValue Name="StdCall" Switch="Gz" DisplayName="__stdcall" Description="Определяет __stdcall соглашение о вызовах для всех функций, кроме функций-членов C++ и функций с пометкой __cdecl или __fastcall. Все функции __stdcall должны иметь прототипы.">
+    </EnumValue>
+  </EnumProperty>
+  <EnumProperty Name="CompileAs" DisplayName="Компилировать как" Description="Выберите язык компиляции для .c и .cpp файлов.     (/TC, /TP)" Category="Advanced" F1Keyword="VC.Project.VCCLCompilerTool.CompileAs">
+    <EnumValue Name="Default" Switch="" DisplayName="По умолчанию" Description="По умолчанию.">
+    </EnumValue>
+    <EnumValue Name="CompileAsC" Switch="TC" DisplayName="Компилировать как код C" Description="Компилировать как код C">
+    </EnumValue>
+    <EnumValue Name="CompileAsCpp" Switch="TP" DisplayName="Компилировать как код C++" Description="Компилировать как код C++">
+    </EnumValue>
+  </EnumProperty>
+  <StringListProperty Name="DisableSpecificWarnings" DisplayName="Отключить некоторые предупреждения" Description="Отключает предупреждения с указанными номерами; номера предупреждений в списке разделяются точкой с запятой.     (/wd[число])" Category="Advanced" Switch="wd" F1Keyword="VC.Project.VCCLCompilerTool.DisableSpecificWarnings">
+  </StringListProperty>
+  <StringListProperty Subtype="file" Name="ForcedIncludeFiles" DisplayName="Обязательный включаемый файл" Description="Один или несколько обязательно включаемых файлов.     (/FI[имя])" Category="Advanced" Switch="FI" F1Keyword="VC.Project.VCCLCompilerTool.ForcedIncludeFiles">
+  </StringListProperty>
+  <StringListProperty Subtype="file" Name="ForcedUsingFiles" DisplayName="Обязательный файл #using" Description="Определяет один или несколько обязательных файлов #using.     (/FU[имя])" Category="Advanced" Switch="FU" F1Keyword="VC.Project.VCCLCompilerTool.ForcedUsingFiles">
+  </StringListProperty>
+  <BoolProperty Name="ShowIncludes" DisplayName="Показывать включаемые файлы" Description="Создает список включаемых файлов с выводом компилятора.     (/showIncludes)" Category="Advanced" Switch="showIncludes" F1Keyword="VC.Project.VCCLCompilerTool.ShowIncludes">
+  </BoolProperty>
+  <BoolProperty Name="OmitDefaultLibName" DisplayName="Пропускать имена стандартных библиотек" Description="Не включать имена стандартных библиотек в obj-файлы.     (/Zl)" Category="Advanced" Switch="Zl" F1Keyword="VC.Project.VCCLCompilerTool.OmitDefaultLibName">
+  </BoolProperty>
+  <StringListProperty Name="TreatSpecificWarningsAsErrors" DisplayName="Интерпретировать указанные предупреждения как ошибки" Description="Интерпретирует указанное предупреждение компилятора как ошибку, где n - предупреждение компилятора." Category="Advanced" Switch="we" F1Keyword="VC.Project.VCCLCompilerTool.TreatSpecificWarningsAsErrors">
+  </StringListProperty>
+  <StringProperty Name="AdditionalOptions" DisplayName="Дополнительные параметры" Description="Дополнительные параметры" Category="Command Line" F1Keyword="vc.project.AdditionalOptionsPage">
+  </StringProperty>
+  <BoolProperty Name="BuildingInIDE" Visible="false">
+  </BoolProperty>
+</Rule>

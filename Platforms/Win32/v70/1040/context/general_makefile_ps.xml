@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
+- Native multi-targeting support for Visual Studio 2002 in Visual Studio 2010
+
+2.0 Alpha 1  [2010-11-15]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+  
+  This file is a derivative work based on the file of the same name that is
+  included with Visual Studio 2010. The original file bears the copyright
+  notice reproduced below. Implicit authorization from Microsoft to create and
+  distribute derivative works is deduced from comments in the files and
+  documentation which describe ways to customize the build system by making
+  changes to these files.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="ConfigurationGeneral" DisplayName="Generale" PageTemplate="generic" Description="Generale" xmlns="http://schemas.microsoft.com/build/2009/properties">
+  <Rule.Categories>
+    <Category Name="General" DisplayName="Generale" Description="Generale"/>
+  </Rule.Categories>
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" Label="Configuration"/>
+  </Rule.DataSource>
+  <StringProperty Name="OutDir" DisplayName="Directory di output" Description="Specifica il percorso relativo della directory dei file di output. Può includere variabili di ambiente." Category="General" Default="$(SolutionDir)$(ConfigurationName)" Subtype="folder" F1Keyword="VC.Project.VCConfiguration.OutputDirectory"/>
+  <StringProperty Name="IntDir" DisplayName="Directory intermedia" Description="Specifica il percorso relativo della directory dei file intermedi. Può includere variabili di ambiente." Category="General" Default="$(ConfigurationName)" Subtype="folder" F1Keyword="VC.Project.VCConfiguration.IntermediateDirectory"/>
+  <EnumProperty Name="CLRSupport" DisplayName="Supporto Common Language Runtime" Description="Specifica il supporto Common Language Runtime utilizzato dal codice." Category="General" F1Keyword="VC.Project.VCConfiguration.ManagedExtensions">
+    <EnumValue Name="false" DisplayName="Senza supporto Common Language Runtime" Description="Senza supporto Common Language Runtime"/>
+    <EnumValue Name="true" Switch="clr" DisplayName="Supporto Common Language Runtime" Description="Crea per l'applicazione i metadati che possono essere utilizzati da altre applicazioni CLR e consente all'applicazione di utilizzare tipi e dati nei metadati di altri componenti CLR."/>
+  </EnumProperty>
+  <StringProperty Name="BuildLogFile" DisplayName="File di log di compilazione" Description="Specifica il file di log di compilazione in cui scrivere quando è abilitata la funzione di log di compilazione." F1Keyword="VC.Project.VCConfiguration.BuildLogFile" Category="General" Default="$(ProjectDir)\$(MSBuildProjectName).log" Subtype="file">
+    <StringProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="BuildLog" PersistedName="Path"/>
+    </StringProperty.DataSource>
+  </StringProperty>
+  <StringProperty Name="_ProjectFileVersion" DisplayName="Versione file di progetto" Description="Specifica la versione dello strumento di conversione utilizzato per creare il file di progetto." Category="General" Visible="false">
+    <StringProperty.DataSource>
+      <DataSource Persistence="ProjectFile"/>
+    </StringProperty.DataSource>
+  </StringProperty>
+</Rule>

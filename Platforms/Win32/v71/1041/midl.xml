@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
+- Native multi-targeting support for Visual Studio 2003 in Visual Studio 2010
+
+2.0 Alpha 1  [2010-11-15]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+  
+  This file is a derivative work based on the file of the same name that is
+  included with Visual Studio 2010. The original file bears the copyright
+  notice reproduced below. Implicit authorization from Microsoft to create and
+  distribute derivative works is deduced from comments in the files and
+  documentation which describe ways to customize the build system by making
+  changes to these files.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="MIDL" PageTemplate="tool" DisplayName="MIDL" SwitchPrefix="/" Order="60" xmlns="http://schemas.microsoft.com/build/2009/properties" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+  <Rule.Categories>
+    <Category Name="General" DisplayName="全般"/>
+    <Category Name="Output" DisplayName="出力"/>
+    <Category Name="Advanced" DisplayName="詳細設定"/>
+    <Category Name="Command Line" DisplayName="コマンド ライン" Subtype="CommandLine"/>
+  </Rule.Categories>
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" ItemType="Midl" Label="" HasConfigurationCondition="true"/>
+  </Rule.DataSource>
+  <StringListProperty Name="PreprocessorDefinitions" DisplayName="プリプロセッサの定義" Description="MIDL マクロを含め、いくつかの定義を行います (/D [マクロ]) " Category="General" Switch="D " F1Keyword="VC.Project.VCMidlTool.PreprocessorDefinitions">
+  </StringListProperty>
+  <StringListProperty Subtype="folder" Name="AdditionalIncludeDirectories" DisplayName="追加のインクルード ディレクトリ" Description="インクルード パスに追加する 1 つ以上のディレクトリを指定します (/I[パス])" Category="General" Switch="I" F1Keyword="VC.Project.VCMidlTool.AdditionalIncludeDirectories">
+  </StringListProperty>
+  <BoolProperty Name="IgnoreStandardIncludePath" DisplayName="標準インクルード パスの無視" Description="現在のディレクトリとインクルード ディレクトリを無視します" Category="General" Switch="no_def_idir" F1Keyword="VC.Project.VCMidlTool.IgnoreStandardIncludePath">
+  </BoolProperty>
+  <BoolProperty Name="MkTypLibCompatible" DisplayName="MkTypLib 互換" Description="mktyplib.exe version 2.03 と互換させます (/mktyplib203)" Category="General" Switch="mktyplib203" F1Keyword="VC.Project.VCMidlTool.MkTypLibCompatible">
+  </BoolProperty>
+  <EnumProperty Name="WarningLevel" DisplayName="警告レベル" Description="MIDL コード エラーの警告レベルを指定します (/Wn)" Category="General" F1Keyword="VC.Project.VCMidlTool.WarningLevel">
+    <EnumValue Name="0" Switch="W0" DisplayName="1">
+    </EnumValue>
+    <EnumValue Name="1" Switch="W1" DisplayName="1">
+    </EnumValue>
+    <EnumValue Name="2" Switch="W2" DisplayName="2">
+    </EnumValue>
+    <EnumValue Name="3" Switch="W3" DisplayName="3">
+    </EnumValue>
+    <EnumValue Name="4" Switch="W4" DisplayName="4">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty Name="WarnAsError" DisplayName="警告をエラーとして扱う" Description="MIDL ですべての警告がエラーとして扱われるようにします (/WX)" Category="General" Switch="WX" F1Keyword="VC.Project.VCMidlTool.WarnAsError">
+  </BoolProperty>
+  <BoolProperty Name="SuppressStartupBanner" DisplayName="著作権情報の非表示" Description="コンパイルの開始時に、著作権情報を表示しません (/nologo)" Category="General" Switch="nologo" F1Keyword="VC.Project.VCMidlTool.SuppressStartupBanner">
+  </BoolProperty>
+  <EnumProperty Name="DefaultCharType" DisplayName="C コンパイラの Char 型" Description="生成されたコードをコンパイルするのに使用される C コンパイラの既定の character 型を指定します。(/char signed|unsigned|ascii7)" Category="General" F1Keyword="VC.Project.VCMidlTool.DefaultCharType">
+    <EnumValue Name="Signed" Switch="char signed" DisplayName="Signed" Description="Signed">
+    </EnumValue>
+    <EnumValue Name="Unsigned" Switch="char unsigned" DisplayName="Unsigned" Description="Unsigned">
+    </EnumValue>
+    <EnumValue Name="Ascii" Switch="char ascii7" DisplayName="Ascii" Description="Ascii">
+    </EnumValue>
+  </EnumProperty>
+  <EnumProperty Name="TargetEnvironment" DisplayName="ターゲット環境" Description="アプリケーションを実行するターゲット環境を指定します (/env win32|win64)" Category="General" F1Keyword="VC.Project.VCMidlTool.TargetEnvironment">
+    <EnumValue Name="NotSet" Switch="" DisplayName="設定なし" Description="Win32">
+    </EnumValue>
+    <EnumValue Name="Win32" Switch="env win32" DisplayName="Microsoft Windows 32 ビット" Description="Win32">
+    </EnumValue>
+    <EnumValue Name="Win64" Switch="env win64" DisplayName="Microsoft Windows 64 ビット" Description="Win64">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty Name="GenerateStublessProxies" DisplayName="スタブレス プロキシの生成" Description="完全に解釈された拡張付きのスタブ、およびオブジェクト インターフェイスのスタブレス プロキシを生成します (/Oicf, /Oif)" Category="General" Switch="Oicf" F1Keyword="VC.Project.VCMidlTool.GenerateStublessProxies">
+  </BoolProperty>
+  <BoolProperty Name="SuppressCompilerWarnings" DisplayName="コンパイラ警告の非表示" Description="コンパイラの警告メッセージが表示されないようにします (/no_warn)" Category="General" Switch="no_warn" F1Keyword="VC.Project.VCMidlTool.SuppressCompilerWarnings">
+  </BoolProperty>
+  <BoolProperty Name="ApplicationConfigurationMode" DisplayName="アプリケーション構成モード" Description="IDL ファイル内の選択した ACF 属性を有効にします (/app_config)" Category="General" Switch="app_config" F1Keyword="VC.Project.VCMidlTool.ApplicationConfigurationMode">
+  </BoolProperty>
+  <IntProperty Name="LocaleID" DisplayName="ロケール ID" Description="入力ファイルの LCID、ファイル名、およびディレクトリ パスを指定します (/lcid DECIMAL)" Category="General" Switch="lcid" Separator=" " F1Keyword="VC.Project.VCMidlTool.LocaleID">
+  </IntProperty>
+  <StringProperty Name="OutputDirectory" DisplayName="出力ディレクトリ" Description="出力ディレクトリです (/out [ディレクトリ])" Category="Output" Switch="out" F1Keyword="VC.Project.VCMidlTool.OutputDirectory">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="HeaderFileName" DisplayName="ヘッダー ファイル" Description="生成されるヘッダー ファイルの名前を指定します (/h ファイル名)" Category="Output" Switch="h" Separator=" " F1Keyword="VC.Project.VCMidlTool.HeaderFileName">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="DllDataFileName" DisplayName="Dll データ ファイル" Description="DLL データ ファイルの名前を指定します (/dlldata ファイル名)" Category="Output" Switch="dlldata" Separator=" " F1Keyword="VC.Project.VCMidlTool.DLLDataFileName">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="InterfaceIdentifierFileName" DisplayName="IID ファイル" Description="IID ファイルの名前を指定します (/iid ファイル名)" Category="Output" Switch="iid" Separator=" " F1Keyword="VC.Project.VCMidlTool.InterfaceIdentifierFileName">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="ProxyFileName" DisplayName="プロキシ ファイル" Description="プロキシ ファイルの名前を指定します (/proxy ファイル名)" Category="Output" Switch="proxy" Separator=" " F1Keyword="VC.Project.VCMidlTool.ProxyFileName">
+  </StringProperty>
+  <BoolProperty ReverseSwitch="notlb" Name="GenerateTypeLibrary" DisplayName="タイプ ライブラリの生成" Description="タイプ ライブラリを生成するかどうかを指定します (生成しない場合は [/notlb])" Category="Output" F1Keyword="VC.Project.VCMidlTool.GenerateTypeLibrary">
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="TypeLibraryName" DisplayName="タイプ ライブラリ" Description="タイプ ライブラリ ファイルの名前を指定します (/tlb ファイル名)" Category="Output" Switch="tlb" Separator=" " F1Keyword="VC.Project.VCMidlTool.TypeLibraryName">
+  </StringProperty>
+  <EnumProperty Name="GenerateClientFiles" DisplayName="クライアント スタブ ファイルの生成" Description="クライアント スタブ ファイルのみを生成します (/client [stub|none])" Category="Output" F1Keyword="VC.Project.VCMidlTool.GenerateClientFiles">
+    <EnumValue Name="Stub" Switch="client stub" DisplayName="スタブ" Description="スタブ">
+    </EnumValue>
+    <EnumValue Name="None" Switch="client none" DisplayName="なし" Description="なし">
+    </EnumValue>
+  </EnumProperty>
+  <EnumProperty Name="GenerateServerFiles" DisplayName="サーバー スタブ ファイルの生成" Description="サーバー スタブ ファイルのみを生成します (/server [stub|none])" Category="Output" F1Keyword="VC.Project.VCMidlTool.GenerateServerFiles">
+    <EnumValue Name="Stub" Switch="server stub" DisplayName="スタブ" Description="スタブ">
+    </EnumValue>
+    <EnumValue Name="None" Switch="server none" DisplayName="なし" Description="なし">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Subtype="file" Name="ClientStubFile" DisplayName="クライアント スタブ ファイル" Description="クライアント スタブ ファイルを指定します (/cstub [ファイル])" Category="Output" Switch="cstub" Separator=" " F1Keyword="VC.Project.VCMidlTool.ClientStubFile">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="ServerStubFile" DisplayName="サーバー スタブ ファイル" Description="サーバー スタブ ファイルを指定します (/sstub [ファイル])" Category="Output" Switch="sstub" Separator=" " F1Keyword="VC.Project.VCMidlTool.ServerStubFile">
+  </StringProperty>
+  <EnumProperty Name="TypeLibFormat" DisplayName="タイプ ライブラリの形式" Description="タイプ ライブラリのファイル形式を指定します ([/oldtlb|/newtlb])" Category="Output" F1Keyword="VC.Project.VCMidlTool.TypeLibFormat">
+    <EnumValue Name="NewFormat" Switch="newtlb" DisplayName="NewFormat" Description="新しい形式">
+    </EnumValue>
+    <EnumValue Name="OldFormat" Switch="oldtlb" DisplayName="OldFormat" Description="以前の形式">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Name="CPreprocessOptions" DisplayName="C プリプロセス オプション" Description="C コンパイラ プリプロセッサに渡すスイッチを指定します (/cpp_opt スイッチ)" Category="Advanced" Switch="cpp_opt" Separator=" " F1Keyword="VC.Project.VCMidlTool.CPreprocessOptions">
+  </StringProperty>
+  <StringListProperty Name="UndefinePreprocessorDefinitions" DisplayName="指定したプリプロセッサ定義の無効化" Description="MIDL マクロを含め、いくつかの定義を解除します (/U[マクロ])" Category="Advanced" Switch="U" F1Keyword="VC.Project.VCMidlTool.UndefinePreprocessorDefinitions">
+  </StringListProperty>
+  <EnumProperty Name="EnableErrorChecks" DisplayName="エラーのチェック" Description="エラー チェックのオプションを指定します ([/error all|none])" Category="Advanced" F1Keyword="VC.Project.VCMidlTool.EnableErrorChecks">
+    <EnumValue Name="EnableCustom" Switch="" DisplayName="EnableCustom" Description="すべて">
+    </EnumValue>
+    <EnumValue Name="All" Switch="error all" DisplayName="すべて" Description="すべて">
+    </EnumValue>
+    <EnumValue Name="None" Switch="error none" DisplayName="なし" Description="なし">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty Name="ErrorCheckAllocations" DisplayName="メモリの割り当てをチェック" Description="メモリ不足のエラーをチェックします (/error allocation)" Category="Advanced" Switch="error allocation" F1Keyword="VC.Project.VCMidlTool.ErrorCheckAllocations">
+  </BoolProperty>
+  <BoolProperty Name="ErrorCheckBounds" DisplayName="範囲のチェック" Description="伝送長の定義に対してサイズをチェックします (/error bounds_check)" Category="Advanced" Switch="error bounds_check" F1Keyword="VC.Project.VCMidlTool.ErrorCheckBounds">
+  </BoolProperty>
+  <BoolProperty Name="ErrorCheckEnumRange" DisplayName="enum の範囲のチェック" Description="enum の値が有効範囲内にあるかどうかチェックします (/error enum)" Category="Advanced" Switch="error enum" F1Keyword="VC.Project.VCMidlTool.ErrorCheckEnumRange">
+  </BoolProperty>
+  <BoolProperty Name="ErrorCheckRefPointers" DisplayName="参照ポインターのチェック" Description="参照ポインターが null でないかどうかチェックします (/error ref)" Category="Advanced" Switch="error ref" F1Keyword="VC.Project.VCMidlTool.ErrorCheckRefPointers">
+  </BoolProperty>
+  <BoolProperty Name="ErrorCheckStubData" DisplayName="スタブ データのチェック" Description="サーバー側のスタブ データが有効かどうか追加のチェックを行います (/error stub_data)" Category="Advanced" Switch="error stub_data" F1Keyword="VC.Project.VCMidlTool.ErrorCheckStubData">
+  </BoolProperty>
+  <BoolProperty ReverseSwitch="no_robust" Name="ValidateAllParameters" DisplayName="パラメーターの確認" Description="パラメーターを検証するための追加情報を生成します (/robust|/no_robust)" Category="Advanced" Switch="robust" F1Keyword="VC.Project.VCMidlTool.ValidateParameters">
+  </BoolProperty>
+  <EnumProperty Name="StructMemberAlignment" DisplayName="構造体メンバーのアライメント" Description="対象システム内の構造体のパッキング レベルを指定します (/ZpN)" Category="Advanced" F1Keyword="VC.Project.VCMidlTool.StructMemberAlignment">
+    <EnumValue Name="NotSet" Switch="" DisplayName="設定なし" Description="設定なし">
+    </EnumValue>
+    <EnumValue Name="1" Switch="Zp1" DisplayName="1 バイト" Description="Zp1">
+    </EnumValue>
+    <EnumValue Name="2" Switch="Zp2" DisplayName="2 バイト" Description="Zp2">
+    </EnumValue>
+    <EnumValue Name="4" Switch="Zp4" DisplayName="4 バイト" Description="Zp4">
+    </EnumValue>
+    <EnumValue Name="8" Switch="Zp8" DisplayName="8 バイト" Description="Zp8">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Subtype="file" Name="RedirectOutputAndErrors" DisplayName="出力先の変更" Description="出力を画面からファイルへリダイレクトします (/o ファイル)" Category="Advanced" Switch="o" Separator=" " F1Keyword="VC.Project.VCMidlTool.RedirectOutputAndErrors">
+  </StringProperty>
+  <StringProperty Subtype="folder" Name="TrackerLogDirectory" DisplayName="トラッカー ログのディレクトリ" Description="トラッカー ログのディレクトリです。" IncludeInCommandLine="false" Visible="false">
+  </StringProperty>
+  <StringProperty Name="AdditionalOptions" DisplayName="追加オプション" Description="追加オプションです" Category="Command Line" F1Keyword="vc.project.AdditionalOptionsPage">
+  </StringProperty>
+</Rule>

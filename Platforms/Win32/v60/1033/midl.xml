@@ -4,7 +4,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 6 in Visual Studio 2010
 
-1.0  [2010-11-10]
+2.0 Alpha 1  [2010-11-15]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -22,7 +22,6 @@ Credits
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 -->
 <!--Copyright, Microsoft Corporation, All rights reserved.-->
-
 <Rule Name="MIDL" PageTemplate="tool" DisplayName="MIDL" SwitchPrefix="/" Order="60" xmlns="http://schemas.microsoft.com/build/2009/properties" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
   <Rule.Categories>
     <Category Name="General" DisplayName="General" />
@@ -65,12 +64,16 @@ Credits
     <EnumValue Name="Ascii" Switch="char ascii7" DisplayName="Ascii" Description="Ascii">
     </EnumValue>
   </EnumProperty>
-  <EnumProperty Name="TargetEnvironment" DisplayName="Target Environment" Description="Specifies environment to target (/env win32|win64)" Category="General" F1Keyword="VC.Project.VCMidlTool.TargetEnvironment">
+  <EnumProperty Name="TargetEnvironment" DisplayName="Target Environment" Description="Specifies environment to target (/env win32|dos|win16|mac)" Category="General" F1Keyword="VC.Project.VCMidlTool.TargetEnvironment">
     <EnumValue Name="NotSet" Switch="" DisplayName="Not Set" Description="Win32">
     </EnumValue>
     <EnumValue Name="Win32" Switch="env win32" DisplayName="Microsoft Windows 32-bit" Description="Win32">
     </EnumValue>
-    <EnumValue Name="Win64" Switch="env win64" DisplayName="Microsoft Windows 64-bit" Description="Win64">
+    <EnumValue Name="DOS" Switch="env dos" DisplayName="Microsoft MS-DOS" Description="MS-DOS">
+    </EnumValue>
+    <EnumValue Name="Win16" Switch="env win16" DisplayName="Microsoft Windows 16-bit" Description="Win16">
+    </EnumValue>
+    <EnumValue Name="Mac" Switch="env mac" DisplayName="Apple Macintosh (680x0)" Description="Macintosh">
     </EnumValue>
   </EnumProperty>
   <BoolProperty Name="GenerateStublessProxies" DisplayName="Generate Stubless Proxies" Description="Generate fully interpreted stubs with extensions and stubless proxies for object interfaces (/Oicf, /Oif)" Category="General" Switch="Oicf" F1Keyword="VC.Project.VCMidlTool.GenerateStublessProxies">

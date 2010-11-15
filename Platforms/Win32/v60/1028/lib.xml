@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
+- Native multi-targeting support for Visual Studio 6 in Visual Studio 2010
+
+2.0 Alpha 1  [2010-11-15]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+  
+  This file is a derivative work based on the file of the same name that is
+  included with Visual Studio 2010. The original file bears the copyright
+  notice reproduced below. Implicit authorization from Microsoft to create and
+  distribute derivative works is deduced from comments in the files and
+  documentation which describe ways to customize the build system by making
+  changes to these files.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="LIB" PageTemplate="tool" DisplayName="管理員" SwitchPrefix="/" Order="40" xmlns="http://schemas.microsoft.com/build/2009/properties" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+  <Rule.Categories>
+    <Category Name="General" DisplayName="一般"/>
+    <Category Name="Command Line" DisplayName="命令列" Subtype="CommandLine"/>
+  </Rule.Categories>
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" ItemType="Lib" Label="" HasConfigurationCondition="true"/>
+  </Rule.DataSource>
+  <StringProperty Subtype="file" Name="OutputFile" DisplayName="輸出檔" Description="/OUT 選項會覆寫 lib 建立的程式預設名稱和位置。" Category="General" Switch="OUT" Separator=":" F1Keyword="VC.Project.VCLibrarianTool.OutputFile">
+  </StringProperty>
+  <StringListProperty Subtype="file" Name="AdditionalDependencies" DisplayName="其他相依性" Description="指定可加入至連結命令列的其他項目 [如 kernel32.lib] " Category="General" F1Keyword="VC.Project.VCLibrarianTool.AdditionalDependencies">
+  </StringListProperty>
+  <StringListProperty Subtype="folder" Name="AdditionalLibraryDirectories" DisplayName="其他程式庫目錄" Description="允許使用者覆寫環境程式庫路徑" Category="General" Switch="LIBPATH:" F1Keyword="VC.Project.VCLibrarianTool.AdditionalLibraryDirectories">
+  </StringListProperty>
+  <BoolProperty Name="SuppressStartupBanner" DisplayName="隱藏程式啟始資訊" Description="/NOLOGO 選項不顯示著作權訊息或版本號碼。" Category="General" Switch="NOLOGO" F1Keyword="VC.Project.VCLibrarianTool.SuppressStartupBanner">
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="ModuleDefinitionFile" DisplayName="模組定義檔名稱" Description="/DEF 選項會將模組定義檔 (.def) 傳遞至 LIB。只能指定一個 .def 檔給 LIB。" Category="General" Switch="DEF" Separator=":" F1Keyword="VC.Project.VCLibrarianTool.ModuleDefinitionFile">
+  </StringProperty>
+  <BoolProperty Name="IgnoreAllDefaultLibraries" DisplayName="忽略所有預設程式庫" Description="/NODEFAULTLIB 選項會告訴 lib 在解析外部參考時從它搜尋的程式庫清單中移除一或多個預設程式庫。 " Category="General" Switch="NODEFAULTLIB" F1Keyword="VC.Project.VCLibrarianTool.IgnoreAllDefaultLibraries">
+  </BoolProperty>
+  <StringListProperty Subtype="file" Name="IgnoreSpecificDefaultLibraries" DisplayName="忽略特定的預設程式庫" Description="您想要讓 lib 在解析外部參考時忽略的程式庫。" Category="General" Switch="NODEFAULTLIB:" F1Keyword="VC.Project.VCLibrarianTool.IgnoreDefaultLibraryNames">
+  </StringListProperty>
+  <StringListProperty Name="ExportNamedFunctions" DisplayName="匯出已命名函式" Description="匯出一或多個特定的函式" Category="General" Switch="EXPORT:" F1Keyword="VC.Project.VCLibrarianTool.ExportNamedFunctions">
+  </StringListProperty>
+  <StringProperty Name="ForceSymbolReferences" DisplayName="強制符號參考" Description="強制 Lib 包含這個符號的參考" Category="General" Switch="INCLUDE" Separator=":" F1Keyword="VC.Project.VCLibrarianTool.ForceSymbolReferences">
+  </StringProperty>
+  <BoolProperty Name="LinkLibraryDependencies" DisplayName="連結程式庫相依性" Description="指定是否自動連結專案相依性的程式庫輸出。" Category="General" IncludeInCommandLine="false" F1Keyword="VC.Project.VCLibrarianTool.LinkLibraryDependencies">
+    <BoolProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="ProjectReference" Label="" HasConfigurationCondition="true"/>
+    </BoolProperty.DataSource>
+  </BoolProperty>
+  <StringProperty Name="DisplayLibrary" DisplayName="將程式庫顯示於標準輸出" Description="將有關輸出程式庫的資訊顯示於標準輸出。輸出可以重新導向至檔案中。您可以使用 /LIST 來判斷現有程式庫的內容而不改變它。" Category="General" Switch="LIST" Separator=":" Visible="false">
+  </StringProperty>
+  <EnumProperty Name="TargetMachine" DisplayName="目標電腦" Description="/MACHINE 選項指定程式的目標平台。" Category="General" F1Keyword="VC.Project.VCLibrarianTool.TargetMachine">
+    <EnumValue Name="MachineARM" Switch="MACHINE:ARM" DisplayName="MachineARM" Description="MachineARM">
+    </EnumValue>
+    <EnumValue Name="MachineEBC" Switch="MACHINE:EBC" DisplayName="MachineEBC" Description="MachineEBC">
+    </EnumValue>
+    <EnumValue Name="MachineIA64" Switch="MACHINE:IA64" DisplayName="MachineIA64" Description="MachineIA64">
+    </EnumValue>
+    <EnumValue Name="MachineMIPS" Switch="MACHINE:MIPS" DisplayName="MachineMIPS" Description="MachineMIPS">
+    </EnumValue>
+    <EnumValue Name="MachineMIPS16" Switch="MACHINE:MIPS16" DisplayName="MachineMIPS16" Description="MachineMIPS16">
+    </EnumValue>
+    <EnumValue Name="MachineMIPSFPU" Switch="MACHINE:MIPSFPU" DisplayName="MachineMIPSFPU" Description="MachineMIPSFPU">
+    </EnumValue>
+    <EnumValue Name="MachineMIPSFPU16" Switch="MACHINE:MIPSFPU16" DisplayName="MachineMIPSFPU16" Description="MachineMIPSFPU16">
+    </EnumValue>
+    <EnumValue Name="MachineSH4" Switch="MACHINE:SH4" DisplayName="MachineSH4" Description="MachineSH4">
+    </EnumValue>
+    <EnumValue Name="MachineTHUMB" Switch="MACHINE:THUMB" DisplayName="MachineTHUMB" Description="MachineTHUMB">
+    </EnumValue>
+    <EnumValue Name="MachineX64" Switch="MACHINE:X64" DisplayName="MachineX64" Description="MachineX64">
+    </EnumValue>
+    <EnumValue Name="MachineX86" Switch="MACHINE:X86" DisplayName="MachineX86" Description="MachineX86">
+    </EnumValue>
+  </EnumProperty>
+  <EnumProperty Name="SubSystem" DisplayName="子系統" Description="/SUBSYSTEM 選項會告訴作業系統如何執行 .exe 檔。選擇的子系統會影響連結器將選擇的進入點符號 (或進入點函式)。" Category="General" F1Keyword="VC.Project.VCLibrarianTool.SubSystem">
+    <EnumProperty.Arguments>
+      <Argument Property="MinimumRequiredVersion" IsRequired="false"/>
+    </EnumProperty.Arguments>
+    <EnumValue Name="Console" Switch="SUBSYSTEM:CONSOLE" DisplayName="主控台" Description="Win32 字元模式應用程式。作業系統會為主控台應用程式指定主控台。如果定義 main 或 wmain，預設則為 CONSOLE。">
+    </EnumValue>
+    <EnumValue Name="Windows" Switch="SUBSYSTEM:WINDOWS" DisplayName="Windows" Description="應用程式不需要主控台，可能是因為它建立自己的視窗，與使用者進行互動。如果定義 WinMain 或 wWinMain，預設則為 WINDOWS。">
+    </EnumValue>
+    <EnumValue Name="Native" Switch="SUBSYSTEM:NATIVE" DisplayName="原生" Description="Windows NT 的裝置驅動程式。如果指定 /DRIVER:WDM，預設則為 NATIVE。">
+    </EnumValue>
+    <EnumValue Name="EFI Application" Switch="SUBSYSTEM:EFI_APPLICATION" DisplayName="EFI 應用程式" Description="EFI 應用程式。">
+    </EnumValue>
+    <EnumValue Name="EFI Boot Service Driver" Switch="SUBSYSTEM:EFI_BOOT_SERVICE_DRIVER" DisplayName="EFI 開機服務驅動程式" Description="EFI 開機服務驅動程式。">
+    </EnumValue>
+    <EnumValue Name="EFI ROM" Switch="SUBSYSTEM:EFI_ROM" DisplayName="EFI ROM" Description="EFI ROM。">
+    </EnumValue>
+    <EnumValue Name="EFI Runtime" Switch="SUBSYSTEM:EFI_RUNTIME_DRIVER" DisplayName="EFI 執行階段" Description="EFI 執行階段。">
+    </EnumValue>
+    <EnumValue Name="WindowsCE" Switch="SUBSYSTEM:WINDOWSCE" DisplayName="WindowsCE" Description="在 Windows CE 裝置上執行的應用程式。">
+    </EnumValue>
+    <EnumValue Name="POSIX" Switch="SUBSYSTEM:POSIX" DisplayName="POSIX" Description="在 Windows NT 中以 POSIX 子系統執行的應用程式。">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Name="MinimumRequiredVersion" DisplayName="最小必要版本" Description="指定子系統的最小必要版本。引數是介於 0 到 65,535 範圍之間的十進位數字。" Category="General" Separator=",">
+  </StringProperty>
+  <StringListProperty Subtype="file" Name="RemoveObjects" DisplayName="移除物件" Description="從輸出程式庫省略指定的物件。LIB 會合併所有的物件 (不論位於目的檔或程式庫) 來建立輸出程式庫，然後刪除以 /REMOVE 指定的任何物件。" Category="General" Switch="REMOVE:" F1Keyword="VC.Project.VCLibrarianTool.RemoveObjects">
+  </StringListProperty>
+  <BoolProperty Name="Verbose" DisplayName="詳細資訊" Description="詳細資訊" Category="General" Switch="VERBOSE" F1Keyword="VC.Project.VCLibrarianTool.Verbose">
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="Name" DisplayName="名稱" Description="當建置匯入程式庫時，指定正在建置之匯入程式庫的 DLL 名稱。" Category="General" Switch="NAME:" F1Keyword="VC.Project.VCLibrarianTool.Name">
+  </StringProperty>
+  <StringProperty Subtype="folder" Name="TrackerLogDirectory" DisplayName="追蹤器記錄檔目錄" Description="追蹤器記錄檔目錄。" Category="General" IncludeInCommandLine="false" Visible="false">
+  </StringProperty>
+  <StringProperty Name="AdditionalOptions" DisplayName="其他選項" Description="其他選項" Category="Command Line" F1Keyword="vc.project.AdditionalOptionsPage">
+  </StringProperty>
+</Rule>

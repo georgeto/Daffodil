@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
+- Native multi-targeting support for Visual Studio 2002 in Visual Studio 2010
+
+2.0 Alpha 1  [2010-11-15]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+  
+  This file is a derivative work based on the file of the same name that is
+  included with Visual Studio 2010. The original file bears the copyright
+  notice reproduced below. Implicit authorization from Microsoft to create and
+  distribute derivative works is deduced from comments in the files and
+  documentation which describe ways to customize the build system by making
+  changes to these files.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="ConfigurationGeneral" DisplayName="常规" PageTemplate="generic" Description="常规" xmlns="http://schemas.microsoft.com/build/2009/properties">
+  <Rule.Categories>
+    <Category Name="General" DisplayName="常规" Description="常规"/>
+    <Category Name="ProjectDefaults" DisplayName="项目默认值" Description="项目默认值"/>
+  </Rule.Categories>
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" Label="Configuration"/>
+  </Rule.DataSource>
+  <StringProperty Name="OutDir" DisplayName="输出目录" Description="指定输出文件目录的相对路径；可以包含环境变量。" Category="General" Default="$(SolutionDir)$(Configuration)\" Subtype="folder" F1Keyword="VC.Project.VCConfiguration.OutputDirectory">
+                  <StringProperty.DataSource>
+                     <DataSource Persistence="ProjectFile" Label=""/>
+                  </StringProperty.DataSource>
+  </StringProperty>
+  <StringProperty Name="IntDir" DisplayName="中间目录" Description="指定中间文件目录的相对路径；可以包含环境变量。" Category="General" Default="$(Configuration)\" Subtype="folder" F1Keyword="VC.Project.VCConfiguration.IntermediateDirectory">
+                  <StringProperty.DataSource>
+                     <DataSource Persistence="ProjectFile" Label=""/>
+                  </StringProperty.DataSource>
+  </StringProperty>
+  <StringProperty Name="TargetName" DisplayName="目标文件名" Description="指定此项目将生成的文件名。" F1Keyword="VC.Project.VCConfiguration.TargetName" Category="General" Default="$(ProjectName)">
+                  <StringProperty.DataSource>
+                     <DataSource Persistence="ProjectFile" Label=""/>
+                  </StringProperty.DataSource>
+  </StringProperty>
+  <StringProperty Name="TargetExt" DisplayName="目标文件扩展名" Description="指定此项目将生成的文件扩展名。(示例: .exe 或 .dll)" F1Keyword="VC.Project.VCConfiguration.TargetExt" Category="General">
+                  <StringProperty.DataSource>
+                     <DataSource Persistence="ProjectFile" Label=""/>
+                  </StringProperty.DataSource>
+  </StringProperty>
+  <StringListProperty Name="ExtensionsToDeleteOnClean" DisplayName="清除时要删除的扩展名" Description="分号分隔的通配符规范，指定在清除或重新生成时要删除中间目录中的哪些文件。" Category="General" Separator=";" F1Keyword="VC.Project.VCConfiguration.DeleteExtensionsOnClean">
+                      <StringListProperty.DataSource>
+                            <DataSource Persistence="ProjectFile" Label=""/>
+                      </StringListProperty.DataSource>
+  </StringListProperty>
+  <StringProperty Name="BuildLogFile" DisplayName="生成日志文件" Description="指定启用生成记录时要写入的生成日志文件。" F1Keyword="VC.Project.VCConfiguration.BuildLogFile" Category="General" Default="$(ProjectDir)\$(MSBuildProjectName).log" Subtype="file">
+                  <StringProperty.DataSource>
+                     <DataSource Persistence="ProjectFile" ItemType="BuildLog" PersistedName="Path"/>
+                  </StringProperty.DataSource>
+  </StringProperty>
+  <!-- There is no InheritProjectPropertySheets in the project file. The property sheets will be expressed as explicit Imports.
+  <StringListProperty Name="InheritProjectPropertySheets" DisplayName="Inherit Project Property Sheets"
+                      Description="Specifies the project property sheets this configuration or property sheet inherits from."
+                      Category="General" Separator=";" Subtype="file" /> -->
+  <DynamicEnumProperty Name="PlatformToolset" DisplayName="平台工具集" EnumProvider="Toolsets" Description="指定用于生成当前配置的工具集；如果未设置，则将使用默认工具集" F1Keyword="VC.Project.VCConfiguration.PlatformToolset" Category="General"/>
+  <EnumProperty Name="ConfigurationType" DisplayName="配置类型" Description="指定此配置生成的输出类型。" Category="ProjectDefaults" F1Keyword="VC.Project.VCConfiguration.ConfigurationType">
+    <EnumValue Name="Makefile" DisplayName="生成文件" Description="生成文件"/>
+    <EnumValue Name="Application" DisplayName="应用程序(.exe)" Description="应用程序(.exe)"/>
+    <EnumValue Name="DynamicLibrary" DisplayName="动态库(.dll)" Description="动态库(.dll)"/>
+    <EnumValue Name="StaticLibrary" DisplayName="静态库(.lib)" Description="静态库(.lib)"/>
+    <EnumValue Name="Utility" DisplayName="实用工具" Description="实用工具"/>
+  </EnumProperty>
+  <EnumProperty Name="UseOfMfc" DisplayName="MFC 的使用" Description="指定配置使用 MFC 的方式。" Category="ProjectDefaults" F1Keyword="VC.Project.VCConfiguration.useOfMfc">
+    <EnumValue Name="false" DisplayName="使用标准 Windows 库" Description="使用标准 Windows 库"/>
+    <EnumValue Name="Static" DisplayName="在静态库中使用 MFC" Description="在静态库中使用 MFC"/>
+    <EnumValue Name="Dynamic" DisplayName="在共享 DLL 中使用 MFC" Description="在共享 DLL 中使用 MFC"/>
+  </EnumProperty>
+  <EnumProperty Name="UseOfAtl" DisplayName="ATL 的使用" Description="指定配置使用 ATL 的方式。" Category="ProjectDefaults" F1Keyword="VC.Project.VCConfiguration.useOfATL">
+    <EnumValue Name="false" DisplayName="不使用 ATL" Description="不使用 ATL"/>
+    <EnumValue Name="Static" DisplayName="静态链接到 ATL" Description="静态链接到 ATL"/>
+    <EnumValue Name="Dynamic" DisplayName="动态链接到 ATL" Description="动态链接到 ATL"/>
+  </EnumProperty>
+  <EnumProperty Name="CharacterSet" DisplayName="字符集" Description="通知编译器使用指定的字符集；帮助解决本地化问题。" Category="ProjectDefaults" F1Keyword="VC.Project.VCConfiguration.CharacterSet">
+    <EnumValue Name="NotSet" DisplayName="未设置" Description="未设置"/>
+    <EnumValue Name="Unicode" DisplayName="使用 Unicode 字符集" Description="使用 Unicode 字符集"/>
+    <EnumValue Name="MultiByte" DisplayName="使用多字节字符集" Description="使用多字节字符集"/>
+  </EnumProperty>
+  <EnumProperty Name="CLRSupport" DisplayName="公共语言运行时支持" Description="指定此配置是否支持公共语言运行时。这与其他某些设置(例如运行时检查)不兼容。有关完整的冲突列表，请参见 /clr 系列 C++ 编译器开关的帮助。" Category="ProjectDefaults" F1Keyword="VC.Project.VCConfiguration.ManagedExtensions">
+    <EnumValue Name="false" DisplayName="无公共语言运行时支持" Description="无公共语言运行时支持"/>
+    <EnumValue Name="true" DisplayName="公共语言运行时支持(/clr)" Description="公共语言运行时支持(/clr)"/>
+  </EnumProperty>
+  <EnumProperty Name="WholeProgramOptimization" DisplayName="全程序优化" Description="指定程序将跨 .obj 边界进行优化；当启用 C/C++ 优化时效果最好。" Category="ProjectDefaults" F1Keyword="VC.Project.VCConfiguration.WholeProgramOptimization">
+    <EnumValue Name="false" DisplayName="无全程序优化" Description="无全程序优化"/>
+    <EnumValue Name="true" DisplayName="使用链接时间代码生成" Description="使用链接时间代码生成"/>
+  </EnumProperty>
+  <BoolProperty Name="UseDebugLibraries" DisplayName="使用调试库" Description="指定此配置是否应使用调试库和调试开关" Category="ProjectDefaults" Visible="false">
+  </BoolProperty>
+  <StringProperty Name="_ProjectFileVersion" DisplayName="项目文件版本" Description="指定用于创建此项目文件的转换工具的版本。" Category="General" Visible="false">
+    <StringProperty.DataSource>
+      <DataSource Persistence="ProjectFile"/>
+    </StringProperty.DataSource>
+  </StringProperty>
+</Rule>

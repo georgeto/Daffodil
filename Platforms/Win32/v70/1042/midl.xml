@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
+- Native multi-targeting support for Visual Studio 2002 in Visual Studio 2010
+
+2.0 Alpha 1  [2010-11-15]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+  
+  This file is a derivative work based on the file of the same name that is
+  included with Visual Studio 2010. The original file bears the copyright
+  notice reproduced below. Implicit authorization from Microsoft to create and
+  distribute derivative works is deduced from comments in the files and
+  documentation which describe ways to customize the build system by making
+  changes to these files.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="MIDL" PageTemplate="tool" DisplayName="MIDL" SwitchPrefix="/" Order="60" xmlns="http://schemas.microsoft.com/build/2009/properties" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+  <Rule.Categories>
+    <Category Name="General" DisplayName="일반"/>
+    <Category Name="Output" DisplayName="출력"/>
+    <Category Name="Advanced" DisplayName="고급"/>
+    <Category Name="Command Line" DisplayName="명령줄" Subtype="CommandLine"/>
+  </Rule.Categories>
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" ItemType="Midl" Label="" HasConfigurationCondition="true"/>
+  </Rule.DataSource>
+  <StringListProperty Name="PreprocessorDefinitions" DisplayName="전처리기 정의" Description="하나 이상의 MIDL 매크로를 포함한 정의를 지정합니다. (/D[macros]" Category="General" Switch="D " F1Keyword="VC.Project.VCMidlTool.PreprocessorDefinitions">
+  </StringListProperty>
+  <StringListProperty Subtype="folder" Name="AdditionalIncludeDirectories" DisplayName="추가 포함 디렉터리" Description="포함 경로에 추가할 하나 이상의 디렉터리를 지정합니다. (/I[path])" Category="General" Switch="I" F1Keyword="VC.Project.VCMidlTool.AdditionalIncludeDirectories">
+  </StringListProperty>
+  <BoolProperty Name="IgnoreStandardIncludePath" DisplayName="표준 포함 경로 무시" Description="현재 디렉터리와 INCLUDE 디렉터리를 무시합니다." Category="General" Switch="no_def_idir" F1Keyword="VC.Project.VCMidlTool.IgnoreStandardIncludePath">
+  </BoolProperty>
+  <BoolProperty Name="MkTypLibCompatible" DisplayName="MkTypLib 호환" Description="mktyplib.exe 버전 2.03과 호환되게 합니다. (/mktyplib203)" Category="General" Switch="mktyplib203" F1Keyword="VC.Project.VCMidlTool.MkTypLibCompatible">
+  </BoolProperty>
+  <EnumProperty Name="WarningLevel" DisplayName="경고 수준" Description="MIDL 코드 오류의 엄격성을 선택합니다. (/Wn)" Category="General" F1Keyword="VC.Project.VCMidlTool.WarningLevel">
+    <EnumValue Name="0" Switch="W0" DisplayName="1">
+    </EnumValue>
+    <EnumValue Name="1" Switch="W1" DisplayName="1">
+    </EnumValue>
+    <EnumValue Name="2" Switch="W2" DisplayName="2">
+    </EnumValue>
+    <EnumValue Name="3" Switch="W3" DisplayName="3">
+    </EnumValue>
+    <EnumValue Name="4" Switch="W4" DisplayName="4">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty Name="WarnAsError" DisplayName="경고를 오류로 처리" Description="MIDL에서 모든 경고를 오류로 처리할 수 있습니다. (/WX)" Category="General" Switch="WX" F1Keyword="VC.Project.VCMidlTool.WarnAsError">
+  </BoolProperty>
+  <BoolProperty Name="SuppressStartupBanner" DisplayName="시작 배너 표시 안 함" Description="시작 배너 및 정보 메시지를 표시하지 않습니다. (/nologo)" Category="General" Switch="nologo" F1Keyword="VC.Project.VCMidlTool.SuppressStartupBanner">
+  </BoolProperty>
+  <EnumProperty Name="DefaultCharType" DisplayName="C 컴파일러 Char 형식" Description="생성된 코드를 컴파일하는 데 사용할 C 컴파일러의 기본 문자 형식을 지정합니다. (/char signed|unsigned|ascii7)" Category="General" F1Keyword="VC.Project.VCMidlTool.DefaultCharType">
+    <EnumValue Name="Signed" Switch="char signed" DisplayName="서명됨" Description="서명됨">
+    </EnumValue>
+    <EnumValue Name="Unsigned" Switch="char unsigned" DisplayName="서명되지 않음" Description="서명되지 않음">
+    </EnumValue>
+    <EnumValue Name="Ascii" Switch="char ascii7" DisplayName="Ascii" Description="Ascii">
+    </EnumValue>
+  </EnumProperty>
+  <EnumProperty Name="TargetEnvironment" DisplayName="대상 개발 환경" Description="대상 개발 환경을 지정합니다. (/env win32|win64)" Category="General" F1Keyword="VC.Project.VCMidlTool.TargetEnvironment">
+    <EnumValue Name="NotSet" Switch="" DisplayName="설정 안 함" Description="Win32">
+    </EnumValue>
+    <EnumValue Name="Win32" Switch="env win32" DisplayName="Microsoft Windows 32비트" Description="Win32">
+    </EnumValue>
+    <EnumValue Name="Win64" Switch="env win64" DisplayName="Microsoft Windows 64비트" Description="Win64">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty Name="GenerateStublessProxies" DisplayName="스텁 없는 프록시 생성" Description="확장을 포함한 완전하게 해석된 스텁과 개체 인터페이스용으로 스텁 없는 프록시를 생성합니다. (/Oicf, /Oif)" Category="General" Switch="Oicf" F1Keyword="VC.Project.VCMidlTool.GenerateStublessProxies">
+  </BoolProperty>
+  <BoolProperty Name="SuppressCompilerWarnings" DisplayName="컴파일러 경고 표시 안 함" Description="컴파일러 경고 메시지를 표시하지 않습니다. (/no_warn)" Category="General" Switch="no_warn" F1Keyword="VC.Project.VCMidlTool.SuppressCompilerWarnings">
+  </BoolProperty>
+  <BoolProperty Name="ApplicationConfigurationMode" DisplayName="응용 프로그램 구성 모드" Description="IDL 파일에서 선택한 ACF 특성을 허용합니다. (/app_config)" Category="General" Switch="app_config" F1Keyword="VC.Project.VCMidlTool.ApplicationConfigurationMode">
+  </BoolProperty>
+  <IntProperty Name="LocaleID" DisplayName="로캘 ID" Description="입력 파일의 LCID, 파일 이름 및 디렉터리 경로(/lcid DECIMAL)를 지정합니다." Category="General" Switch="lcid" Separator=" " F1Keyword="VC.Project.VCMidlTool.LocaleID">
+  </IntProperty>
+  <StringProperty Name="OutputDirectory" DisplayName="출력 디렉터리" Description="출력 디렉터리(/out [directory])" Category="Output" Switch="out" F1Keyword="VC.Project.VCMidlTool.OutputDirectory">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="HeaderFileName" DisplayName="헤더 파일" Description="생성된 헤더 파일의 이름을 지정합니다. (/h filename)" Category="Output" Switch="h" Separator=" " F1Keyword="VC.Project.VCMidlTool.HeaderFileName">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="DllDataFileName" DisplayName="DllData 파일" Description="DLLDATA 파일의 이름을 지정합니다. (/dlldata filename)" Category="Output" Switch="dlldata" Separator=" " F1Keyword="VC.Project.VCMidlTool.DLLDataFileName">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="InterfaceIdentifierFileName" DisplayName="IID 파일" Description="인터페이스 식별자 파일의 이름을 지정합니다. (/iid filename)" Category="Output" Switch="iid" Separator=" " F1Keyword="VC.Project.VCMidlTool.InterfaceIdentifierFileName">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="ProxyFileName" DisplayName="프록시 파일" Description="프록시 파일의 이름을 지정합니다. (/proxy filename)" Category="Output" Switch="proxy" Separator=" " F1Keyword="VC.Project.VCMidlTool.ProxyFileName">
+  </StringProperty>
+  <BoolProperty ReverseSwitch="notlb" Name="GenerateTypeLibrary" DisplayName="형식 라이브러리 생성" Description="형식 라이브러리를 생성하지 않도록 지정합니다. (no인 경우 [/notlb])" Category="Output" F1Keyword="VC.Project.VCMidlTool.GenerateTypeLibrary">
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="TypeLibraryName" DisplayName="형식 라이브러리" Description="형식 라이브러리 파일의 이름을 지정합니다. (/tlb filename)" Category="Output" Switch="tlb" Separator=" " F1Keyword="VC.Project.VCMidlTool.TypeLibraryName">
+  </StringProperty>
+  <EnumProperty Name="GenerateClientFiles" DisplayName="클라이언트 스텁 파일 생성" Description="클라이언트 스텁 파일만 생성합니다. (/client [stub|none])" Category="Output" F1Keyword="VC.Project.VCMidlTool.GenerateClientFiles">
+    <EnumValue Name="Stub" Switch="client stub" DisplayName="스텁" Description="스텁">
+    </EnumValue>
+    <EnumValue Name="None" Switch="client none" DisplayName="없음" Description="없음">
+    </EnumValue>
+  </EnumProperty>
+  <EnumProperty Name="GenerateServerFiles" DisplayName="서버 스텁 파일 생성" Description="서버 스텁 파일만 생성합니다. (/server [stub|none])" Category="Output" F1Keyword="VC.Project.VCMidlTool.GenerateServerFiles">
+    <EnumValue Name="Stub" Switch="server stub" DisplayName="스텁" Description="스텁">
+    </EnumValue>
+    <EnumValue Name="None" Switch="server none" DisplayName="없음" Description="없음">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Subtype="file" Name="ClientStubFile" DisplayName="클라이언트 스텁 파일" Description="클라이언트 스텁 파일을 지정합니다. (/cstub [file])" Category="Output" Switch="cstub" Separator=" " F1Keyword="VC.Project.VCMidlTool.ClientStubFile">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="ServerStubFile" DisplayName="서버 스텁 파일" Description="서버 스텁 파일을 지정합니다. (/sstub [file])" Category="Output" Switch="sstub" Separator=" " F1Keyword="VC.Project.VCMidlTool.ServerStubFile">
+  </StringProperty>
+  <EnumProperty Name="TypeLibFormat" DisplayName="형식 라이브러리 형식" Description="형식 라이브러리 파일 형식을 지정합니다. ([/oldtlb|/newtlb])" Category="Output" F1Keyword="VC.Project.VCMidlTool.TypeLibFormat">
+    <EnumValue Name="NewFormat" Switch="newtlb" DisplayName="NewFormat" Description="새 형식">
+    </EnumValue>
+    <EnumValue Name="OldFormat" Switch="oldtlb" DisplayName="OldFormat" Description="이전 형식">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Name="CPreprocessOptions" DisplayName="C 전처리 옵션" Description="C 컴파일러 전처리기에 전달할 스위치를 지정합니다. (/cpp_opt switches)" Category="Advanced" Switch="cpp_opt" Separator=" " F1Keyword="VC.Project.VCMidlTool.CPreprocessOptions">
+  </StringProperty>
+  <StringListProperty Name="UndefinePreprocessorDefinitions" DisplayName="전처리기 정의 해제" Description="MIDL 매크로를 포함한 하나 이상의 정의 해제를 지정합니다. (/U[macros])" Category="Advanced" Switch="U" F1Keyword="VC.Project.VCMidlTool.UndefinePreprocessorDefinitions">
+  </StringListProperty>
+  <EnumProperty Name="EnableErrorChecks" DisplayName="오류 검사" Description="오류 검사 옵션을 선택합니다. ([/error all|none])" Category="Advanced" F1Keyword="VC.Project.VCMidlTool.EnableErrorChecks">
+    <EnumValue Name="EnableCustom" Switch="" DisplayName="EnableCustom" Description="모두">
+    </EnumValue>
+    <EnumValue Name="All" Switch="error all" DisplayName="모두" Description="모두">
+    </EnumValue>
+    <EnumValue Name="None" Switch="error none" DisplayName="없음" Description="없음">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty Name="ErrorCheckAllocations" DisplayName="할당 검사" Description="메모리 부족 오류를 검사합니다. (/error allocation)" Category="Advanced" Switch="error allocation" F1Keyword="VC.Project.VCMidlTool.ErrorCheckAllocations">
+  </BoolProperty>
+  <BoolProperty Name="ErrorCheckBounds" DisplayName="범위 검사" Description="크기 대 전송 길이 사양을 검사합니다. (/error bounds_check)" Category="Advanced" Switch="error bounds_check" F1Keyword="VC.Project.VCMidlTool.ErrorCheckBounds">
+  </BoolProperty>
+  <BoolProperty Name="ErrorCheckEnumRange" DisplayName="열거형 범위 검사" Description="열거형 값이 허용 범위 안에 있는지 검사합니다. (/error enum)" Category="Advanced" Switch="error enum" F1Keyword="VC.Project.VCMidlTool.ErrorCheckEnumRange">
+  </BoolProperty>
+  <BoolProperty Name="ErrorCheckRefPointers" DisplayName="참조 포인터 검사" Description="참조 포인터가 null이 아닌지 검사합니다. (/error ref)" Category="Advanced" Switch="error ref" F1Keyword="VC.Project.VCMidlTool.ErrorCheckRefPointers">
+  </BoolProperty>
+  <BoolProperty Name="ErrorCheckStubData" DisplayName="스텁 데이터 검사" Description="서버측 스텁 데이터 유효성에 대한 추가 검사를 실행합니다. (/error stub_data)" Category="Advanced" Switch="error stub_data" F1Keyword="VC.Project.VCMidlTool.ErrorCheckStubData">
+  </BoolProperty>
+  <BoolProperty ReverseSwitch="no_robust" Name="ValidateAllParameters" DisplayName="매개 변수 유효성 검사" Description="매개 변수 유효성을 검사하는 추가 정보를 생성합니다. (/robust|/no_robust)" Category="Advanced" Switch="robust" F1Keyword="VC.Project.VCMidlTool.ValidateParameters">
+  </BoolProperty>
+  <EnumProperty Name="StructMemberAlignment" DisplayName="구조체 멤버 맞춤" Description="대상 시스템의 구조체 압축 수준을 지정합니다. (/ZpN)" Category="Advanced" F1Keyword="VC.Project.VCMidlTool.StructMemberAlignment">
+    <EnumValue Name="NotSet" Switch="" DisplayName="설정 안 함" Description="설정 안 함">
+    </EnumValue>
+    <EnumValue Name="1" Switch="Zp1" DisplayName="1바이트" Description="Zp1">
+    </EnumValue>
+    <EnumValue Name="2" Switch="Zp2" DisplayName="2바이트" Description="Zp2">
+    </EnumValue>
+    <EnumValue Name="4" Switch="Zp4" DisplayName="4바이트" Description="Zp4">
+    </EnumValue>
+    <EnumValue Name="8" Switch="Zp8" DisplayName="8바이트" Description="Zp8">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Subtype="file" Name="RedirectOutputAndErrors" DisplayName="출력 리디렉션" Description="화면 출력을 파일로 리디렉션합니다. (/o file)" Category="Advanced" Switch="o" Separator=" " F1Keyword="VC.Project.VCMidlTool.RedirectOutputAndErrors">
+  </StringProperty>
+  <StringProperty Subtype="folder" Name="TrackerLogDirectory" DisplayName="추적기 로그 디렉터리" Description="추적기 로그 디렉터리입니다." IncludeInCommandLine="false" Visible="false">
+  </StringProperty>
+  <StringProperty Name="AdditionalOptions" DisplayName="추가 옵션" Description="추가 옵션" Category="Command Line" F1Keyword="vc.project.AdditionalOptionsPage">
+  </StringProperty>
+</Rule>

@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
+- Native multi-targeting support for Visual Studio 2005 in Visual Studio 2010
+
+2.0 Alpha 1  [2010-11-15]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+  
+  This file is a derivative work based on the file of the same name that is
+  included with Visual Studio 2010. The original file bears the copyright
+  notice reproduced below. Implicit authorization from Microsoft to create and
+  distribute derivative works is deduced from comments in the files and
+  documentation which describe ways to customize the build system by making
+  changes to these files.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="Link" PageTemplate="tool" DisplayName="Vinculador" SwitchPrefix="/" Order="20" xmlns="http://schemas.microsoft.com/build/2009/properties" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+  <Rule.Categories>
+    <Category Name="General" DisplayName="General"/>
+    <Category Name="Input" DisplayName="Entrada"/>
+    <Category Name="Manifest File" DisplayName="Archivo de manifiesto"/>
+    <Category Name="Debugging" DisplayName="Depuración"/>
+    <Category Name="System" DisplayName="Sistema"/>
+    <Category Name="Optimization" DisplayName="Optimización"/>
+    <Category Name="Embedded IDL" DisplayName="IDL incrustado"/>
+    <Category Name="Advanced" DisplayName="Avanzadas"/>
+    <Category Name="Command Line" DisplayName="Línea de comandos" Subtype="CommandLine"/>
+  </Rule.Categories>
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" ItemType="Link" Label="" HasConfigurationCondition="true"/>
+  </Rule.DataSource>
+  <StringProperty Subtype="file" Name="OutputFile" DisplayName="Archivo de salida" Description="La opción /OUT invalida el nombre y la ubicación predeterminados del programa que crea el vinculador." Category="General" Switch="OUT" Separator=":" F1Keyword="VC.Project.VCLinkerTool.OutputFile">
+  </StringProperty>
+  <EnumProperty Name="ShowProgress" DisplayName="Mostrar progreso" Description="Imprime los mensajes de progreso del vinculador." Category="General" F1Keyword="VC.Project.VCLinkerTool.ShowProgress">
+    <EnumValue Name="NotSet" Switch="" DisplayName="Sin establecer" Description="Sin nivel de detalle.">
+    </EnumValue>
+    <EnumValue Name="LinkVerbose" Switch="VERBOSE" DisplayName="Mostrar todos los mensajes de progreso" Description="Muestra todos los mensajes de progreso. ">
+    </EnumValue>
+    <EnumValue Name="LinkVerboseLib" Switch="VERBOSE:Lib" DisplayName="Para las bibliotecas de búsqueda" Description="Muestra mensajes de progreso que indican solamente las bibliotecas de búsqueda.">
+    </EnumValue>
+    <EnumValue Name="LinkVerboseICF" Switch="VERBOSE:ICF" DisplayName="Acerca del plegamiento de COMDAT durante la vinculación optimizada" Description="Muestra información acerca del plegamiento de COMDAT durante la vinculación optimizada.">
+    </EnumValue>
+    <EnumValue Name="LinkVerboseREF" Switch="VERBOSE:REF" DisplayName="Acerca de los datos quitados durante la vinculación optimizada" Description="Muestra información acerca de las funciones y los datos quitados durante la vinculación optimizada.">
+    </EnumValue>
+    <EnumValue Name="LinkVerboseSAFESEH" Switch="VERBOSE:SAFESEH" DisplayName="Acerca de los módulos incompatibles con SEH" Description="Muestra información acerca de los módulos incompatibles con el control de excepciones seguro. ">
+    </EnumValue>
+    <EnumValue Name="LinkVerboseCLR" Switch="VERBOSE:CLR" DisplayName="Acerca de la actividad del vinculador relacionada con el código administrado" Description="Muestra información acerca de la actividad del vinculador relacionada con el código administrado.">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Name="Version" DisplayName="Versión" Description="La opción /VERSION indica al vinculador que incluya un número de versión en el encabezado del archivo .exe o .dll. Use DUMPBIN /HEADERS para ver el campo de la versión de imagen de la sección OPTIONAL HEADER VALUES y comprobar el efecto de /VERSION." Category="General" Switch="VERSION" Separator=":" F1Keyword="VC.Project.VCLinkerTool.Version">
+  </StringProperty>
+  <BoolProperty ReverseSwitch="INCREMENTAL:NO" Name="LinkIncremental" DisplayName="Habilitar vinculación incremental" Description="Habilita la vinculación incremental.     (/INCREMENTAL, /INCREMENTAL:NO)" Category="General" Switch="INCREMENTAL" F1Keyword="VC.Project.VCLinkerTool.LinkIncremental">
+    <BoolProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="" Label="" HasConfigurationCondition="true"/>
+    </BoolProperty.DataSource>
+  </BoolProperty>
+  <BoolProperty Name="SuppressStartupBanner" DisplayName="Suprimir la pancarta de inicio" Description="La opción /NOLOGO impide que se muestre el mensaje de copyright y el número de versión. " Category="General" Switch="NOLOGO" F1Keyword="VC.Project.VCLinkerTool.SuppressStartupBanner">
+  </BoolProperty>
+  <BoolProperty Name="IgnoreImportLibrary" DisplayName="Omitir biblioteca de importación" Description="Especifica que la biblioteca de importación generada por esta configuración no se importará en los proyectos dependientes." Category="General" F1Keyword="VC.Project.VCLinkerTool.IgnoreImportLibrary">
+    <BoolProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="" Label="" HasConfigurationCondition="true"/>
+    </BoolProperty.DataSource>
+  </BoolProperty>
+  <BoolProperty Name="RegisterOutput" DisplayName="Registrar resultados" Description="Especifica si se desea registrar los resultados principales de esta compilación." Category="General" IncludeInCommandLine="false" F1Keyword="VC.Project.VCLinkerTool.RegisterOutput">
+  </BoolProperty>
+  <BoolProperty Name="PerUserRedirection" DisplayName="Redirección por usuario" Description="Cuando está habilitada la opción Registrar resultados, la redirección por usuario hace que las escrituras en la clave del Registro HKEY_CLASSES_ROOT se redirijan a HKEY_CURRENT_USER." Category="General" IncludeInCommandLine="false" F1Keyword="VC.Project.VCLinkerTool.PerUserRedirection">
+  </BoolProperty>
+  <StringListProperty Subtype="folder" Name="AdditionalLibraryDirectories" DisplayName="Directorios de bibliotecas adicionales" Description="Permite que el usuario invalide la ruta de acceso de la biblioteca del entorno (/LIBPATH:carpeta)." Category="General" Switch="LIBPATH:" F1Keyword="VC.Project.VCLinkerTool.AdditionalLibraryDirectories">
+  </StringListProperty>
+  <BoolProperty Name="LinkLibraryDependencies" DisplayName="Vincular dependencias de biblioteca" Description="Especifica si los resultados de la biblioteca de las dependencias del proyecto se vinculan o no automáticamente." Category="General" IncludeInCommandLine="false" F1Keyword="VC.Project.VCLinkerTool.LinkLibraryDependencies">
+    <BoolProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="ProjectReference" Label="" HasConfigurationCondition="true"/>
+    </BoolProperty.DataSource>
+  </BoolProperty>
+  <BoolProperty Name="UseLibraryDependencyInputs" DisplayName="Usar entradas de dependencia de biblioteca" Description="Especifica si se usan las entradas a la herramienta bibliotecario en lugar del propio archivo de biblioteca cuando se establecen vínculos en resultados de biblioteca de dependencias del proyecto." Category="General" IncludeInCommandLine="false" F1Keyword="VC.Project.VCLinkerTool.UseLibraryDependencyInputs">
+    <BoolProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="ProjectReference" Label="" HasConfigurationCondition="true"/>
+    </BoolProperty.DataSource>
+  </BoolProperty>
+  <BoolProperty ReverseSwitch="LTCG:NOSTATUS" Name="LinkStatus" DisplayName="Estado de vínculo" Description="Especifica si el vinculador debe mostrar un indicador de progreso donde se muestre el porcentaje completado del vínculo. La opción predeterminada es no mostrar esta información de estado (/LTCG:STATUS|LTCG:NOSTATUS)." Category="General" Switch="LTCG:STATUS" F1Keyword="VC.Project.VCLinkerTool.LinkStatus">
+  </BoolProperty>
+  <BoolProperty ReverseSwitch="ALLOWBIND:NO" Name="PreventDllBinding" DisplayName="Impedir enlace de archivos DLL" Description="/ALLOWBIND:NO establece un bit en un encabezado de DLL que indica a Bind.exe que no se permiten enlaces con la imagen. Puede que no desee enlazar un archivo DLL con firma digital (ya que al enlazar se invalida la firma)." Category="General" Switch="ALLOWBIND" F1Keyword="VC.Project.VCLinkerTool.PreventDLLBinding">
+  </BoolProperty>
+  <BoolProperty ReverseSwitch="WX:NO" Name="TreatLinkerWarningAsErrors" DisplayName="Tratar advertencia del vinculador como un error" Description="/WX hace que no se genere ningún archivo de salida si el vinculador genera una advertencia." Category="General" Switch="WX" F1Keyword="VC.Project.VCLinkerTool.TreatLinkerWarningsAsErrors">
+  </BoolProperty>
+  <EnumProperty Name="ForceFileOutput" DisplayName="Forzar salida de archivo" Description="La opción /FORCE indica al vinculador que cree un archivo .exe o DLL aunque se haga referencia a un símbolo pero no se defina o bien se defina varias veces. Puede crearse un archivo exe no válido." Category="General" F1Keyword="VC.Project.VCLinkerTool.ForceFileOutput">
+    <EnumValue Name="Enabled" Switch="FORCE" DisplayName="Habilitado" Description="/FORCE sin argumentos implica definiciones múltiples y sin resolver.">
+    </EnumValue>
+    <EnumValue Name="MultiplyDefinedSymbolOnly" Switch="FORCE:MULTIPLE" DisplayName="Solo símbolos definidos de forma múltiple" Description="Use /FORCE:MULTIPLE para crear un archivo de salida independientemente de que LINK encuentre o no más de una definición para un símbolo.">
+    </EnumValue>
+    <EnumValue Name="UndefinedSymbolOnly" Switch="FORCE:UNRESOLVED" DisplayName="Solo símbolos no definidos" Description="Use /FORCE:UNRESOLVED para crear un archivo de salida independientemente de que LINK encuentre o no un símbolo no definido. /FORCE:UNRESOLVED se omite si el símbolo del punto de entrada no está resuelto.">
+    </EnumValue>
+  </EnumProperty>
+  <EnumProperty Name="CreateHotPatchableImage" DisplayName="Crear imagen a la que aplicar una revisión activa" Description="Prepara una imagen para aplicar una revisión activa." Category="General" F1Keyword="VC.Project.VCLinkerTool.CreateHotPatchableImage">
+    <EnumValue Name="Enabled" Switch="FUNCTIONPADMIN" DisplayName="Habilitado" Description="Prepara una imagen para aplicar una revisión activa.">
+    </EnumValue>
+    <EnumValue Name="X86Image" Switch="FUNCTIONPADMIN:5" DisplayName="Solo imagen de X86" Description="Prepara una imagen de X86 para aplicar una revisión activa.">
+    </EnumValue>
+    <EnumValue Name="X64Image" Switch="FUNCTIONPADMIN:6" DisplayName="Solo imagen de X64" Description="Prepara una imagen de X64 para aplicar una revisión activa.">
+    </EnumValue>
+    <EnumValue Name="ItaniumImage" Switch="FUNCTIONPADMIN:16" DisplayName="Solo imagen de Itanium" Description="Prepara una imagen de Itanium para aplicar una revisión activa.">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Name="SpecifySectionAttributes" DisplayName="Especificar atributos de sección" Description="La opción /SECTION cambia los atributos de una sección mediante la invalidación de los atributos establecidos al compilarse el archivo .obj para la sección." Category="General" Switch="SECTION" Separator=":" F1Keyword="VC.Project.VCLinkerTool.SpecifySectionAttributes">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="MSDOSStubFileName" DisplayName="Nombre de archivo de código auxiliar de MS-DOS" Description="La opción /STUB asocia un programa de código auxiliar de MS-DOS a un programa de Win32. " Category="General" Switch="STUB" Separator=":" Visible="false">
+  </StringProperty>
+  <StringProperty Subtype="folder" Name="TrackerLogDirectory" DisplayName="Directorio de registro de seguimiento" Description="Directorio de registro de seguimiento." Category="General" IncludeInCommandLine="false" Visible="false">
+  </StringProperty>
+  <StringListProperty Subtype="file" Name="AdditionalDependencies" DisplayName="Dependencias adicionales" Description="Especifica los elementos adicionales que se agregarán a la línea de comandos de vínculo [por ejemplo, kernel32.lib] " Category="Input" F1Keyword="VC.Project.VCLinkerTool.AdditionalDependencies">
+  </StringListProperty>
+  <BoolProperty Name="IgnoreAllDefaultLibraries" DisplayName="Omitir todas las bibliotecas predeterminadas" Description="La opción /NODEFAULTLIB indica al vinculador que quite una o varias bibliotecas predeterminadas de la lista de bibliotecas en la que realiza búsquedas al resolver referencias externas. " Category="Input" Switch="NODEFAULTLIB" F1Keyword="VC.Project.VCLinkerTool.IgnoreAllDefaultLibraries">
+  </BoolProperty>
+  <StringListProperty Subtype="file" Name="IgnoreSpecificDefaultLibraries" DisplayName="Omitir bibliotecas predeterminadas específicas" Description="Permite especificar uno o más nombres de bibliotecas predeterminadas que se deben omitir; si son varias, sepárelas mediante punto y coma.     (/NODEFAULTLIB:[nombre, nombre, ...])" Category="Input" Switch="NODEFAULTLIB:" F1Keyword="VC.Project.VCLinkerTool.IgnoreDefaultLibraryNames">
+  </StringListProperty>
+  <StringProperty Subtype="file" Name="ModuleDefinitionFile" DisplayName="Archivo de definición de módulos" Description="La opción /DEF pasa un archivo de definición de módulo (.def) al vinculador. Solo se puede especificar un archivo .def para LINK. " Category="Input" Switch="DEF" Separator=":" F1Keyword="VC.Project.VCLinkerTool.ModuleDefinitionFile">
+  </StringProperty>
+  <StringListProperty Subtype="file" Name="AddModuleNamesToAssembly" DisplayName="Agregar módulo al ensamblado" Description="La opción /ASSEMBLYMODULE permite agregar una referencia de módulo a un ensamblado. La información de tipos del módulo no estará disponible para el programa de ensamblado que agregó la referencia de módulo. Sin embargo, la información de tipos del módulo estará disponible para cualquier programa que haga referencia al ensamblado." Category="Input" Switch="ASSEMBLYMODULE:" F1Keyword="VC.Project.VCLinkerTool.AddModuleNamesToAssembly">
+  </StringListProperty>
+  <StringListProperty Subtype="file" Name="EmbedManagedResourceFile" DisplayName="Incrustar un archivo de recursos administrado" Description="/ASSEMBLYRESOURCE incrusta un archivo de recursos en el archivo de salida." Category="Input" Switch="ASSEMBLYRESOURCE:" F1Keyword="VC.Project.VCLinkerTool.EmbedManagedResourceFile">
+  </StringListProperty>
+  <StringListProperty Subtype="file" Name="ForceSymbolReferences" DisplayName="Forzar referencias de símbolos" Description="La opción /INCLUDE indica al vinculador que agregue un símbolo especificado a la tabla de símbolos." Category="Input" Switch="INCLUDE:" F1Keyword="VC.Project.VCLinkerTool.ForceSymbolReferences">
+  </StringListProperty>
+  <StringListProperty Subtype="file" Name="DelayLoadDLLs" DisplayName="Archivos DLL de carga retrasada" Description="La opción /DELAYLOAD provoca la carga retrasada de los archivos DLL. El nombre de dll especifica un archivo de este tipo para el que retrasar la carga. " Category="Input" Switch="DELAYLOAD:" F1Keyword="VC.Project.VCLinkerTool.DelayLoadDLLS">
+  </StringListProperty>
+  <StringListProperty Subtype="file" Name="AssemblyLinkResource" DisplayName="Recurso de vínculo de ensamblado" Description="La opción /ASSEMBLYLINKRESOURCE crea un vínculo a un recurso de .NET Framework en el archivo de salida; el archivo de recursos no se coloca en el archivo de salida. " Category="Input" Switch="ASSEMBLYLINKRESOURCE:" F1Keyword="VC.Project.VCLinkerTool.AssemblyLinkResource">
+  </StringListProperty>
+  <BoolProperty ReverseSwitch="MANIFEST:NO" Name="GenerateManifest" DisplayName="Generar manifiesto" Description="/MANIFEST especifica que el vinculador debe crear un archivo de manifiesto en paralelo." Category="Manifest File" Switch="MANIFEST" F1Keyword="VC.Project.VCLinkerTool.GenerateManifest">
+    <BoolProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="" Label="" HasConfigurationCondition="true"/>
+    </BoolProperty.DataSource>
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="ManifestFile" DisplayName="Archivo de manifiesto" Description="/MANIFESTFILE permite cambiar el nombre predeterminado del archivo de manifiesto, que es el nombre del archivo con la extensión .manifest." Category="Manifest File" Switch="ManifestFile" Separator=":" F1Keyword="VC.Project.VCLinkerTool.ManifestFile">
+  </StringProperty>
+  <StringListProperty Subtype="file" Name="AdditionalManifestDependencies" DisplayName="Dependencias de manifiesto adicionales" Description="/MANIFESTDEPENDENCY permite especificar atributos que se incluirán en la sección de dependencias del archivo de manifiesto." Category="Manifest File" Switch="MANIFESTDEPENDENCY:" F1Keyword="VC.Project.VCLinkerTool.AdditionalManifestDependencies">
+  </StringListProperty>
+  <BoolProperty ReverseSwitch="ALLOWISOLATION:NO" Name="AllowIsolation" DisplayName="Permitir aislamiento" Description="Especifica el comportamiento de búsqueda de manifiesto (/ALLOWISOLATION:NO)." Category="Manifest File" Switch="ALLOWISOLATION" F1Keyword="VC.Project.VCLinkerTool.AllowIsolation">
+  </BoolProperty>
+  <BoolProperty Name="GenerateDebugInformation" DisplayName="Generar información de depuración" Description="La opción /DEBUG crea información de depuración para el archivo .exe o DLL." Category="Debugging" Switch="DEBUG" F1Keyword="VC.Project.VCLinkerTool.GenerateDebugInformation">
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="ProgramDatabaseFile" DisplayName="Generar archivo de base de datos de programas" Description="De forma predeterminada, cuando se especifica /DEBUG, el vinculador crea una base de datos de programas (PDB) que contiene información de depuración. El nombre de archivo predeterminado de dicha base de datos incluye el nombre base del programa con la extensión .pdb." Category="Debugging" Switch="PDB" Separator=":" F1Keyword="VC.Project.VCLinkerTool.ProgramDatabaseFile">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="StripPrivateSymbols" DisplayName="Quitar símbolos privados" Description="La opción /PDBSTRIPPED crea un segundo archivo de base de datos de programas (PDB) al compilar la imagen del programa con cualquiera de las opciones del compilador o vinculador que generan un archivo PDB (/DEBUG, /Z7, /Zd o /Zi)." Category="Debugging" Switch="PDBSTRIPPED" Separator=":" F1Keyword="VC.Project.VCLinkerTool.StripPrivateSymbols">
+  </StringProperty>
+  <BoolProperty Name="GenerateMapFile" DisplayName="Generar archivo de asignaciones" Description="La opción /MAP indica al vinculador que cree un archivo de asignaciones." Category="Debugging" Switch="MAP" F1Keyword="VC.Project.VCLinkerTool.GenerateMapFile">
+    <Argument Property="MapFileName" IsRequired="false"/>
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="MapFileName" DisplayName="Nombre de archivo de asignaciones" Description="Nombre del archivo de asignaciones especificado por el usuario. Reemplaza al nombre predeterminado." Category="Debugging" Separator=":" F1Keyword="VC.Project.VCLinkerTool.MapFileName">
+  </StringProperty>
+  <BoolProperty Name="MapExports" DisplayName="Exportaciones de asignaciones" Description="La opción /MAPINFO indica al vinculador que incluya la información especificada en un archivo de asignaciones, que se crea al especificar la opción/MAP. EXPORTS indica al vinculador que incluya las funciones exportadas." Category="Debugging" Switch="MAPINFO:EXPORTS" F1Keyword="VC.Project.VCLinkerTool.MapExports">
+  </BoolProperty>
+  <BoolProperty ReverseSwitch="ASSEMBLYDEBUG:DISABLE" Name="AssemblyDebug" DisplayName="Ensamblado depurable" Description="/ASSEMBLYDEBUG emite el atributo DebuggableAttribute con seguimiento de la información de depuración y deshabilita las optimizaciones JIT." Category="Debugging" Switch="ASSEMBLYDEBUG" F1Keyword="VC.Project.VCLinkerTool.AssemblyDebug">
+  </BoolProperty>
+  <EnumProperty Name="SubSystem" DisplayName="Subsistema" Description="La opción /SUBSYSTEM indica al sistema operativo cómo ejecutar el archivo .exe. La elección de subsistema afecta al símbolo (o función) de punto de entrada que elegirá el vinculador." Category="System" F1Keyword="VC.Project.VCLinkerTool.SubSystem">
+    <EnumProperty.Arguments>
+      <Argument Property="MinimumRequiredVersion" IsRequired="false"/>
+    </EnumProperty.Arguments>
+    <EnumValue Name="NotSet" Switch="" DisplayName="Sin establecer" Description="No se ha establecido ningún subsistema.">
+    </EnumValue>
+    <EnumValue Name="Console" Switch="SUBSYSTEM:CONSOLE" DisplayName="Console" Description="Aplicación de modo de caracteres Win32. El sistema operativo proporciona una consola a las aplicaciones de consola. Si se define main o wmain, CONSOLE es el valor predeterminado.">
+    </EnumValue>
+    <EnumValue Name="Windows" Switch="SUBSYSTEM:WINDOWS" DisplayName="Windows" Description="La aplicación no requiere una consola, probablemente porque crea sus propias ventanas de interacción con el usuario. Si se define WinMain o wWinMain, WINDOWS es el valor predeterminado.">
+    </EnumValue>
+    <EnumValue Name="Native" Switch="SUBSYSTEM:NATIVE" DisplayName="Native" Description="Controladores de dispositivos para Windows NT. Si se especifica /DRIVER:WDM, NATIVE es el valor predeterminado.">
+    </EnumValue>
+    <EnumValue Name="EFI Application" Switch="SUBSYSTEM:EFI_APPLICATION" DisplayName="Aplicación EFI" Description="Aplicación EFI">
+    </EnumValue>
+    <EnumValue Name="EFI Boot Service Driver" Switch="SUBSYSTEM:EFI_BOOT_SERVICE_DRIVER" DisplayName="Controlador del servicio de arranque de EFI" Description="Controlador del servicio de arranque de EFI">
+    </EnumValue>
+    <EnumValue Name="EFI ROM" Switch="SUBSYSTEM:EFI_ROM" DisplayName="EFI ROM" Description="EFI ROM">
+    </EnumValue>
+    <EnumValue Name="EFI Runtime" Switch="SUBSYSTEM:EFI_RUNTIME_DRIVER" DisplayName="Runtime de EFI" Description="Runtime de EFI">
+    </EnumValue>
+    <EnumValue Name="WindowsCE" Switch="SUBSYSTEM:WINDOWSCE" DisplayName="WindowsCE" Description="Aplicación que se ejecuta en un dispositivo Windows CE.">
+    </EnumValue>
+    <EnumValue Name="POSIX" Switch="SUBSYSTEM:POSIX" DisplayName="POSIX" Description="Aplicación que se ejecuta con el subsistema POSIX en Windows NT.">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Name="MinimumRequiredVersion" DisplayName="Versión mínima requerida" Description="Especifique la versión mínima requerida del subsistema. Los argumentos son números decimales comprendidos en el intervalo de 0 a 65.535." Category="System" Separator="," F1Keyword="VC.Project.VCLinkerTool.MinimumRequiredVersion">
+  </StringProperty>
+  <StringProperty Name="HeapReserveSize" DisplayName="Tamaño de reserva del montón" Description="Especifica el tamaño total asignado al montón en la memoria virtual. El valor predeterminado es 1 MB.    (/HEAP:reserve)" Category="System" Switch="HEAP" Separator=":" F1Keyword="VC.Project.VCLinkerTool.HeapReserveSize">
+    <Argument Property="HeapCommitSize" IsRequired="false" Separator=","/>
+  </StringProperty>
+  <StringProperty Name="HeapCommitSize" DisplayName="Tamaño confirmado del montón" Description="Especifica el tamaño total asignado al montón en la memoria física. El valor predeterminado es 4 KB.    (/HEAP:reserve,commit)" Category="System" F1Keyword="VC.Project.VCLinkerTool.HeapCommitSize">
+  </StringProperty>
+  <StringProperty Name="StackReserveSize" DisplayName="Tamaño de reserva de la pila" Description="Especifica el tamaño total asignado a la pila en la memoria virtual. El valor predeterminado es 1 MB.     (/STACK:reserve)" Category="System" Switch="STACK" Separator=":" F1Keyword="VC.Project.VCLinkerTool.StackReserveSize">
+    <Argument Property="StackCommitSize" IsRequired="false" Separator=","/>
+  </StringProperty>
+  <StringProperty Name="StackCommitSize" DisplayName="Tamaño confirmado de la pila" Description="Especifica el tamaño total asignado a la pila en la memoria física. El valor predeterminado es 4 KB.     (/STACK:reserve,commit)" Category="System" F1Keyword="VC.Project.VCLinkerTool.StackCommitSize">
+  </StringProperty>
+  <BoolProperty ReverseSwitch="LARGEADDRESSAWARE:NO" Name="LargeAddressAware" DisplayName="Habilitar direcciones largas" Description="La opción /LARGEADDRESSAWARE indica al vinculador que la aplicación puede controlar direcciones superiores a 2 gigabytes. La opción habilitada de forma predeterminada es /LARGEADDRESSAWARE:NO, si /LARGEADDRESSAWARE no se especifica en la línea del vinculador." Category="System" Switch="LARGEADDRESSAWARE" F1Keyword="VC.Project.VCLinkerTool.LargeAddressAware">
+  </BoolProperty>
+  <BoolProperty ReverseSwitch="TSAWARE:NO" Name="TerminalServerAware" DisplayName="Terminal Server" Description="La opción /TSAWARE establece una marca en el campo DllCharacteristics de IMAGE_OPTIONAL_HEADER, en el encabezado opcional de la imagen del programa. Si se establece esta marca, Terminal Server no realizará determinados cambios en la aplicación." Category="System" Switch="TSAWARE" F1Keyword="VC.Project.VCLinkerTool.TerminalServerAware">
+  </BoolProperty>
+  <BoolProperty Name="SwapRunFromCD" DisplayName="Ejecutar intercambio desde CD" Description="La opción /SWAPRUN indica al sistema operativo que copie el resultado del vinculador en un archivo de intercambio en primer lugar y, a continuación, ejecute la imagen desde este. Esta es una característica de Windows NT 4.0 (y posterior). Si se especifica la opción de CD, el sistema operativo copiará la imagen de un disco extraíble en un archivo de paginación y, a continuación, la cargará." Category="System" Switch="SWAPRUN:CD" F1Keyword="VC.Project.VCLinkerTool.SwapRunFromCD">
+  </BoolProperty>
+  <BoolProperty Name="SwapRunFromNET" DisplayName="Ejecutar intercambio desde red" Description="La opción /SWAPRUN indica al sistema operativo que copie el resultado del vinculador en un archivo de intercambio en primer lugar y, a continuación, ejecute la imagen desde este. Esta es una característica de Windows NT 4.0 (y posterior). Si se especifica la opción de NET, el sistema operativo copiará primero la imagen binaria de la red en un archivo de intercambio y la cargará desde este. Esta opción resulta útil para ejecutar aplicaciones a través de la red." Category="System" Switch="SWAPRUN:NET" F1Keyword="VC.Project.VCLinkerTool.SwapRunFromNet">
+  </BoolProperty>
+  <EnumProperty Name="Driver" DisplayName="Controlador" Description="Use la opción /DRIVER para compilar un controlador modo kernel de Windows NT." Category="System" F1Keyword="VC.Project.VCLinkerTool.driver">
+    <EnumValue Name="NotSet" Switch="" DisplayName="Sin establecer" Description="Configuración predeterminada del controlador.">
+    </EnumValue>
+    <EnumValue Name="Driver" Switch="Driver" DisplayName="Controlador" Description="Controlador">
+    </EnumValue>
+    <EnumValue Name="UpOnly" Switch="DRIVER:UPONLY" DisplayName="UP Only" Description="/DRIVER:UPONLY hace que el vinculador agregue el bit IMAGE_FILE_UP_SYSTEM_ONLY a las características del encabezado de salida para especificar que se trata de un controlador para un solo procesador. El sistema operativo rechazará la carga de un controlador de este tipo en un sistema multiprocesador.">
+    </EnumValue>
+    <EnumValue Name="WDM" Switch="DRIVER:WDM" DisplayName="WDM" Description="/DRIVER:WDM hace que el vinculador establezca el bit IMAGE_DLLCHARACTERISTICS_WDM_DRIVER en el campo DllCharacteristics del encabezado opcional.">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty ReverseSwitch="OPT:NOREF" Name="OptimizeReferences" DisplayName="Referencias" Description="/OPT:REF elimina las funciones o los datos a los que nunca se hace referencia mientras que /OPT:NOREF conserva este tipo de funciones o datos. " Category="Optimization" Switch="OPT:REF" F1Keyword="VC.Project.VCLinkerTool.OptimizeReferences">
+  </BoolProperty>
+  <BoolProperty ReverseSwitch="OPT:NOICF" Name="EnableCOMDATFolding" DisplayName="Habilitar plegamiento de COMDAT" Description="Use /OPT:ICF[=iterations] para realizar un plegamiento de COMDAT idéntico. " Category="Optimization" Switch="OPT:ICF" F1Keyword="VC.Project.VCLinkerTool.EnableCOMDATFolding">
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="FunctionOrder" DisplayName="Orden de función" Description="La opción /ORDER indica a LINK que optimice el programa mediante la colocación de determinados COMDAT dentro de la imagen en un orden predeterminado. LINK coloca las funciones en el orden especificado en cada una de las secciones de la imagen." Category="Optimization" Switch="ORDER" Separator=":@" F1Keyword="VC.Project.VCLinkerTool.FunctionOrder">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="ProfileGuidedDatabase" DisplayName="Base de datos guiada por perfiles" Description="Especifica el archivo .pgd para las optimizaciones guiadas por perfiles (/PGD)." Category="Optimization" Switch="PGD" Separator=":" F1Keyword="VC.Project.VCLinkerTool.ProfileGuidedDatabase">
+  </StringProperty>
+  <EnumProperty Name="LinkTimeCodeGeneration" DisplayName="Generación de código en tiempo de vínculo" Description="Especifica la generación de código en tiempo de vínculo." Category="Optimization" F1Keyword="VC.Project.VCLinkerTool.LinkTimeCodeGeneration">
+    <EnumValue Name="Default" Switch="" DisplayName="Predeterminada" Description="Configuración predeterminada de LTCG.">
+    </EnumValue>
+    <EnumValue Name="UseLinkTimeCodeGeneration" Switch="LTCG" DisplayName="Utilizar Generación de código en tiempo de vínculo" Description="Utilizar Generación de código en tiempo de vínculo">
+    </EnumValue>
+    <EnumValue Name="PGInstrument" Switch="LTCG:PGInstrument" DisplayName="Optimización guiada por perfiles - Instrumento" Description="Especifica la generación de código en tiempo de vínculo.">
+    </EnumValue>
+    <EnumValue Name="PGOptimization" Switch="LTCG:PGOptimize" DisplayName="Optimización guiada por perfiles - Optimización" Description="Especifica que el vinculador debe usar los datos de perfil creados tras la ejecución del archivo binario instrumentado para crear una imagen optimizada.">
+    </EnumValue>
+    <EnumValue Name="PGUpdate" Switch="LTCG:PGUpdate" DisplayName="Optimización guiada por perfiles - Actualizar" Description="Permite que se agregue o modifique una lista de archivos de entrada con respecto a lo especificado en la fase :PGINSTRUMENT y realiza un seguimiento.">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Subtype="file" Name="MidlCommandFile" DisplayName="Comandos MIDL" Description="Especifique opciones de la línea de comandos MIDL (/MIDL:@responsefile)." Category="Embedded IDL" Switch="MIDL" Separator=":@" F1Keyword="VC.Project.VCLinkerTool.MidlCommandFile">
+  </StringProperty>
+  <BoolProperty Name="IgnoreEmbeddedIDL" DisplayName="Omitir IDL incrustado" Description="La opción /IGNOREIDL especifica que no se debe procesar ningún atributo IDL del código fuente en un archivo .idl." Category="Embedded IDL" Switch="IGNOREIDL" F1Keyword="VC.Project.VCLinkerTool.IgnoreEmbeddedIDL">
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="MergedIDLBaseFileName" DisplayName="Nombre del archivo base IDL combinado" Description="La opción /IDLOUT especifica el nombre y la extensión del archivo .idl." Category="Embedded IDL" Switch="IDLOUT" Separator=":" F1Keyword="VC.Project.VCLinkerTool.MergedIDLBaseFileName">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="TypeLibraryFile" DisplayName="Biblioteca de tipos" Description="La opción /TLBOUT especifica el nombre y la extensión del archivo .tlb." Category="Embedded IDL" Switch="TLBOUT" Separator=":" F1Keyword="VC.Project.VCLinkerTool.TypeLibraryFile">
+  </StringProperty>
+  <IntProperty Name="TypeLibraryResourceID" DisplayName="Id. de recurso de TypeLib" Description="Permite especificar el id. de recurso de la biblioteca de tipos generados por el vinculador. (/TLBID:id.)" Category="Embedded IDL" Switch="TLBID" Separator=":" F1Keyword="VC.Project.VCLinkerTool.TypeLibraryResourceID">
+  </IntProperty>
+  <StringProperty Name="EntryPointSymbol" DisplayName="Punto de entrada" Description="La opción /ENTRY especifica una función de punto de entrada como dirección inicial de un archivo .exe o DLL." Category="Advanced" Switch="ENTRY" Separator=":" F1Keyword="VC.Project.VCLinkerTool.EntryPointSymbol">
+  </StringProperty>
+  <BoolProperty Name="NoEntryPoint" DisplayName="Ningún punto de entrada" Description="La opción /NOENTRY es necesaria para crear un archivo DLL de solo recursos. Use esta opción para impedir que LINK vincule una referencia a _main en el archivo DLL." Category="Advanced" Switch="NOENTRY" F1Keyword="VC.Project.VCLinkerTool.ResourceOnlyDLL">
+  </BoolProperty>
+  <BoolProperty Name="SetChecksum" DisplayName="Establecer suma de comprobación" Description="La opción /RELEASE establece la suma de comprobación en el encabezado de un archivo .exe." Category="Advanced" Switch="RELEASE" F1Keyword="VC.Project.VCLinkerTool.SetChecksum">
+  </BoolProperty>
+  <StringProperty Name="BaseAddress" DisplayName="Dirección base" Description="Establece una dirección base para el programa (/BASE:{dirección[,tamaño] | @nombre_de_archivo,clave})." Category="Advanced" Switch="BASE" Separator=":" F1Keyword="VC.Project.VCLinkerTool.BaseAddress">
+  </StringProperty>
+  <BoolProperty ReverseSwitch="DYNAMICBASE:NO" Name="RandomizedBaseAddress" DisplayName="Dirección base aleatoria" Description="Dirección base aleatoria (/DYNAMICBASE[:NO])." Category="Advanced" Switch="DYNAMICBASE" F1Keyword="VC.Project.VCLinkerTool.RandomizedBaseAddress">
+  </BoolProperty>
+  <BoolProperty ReverseSwitch="FIXED:NO" Name="FixedBaseAddress" DisplayName="Dirección base fija" Description="Crea un programa que solamente se puede cargar en la dirección base preferida (/FIXED[:NO])." Category="Advanced" Switch="FIXED" F1Keyword="VC.Project.VCLinkerTool.FixedBaseAddress">
+  </BoolProperty>
+  <BoolProperty ReverseSwitch="NXCOMPAT:NO" Name="DataExecutionPrevention" DisplayName="Prevención de ejecución de datos (DEP)" Description="Marca un ejecutable para indicar que se ha comprobado que es compatible con la característica de prevención de ejecución de datos de Windows (/NXCOMPAT[:NO])." Category="Advanced" Switch="NXCOMPAT" F1Keyword="VC.Project.VCLinkerTool.DataExecutionPrevention">
+  </BoolProperty>
+  <BoolProperty Name="TurnOffAssemblyGeneration" DisplayName="Desactivar la generación de ensamblado" Description="La opción /NOASSEMBLY indica al vinculador que cree una imagen para el archivo de salida actual sin un ensamblado de .NET Framework." Category="Advanced" Switch="NOASSEMBLY" F1Keyword="VC.Project.VCLinkerTool.TurnOffAssemblyGeneration">
+  </BoolProperty>
+  <BoolProperty Name="SupportUnloadOfDelayLoadedDLL" DisplayName="Descargar archivo DLL de carga retrasada" Description="El calificador UNLOAD indica a la función auxiliar de carga retrasada que admita la descarga explícita del archivo DLL (/DELAY:UNLOAD)." Category="Advanced" Switch="DELAY:UNLOAD" F1Keyword="VC.Project.VCLinkerTool.SupportUnloadOfDelayLoadedDLL">
+  </BoolProperty>
+  <BoolProperty Name="SupportNobindOfDelayLoadedDLL" DisplayName="No enlazar archivo DLL de carga retrasada" Description="El calificador NOBIND indica al vinculador que no incluya una IAT enlazable en la imagen final. La opción predeterminada es crear una IAT enlazable para los archivos DLL de carga retrasada (/DELAY:NOBIND)." Category="Advanced" Switch="DELAY:NOBIND" F1Keyword="VC.Project.VCLinkerTool.SupportNobindOfDelayLoadedDLL">
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="ImportLibrary" DisplayName="Biblioteca de importación" Description="Invalida el nombre predeterminado de la biblioteca de importación (/IMPLIB:nombre_de_archivo)." Category="Advanced" Switch="IMPLIB" Separator=":" F1Keyword="VC.Project.VCLinkerTool.ImportLIbrary">
+  </StringProperty>
+  <StringProperty Name="MergeSections" DisplayName="Combinar secciones" Description="La opción /MERGE combina la primera sección (from) con la segunda sección (to) y la sección resultante se denomina &quot;to&quot;. Por ejemplo, /merge:.rdata=.text." Category="Advanced" Switch="MERGE" Separator=":" F1Keyword="VC.Project.VCLinkerTool.MergeSections">
+  </StringProperty>
+  <EnumProperty Name="TargetMachine" DisplayName="Equipo de destino" Description="La opción /MACHINE especifica la plataforma de destino para el programa." Category="Advanced" F1Keyword="VC.Project.VCLinkerTool.TargetMachine">
+    <EnumValue Name="NotSet" Switch="" DisplayName="Sin establecer">
+    </EnumValue>
+    <EnumValue Name="MachineARM" Switch="MACHINE:ARM" DisplayName="MachineARM">
+    </EnumValue>
+    <EnumValue Name="MachineEBC" Switch="MACHINE:EBC" DisplayName="MachineEBC">
+    </EnumValue>
+    <EnumValue Name="MachineIA64" Switch="MACHINE:IA64" DisplayName="MachineIA64">
+    </EnumValue>
+    <EnumValue Name="MachineMIPS" Switch="MACHINE:MIPS" DisplayName="MachineMIPS">
+    </EnumValue>
+    <EnumValue Name="MachineMIPS16" Switch="MACHINE:MIPS16" DisplayName="MachineMIPS16">
+    </EnumValue>
+    <EnumValue Name="MachineMIPSFPU" Switch="MACHINE:MIPSFPU" DisplayName="MachineMIPSFPU">
+    </EnumValue>
+    <EnumValue Name="MachineMIPSFPU16" Switch="MACHINE:MIPSFPU16" DisplayName="MachineMIPSFPU16">
+    </EnumValue>
+    <EnumValue Name="MachineSH4" Switch="MACHINE:SH4" DisplayName="MachineSH4">
+    </EnumValue>
+    <EnumValue Name="MachineTHUMB" Switch="MACHINE:THUMB" DisplayName="MachineTHUMB">
+    </EnumValue>
+    <EnumValue Name="MachineX64" Switch="MACHINE:X64" DisplayName="MachineX64">
+    </EnumValue>
+    <EnumValue Name="MachineX86" Switch="MACHINE:X86" DisplayName="MachineX86">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty Name="Profile" DisplayName="Perfil" Description="Genera un archivo de salida que se puede usar con el generador de perfiles de las herramientas de rendimiento. Requiere que se establezca GenerateDebugInformation (/DEBUG) (/PROFILE)." Category="Advanced" Switch="PROFILE" F1Keyword="VC.Project.VCLinkerTool.Profile">
+  </BoolProperty>
+  <EnumProperty Name="CLRThreadAttribute" DisplayName="Atributo de subproceso de CLR" Description="Especifique explícitamente el atributo de subprocesamiento del punto de entrada del programa CLR." Category="Advanced" F1Keyword="VC.Project.VCLinkerTool.CLRThreadAttribute">
+    <EnumValue Name="MTAThreadingAttribute" Switch="CLRTHREADATTRIBUTE:MTA" DisplayName="Atributo de subprocesamiento MTA" Description="Aplica el atributo MTAThreadAttribute al punto de entrada del programa.">
+    </EnumValue>
+    <EnumValue Name="STAThreadingAttribute" Switch="CLRTHREADATTRIBUTE:STA" DisplayName="Atributo de subprocesamiento STA" Description="Aplica el atributo STAThreadAttribute al punto de entrada del programa.">
+    </EnumValue>
+    <EnumValue Name="DefaultThreadingAttribute" Switch="CLRTHREADATTRIBUTE:NONE" DisplayName="Atributo de subprocesamiento predeterminado" Description="Equivale a no especificar /CLRTHREADATTRIBUTE. Permite que Common Language Runtime (CLR) establezca el atributo de subprocesamiento predeterminado.">
+    </EnumValue>
+  </EnumProperty>
+  <EnumProperty Name="CLRImageType" DisplayName="Tipo de imagen de CLR" Description="Establece el tipo de una imagen de CLR (IJW, pura o segura)." Category="Advanced" F1Keyword="VC.Project.VCLinkerTool.CLRImageType">
+    <EnumValue Name="ForceIJWImage" Switch="CLRIMAGETYPE:IJW" DisplayName="Forzar imagen IJW">
+    </EnumValue>
+    <EnumValue Name="ForcePureILImage" Switch="CLRIMAGETYPE:PURE" DisplayName="Forzar imagen de IL pura">
+    </EnumValue>
+    <EnumValue Name="ForceSafeILImage" Switch="CLRIMAGETYPE:SAFE" DisplayName="Forzar imagen de IL segura">
+    </EnumValue>
+    <EnumValue Name="Default" Switch="" DisplayName="Tipo de imagen predeterminada">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Subtype="file" Name="KeyFile" DisplayName="Archivo de clave" Description="Especifique la clave o par de claves para firmar un ensamblado (/KEYFILE:nombre_de_archivo)." Category="Advanced" Switch="KEYFILE" Separator=":" F1Keyword="VC.Project.VCLinkerTool.KeyFile">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="KeyContainer" DisplayName="Contenedor de claves" Description="Especifique un contenedor de claves para firmar un ensamblado (/KEYCONTAINER:nombre)." Category="Advanced" Switch="KEYCONTAINER" Separator=":" F1Keyword="VC.Project.VCLinkerTool.KeyContainer">
+  </StringProperty>
+  <BoolProperty ReverseSwitch="DELAYSIGN:NO" Name="DelaySign" DisplayName="Retrasar firma" Description="Firmar un ensamblado parcialmente. Use /DELAYSIGN si solo desea colocar la clave pública en el ensamblado. El valor predeterminado es /DELAYSIGN:NO." Category="Advanced" Switch="DELAYSIGN" F1Keyword="VC.Project.VCLinkerTool.DelaySign">
+  </BoolProperty>
+  <BoolProperty ReverseSwitch="CLRUNMANAGEDCODECHECK:NO" Name="CLRUnmanagedCodeCheck" DisplayName="Comprobación de código no administrado CLR" Description="/CLRUNMANAGEDCODECHECK especifica si el vinculador aplicará SuppressUnmanagedCodeSecurityAttribute a las llamadas PInvoke generadas por vinculador a partir de código administrado en archivos DLL nativos." Category="Advanced" Switch="CLRUNMANAGEDCODECHECK" F1Keyword="VC.Project.VCLinkerTool.CLRUnmanagedCodeCheck">
+  </BoolProperty>
+  <EnumProperty Name="LinkErrorReporting" DisplayName="Informe de errores" Description="Permite proporcionar directamente al equipo de Visual C++ información sobre los errores internos del compilador." Category="Advanced" F1Keyword="VC.Project.VCLinkerTool.ErrorReporting">
+    <EnumValue Name="PromptImmediately" Switch="ERRORREPORT:PROMPT" DisplayName="Preguntar inmediatamente" Description="Preguntar inmediatamente.">
+    </EnumValue>
+    <EnumValue Name="QueueForNextLogin" Switch="ERRORREPORT:QUEUE" DisplayName="Cola para el siguiente inicio de sesión" Description="Cola para el siguiente inicio de sesión.">
+    </EnumValue>
+    <EnumValue Name="SendErrorReport" Switch="ERRORREPORT:SEND" DisplayName="Enviar informe de errores" Description="Enviar informe de errores.">
+    </EnumValue>
+    <EnumValue Name="NoErrorReport" Switch="ERRORREPORT:NONE" DisplayName="Ningún informe de errores" Description="Ningún informe de errores.">
+    </EnumValue>
+  </EnumProperty>
+  <IntProperty Name="SectionAlignment" DisplayName="Alineación de secciones" Description="La opción /ALIGN especifica la alineación de cada sección incluida en el espacio de dirección lineal del programa. El argumento de número se especifica en bytes y deber ser una potencia de dos." Category="Advanced" Switch="ALIGN" Separator=":" F1Keyword="VC.Project.VCLinkerTool.Alignment">
+  </IntProperty>
+  <EnumProperty Name="CLRSupportLastError" DisplayName="Conservar último código de error para llamadas PInvoke" Description="/CLRSUPPORTLASTERROR, activada de forma predeterminada, conserva el último código de error de las funciones a las que se llama mediante el mecanismo P/Invoke, lo que permite llamar a funciones nativas en archivos DLL, a partir de código compilado con /clr." Category="Advanced" F1Keyword="VC.Project.VCLinkerTool.CLRSupportLastError">
+    <EnumValue Name="Enabled" Switch="CLRSupportLastError" DisplayName="Habilitado" Description="Habilitar CLRSupportLastError.">
+    </EnumValue>
+    <EnumValue Name="Disabled" Switch="CLRSupportLastError:NO" DisplayName="Deshabilitado" Description="Deshabilitar CLRSupportLastError.">
+    </EnumValue>
+    <EnumValue Name="SystemDlls" Switch="CLRSupportLastError:SYSTEMDLL" DisplayName="Solo archivos dll del sistema" Description="Habilitar CLRSupportLastError solamente para los archivos dll del sistema.">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty ReverseSwitch="SAFESEH:NO" Name="ImageHasSafeExceptionHandlers" DisplayName="La imagen tiene controladores de excepciones seguros" Description="Cuando se especifica /SAFESEH, el vinculador solo generará una imagen si también puede generar una tabla de los controladores de excepciones seguros de la imagen. Esta tabla especifica al sistema operativo qué controladores de excepciones son válidos para la imagen." Category="Advanced" Switch="SAFESEH" F1Keyword="VC.Project.VCLinkerTool.ImageHasSafeExceptionHandlers">
+  </BoolProperty>
+  <BoolProperty Name="LinkDLL" Switch="DLL" Visible="false">
+  </BoolProperty>
+  <StringProperty Name="AdditionalOptions" DisplayName="Opciones adicionales" Description="Opciones adicionales" Category="Command Line" F1Keyword="vc.project.AdditionalOptionsPage">
+  </StringProperty>
+  <BoolProperty Name="BuildingInIDE" Visible="false">
+  </BoolProperty>
+</Rule>

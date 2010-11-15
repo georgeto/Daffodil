@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
+- Native multi-targeting support for Visual Studio 2002 in Visual Studio 2010
+
+2.0 Alpha 1  [2010-11-15]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+  
+  This file is a derivative work based on the file of the same name that is
+  included with Visual Studio 2010. The original file bears the copyright
+  notice reproduced below. Implicit authorization from Microsoft to create and
+  distribute derivative works is deduced from comments in the files and
+  documentation which describe ways to customize the build system by making
+  changes to these files.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="ConfigurationGeneral" DisplayName="일반" PageTemplate="generic" Description="일반" xmlns="http://schemas.microsoft.com/build/2009/properties">
+  <Rule.Categories>
+    <Category Name="General" DisplayName="일반" Description="일반"/>
+  </Rule.Categories>
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" Label="Configuration"/>
+  </Rule.DataSource>
+  <StringProperty Name="OutDir" DisplayName="출력 디렉터리" Description="출력 파일 디렉터리에 대한 상대 경로를 지정하며 환경 변수를 포함할 수 있습니다." Category="General" Default="$(SolutionDir)$(ConfigurationName)" Subtype="folder" F1Keyword="VC.Project.VCConfiguration.OutputDirectory"/>
+  <StringProperty Name="IntDir" DisplayName="중간 디렉터리" Description="중간 파일 디렉터리에 대한 상대 경로를 지정하며 환경 변수를 포함할 수 있습니다." Category="General" Default="$(ConfigurationName)" Subtype="folder" F1Keyword="VC.Project.VCConfiguration.IntermediateDirectory"/>
+  <EnumProperty Name="ConfigurationType" DisplayName="구성 형식" Description="이 구성에서 생성되는 출력 형식을 지정합니다." Category="General" F1Keyword="VC.Project.VCConfiguration.ConfigurationType">
+    <EnumValue Name="Makefile" DisplayName="메이크파일" Description="메이크파일"/>
+    <EnumValue Name="Application" DisplayName="응용 프로그램(.exe)" Description="응용 프로그램(.exe)"/>
+    <EnumValue Name="DynamicLibrary" DisplayName="동적 라이브러리(.dll)" Description="동적 라이브러리(.dll)"/>
+    <EnumValue Name="StaticLibrary" DisplayName="정적 라이브러리(.lib)" Description="정적 라이브러리(.lib)"/>
+    <EnumValue Name="Utility" DisplayName="유틸리티" Description="유틸리티"/>
+  </EnumProperty>
+  <EnumProperty Name="CLRSupport" DisplayName="공용 언어 런타임 지원" Description="코드에서 사용하는 공용 언어 런타임 지원을 선택합니다." Category="General" F1Keyword="VC.Project.VCConfiguration.ManagedExtensions">
+    <EnumValue Name="false" DisplayName="공용 언어 런타임 지원 안 함" Description="공용 언어 런타임 지원 안 함"/>
+    <EnumValue Name="true" Switch="clr" DisplayName="공용 언어 런타임 지원" Description="다른 CLR 응용 프로그램에서 사용할 수 있는 응용 프로그램의 메타데이터를 만들고, 응용 프로그램이 다른 CLR 구성 요소의 메타데이터에 있는 형식과 데이터를 사용할 수 있게 만듭니다."/>
+  </EnumProperty>
+  <StringProperty Name="BuildLogFile" DisplayName="빌드 로그 파일" Description="빌드 로깅을 사용하도록 설정된 경우 기록할 빌드 로그 파일을 지정합니다." F1Keyword="VC.Project.VCConfiguration.BuildLogFile" Category="General" Default="$(ProjectDir)\$(MSBuildProjectName).log" Subtype="file">
+    <StringProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="BuildLog" PersistedName="Path"/>
+    </StringProperty.DataSource>
+  </StringProperty>
+  <StringProperty Name="_ProjectFileVersion" DisplayName="프로젝트 파일 버전" Description="이 프로젝트 파일을 만드는 데 사용되는 변환 도구의 버전을 지정합니다." Category="General" Visible="false">
+    <StringProperty.DataSource>
+      <DataSource Persistence="ProjectFile"/>
+    </StringProperty.DataSource>
+  </StringProperty>
+</Rule>

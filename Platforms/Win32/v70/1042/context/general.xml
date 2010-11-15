@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
+- Native multi-targeting support for Visual Studio 2002 in Visual Studio 2010
+
+2.0 Alpha 1  [2010-11-15]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+  
+  This file is a derivative work based on the file of the same name that is
+  included with Visual Studio 2010. The original file bears the copyright
+  notice reproduced below. Implicit authorization from Microsoft to create and
+  distribute derivative works is deduced from comments in the files and
+  documentation which describe ways to customize the build system by making
+  changes to these files.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="ConfigurationGeneral" DisplayName="일반" PageTemplate="generic" Description="일반" xmlns="http://schemas.microsoft.com/build/2009/properties">
+  <Rule.Categories>
+    <Category Name="General" DisplayName="일반" Description="일반"/>
+    <Category Name="ProjectDefaults" DisplayName="프로젝트 기본값" Description="프로젝트 기본값"/>
+  </Rule.Categories>
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" Label="Configuration"/>
+  </Rule.DataSource>
+  <StringProperty Name="OutDir" DisplayName="출력 디렉터리" Description="출력 파일 디렉터리에 대한 상대 경로를 지정하며 환경 변수를 포함할 수 있습니다." Category="General" Default="$(SolutionDir)$(Configuration)\" Subtype="folder" F1Keyword="VC.Project.VCConfiguration.OutputDirectory">
+                  <StringProperty.DataSource>
+                     <DataSource Persistence="ProjectFile" Label=""/>
+                  </StringProperty.DataSource>
+  </StringProperty>
+  <StringProperty Name="IntDir" DisplayName="중간 디렉터리" Description="중간 파일 디렉터리에 대한 상대 경로를 지정하며 환경 변수를 포함할 수 있습니다." Category="General" Default="$(Configuration)\" Subtype="folder" F1Keyword="VC.Project.VCConfiguration.IntermediateDirectory">
+                  <StringProperty.DataSource>
+                     <DataSource Persistence="ProjectFile" Label=""/>
+                  </StringProperty.DataSource>
+  </StringProperty>
+  <StringProperty Name="TargetName" DisplayName="대상 이름" Description="이 프로젝트에서 생성할 파일 이름을 지정합니다." F1Keyword="VC.Project.VCConfiguration.TargetName" Category="General" Default="$(ProjectName)">
+                  <StringProperty.DataSource>
+                     <DataSource Persistence="ProjectFile" Label=""/>
+                  </StringProperty.DataSource>
+  </StringProperty>
+  <StringProperty Name="TargetExt" DisplayName="대상 확장명" Description="이 프로젝트에서 생성할 파일 확장명을 지정합니다. (예: .exe 또는 .dll)" F1Keyword="VC.Project.VCConfiguration.TargetExt" Category="General">
+                  <StringProperty.DataSource>
+                     <DataSource Persistence="ProjectFile" Label=""/>
+                  </StringProperty.DataSource>
+  </StringProperty>
+  <StringListProperty Name="ExtensionsToDeleteOnClean" DisplayName="정리할 때 삭제할 확장명" Description="정리할 때 삭제하거나 다시 빌드할 중간 디렉터리에 있는 파일에 대한 세미콜론으로 구분된 와일드카드 규칙입니다." Category="General" Separator=";" F1Keyword="VC.Project.VCConfiguration.DeleteExtensionsOnClean">
+                      <StringListProperty.DataSource>
+                            <DataSource Persistence="ProjectFile" Label=""/>
+                      </StringListProperty.DataSource>
+  </StringListProperty>
+  <StringProperty Name="BuildLogFile" DisplayName="빌드 로그 파일" Description="빌드 로깅을 사용하도록 설정된 경우 기록할 빌드 로그 파일을 지정합니다." F1Keyword="VC.Project.VCConfiguration.BuildLogFile" Category="General" Default="$(ProjectDir)\$(MSBuildProjectName).log" Subtype="file">
+                  <StringProperty.DataSource>
+                     <DataSource Persistence="ProjectFile" ItemType="BuildLog" PersistedName="Path"/>
+                  </StringProperty.DataSource>
+  </StringProperty>
+  <!-- There is no InheritProjectPropertySheets in the project file. The property sheets will be expressed as explicit Imports.
+  <StringListProperty Name="InheritProjectPropertySheets" DisplayName="Inherit Project Property Sheets"
+                      Description="Specifies the project property sheets this configuration or property sheet inherits from."
+                      Category="General" Separator=";" Subtype="file" /> -->
+  <DynamicEnumProperty Name="PlatformToolset" DisplayName="플랫폼 도구 집합" EnumProvider="Toolsets" Description="현재 구성을 빌드하는 데 사용하는 도구 집합을 지정합니다. 지정하지 않으면 기본 도구 집합이 사용됩니다." F1Keyword="VC.Project.VCConfiguration.PlatformToolset" Category="General"/>
+  <EnumProperty Name="ConfigurationType" DisplayName="구성 형식" Description="이 구성에서 생성되는 출력 형식을 지정합니다." Category="ProjectDefaults" F1Keyword="VC.Project.VCConfiguration.ConfigurationType">
+    <EnumValue Name="Makefile" DisplayName="메이크파일" Description="메이크파일"/>
+    <EnumValue Name="Application" DisplayName="응용 프로그램(.exe)" Description="응용 프로그램(.exe)"/>
+    <EnumValue Name="DynamicLibrary" DisplayName="동적 라이브러리(.dll)" Description="동적 라이브러리(.dll)"/>
+    <EnumValue Name="StaticLibrary" DisplayName="정적 라이브러리(.lib)" Description="정적 라이브러리(.lib)"/>
+    <EnumValue Name="Utility" DisplayName="유틸리티" Description="유틸리티"/>
+  </EnumProperty>
+  <EnumProperty Name="UseOfMfc" DisplayName="MFC 사용" Description="구성에서 MFC를 사용하는 방법을 지정합니다." Category="ProjectDefaults" F1Keyword="VC.Project.VCConfiguration.useOfMfc">
+    <EnumValue Name="false" DisplayName="표준 Windows 라이브러리 사용" Description="표준 Windows 라이브러리 사용"/>
+    <EnumValue Name="Static" DisplayName="정적 라이브러리에서 MFC 사용" Description="정적 라이브러리에서 MFC 사용"/>
+    <EnumValue Name="Dynamic" DisplayName="공유 DLL에서 MFC 사용" Description="공유 DLL에서 MFC 사용"/>
+  </EnumProperty>
+  <EnumProperty Name="UseOfAtl" DisplayName="ATL 사용" Description="구성에서 ATL을 사용하는 방법을 지정합니다." Category="ProjectDefaults" F1Keyword="VC.Project.VCConfiguration.useOfATL">
+    <EnumValue Name="false" DisplayName="ATL 사용 안 함" Description="ATL 사용 안 함"/>
+    <EnumValue Name="Static" DisplayName="ATL에 정적 링크" Description="ATL에 정적 링크"/>
+    <EnumValue Name="Dynamic" DisplayName="ATL에 동적 링크" Description="ATL에 동적 링크"/>
+  </EnumProperty>
+  <EnumProperty Name="CharacterSet" DisplayName="문자 집합" Description="컴파일러가 지정된 문자 집합을 사용하게 합니다. 지역화 문제점을 해결하는 데 도움이 됩니다." Category="ProjectDefaults" F1Keyword="VC.Project.VCConfiguration.CharacterSet">
+    <EnumValue Name="NotSet" DisplayName="설정 안 함" Description="설정 안 함"/>
+    <EnumValue Name="Unicode" DisplayName="유니코드 문자 집합 사용" Description="유니코드 문자 집합 사용"/>
+    <EnumValue Name="MultiByte" DisplayName="멀티바이트 문자 집합 사용" Description="멀티바이트 문자 집합 사용"/>
+  </EnumProperty>
+  <EnumProperty Name="CLRSupport" DisplayName="공용 언어 런타임 지원" Description="이 구성에서 공용 언어 런타임을 지원할지 여부를 지정합니다. 이 설정은 런타임 검사와 같은 다른 설정과 호환되지 않습니다. C++ 컴파일러 스위치인 /clr을 사용할 경우 발생할 수 있는 충돌 문제에 대한 전체 목록을 보려면 도움말을 참조하십시오." Category="ProjectDefaults" F1Keyword="VC.Project.VCConfiguration.ManagedExtensions">
+    <EnumValue Name="false" DisplayName="공용 언어 런타임 지원 안 함" Description="공용 언어 런타임 지원 안 함"/>
+    <EnumValue Name="true" DisplayName="공용 언어 런타임 지원(/clr)" Description="공용 언어 런타임 지원(/clr)"/>
+  </EnumProperty>
+  <EnumProperty Name="WholeProgramOptimization" DisplayName="전체 프로그램 최적화" Description=".obj 경계를 지나 프로그램을 최적화하도록 지정합니다. C/C++ 최적화가 설정되어 있을 때 가장 잘 작동합니다." Category="ProjectDefaults" F1Keyword="VC.Project.VCConfiguration.WholeProgramOptimization">
+    <EnumValue Name="false" DisplayName="전체 프로그램 최적화 안 함" Description="전체 프로그램 최적화 안 함"/>
+    <EnumValue Name="true" DisplayName="링크 타임 코드 생성 사용" Description="링크 타임 코드 생성 사용"/>
+  </EnumProperty>
+  <BoolProperty Name="UseDebugLibraries" DisplayName="디버그 라이브러리 사용" Description="이 구성에서 디버그 라이브러리 및 디버그 스위치를 사용할지 여부를 지정합니다." Category="ProjectDefaults" Visible="false">
+  </BoolProperty>
+  <StringProperty Name="_ProjectFileVersion" DisplayName="프로젝트 파일 버전" Description="이 프로젝트 파일을 만드는 데 사용되는 변환 도구의 버전을 지정합니다." Category="General" Visible="false">
+    <StringProperty.DataSource>
+      <DataSource Persistence="ProjectFile"/>
+    </StringProperty.DataSource>
+  </StringProperty>
+</Rule>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
+- Native multi-targeting support for Visual Studio 6 in Visual Studio 2010
+
+2.0 Alpha 1  [2010-11-15]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+  
+  This file is a derivative work based on the file of the same name that is
+  included with Visual Studio 2010. The original file bears the copyright
+  notice reproduced below. Implicit authorization from Microsoft to create and
+  distribute derivative works is deduced from comments in the files and
+  documentation which describe ways to customize the build system by making
+  changes to these files.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="MIDL" PageTemplate="tool" DisplayName="MIDL" SwitchPrefix="/" Order="60" xmlns="http://schemas.microsoft.com/build/2009/properties" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+  <Rule.Categories>
+    <Category Name="General" DisplayName="Общие"/>
+    <Category Name="Output" DisplayName="Вывод"/>
+    <Category Name="Advanced" DisplayName="Дополнительно"/>
+    <Category Name="Command Line" DisplayName="Командная строка" Subtype="CommandLine"/>
+  </Rule.Categories>
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" ItemType="Midl" Label="" HasConfigurationCondition="true"/>
+  </Rule.DataSource>
+  <StringListProperty Name="PreprocessorDefinitions" DisplayName="Определения препроцессора" Description="задает одно или несколько определений, включая MIDL-макросы (/D[макросы]." Category="General" Switch="D " F1Keyword="VC.Project.VCMidlTool.PreprocessorDefinitions">
+  </StringListProperty>
+  <StringListProperty Subtype="folder" Name="AdditionalIncludeDirectories" DisplayName="Дополнительные каталоги включаемых файлов" Description="Задает один или несколько каталогов, добавляемых к пути поиска включаемых файлов  (/I[путь])" Category="General" Switch="I" F1Keyword="VC.Project.VCMidlTool.AdditionalIncludeDirectories">
+  </StringListProperty>
+  <BoolProperty Name="IgnoreStandardIncludePath" DisplayName="Игнорировать стандартный путь поиска включаемых файлов" Description="Игнорировать текущий и каталоги INCLUDE" Category="General" Switch="no_def_idir" F1Keyword="VC.Project.VCMidlTool.IgnoreStandardIncludePath">
+  </BoolProperty>
+  <BoolProperty Name="MkTypLibCompatible" DisplayName="MkTypLib совместимость" Description="Обеспечивает принудительную совместимость с mktyplib.exe версии 2.03 (/mktyplib203)" Category="General" Switch="mktyplib203" F1Keyword="VC.Project.VCMidlTool.MkTypLibCompatible">
+  </BoolProperty>
+  <EnumProperty Name="WarningLevel" DisplayName="Уровень предупреждений" Description="Выбирает строгость ошибок MIDL-кода (/Wn)" Category="General" F1Keyword="VC.Project.VCMidlTool.WarningLevel">
+    <EnumValue Name="0" Switch="W0" DisplayName="1">
+    </EnumValue>
+    <EnumValue Name="1" Switch="W1" DisplayName="1">
+    </EnumValue>
+    <EnumValue Name="2" Switch="W2" DisplayName="2">
+    </EnumValue>
+    <EnumValue Name="3" Switch="W3" DisplayName="3">
+    </EnumValue>
+    <EnumValue Name="4" Switch="W4" DisplayName="4">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty Name="WarnAsError" DisplayName="Обрабатывать предупреждения как ошибки" Description="Включает режим, в котором MIDL интерпретирует предупреждения как ошибки (/WX)" Category="General" Switch="WX" F1Keyword="VC.Project.VCMidlTool.WarnAsError">
+  </BoolProperty>
+  <BoolProperty Name="SuppressStartupBanner" DisplayName="Отключить загрузочный баннер" Description="Отключает отображение загрузочного баннера, а также информационных сообщений." Category="General" Switch="nologo" F1Keyword="VC.Project.VCMidlTool.SuppressStartupBanner">
+  </BoolProperty>
+  <EnumProperty Name="DefaultCharType" DisplayName="Тип char для C компилятора" Description="Определяет значение типа char, которое будет по умолчанию использовать C компилятор с создаваемом коде. (/char signed|unsigned|ascii7)" Category="General" F1Keyword="VC.Project.VCMidlTool.DefaultCharType">
+    <EnumValue Name="Signed" Switch="char signed" DisplayName="Подписано" Description="Подписано">
+    </EnumValue>
+    <EnumValue Name="Unsigned" Switch="char unsigned" DisplayName="Без подписи" Description="Без подписи">
+    </EnumValue>
+    <EnumValue Name="Ascii" Switch="char ascii7" DisplayName="Ascii" Description="Ascii">
+    </EnumValue>
+  </EnumProperty>
+  <EnumProperty Name="TargetEnvironment" DisplayName="Конечная среда" Description="Задает конечную среду (/env win32|dos|win16|mac)" Category="General" F1Keyword="VC.Project.VCMidlTool.TargetEnvironment">
+    <EnumValue Name="NotSet" Switch="" DisplayName="Не задано" Description="Win32">
+    </EnumValue>
+    <EnumValue Name="Win32" Switch="env win32" DisplayName="Microsoft Windows, 32-разрядная" Description="Win32">
+    </EnumValue>
+    <EnumValue Name="DOS" Switch="env dos" DisplayName="Microsoft MS-DOS" Description="MS-DOS">
+    </EnumValue>
+    <EnumValue Name="Win16" Switch="env win16" DisplayName="Microsoft Windows 16-разрядная" Description="Win16">
+    </EnumValue>
+    <EnumValue Name="Mac" Switch="env mac" DisplayName="Apple Macintosh (680x0)" Description="Macintosh">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty Name="GenerateStublessProxies" DisplayName="Создавать прокси без заглушек" Description="Создать полностью преобразованные заглушки с расширениями и прокси без заглушек для объектных интерфейсов (/Oicf, /Oif)" Category="General" Switch="Oicf" F1Keyword="VC.Project.VCMidlTool.GenerateStublessProxies">
+  </BoolProperty>
+  <BoolProperty Name="SuppressCompilerWarnings" DisplayName="Отключить предупреждения компилятора" Description="Отменяет предупредительные сообщения компилятора (/no_warn)" Category="General" Switch="no_warn" F1Keyword="VC.Project.VCMidlTool.SuppressCompilerWarnings">
+  </BoolProperty>
+  <BoolProperty Name="ApplicationConfigurationMode" DisplayName="Режим конфигурации приложения" Description="Разрешить выбранные атрибуты ACF в IDL-файле (/app_config)" Category="General" Switch="app_config" F1Keyword="VC.Project.VCMidlTool.ApplicationConfigurationMode">
+  </BoolProperty>
+  <IntProperty Name="LocaleID" DisplayName="Идентификатор языка" Description="Задает идентификатор языка для входных файлов, имен файлов и путей каталогов (/lcid десятичное_значение)" Category="General" Switch="lcid" Separator=" " F1Keyword="VC.Project.VCMidlTool.LocaleID">
+  </IntProperty>
+  <StringProperty Name="OutputDirectory" DisplayName="Выходной каталог" Description="Выходной каталог (/out [каталог])" Category="Output" Switch="out" F1Keyword="VC.Project.VCMidlTool.OutputDirectory">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="HeaderFileName" DisplayName="Заголовочный файл" Description="Определяет имя создаваемого заголовочного файла (/h имя_файла)" Category="Output" Switch="h" Separator=" " F1Keyword="VC.Project.VCMidlTool.HeaderFileName">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="DllDataFileName" DisplayName="Файл DllData" Description="Определяет имя файла для файла DLLDATA (/dlldata имя_файла)" Category="Output" Switch="dlldata" Separator=" " F1Keyword="VC.Project.VCMidlTool.DLLDataFileName">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="InterfaceIdentifierFileName" DisplayName="Файл IID" Description="Определяет имя файла идентификатора интерфейса (/iid имя_файла)" Category="Output" Switch="iid" Separator=" " F1Keyword="VC.Project.VCMidlTool.InterfaceIdentifierFileName">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="ProxyFileName" DisplayName="Файл прокси" Description="Определяет имя файла прокси (/proxy имя_файла)" Category="Output" Switch="proxy" Separator=" " F1Keyword="VC.Project.VCMidlTool.ProxyFileName">
+  </StringProperty>
+  <BoolProperty ReverseSwitch="notlb" Name="GenerateTypeLibrary" DisplayName="Создавать библиотеку типов" Description="Отменить создание typelib ([/notlb] for no)" Category="Output" F1Keyword="VC.Project.VCMidlTool.GenerateTypeLibrary">
+  </BoolProperty>
+  <StringProperty Subtype="file" Name="TypeLibraryName" DisplayName="Библиотека типов" Description="Задает имя файла библиотеки типов (/tlb имя файла)" Category="Output" Switch="tlb" Separator=" " F1Keyword="VC.Project.VCMidlTool.TypeLibraryName">
+  </StringProperty>
+  <EnumProperty Name="GenerateClientFiles" DisplayName="Создавать файлы заглушки клиента" Description="Создать файл заглушки клиента (/клиент [stub|none])" Category="Output" F1Keyword="VC.Project.VCMidlTool.GenerateClientFiles">
+    <EnumValue Name="Stub" Switch="client stub" DisplayName="Заглушка" Description="Заглушка">
+    </EnumValue>
+    <EnumValue Name="None" Switch="client none" DisplayName="Нет" Description="Нет">
+    </EnumValue>
+  </EnumProperty>
+  <EnumProperty Name="GenerateServerFiles" DisplayName="Создавать файлы заглушки сервера" Description="Создать только файл заглушки сервера (/сервер [stub|none])" Category="Output" F1Keyword="VC.Project.VCMidlTool.GenerateServerFiles">
+    <EnumValue Name="Stub" Switch="server stub" DisplayName="Заглушка" Description="Заглушка">
+    </EnumValue>
+    <EnumValue Name="None" Switch="server none" DisplayName="Нет" Description="Нет">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Subtype="file" Name="ClientStubFile" DisplayName="Файл заглушки клиента" Description="Задать файл заглушки клиента (/cstub [файл])" Category="Output" Switch="cstub" Separator=" " F1Keyword="VC.Project.VCMidlTool.ClientStubFile">
+  </StringProperty>
+  <StringProperty Subtype="file" Name="ServerStubFile" DisplayName="Файл заглушки сервера" Description="Задать файл заглушки сервера (/sstub [файл])" Category="Output" Switch="sstub" Separator=" " F1Keyword="VC.Project.VCMidlTool.ServerStubFile">
+  </StringProperty>
+  <EnumProperty Name="TypeLibFormat" DisplayName="Формат библиотеки типов" Description="Задает формат файла библиотеки типов ([/oldtlb|/newtlb])" Category="Output" F1Keyword="VC.Project.VCMidlTool.TypeLibFormat">
+    <EnumValue Name="NewFormat" Switch="newtlb" DisplayName="NewFormat" Description="Новый формат">
+    </EnumValue>
+    <EnumValue Name="OldFormat" Switch="oldtlb" DisplayName="OldFormat" Description="Старый формат">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Name="CPreprocessOptions" DisplayName="Параметры препроцессора C" Description="Задает параметры для передачи препроцессору компилятора C (/cpp_opt параметры)" Category="Advanced" Switch="cpp_opt" Separator=" " F1Keyword="VC.Project.VCMidlTool.CPreprocessOptions">
+  </StringProperty>
+  <StringListProperty Name="UndefinePreprocessorDefinitions" DisplayName="Отменить определения препроцессора" Description="Задает одно или несколько определений, включая MIDL-макросы (/U[макросы])" Category="Advanced" Switch="U" F1Keyword="VC.Project.VCMidlTool.UndefinePreprocessorDefinitions">
+  </StringListProperty>
+  <EnumProperty Name="EnableErrorChecks" DisplayName="Разрешить проверку ошибок" Description="Выбрать параметр проверки ошибок ([/ошибка всеlнет])" Category="Advanced" F1Keyword="VC.Project.VCMidlTool.EnableErrorChecks">
+    <EnumValue Name="EnableCustom" Switch="" DisplayName="EnableCustom" Description="Все">
+    </EnumValue>
+    <EnumValue Name="All" Switch="error all" DisplayName="Все" Description="Все">
+    </EnumValue>
+    <EnumValue Name="None" Switch="error none" DisplayName="Нет" Description="Нет">
+    </EnumValue>
+  </EnumProperty>
+  <BoolProperty Name="ErrorCheckAllocations" DisplayName="Проверка ошибок нехватки памяти" Description="Проверить ошибки нехватки памяти (/error allocation)" Category="Advanced" Switch="error allocation" F1Keyword="VC.Project.VCMidlTool.ErrorCheckAllocations">
+  </BoolProperty>
+  <BoolProperty Name="ErrorCheckBounds" DisplayName="Проверка границ" Description="Сравнить размер переданных и ожидаемых данных (/error bounds_check)" Category="Advanced" Switch="error bounds_check" F1Keyword="VC.Project.VCMidlTool.ErrorCheckBounds">
+  </BoolProperty>
+  <BoolProperty Name="ErrorCheckEnumRange" DisplayName="Проверка границ перечислений" Description="Проверить, не выходят ли значения перечисления за допустимый диапазон (/error enum)" Category="Advanced" Switch="error enum" F1Keyword="VC.Project.VCMidlTool.ErrorCheckEnumRange">
+  </BoolProperty>
+  <BoolProperty Name="ErrorCheckRefPointers" DisplayName="Проверка указателей" Description="Проверить указатели на равенство NULL (/error ref)" Category="Advanced" Switch="error ref" F1Keyword="VC.Project.VCMidlTool.ErrorCheckRefPointers">
+  </BoolProperty>
+  <BoolProperty Name="ErrorCheckStubData" DisplayName="Проверках данных-заглушек" Description="Вызвать дополнительную проверку действительности данных-заглушек на стороне сервера (/error stub_data)" Category="Advanced" Switch="error stub_data" F1Keyword="VC.Project.VCMidlTool.ErrorCheckStubData">
+  </BoolProperty>
+  <BoolProperty ReverseSwitch="no_robust" Name="ValidateAllParameters" DisplayName="Проверка параметров" Description="Создать дополнительные сведения для проверки параметров (/robust|/no_robust)" Category="Advanced" Switch="robust" F1Keyword="VC.Project.VCMidlTool.ValidateParameters">
+  </BoolProperty>
+  <EnumProperty Name="StructMemberAlignment" DisplayName="Выравнивание членов структур" Description="Задает уровень упаковки структур в конечной системе (/ZpN)" Category="Advanced" F1Keyword="VC.Project.VCMidlTool.StructMemberAlignment">
+    <EnumValue Name="NotSet" Switch="" DisplayName="Не задано" Description="Не задано">
+    </EnumValue>
+    <EnumValue Name="1" Switch="Zp1" DisplayName="1 байт" Description="Zp1">
+    </EnumValue>
+    <EnumValue Name="2" Switch="Zp2" DisplayName="2 байт" Description="Zp2">
+    </EnumValue>
+    <EnumValue Name="4" Switch="Zp4" DisplayName="4 байт" Description="Zp4">
+    </EnumValue>
+    <EnumValue Name="8" Switch="Zp8" DisplayName="8 байт" Description="Zp8">
+    </EnumValue>
+  </EnumProperty>
+  <StringProperty Subtype="file" Name="RedirectOutputAndErrors" DisplayName="Перенаправить вывод" Description="Перенаправляет выходные данные с экрана в файл (/o file)" Category="Advanced" Switch="o" Separator=" " F1Keyword="VC.Project.VCMidlTool.RedirectOutputAndErrors">
+  </StringProperty>
+  <StringProperty Subtype="folder" Name="TrackerLogDirectory" DisplayName="Каталог журнала отслеживания" Description="Каталог журнала отслеживания." IncludeInCommandLine="false" Visible="false">
+  </StringProperty>
+  <StringProperty Name="AdditionalOptions" DisplayName="Дополнительные параметры" Description="Дополнительные параметры" Category="Command Line" F1Keyword="vc.project.AdditionalOptionsPage">
+  </StringProperty>
+</Rule>

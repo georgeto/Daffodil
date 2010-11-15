@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Daffodil for Visual Studio  <http://daffodil.codeplex.com>
+- Native multi-targeting support for Visual Studio 2003 in Visual Studio 2010
+
+2.0 Alpha 1  [2010-11-15]
+
+Owen Wengerd, ManuSoft
+http://www.manusoft.com
+
+Credits
+  Some aspects of this project are based on information in this MSDN blog post:
+  http://blogs.msdn.com/b/vcblog/archive/2009/12/08/c-native-multi-targeting.aspx
+  
+  This file is a derivative work based on the file of the same name that is
+  included with Visual Studio 2010. The original file bears the copyright
+  notice reproduced below. Implicit authorization from Microsoft to create and
+  distribute derivative works is deduced from comments in the files and
+  documentation which describe ways to customize the build system by making
+  changes to these files.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="ConfigurationGeneral" DisplayName="Geral" PageTemplate="generic" Description="Geral" xmlns="http://schemas.microsoft.com/build/2009/properties">
+  <Rule.Categories>
+    <Category Name="General" DisplayName="Geral" Description="Geral"/>
+  </Rule.Categories>
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" Label="Configuration"/>
+  </Rule.DataSource>
+  <StringProperty Name="OutDir" DisplayName="Diretório de Saída" Description="Especifica um caminho relativo para o diretório de arquivo de saída; pode incluir variáveis de ambiente." Category="General" Default="$(SolutionDir)$(ConfigurationName)" Subtype="folder" F1Keyword="VC.Project.VCConfiguration.OutputDirectory"/>
+  <StringProperty Name="IntDir" DisplayName="Diretório Intermediário" Description="Especifica um caminho relativo para o diretório de arquivo intermediário; pode incluir variáveis de ambiente." Category="General" Default="$(ConfigurationName)" Subtype="folder" F1Keyword="VC.Project.VCConfiguration.IntermediateDirectory"/>
+  <EnumProperty Name="ConfigurationType" DisplayName="Tipo de Configuração" Description="Especifica o tipo de saída que essa configuração gera." Category="General" F1Keyword="VC.Project.VCConfiguration.ConfigurationType">
+    <EnumValue Name="Makefile" DisplayName="Makefile" Description="Makefile"/>
+    <EnumValue Name="Application" DisplayName="Aplicativo (.exe)" Description="Aplicativo (.exe)"/>
+    <EnumValue Name="DynamicLibrary" DisplayName="Biblioteca Dinâmica (.dll)" Description="Biblioteca Dinâmica (.dll)"/>
+    <EnumValue Name="StaticLibrary" DisplayName="Biblioteca estática (.lib)" Description="Biblioteca Estática (.lib)"/>
+    <EnumValue Name="Utility" DisplayName="Utilitário" Description="Utilitário"/>
+  </EnumProperty>
+  <EnumProperty Name="CLRSupport" DisplayName="Suporte da Common Language Runtime" Description="Selecione o suporte à Common Language Runtime que o seu código utiliza." Category="General" F1Keyword="VC.Project.VCConfiguration.ManagedExtensions">
+    <EnumValue Name="false" DisplayName="Sem suporte para Common Language RunTime" Description="Sem suporte para Common Language RunTime"/>
+    <EnumValue Name="true" Switch="clr" DisplayName="Suporte à Common Language RunTime" Description="Cria metadados para seu aplicativo que podem ser consumidos por outros aplicativos CLR, e permite que sua aplicação consuma tipos e dados nos metadados de outro componente CLR."/>
+  </EnumProperty>
+  <StringProperty Name="BuildLogFile" DisplayName="Arquivo de Log de Compilação" Description="Especifica o arquivo de log de compilação onde deve-se gravar quando o registro de compilação em log está habilitado." F1Keyword="VC.Project.VCConfiguration.BuildLogFile" Category="General" Default="$(ProjectDir)\$(MSBuildProjectName).log" Subtype="file">
+    <StringProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="BuildLog" PersistedName="Path"/>
+    </StringProperty.DataSource>
+  </StringProperty>
+  <StringProperty Name="_ProjectFileVersion" DisplayName="Versão do Arquivo de Projeto" Description="Especifica a versão da ferramenta de conversão utilizada para criar este arquivo de projeto." Category="General" Visible="false">
+    <StringProperty.DataSource>
+      <DataSource Persistence="ProjectFile"/>
+    </StringProperty.DataSource>
+  </StringProperty>
+</Rule>
