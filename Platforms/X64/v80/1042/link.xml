@@ -4,7 +4,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2005 in Visual Studio 2010
 
-2.0 Alpha 1  [2010-11-15]
+2.1  [2011-04-07]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -314,11 +314,17 @@ Credits
     <EnumValue Name="Default" Switch="" DisplayName="기본 이미지 형식">
     </EnumValue>
   </EnumProperty>
-  <StringProperty Subtype="file" Name="KeyFile" DisplayName="키 파일" Description="어셈블리에 서명하는 키 또는 키 쌍을 지정합니다. (/KEYFILE:filename)" Category="Advanced" Switch="KEYFILE" Separator=":" F1Keyword="VC.Project.VCLinkerTool.KeyFile">
+  <StringProperty Subtype="file" Name="LinkKeyFile" DisplayName="키 파일" Description="어셈블리에 서명하는 키 또는 키 쌍을 지정합니다. (/KEYFILE:filename)" Category="Advanced" Switch="KEYFILE" Separator=":" F1Keyword="VC.Project.VCLinkerTool.KeyFile">
+    <StringProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="" Label="" HasConfigurationCondition="true" />
+    </StringProperty.DataSource>
   </StringProperty>
   <StringProperty Subtype="file" Name="KeyContainer" DisplayName="키 컨테이너" Description="어셈블리에 서명하는 키 컨테이너를 지정합니다. (/KEYCONTAINER:name)" Category="Advanced" Switch="KEYCONTAINER" Separator=":" F1Keyword="VC.Project.VCLinkerTool.KeyContainer">
   </StringProperty>
-  <BoolProperty ReverseSwitch="DELAYSIGN:NO" Name="DelaySign" DisplayName="서명 연기" Description="어셈블리에 부분적으로 서명합니다. 어셈블리에 공개 키를 배치하려는 경우에만 /DELAYSIGN을 사용합니다. 기본값은 /DELAYSIGN:NO입니다." Category="Advanced" Switch="DELAYSIGN" F1Keyword="VC.Project.VCLinkerTool.DelaySign">
+  <BoolProperty ReverseSwitch="DELAYSIGN:NO" Name="LinkDelaySign" DisplayName="서명 연기" Description="어셈블리에 부분적으로 서명합니다. 어셈블리에 공개 키를 배치하려는 경우에만 /DELAYSIGN을 사용합니다. 기본값은 /DELAYSIGN:NO입니다." Category="Advanced" Switch="DELAYSIGN" F1Keyword="VC.Project.VCLinkerTool.DelaySign">
+    <BoolProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="" Label="" HasConfigurationCondition="true" />
+    </BoolProperty.DataSource>
   </BoolProperty>
   <BoolProperty ReverseSwitch="CLRUNMANAGEDCODECHECK:NO" Name="CLRUnmanagedCodeCheck" DisplayName="CLR 비관리 코드 검사" Description="/CLRUNMANAGEDCODECHECK는 관리 코드에서 네이티브 DLL로 호출하는 링커 생성 PInvoke 호출에 링커가 SuppressUnmanagedCodeSecurityAttribute를 적용할지 여부를 지정합니다." Category="Advanced" Switch="CLRUNMANAGEDCODECHECK" F1Keyword="VC.Project.VCLinkerTool.CLRUnmanagedCodeCheck">
   </BoolProperty>

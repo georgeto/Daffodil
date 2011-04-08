@@ -4,7 +4,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2005 in Visual Studio 2010
 
-2.0 Alpha 1  [2010-11-15]
+2.1  [2011-04-07]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -314,11 +314,17 @@ Credits
     <EnumValue Name="Default" Switch="" DisplayName="Default image type">
     </EnumValue>
   </EnumProperty>
-  <StringProperty Subtype="file" Name="KeyFile" DisplayName="Key File" Description="Specify key or key pair to sign an assembly. (/KEYFILE:filename)" Category="Advanced" Switch="KEYFILE" Separator=":" F1Keyword="VC.Project.VCLinkerTool.KeyFile">
+  <StringProperty Subtype="file" Name="LinkKeyFile" DisplayName="Key File" Description="Specify key or key pair to sign an assembly. (/KEYFILE:filename)" Category="Advanced" Switch="KEYFILE" Separator=":" F1Keyword="VC.Project.VCLinkerTool.KeyFile">
+    <StringProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="" Label="" HasConfigurationCondition="true" />
+    </StringProperty.DataSource>
   </StringProperty>
   <StringProperty Subtype="file" Name="KeyContainer" DisplayName="Key Container" Description="Specify a key container to sign an assembly. (/KEYCONTAINER:name)" Category="Advanced" Switch="KEYCONTAINER" Separator=":" F1Keyword="VC.Project.VCLinkerTool.KeyContainer">
   </StringProperty>
-  <BoolProperty ReverseSwitch="DELAYSIGN:NO" Name="DelaySign" DisplayName="Delay Sign" Description="Partially sign an assembly. Use /DELAYSIGN if you only want to place the public key in the assembly. The default is /DELAYSIGN:NO." Category="Advanced" Switch="DELAYSIGN" F1Keyword="VC.Project.VCLinkerTool.DelaySign">
+  <BoolProperty ReverseSwitch="DELAYSIGN:NO" Name="LinkDelaySign" DisplayName="Delay Sign" Description="Partially sign an assembly. Use /DELAYSIGN if you only want to place the public key in the assembly. The default is /DELAYSIGN:NO." Category="Advanced" Switch="DELAYSIGN" F1Keyword="VC.Project.VCLinkerTool.DelaySign">
+    <BoolProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="" Label="" HasConfigurationCondition="true" />
+    </BoolProperty.DataSource>
   </BoolProperty>
   <BoolProperty ReverseSwitch="CLRUNMANAGEDCODECHECK:NO" Name="CLRUnmanagedCodeCheck" DisplayName="CLR Unmanaged Code Check" Description="/CLRUNMANAGEDCODECHECK specifies whether the linker will apply SuppressUnmanagedCodeSecurityAttribute to linker-generated PInvoke calls from managed code into native DLLs." Category="Advanced" Switch="CLRUNMANAGEDCODECHECK" F1Keyword="VC.Project.VCLinkerTool.CLRUnmanagedCodeCheck">
   </BoolProperty>

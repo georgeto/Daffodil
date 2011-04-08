@@ -4,7 +4,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2005 in Visual Studio 2010
 
-2.0 Alpha 1  [2010-11-15]
+2.1  [2011-04-07]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -314,11 +314,17 @@ Credits
     <EnumValue Name="Default" Switch="" DisplayName="Standardimagetyp">
     </EnumValue>
   </EnumProperty>
-  <StringProperty Subtype="file" Name="KeyFile" DisplayName="Schlüsseldatei" Description="Geben Sie einen Schlüssel oder ein Schlüsselpaar zum Signieren einer Assembly an. (/KEYFILE:Dateiname)" Category="Advanced" Switch="KEYFILE" Separator=":" F1Keyword="VC.Project.VCLinkerTool.KeyFile">
+  <StringProperty Subtype="file" Name="LinkKeyFile" DisplayName="Schlüsseldatei" Description="Geben Sie einen Schlüssel oder ein Schlüsselpaar zum Signieren einer Assembly an. (/KEYFILE:Dateiname)" Category="Advanced" Switch="KEYFILE" Separator=":" F1Keyword="VC.Project.VCLinkerTool.KeyFile">
+    <StringProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="" Label="" HasConfigurationCondition="true" />
+    </StringProperty.DataSource>
   </StringProperty>
   <StringProperty Subtype="file" Name="KeyContainer" DisplayName="Schlüsselcontainer" Description="Geben Sie einen Schlüsselcontainer zum Signieren einer Assembly an. (/KEYCONTAINER:Name)" Category="Advanced" Switch="KEYCONTAINER" Separator=":" F1Keyword="VC.Project.VCLinkerTool.KeyContainer">
   </StringProperty>
-  <BoolProperty ReverseSwitch="DELAYSIGN:NO" Name="DelaySign" DisplayName="Verzögertes Signieren" Description="Eine Assembly wird teilweise signiert. Verwenden Sie /DELAYSIGN, wenn Sie nur den öffentlichen Schlüssel in der Assembly platzieren möchten. Standard ist /DELAYSIGN:NO." Category="Advanced" Switch="DELAYSIGN" F1Keyword="VC.Project.VCLinkerTool.DelaySign">
+  <BoolProperty ReverseSwitch="DELAYSIGN:NO" Name="LinkDelaySign" DisplayName="Verzögertes Signieren" Description="Eine Assembly wird teilweise signiert. Verwenden Sie /DELAYSIGN, wenn Sie nur den öffentlichen Schlüssel in der Assembly platzieren möchten. Standard ist /DELAYSIGN:NO." Category="Advanced" Switch="DELAYSIGN" F1Keyword="VC.Project.VCLinkerTool.DelaySign">
+    <BoolProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="" Label="" HasConfigurationCondition="true" />
+    </BoolProperty.DataSource>
   </BoolProperty>
   <BoolProperty ReverseSwitch="CLRUNMANAGEDCODECHECK:NO" Name="CLRUnmanagedCodeCheck" DisplayName="Überprüfung von nicht verwaltetem CLR-Code" Description="/CLRUNMANAGEDCODECHECK gibt an, ob der Linker SuppressUnmanagedCodeSecurityAttribute auf vom Linker generierte PInvoke-Anrufe von verwaltetem Code an systemeigene DLLs anwendet." Category="Advanced" Switch="CLRUNMANAGEDCODECHECK" F1Keyword="VC.Project.VCLinkerTool.CLRUnmanagedCodeCheck">
   </BoolProperty>

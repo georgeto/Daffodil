@@ -4,7 +4,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2005 in Visual Studio 2010
 
-2.0 Alpha 1  [2010-11-15]
+2.1  [2011-04-07]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -314,11 +314,17 @@ Credits
     <EnumValue Name="Default" Switch="" DisplayName="Type d'image par défaut">
     </EnumValue>
   </EnumProperty>
-  <StringProperty Subtype="file" Name="KeyFile" DisplayName="Fichier de clé" Description="Spécifie la clé ou la paire de clés à utiliser pour signer un assembly. (/KEYFILE:nomfichier)" Category="Advanced" Switch="KEYFILE" Separator=":" F1Keyword="VC.Project.VCLinkerTool.KeyFile">
+  <StringProperty Subtype="file" Name="LinkKeyFile" DisplayName="Fichier de clé" Description="Spécifie la clé ou la paire de clés à utiliser pour signer un assembly. (/KEYFILE:nomfichier)" Category="Advanced" Switch="KEYFILE" Separator=":" F1Keyword="VC.Project.VCLinkerTool.KeyFile">
+    <StringProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="" Label="" HasConfigurationCondition="true" />
+    </StringProperty.DataSource>
   </StringProperty>
   <StringProperty Subtype="file" Name="KeyContainer" DisplayName="Conteneur de clé" Description="Spécifie le conteneur de clé à utiliser pour signer un assembly. (/KEYCONTAINER:nom)" Category="Advanced" Switch="KEYCONTAINER" Separator=":" F1Keyword="VC.Project.VCLinkerTool.KeyContainer">
   </StringProperty>
-  <BoolProperty ReverseSwitch="DELAYSIGN:NO" Name="DelaySign" DisplayName="Signature différée" Description="Signe partiellement un assembly. Utilisez /DELAYSIGN si vous voulez uniquement placer la clé publique dans l'assembly. /DELAYSIGN:NO est l'option par défaut." Category="Advanced" Switch="DELAYSIGN" F1Keyword="VC.Project.VCLinkerTool.DelaySign">
+  <BoolProperty ReverseSwitch="DELAYSIGN:NO" Name="LinkDelaySign" DisplayName="Signature différée" Description="Signe partiellement un assembly. Utilisez /DELAYSIGN si vous voulez uniquement placer la clé publique dans l'assembly. /DELAYSIGN:NO est l'option par défaut." Category="Advanced" Switch="DELAYSIGN" F1Keyword="VC.Project.VCLinkerTool.DelaySign">
+    <BoolProperty.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="" Label="" HasConfigurationCondition="true" />
+    </BoolProperty.DataSource>
   </BoolProperty>
   <BoolProperty ReverseSwitch="CLRUNMANAGEDCODECHECK:NO" Name="CLRUnmanagedCodeCheck" DisplayName="Vérification du code non managé CLR" Description="L'option /CLRUNMANAGEDCODECHECK spécifie si l'Éditeur de liens applique SuppressUnmanagedCodeSecurityAttribute aux appels PInvoke générés par l'Éditeur de liens à partir du code managé dans les DLL natives." Category="Advanced" Switch="CLRUNMANAGEDCODECHECK" F1Keyword="VC.Project.VCLinkerTool.CLRUnmanagedCodeCheck">
   </BoolProperty>
