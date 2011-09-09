@@ -3,7 +3,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 6 in Visual Studio 2010
 
-2.1  [2011-04-07]
+2.2  [2011-09-08]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -15,7 +15,7 @@ Credits
 -->
 
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(VCTargetsPath)\Platforms\Win32\PlatformToolsets\v60\ImportBefore\*.props" Condition="Exists('$(VCTargetsPath)\Platforms\Win32\PlatformToolsets\v70\ImportBefore')" />
+  <Import Project="$(VCTargetsPath)\Platforms\Win32\PlatformToolsets\v60\ImportBefore\*.props" Condition="Exists('$(VCTargetsPath)\Platforms\Win32\PlatformToolsets\v60\ImportBefore')" />
   <PropertyGroup>
     <PlatformToolsetVersion>60</PlatformToolsetVersion>
     <VCInstallDir>$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\DevStudio\6.0\Products\Microsoft Visual C++@ProductDir)</VCInstallDir>
@@ -53,5 +53,5 @@ Credits
       <DebugInformationFormat>CV</DebugInformationFormat>
     </Link>
   </ItemDefinitionGroup>
-  <Import Project="$(VCTargetsPath)\Platforms\Win32\PlatformToolsets\v60\ImportAfter\*..props" Condition="Exists('$(VCTargetsPath)\Platforms\Win32\PlatformToolsets\v70\ImportAfter')" />
+  <Import Project="$(VCTargetsPath)\Platforms\Win32\PlatformToolsets\v60\ImportAfter\*.props" Condition="Exists('$(VCTargetsPath)\Platforms\Win32\PlatformToolsets\v60\ImportAfter')" />
 </Project>
