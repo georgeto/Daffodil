@@ -3,7 +3,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2005 in Visual Studio 2010
 
-2.2  [2011-09-08]
+2.3  [2012-02-23]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -37,7 +37,7 @@ Credits
     <ItemGroup>
       <ClCompile Condition="'@(ClCompile)' != '' and '$(CLRSupport)' != 'false' and '$(CLRSupport)' != ''">
         <AdditionalUsingDirectories>$(TargetFrameworkDirectory);%(ClCompile.AdditionalUsingDirectories)</AdditionalUsingDirectories>
-        <AdditionalOptions Condition="('$(TargetFrameworkVersion)' == 'v2.0')">/d1clr:nostdlib %(ClCompile.AdditionalOptions)</AdditionalOptions>
+        <AdditionalOptions Condition="('$(TargetFrameworkVersion)' == 'v2.0' or '$(TargetFrameworkVersion)' == 'v3.0' or '$(TargetFrameworkVersion)' == 'v3.5')">/d1clr:nostdlib %(ClCompile.AdditionalOptions)</AdditionalOptions>
       </ClCompile>
     </ItemGroup>
 
@@ -76,11 +76,13 @@ Credits
   </PropertyGroup>
 
   <Target Name="PlatformToolsetPrepareForBuild" DependsOnTargets="_DetermineManagedStateFromCL;$(PlatformToolsetPrepareForBuildDependsOn)">
-    <!-- If the project is targeting any other CLR version than v2.0, issue a warning -->
+    <!-- If the project is targeting any other CLR version than v2.0, v3.0, v3.5, issue a warning -->
     <Warning Condition="'$(ManagedAssembly)' == 'true' and 
+                        '$(TargetFrameworkVersion)' != 'v3.5' and
+                        '$(TargetFrameworkVersion)' != 'v3.0' and
                         '$(TargetFrameworkVersion)' != 'v2.0' and
                         '$(DesignTimeBuild)'!='true'"
-            Text="Specified platform toolset ($(PlatformToolset)) is not compatible with the targeted .NET Framework version ($(TargetFrameworkVersion)). Please ensure .NET Framework 2.0 is installed and no TargetFrameworkVersion override is in effect."/>
+            Text="Specified platform toolset ($(PlatformToolset)) is not compatible with the targeted .NET Framework version ($(TargetFrameworkVersion)). Please ensure .NET Framework 2.0/3.0/3.5 is installed and no TargetFrameworkVersion override is in effect."/>
   </Target>
 
   <!-- *******************************************************************************************
