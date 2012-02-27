@@ -3,7 +3,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2005 in Visual Studio 2010
 
-2.3  [2012-02-23]
+2.31  [2012-02-26]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -36,7 +36,7 @@ Credits
     <SourcePath Condition="'$(SourcePath)' == ''">$(VCInstallDir)atlmfc\src\mfc;$(VCInstallDir)atlmfc\src\atl;$(VCInstallDir)crt\src;</SourcePath>
     <ExcludePath Condition="'$(ExcludePath)' == ''">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(VCInstallDir)PlatformSDK\include;$(FrameworkSDKDir)include;$(FrameworkDir)$(FrameworkVersion);$(VCInstallDir)atlmfc\lib\amd64;$(VCInstallDir)lib\amd64;</ExcludePath>
     <NativeExecutablePath Condition="'$(NativeExecutablePath)' == ''">$(VCInstallDir)bin\AMD64;$(VCInstallDir)VCPackages;$(VCInstallDir)PlatformSDK\bin\x64;$(VCInstallDir)PlatformSDK\bin\win64\x64;$(VCInstallDir)PlatformSDK\bin;$(FrameworkDir)\$(FrameworkVersion);$(FrameworkDir)\$(Framework35Version);$(PATH);</NativeExecutablePath>
-    <TargetFrameworkVersion Condition="'$(TargetFrameworkVersion)' == '' '$(CLRSupport)' != '' and '$(CLRSupport)' != 'false' and '$(Registry:HKEY_LOCAL_MACHINE\Software\Microsoft\NET Framework Setup\NDP\v2.0.50727@Install)' == '1'">v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="'$(TargetFrameworkVersion)' == '' and '$(CLRSupport)' != '' and '$(CLRSupport)' != 'false' and '$(Registry:HKEY_LOCAL_MACHINE\Software\Microsoft\NET Framework Setup\NDP\v2.0.50727@Install)' == '1'">v2.0</TargetFrameworkVersion>
     <TargetedRuntimeVersion>v2.0</TargetedRuntimeVersion>
     <UpgradeSubsetToProfile>false</UpgradeSubsetToProfile>
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
