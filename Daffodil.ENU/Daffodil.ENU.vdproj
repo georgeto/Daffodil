@@ -364,13 +364,7 @@
         "Entry"
         {
         "MsmKey" = "8:_2482CF930EEFDA20C63EC4607DFA080A"
-        "OwnerKey" = "8:_F3AD15638D5549BA976195088382B930"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2482CF930EEFDA20C63EC4607DFA080A"
-        "OwnerKey" = "8:_8C04E5A00ED74FD9A7099E8E2BC3B087"
+        "OwnerKey" = "8:_4C6597877E844AA9B54565510CD2F0FC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -382,7 +376,13 @@
         "Entry"
         {
         "MsmKey" = "8:_2482CF930EEFDA20C63EC4607DFA080A"
-        "OwnerKey" = "8:_4C6597877E844AA9B54565510CD2F0FC"
+        "OwnerKey" = "8:_8C04E5A00ED74FD9A7099E8E2BC3B087"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2482CF930EEFDA20C63EC4607DFA080A"
+        "OwnerKey" = "8:_F3AD15638D5549BA976195088382B930"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -604,19 +604,7 @@
         "Entry"
         {
         "MsmKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
-        "OwnerKey" = "8:_F3AD15638D5549BA976195088382B930"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
-        "OwnerKey" = "8:_8C04E5A00ED74FD9A7099E8E2BC3B087"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
-        "OwnerKey" = "8:_7FA86AC502DB42F39F628822FC33EA5B"
+        "OwnerKey" = "8:_2482CF930EEFDA20C63EC4607DFA080A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -628,7 +616,19 @@
         "Entry"
         {
         "MsmKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
-        "OwnerKey" = "8:_2482CF930EEFDA20C63EC4607DFA080A"
+        "OwnerKey" = "8:_7FA86AC502DB42F39F628822FC33EA5B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
+        "OwnerKey" = "8:_8C04E5A00ED74FD9A7099E8E2BC3B087"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
+        "OwnerKey" = "8:_F3AD15638D5549BA976195088382B930"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2380,25 +2380,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8C04E5A00ED74FD9A7099E8E2BC3B087"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7FA86AC502DB42F39F628822FC33EA5B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4C6597877E844AA9B54565510CD2F0FC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0496EC2E87EC46F3B21E3081373AF690"
+        "OwnerKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2410,7 +2392,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
+        "OwnerKey" = "8:_0496EC2E87EC46F3B21E3081373AF690"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_4C6597877E844AA9B54565510CD2F0FC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_7FA86AC502DB42F39F628822FC33EA5B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_8C04E5A00ED74FD9A7099E8E2BC3B087"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -11552,15 +11552,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Daffodil for Visual Studio"
-        "ProductCode" = "8:{06BBFB71-D649-4037-8D00-5A80D5DACA06}"
-        "PackageCode" = "8:{027544C9-D68C-4B20-B381-A47F5D838CB9}"
+        "ProductCode" = "8:{6FB69284-A341-49F7-83F3-45BFF81E3A87}"
+        "PackageCode" = "8:{0D6B2D02-BEC2-4640-8039-3A51E82FF622}"
         "UpgradeCode" = "8:{4165456A-14E4-4309-9426-D4777998D3DB}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:2.3.1"
+        "ProductVersion" = "8:2.3.2"
         "Manufacturer" = "8:ManuSoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.manusoft.com"

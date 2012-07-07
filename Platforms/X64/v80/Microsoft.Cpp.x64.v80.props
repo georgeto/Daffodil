@@ -3,7 +3,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2005 in Visual Studio 2010
 
-2.31  [2012-02-26]
+2.32  [2012-07-06]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -30,9 +30,9 @@ Credits
     <FrameworkSdkDir Condition="'$(FrameworkSdkDir)' == ''">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Microsoft SDKs\.NETFrameWork\v2.0@InstallationFolder)</FrameworkSdkDir>
     <FrameworkVersion Condition="'$(UseEnv)' != 'true'">v2.0.50727</FrameworkVersion>
     <ExecutablePath Condition="'$(ExecutablePath)' == ''">$(VCInstallDir)bin\x86_amd64;$(VCInstallDir)bin;$(VCInstallDir)PlatformSDK\bin;$(VCInstallDir)PlatformSDK\common\bin;$(VSInstallDir)Common7\Tools\bin;$(VSInstallDir)Common7\tools;$(VSInstallDir)Common7\ide;$(ProgramFiles)\HTML Help Workshop;$(FrameworkSDKDir)bin;$(FrameworkSDKDir)lib\win64;$(FrameworkDir)$(FrameworkVersion);$(FxCopDir);$(PATH);</ExecutablePath>
-    <IncludePath Condition="'$(IncludePath)' == ''">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(VCInstallDir)PlatformSDK\include;$(VCInstallDir)PlatformSDK\common\include;$(FrameworkSDKDir)include;</IncludePath>
+    <IncludePath Condition="'$(IncludePath)' == ''">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(VCInstallDir)PlatformSDK\include;$(VCInstallDir)PlatformSDK\common\include;$(FrameworkSDKDir)include;$(VSInstallDir)SDK\v2.0\include;</IncludePath>
     <ReferencePath Condition="'$(ReferencePath)' == ''">$(VCInstallDir)atlmfc\lib\amd64;$(VCInstallDir)lib\amd64</ReferencePath>
-    <LibraryPath Condition="'$(LibraryPath)' == ''">$(VCInstallDir)lib\amd64;$(VCInstallDir)atlmfc\lib\amd64;$(VCInstallDir)PlatformSDK\lib\amd64;</LibraryPath>
+    <LibraryPath Condition="'$(LibraryPath)' == ''">$(VCInstallDir)lib\amd64;$(VCInstallDir)atlmfc\lib\amd64;$(VCInstallDir)PlatformSDK\lib\amd64;$(FrameworkSDKDir)lib\x64;$(VSInstallDir)SDK\v2.0\lib\amd64</LibraryPath>
     <SourcePath Condition="'$(SourcePath)' == ''">$(VCInstallDir)atlmfc\src\mfc;$(VCInstallDir)atlmfc\src\atl;$(VCInstallDir)crt\src;</SourcePath>
     <ExcludePath Condition="'$(ExcludePath)' == ''">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(VCInstallDir)PlatformSDK\include;$(FrameworkSDKDir)include;$(FrameworkDir)$(FrameworkVersion);$(VCInstallDir)atlmfc\lib\amd64;$(VCInstallDir)lib\amd64;</ExcludePath>
     <NativeExecutablePath Condition="'$(NativeExecutablePath)' == ''">$(VCInstallDir)bin\AMD64;$(VCInstallDir)VCPackages;$(VCInstallDir)PlatformSDK\bin\x64;$(VCInstallDir)PlatformSDK\bin\win64\x64;$(VCInstallDir)PlatformSDK\bin;$(FrameworkDir)\$(FrameworkVersion);$(FrameworkDir)\$(Framework35Version);$(PATH);</NativeExecutablePath>
