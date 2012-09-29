@@ -4,7 +4,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 6 in Visual Studio 2010
 
-2.2  [2011-09-08]
+2.33  [2012-09-28]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -56,27 +56,23 @@ Credits
   <StringProperty Name="DisplayLibrary" DisplayName="將程式庫顯示於標準輸出" Description="將有關輸出程式庫的資訊顯示於標準輸出。輸出可以重新導向至檔案中。您可以使用 /LIST 來判斷現有程式庫的內容而不改變它。" Category="General" Switch="LIST" Separator=":" Visible="false">
   </StringProperty>
   <EnumProperty Name="TargetMachine" DisplayName="目標電腦" Description="/MACHINE 選項指定程式的目標平台。" Category="General" F1Keyword="VC.Project.VCLibrarianTool.TargetMachine">
-    <EnumValue Name="MachineARM" Switch="MACHINE:ARM" DisplayName="MachineARM" Description="MachineARM">
+    <EnumValue Name="MachineALPHA" Switch="MACHINE:ALPHA" DisplayName="MachineALPHA">
     </EnumValue>
-    <EnumValue Name="MachineEBC" Switch="MACHINE:EBC" DisplayName="MachineEBC" Description="MachineEBC">
+    <EnumValue Name="MachineARM" Switch="MACHINE:ARM" DisplayName="MachineARM">
     </EnumValue>
-    <EnumValue Name="MachineIA64" Switch="MACHINE:IA64" DisplayName="MachineIA64" Description="MachineIA64">
+    <EnumValue Name="MachineMIPS" Switch="MACHINE:MIPS" DisplayName="MachineMIPS">
     </EnumValue>
-    <EnumValue Name="MachineMIPS" Switch="MACHINE:MIPS" DisplayName="MachineMIPS" Description="MachineMIPS">
+    <EnumValue Name="MachineMIPS16" Switch="MACHINE:MIPS16" DisplayName="MachineMIPS16">
     </EnumValue>
-    <EnumValue Name="MachineMIPS16" Switch="MACHINE:MIPS16" DisplayName="MachineMIPS16" Description="MachineMIPS16">
+    <EnumValue Name="MachineMIPSR41XX" Switch="MACHINE:MIPSR41XX" DisplayName="MachineMIPSR41XX">
     </EnumValue>
-    <EnumValue Name="MachineMIPSFPU" Switch="MACHINE:MIPSFPU" DisplayName="MachineMIPSFPU" Description="MachineMIPSFPU">
+    <EnumValue Name="MachinePPC" Switch="MACHINE:PPC" DisplayName="MachinePPC">
     </EnumValue>
-    <EnumValue Name="MachineMIPSFPU16" Switch="MACHINE:MIPSFPU16" DisplayName="MachineMIPSFPU16" Description="MachineMIPSFPU16">
+    <EnumValue Name="MachineSH3" Switch="MACHINE:SH3" DisplayName="MachineSH3">
     </EnumValue>
-    <EnumValue Name="MachineSH4" Switch="MACHINE:SH4" DisplayName="MachineSH4" Description="MachineSH4">
+    <EnumValue Name="MachineSH4" Switch="MACHINE:SH4" DisplayName="MachineSH4">
     </EnumValue>
-    <EnumValue Name="MachineTHUMB" Switch="MACHINE:THUMB" DisplayName="MachineTHUMB" Description="MachineTHUMB">
-    </EnumValue>
-    <EnumValue Name="MachineX64" Switch="MACHINE:X64" DisplayName="MachineX64" Description="MachineX64">
-    </EnumValue>
-    <EnumValue Name="MachineX86" Switch="MACHINE:X86" DisplayName="MachineX86" Description="MachineX86">
+    <EnumValue Name="MachineX86" Switch="MACHINE:X86" DisplayName="MachineX86">
     </EnumValue>
   </EnumProperty>
   <EnumProperty Name="SubSystem" DisplayName="子系統" Description="/SUBSYSTEM 選項會告訴作業系統如何執行 .exe 檔。選擇的子系統會影響連結器將選擇的進入點符號 (或進入點函式)。" Category="General" F1Keyword="VC.Project.VCLibrarianTool.SubSystem">

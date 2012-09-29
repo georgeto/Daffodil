@@ -39,12 +39,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_01CDD11478BF4D5383516D8CE29760D9"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_02CF8E04FFD049F4B1FE9008F04C3D20"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -123,12 +117,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_0B621CF82A6B432B8492F247434C64F1"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_0B863DD4EA504B1FBC5725488B432807"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -165,12 +153,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_0D7685CAF4CA4C3E8B43726DEA536E5C"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_0F3F928DD8D24C6B9F08CE11848FACC8"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -178,12 +160,6 @@
         "Entry"
         {
         "MsmKey" = "8:_0FA7E340969440B9923B66CD9033B776"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_11118D06AA084CAFA6D85066A5D75E0C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -213,6 +189,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_1239192CCAAC4639B5A570DE4C743EC1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_13C1F08D39D54D28A43F90CFD11F961B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -226,6 +208,12 @@
         "Entry"
         {
         "MsmKey" = "8:_14F1FE52C7DE45069B34DD78656AF509"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_168C3BC321EE422A8546377A53587BCC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -477,6 +465,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_2BF71538E7A842CD8BD25226754135B7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_2C343FBD55D04705B859AAB88E080A7E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -537,6 +531,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_3118E4E88DA842E0B4179ADD831EBF89"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_319B87904B184C7F95782FC201E5A449"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -586,6 +586,12 @@
         "Entry"
         {
         "MsmKey" = "8:_3A7996FB5DDE4478850DE7D99B43A6B8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3BE24E4B2D6848C29B16528614E25E84"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -777,12 +783,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_4D3410D82BF64000ADC7A119659C37C9"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_4E983D84D6F440238BA6ADB8FCCC3E9A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -957,6 +957,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_6322099D02324B1EAEA8458622779E97"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_635964C16B0742AEB3DFD21F5DFF2F57"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -964,6 +970,12 @@
         "Entry"
         {
         "MsmKey" = "8:_63CEA594CE12421AA5B921FFA5E094F9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_63E54025468E43EAB93A1A089E5BEC3D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1035,12 +1047,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_6B405E0C4DEB4CBBB1B4E61C9E4AFF7B"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_6C72D80C60D1417EA0B2845FE8AD51B7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -1083,7 +1089,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_716D5D33FEDE4250BEDD493D7522321B"
+        "MsmKey" = "8:_71A5E9B2D9094CDDA4724289D50DBC31"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1168,12 +1174,6 @@
         "Entry"
         {
         "MsmKey" = "8:_7C6E620C8AEA45E5934E9A4CAB03BB31"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_7E2EC59AF2024449BAB0FD56FBE2BF9D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1270,6 +1270,12 @@
         "Entry"
         {
         "MsmKey" = "8:_848617EC693F4734B238B7E7F67C0D89"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_84F1EE47273640478B0E7091EF5C6E3B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1401,6 +1407,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_91698BD36C8F4114AAECB7AB818183C5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_9219F000266948999DE73B3A56866672"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -1432,6 +1444,12 @@
         "Entry"
         {
         "MsmKey" = "8:_9551AEE668A94F08BF75C063B690CBC4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_968A62D450A846D6A26420D4265DCE6F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1474,6 +1492,12 @@
         "Entry"
         {
         "MsmKey" = "8:_9B173AF4DBB14EC6879AB5E196FB090B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9B396B8770C2480996CA8B0AC78AB014"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1623,12 +1647,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_AABBFEE94BEA4A659061C0A8147D127A"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_ABA28A98024C4B30A70ABE72F2A3B042"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -1701,31 +1719,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B32F700403144701943038D5DE79F18E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B47C48936BAE4EF3A077F23277860B39"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_B4F3237DD45844A89D27E8F1B6DA26FA"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B5C6D55780CE4604BFC42BA920C9FF07"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B66526411B6C4339965EC61AE28D5712"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1810,6 +1804,12 @@
         "Entry"
         {
         "MsmKey" = "8:_BE35AF637F1C484F9B51832CF88B3502"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BF7C08749899479699DED7151578ED90"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -2007,12 +2007,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D79727B19A9142C29AC268EA788D25BB"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_D7A58285281A4DFF9E390A7795E202F3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -2145,12 +2139,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E2BEE9C7D33C449984127899B4F1142B"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_E33CC739FECC493FB2C63075370E9CAB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -2247,7 +2235,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_ED35668BAF694EE4ABF287E53DA401CD"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_ED9DEAB6C3504099B36B5A2BD1116B56"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EF2F3523179749C3B8BB8E633C6E5D9F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -2266,6 +2266,12 @@
         "Entry"
         {
         "MsmKey" = "8:_F13CD3E32CF84A689C5246EFD50949FB"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F227AD71A6E94758B3CCAEB68CEFB7CD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -2356,12 +2362,6 @@
         "Entry"
         {
         "MsmKey" = "8:_FD8812BB8EC04D238955C6237F415936"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_FE9D540265104BB384360F5565E01065"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -2584,26 +2584,6 @@
             "TargetName" = "8:link.xml"
             "Tag" = "8:"
             "Folder" = "8:_346B43BAC27847BB9561FF0589B24FCB"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_01CDD11478BF4D5383516D8CE29760D9"
-            {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\context\\general_makefile_ps.xml"
-            "TargetName" = "8:general_makefile_ps.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_D92C9259493542E29793872E8DAD2CC1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2858,26 +2838,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0B621CF82A6B432B8492F247434C64F1"
-            {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\mt.xml"
-            "TargetName" = "8:mt.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_FEA1C0C829C544D0A46DEE36049BBC9F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0B863DD4EA504B1FBC5725488B432807"
             {
             "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1029\\cl.xml"
@@ -2998,26 +2958,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0D7685CAF4CA4C3E8B43726DEA536E5C"
-            {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\context\\general.xml"
-            "TargetName" = "8:general.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_A38E7880462D41C68B2FA4235EF39019"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0F3F928DD8D24C6B9F08CE11848FACC8"
             {
             "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1036\\lib.xml"
@@ -3044,26 +2984,6 @@
             "TargetName" = "8:general_makefile_ps.xml"
             "Tag" = "8:"
             "Folder" = "8:_34839CB0C7564A5080D2467B6E52138F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_11118D06AA084CAFA6D85066A5D75E0C"
-            {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\cl.xml"
-            "TargetName" = "8:cl.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_FEA1C0C829C544D0A46DEE36049BBC9F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3158,6 +3078,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1239192CCAAC4639B5A570DE4C743EC1"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\mt.xml"
+            "TargetName" = "8:mt.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_7DAA47DBE1D141C99CC64ACAB34BA345"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_13C1F08D39D54D28A43F90CFD11F961B"
             {
             "SourcePath" = "8:..\\Platforms\\Win32\\v60\\1045\\lib.xml"
@@ -3204,6 +3144,26 @@
             "TargetName" = "8:lib.xml"
             "Tag" = "8:"
             "Folder" = "8:_BF046C3AF4C448AB96F95D73C6455E4A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_168C3BC321EE422A8546377A53587BCC"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\lib.xml"
+            "TargetName" = "8:lib.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_FEA1C0C829C544D0A46DEE36049BBC9F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3964,6 +3924,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2BF71538E7A842CD8BD25226754135B7"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\link.xml"
+            "TargetName" = "8:link.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_7DAA47DBE1D141C99CC64ACAB34BA345"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2C343FBD55D04705B859AAB88E080A7E"
             {
             "SourcePath" = "8:..\\Platforms\\X64\\v80\\1042\\link.xml"
@@ -4164,6 +4144,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3118E4E88DA842E0B4179ADD831EBF89"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\context\\general_makefile_ps.xml"
+            "TargetName" = "8:general_makefile_ps.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_A38E7880462D41C68B2FA4235EF39019"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_319B87904B184C7F95782FC201E5A449"
             {
             "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1042\\mt.xml"
@@ -4330,6 +4330,26 @@
             "TargetName" = "8:lib.xml"
             "Tag" = "8:"
             "Folder" = "8:_2272E092EA1A44AFA8120FFDBCAA75BC"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3BE24E4B2D6848C29B16528614E25E84"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\context\\general_makefile.xml"
+            "TargetName" = "8:general_makefile.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_D92C9259493542E29793872E8DAD2CC1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4836,26 +4856,6 @@
             "TargetName" = "8:Microsoft.Cpp.Win32.v70.targets"
             "Tag" = "8:"
             "Folder" = "8:_F0D34960A8B4448DB14E7DF8BC739397"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4D3410D82BF64000ADC7A119659C37C9"
-            {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\context\\general.xml"
-            "TargetName" = "8:general.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_D92C9259493542E29793872E8DAD2CC1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5450,6 +5450,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6322099D02324B1EAEA8458622779E97"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\context\\general.xml"
+            "TargetName" = "8:general.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_A38E7880462D41C68B2FA4235EF39019"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_635964C16B0742AEB3DFD21F5DFF2F57"
             {
             "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1031\\link.xml"
@@ -5476,6 +5496,26 @@
             "TargetName" = "8:mt.xml"
             "Tag" = "8:"
             "Folder" = "8:_E7F295B30D0F494FB7E44A0F8122BF14"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_63E54025468E43EAB93A1A089E5BEC3D"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\midl.xml"
+            "TargetName" = "8:midl.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_FEA1C0C829C544D0A46DEE36049BBC9F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5710,26 +5750,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6B405E0C4DEB4CBBB1B4E61C9E4AFF7B"
-            {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\context\\general_makefile_ps.xml"
-            "TargetName" = "8:general_makefile_ps.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_A38E7880462D41C68B2FA4235EF39019"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6C72D80C60D1417EA0B2845FE8AD51B7"
             {
             "SourcePath" = "8:..\\Platforms\\Win32\\v60\\1029\\cl.xml"
@@ -5870,12 +5890,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_716D5D33FEDE4250BEDD493D7522321B"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_71A5E9B2D9094CDDA4724289D50DBC31"
             {
             "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\mt.xml"
             "TargetName" = "8:mt.xml"
             "Tag" = "8:"
-            "Folder" = "8:_7DAA47DBE1D141C99CC64ACAB34BA345"
+            "Folder" = "8:_FEA1C0C829C544D0A46DEE36049BBC9F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -6156,26 +6176,6 @@
             "TargetName" = "8:general_makefile.xml"
             "Tag" = "8:"
             "Folder" = "8:_D10B87096CA94AF0B7DDAD82A17C6687"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7E2EC59AF2024449BAB0FD56FBE2BF9D"
-            {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\link.xml"
-            "TargetName" = "8:link.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_7DAA47DBE1D141C99CC64ACAB34BA345"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -6476,6 +6476,26 @@
             "TargetName" = "8:general.xml"
             "Tag" = "8:"
             "Folder" = "8:_A52B9B5370934668B09815E03CFF16F8"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_84F1EE47273640478B0E7091EF5C6E3B"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\cl.xml"
+            "TargetName" = "8:cl.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_7DAA47DBE1D141C99CC64ACAB34BA345"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -6890,6 +6910,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_91698BD36C8F4114AAECB7AB818183C5"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\cl.xml"
+            "TargetName" = "8:cl.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_FEA1C0C829C544D0A46DEE36049BBC9F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9219F000266948999DE73B3A56866672"
             {
             "SourcePath" = "8:..\\Platforms\\Win32\\v60\\1028\\context\\general_makefile.xml"
@@ -6996,6 +7036,26 @@
             "TargetName" = "8:link.xml"
             "Tag" = "8:"
             "Folder" = "8:_A0B01D57F5024427B41D4D941407117A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_968A62D450A846D6A26420D4265DCE6F"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\midl.xml"
+            "TargetName" = "8:midl.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_7DAA47DBE1D141C99CC64ACAB34BA345"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -7136,6 +7196,26 @@
             "TargetName" = "8:lib.xml"
             "Tag" = "8:"
             "Folder" = "8:_C75EE913AA4E42C7B084104DD9725487"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9B396B8770C2480996CA8B0AC78AB014"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\link.xml"
+            "TargetName" = "8:link.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_FEA1C0C829C544D0A46DEE36049BBC9F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -7630,26 +7710,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AABBFEE94BEA4A659061C0A8147D127A"
-            {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\lib.xml"
-            "TargetName" = "8:lib.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_7DAA47DBE1D141C99CC64ACAB34BA345"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_ABA28A98024C4B30A70ABE72F2A3B042"
             {
             "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1046\\mt.xml"
@@ -7890,92 +7950,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B32F700403144701943038D5DE79F18E"
-            {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\context\\general_makefile.xml"
-            "TargetName" = "8:general_makefile.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_A38E7880462D41C68B2FA4235EF39019"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B47C48936BAE4EF3A077F23277860B39"
-            {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\cl.xml"
-            "TargetName" = "8:cl.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_7DAA47DBE1D141C99CC64ACAB34BA345"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B4F3237DD45844A89D27E8F1B6DA26FA"
             {
             "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1055\\context\\general_makefile_ps.xml"
             "TargetName" = "8:general_makefile_ps.xml"
             "Tag" = "8:"
             "Folder" = "8:_50F74C869C6A42C58644C04FC0B4F8E2"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B5C6D55780CE4604BFC42BA920C9FF07"
-            {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\midl.xml"
-            "TargetName" = "8:midl.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_7DAA47DBE1D141C99CC64ACAB34BA345"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B66526411B6C4339965EC61AE28D5712"
-            {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\midl.xml"
-            "TargetName" = "8:midl.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_FEA1C0C829C544D0A46DEE36049BBC9F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -8256,6 +8236,26 @@
             "TargetName" = "8:link.xml"
             "Tag" = "8:"
             "Folder" = "8:_8959119E6890452BA55C8525F69652BE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BF7C08749899479699DED7151578ED90"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\context\\general.xml"
+            "TargetName" = "8:general.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_D92C9259493542E29793872E8DAD2CC1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -8910,26 +8910,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D79727B19A9142C29AC268EA788D25BB"
-            {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\link.xml"
-            "TargetName" = "8:link.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_FEA1C0C829C544D0A46DEE36049BBC9F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D7A58285281A4DFF9E390A7795E202F3"
             {
             "SourcePath" = "8:..\\Platforms\\Win32\\v60\\1029\\context\\general.xml"
@@ -9370,26 +9350,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E2BEE9C7D33C449984127899B4F1142B"
-            {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\lib.xml"
-            "TargetName" = "8:lib.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_FEA1C0C829C544D0A46DEE36049BBC9F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E33CC739FECC493FB2C63075370E9CAB"
             {
             "SourcePath" = "8:..\\Daffodil.ico"
@@ -9710,12 +9670,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_ED35668BAF694EE4ABF287E53DA401CD"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\context\\general_makefile_ps.xml"
+            "TargetName" = "8:general_makefile_ps.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_D92C9259493542E29793872E8DAD2CC1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_ED9DEAB6C3504099B36B5A2BD1116B56"
             {
             "SourcePath" = "8:..\\Platforms\\Win32\\v60\\2052\\context\\general.xml"
             "TargetName" = "8:general.xml"
             "Tag" = "8:"
             "Folder" = "8:_FE048D25A78F49398BEB762AE84196FC"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EF2F3523179749C3B8BB8E633C6E5D9F"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\context\\general_makefile.xml"
+            "TargetName" = "8:general_makefile.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_A38E7880462D41C68B2FA4235EF39019"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -9776,6 +9776,26 @@
             "TargetName" = "8:general_makefile.xml"
             "Tag" = "8:"
             "Folder" = "8:_6A353A66B92A466E9B4477C08DEA914D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F227AD71A6E94758B3CCAEB68CEFB7CD"
+            {
+            "SourcePath" = "8:..\\Platforms\\Win32\\v70\\1033\\lib.xml"
+            "TargetName" = "8:lib.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_7DAA47DBE1D141C99CC64ACAB34BA345"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -10056,26 +10076,6 @@
             "TargetName" = "8:general_makefile.xml"
             "Tag" = "8:"
             "Folder" = "8:_A255CDBF275B48C0AB50D2EE9CE36810"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FE9D540265104BB384360F5565E01065"
-            {
-            "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1033\\context\\general_makefile.xml"
-            "TargetName" = "8:general_makefile.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_D92C9259493542E29793872E8DAD2CC1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -11552,15 +11552,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Daffodil for Visual Studio"
-        "ProductCode" = "8:{6FB69284-A341-49F7-83F3-45BFF81E3A87}"
-        "PackageCode" = "8:{0D6B2D02-BEC2-4640-8039-3A51E82FF622}"
+        "ProductCode" = "8:{9ACB29C6-450D-44CC-8B6B-00AD76968372}"
+        "PackageCode" = "8:{89B8D7FE-66AE-425C-9732-7591B79DD718}"
         "UpgradeCode" = "8:{4165456A-14E4-4309-9426-D4777998D3DB}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:2.3.2"
+        "ProductVersion" = "8:2.3.3"
         "Manufacturer" = "8:ManuSoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.manusoft.com"

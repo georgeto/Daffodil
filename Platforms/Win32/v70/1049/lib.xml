@@ -4,7 +4,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2002 in Visual Studio 2010
 
-2.2  [2011-09-08]
+2.33  [2012-09-28]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -56,27 +56,39 @@ Credits
   <StringProperty Name="DisplayLibrary" DisplayName="Отобразить библиотеку в стандартном выходном формате" Description="Отображает информацию о выходной библиотеке в стандартном выходном формате. Вывод можно перенаправить в файл. Можно использовать параметр /LIST для определения правильного содержания существующей библиотеки при ее изменении." Category="General" Switch="LIST" Separator=":" Visible="false">
   </StringProperty>
   <EnumProperty Name="TargetMachine" DisplayName="Конечный компьютер" Description="Параметр /MACHINE определяет целевую платформу программы." Category="General" F1Keyword="VC.Project.VCLibrarianTool.TargetMachine">
-    <EnumValue Name="MachineARM" Switch="MACHINE:ARM" DisplayName="MachineARM" Description="MachineARM">
+    <EnumValue Name="MachineAM33" Switch="MACHINE:AM33" DisplayName="MachineAM33">
     </EnumValue>
-    <EnumValue Name="MachineEBC" Switch="MACHINE:EBC" DisplayName="MachineEBC" Description="MachineEBC">
+    <EnumValue Name="MachineARM" Switch="MACHINE:ARM" DisplayName="MachineARM">
     </EnumValue>
-    <EnumValue Name="MachineIA64" Switch="MACHINE:IA64" DisplayName="MachineIA64" Description="MachineIA64">
+    <EnumValue Name="MachineCEE" Switch="MACHINE:CEE" DisplayName="MachineCEE">
     </EnumValue>
-    <EnumValue Name="MachineMIPS" Switch="MACHINE:MIPS" DisplayName="MachineMIPS" Description="MachineMIPS">
+    <EnumValue Name="MachineIA64" Switch="MACHINE:IA64" DisplayName="MachineIA64">
     </EnumValue>
-    <EnumValue Name="MachineMIPS16" Switch="MACHINE:MIPS16" DisplayName="MachineMIPS16" Description="MachineMIPS16">
+    <EnumValue Name="MachineM32R" Switch="MACHINE:M32R" DisplayName="MachineM32R">
     </EnumValue>
-    <EnumValue Name="MachineMIPSFPU" Switch="MACHINE:MIPSFPU" DisplayName="MachineMIPSFPU" Description="MachineMIPSFPU">
+    <EnumValue Name="MachineMIPS" Switch="MACHINE:MIPS" DisplayName="MachineMIPS">
     </EnumValue>
-    <EnumValue Name="MachineMIPSFPU16" Switch="MACHINE:MIPSFPU16" DisplayName="MachineMIPSFPU16" Description="MachineMIPSFPU16">
+    <EnumValue Name="MachineMIPS16" Switch="MACHINE:MIPS16" DisplayName="MachineMIPS16">
     </EnumValue>
-    <EnumValue Name="MachineSH4" Switch="MACHINE:SH4" DisplayName="MachineSH4" Description="MachineSH4">
+    <EnumValue Name="MachineMIPSFPU" Switch="MACHINE:MIPSFPU" DisplayName="MachineMIPSFPU">
     </EnumValue>
-    <EnumValue Name="MachineTHUMB" Switch="MACHINE:THUMB" DisplayName="MachineTHUMB" Description="MachineTHUMB">
+    <EnumValue Name="MachineMIPSFPU16" Switch="MACHINE:MIPSFPU16" DisplayName="MachineMIPSFPU16">
     </EnumValue>
-    <EnumValue Name="MachineX64" Switch="MACHINE:X64" DisplayName="MachineX64" Description="MachineX64">
+    <EnumValue Name="MachineMIPSR41XX" Switch="MACHINE:MIPSR41XX" DisplayName="MachineMIPSR41XX">
     </EnumValue>
-    <EnumValue Name="MachineX86" Switch="MACHINE:X86" DisplayName="MachineX86" Description="MachineX86">
+    <EnumValue Name="MachinePPC" Switch="MACHINE:PPC" DisplayName="MachinePPC">
+    </EnumValue>
+    <EnumValue Name="MachineSH3" Switch="MACHINE:SH3" DisplayName="MachineSH3">
+    </EnumValue>
+    <EnumValue Name="MachineSH4" Switch="MACHINE:SH4" DisplayName="MachineSH4">
+    </EnumValue>
+    <EnumValue Name="MachineSH5" Switch="MACHINE:SH5" DisplayName="MachineSH5">
+    </EnumValue>
+    <EnumValue Name="MachineTHUMB" Switch="MACHINE:THUMB" DisplayName="MachineTHUMB">
+    </EnumValue>
+    <EnumValue Name="MachineTRICORE" Switch="MACHINE:TRICORE" DisplayName="MachineTRICORE">
+    </EnumValue>
+    <EnumValue Name="MachineX86" Switch="MACHINE:X86" DisplayName="MachineX86">
     </EnumValue>
   </EnumProperty>
   <EnumProperty Name="SubSystem" DisplayName="Подсистема" Description="Параметр /SUBSYSTEM предписывает операционной системе порядок выполнения EXE-файла. Выбор подсистемы влияет на символ точки входа (или функцию точки входа), который выберет компоновщик." Category="General" F1Keyword="VC.Project.VCLibrarianTool.SubSystem">

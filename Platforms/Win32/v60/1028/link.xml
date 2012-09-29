@@ -4,7 +4,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 6 in Visual Studio 2010
 
-2.2  [2011-09-08]
+2.33  [2012-09-28]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -211,25 +211,21 @@ Credits
   <EnumProperty Name="TargetMachine" DisplayName="目標電腦" Description="/MACHINE 選項會指定程式的目標平台。" Category="Advanced" F1Keyword="VC.Project.VCLinkerTool.TargetMachine">
     <EnumValue Name="NotSet" Switch="" DisplayName="未設定">
     </EnumValue>
+    <EnumValue Name="MachineALPHA" Switch="MACHINE:ALPHA" DisplayName="MachineALPHA">
+    </EnumValue>
     <EnumValue Name="MachineARM" Switch="MACHINE:ARM" DisplayName="MachineARM">
-    </EnumValue>
-    <EnumValue Name="MachineEBC" Switch="MACHINE:EBC" DisplayName="MachineEBC">
-    </EnumValue>
-    <EnumValue Name="MachineIA64" Switch="MACHINE:IA64" DisplayName="MachineIA64">
     </EnumValue>
     <EnumValue Name="MachineMIPS" Switch="MACHINE:MIPS" DisplayName="MachineMIPS">
     </EnumValue>
     <EnumValue Name="MachineMIPS16" Switch="MACHINE:MIPS16" DisplayName="MachineMIPS16">
     </EnumValue>
-    <EnumValue Name="MachineMIPSFPU" Switch="MACHINE:MIPSFPU" DisplayName="MachineMIPSFPU">
+    <EnumValue Name="MachineMIPSR41XX" Switch="MACHINE:MIPSR41XX" DisplayName="MachineMIPSR41XX">
     </EnumValue>
-    <EnumValue Name="MachineMIPSFPU16" Switch="MACHINE:MIPSFPU16" DisplayName="MachineMIPSFPU16">
+    <EnumValue Name="MachinePPC" Switch="MACHINE:PPC" DisplayName="MachinePPC">
+    </EnumValue>
+    <EnumValue Name="MachineSH3" Switch="MACHINE:SH3" DisplayName="MachineSH3">
     </EnumValue>
     <EnumValue Name="MachineSH4" Switch="MACHINE:SH4" DisplayName="MachineSH4">
-    </EnumValue>
-    <EnumValue Name="MachineTHUMB" Switch="MACHINE:THUMB" DisplayName="MachineTHUMB">
-    </EnumValue>
-    <EnumValue Name="MachineX64" Switch="MACHINE:X64" DisplayName="MachineX64">
     </EnumValue>
     <EnumValue Name="MachineX86" Switch="MACHINE:X86" DisplayName="MachineX86">
     </EnumValue>

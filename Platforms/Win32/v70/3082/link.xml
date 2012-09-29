@@ -4,7 +4,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2002 in Visual Studio 2010
 
-2.2  [2011-09-08]
+2.33  [2012-09-28]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -225,11 +225,15 @@ Credits
   <EnumProperty Name="TargetMachine" DisplayName="Equipo de destino" Description="La opción /MACHINE especifica la plataforma de destino para el programa." Category="Advanced" F1Keyword="VC.Project.VCLinkerTool.TargetMachine">
     <EnumValue Name="NotSet" Switch="" DisplayName="Sin establecer">
     </EnumValue>
+    <EnumValue Name="MachineAM33" Switch="MACHINE:AM33" DisplayName="MachineAM33">
+    </EnumValue>
     <EnumValue Name="MachineARM" Switch="MACHINE:ARM" DisplayName="MachineARM">
     </EnumValue>
-    <EnumValue Name="MachineEBC" Switch="MACHINE:EBC" DisplayName="MachineEBC">
+    <EnumValue Name="MachineCEE" Switch="MACHINE:CEE" DisplayName="MachineCEE">
     </EnumValue>
     <EnumValue Name="MachineIA64" Switch="MACHINE:IA64" DisplayName="MachineIA64">
+    </EnumValue>
+    <EnumValue Name="MachineM32R" Switch="MACHINE:M32R" DisplayName="MachineM32R">
     </EnumValue>
     <EnumValue Name="MachineMIPS" Switch="MACHINE:MIPS" DisplayName="MachineMIPS">
     </EnumValue>
@@ -239,11 +243,19 @@ Credits
     </EnumValue>
     <EnumValue Name="MachineMIPSFPU16" Switch="MACHINE:MIPSFPU16" DisplayName="MachineMIPSFPU16">
     </EnumValue>
+    <EnumValue Name="MachineMIPSR41XX" Switch="MACHINE:MIPSR41XX" DisplayName="MachineMIPSR41XX">
+    </EnumValue>
+    <EnumValue Name="MachinePPC" Switch="MACHINE:PPC" DisplayName="MachinePPC">
+    </EnumValue>
+    <EnumValue Name="MachineSH3" Switch="MACHINE:SH3" DisplayName="MachineSH3">
+    </EnumValue>
     <EnumValue Name="MachineSH4" Switch="MACHINE:SH4" DisplayName="MachineSH4">
+    </EnumValue>
+    <EnumValue Name="MachineSH5" Switch="MACHINE:SH5" DisplayName="MachineSH5">
     </EnumValue>
     <EnumValue Name="MachineTHUMB" Switch="MACHINE:THUMB" DisplayName="MachineTHUMB">
     </EnumValue>
-    <EnumValue Name="MachineX64" Switch="MACHINE:X64" DisplayName="MachineX64">
+    <EnumValue Name="MachineTRICORE" Switch="MACHINE:TRICORE" DisplayName="MachineTRICORE">
     </EnumValue>
     <EnumValue Name="MachineX86" Switch="MACHINE:X86" DisplayName="MachineX86">
     </EnumValue>
