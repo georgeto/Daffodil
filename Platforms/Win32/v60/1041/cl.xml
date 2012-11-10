@@ -4,7 +4,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 6 in Visual Studio 2010
 
-2.2  [2011-09-08]
+2.4  [2012-11-09]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -41,6 +41,8 @@ Credits
   <StringListProperty Subtype="folder" Name="AdditionalIncludeDirectories" DisplayName="追加のインクルード ディレクトリ" Description="インクルード パスに追加するディレクトリを指定します。複数指定する場合には、セミコロンで区切ってください。     (/I[パス])" Category="General" Switch="I" F1Keyword="VC.Project.VCCLCompilerTool.AdditionalIncludeDirectories">
   </StringListProperty>
   <EnumProperty Name="DebugInformationFormat" DisplayName="デバッグ情報の形式" Description="コンパイラにより生成されるデバッグ情報の種類を指定します。この設定に合わせて、リンカーの設定も変更してください。    (/Z7, Zd, /Zi, /ZI)" Category="General" F1Keyword="VC.Project.VCCLCompilerTool.DebugInformationFormat">
+    <EnumValue Name="None" Switch="" DisplayName="None" Description="Generation of debug information is disabled.">
+    </EnumValue>
     <EnumValue Name="OldStyle" Switch="Z7" DisplayName="C7 互換" Description="プログラム用に作成されるデバッグ情報の種類、およびこの情報をオブジェクト (.obj) ファイルまたはプログラム データベース (PDB) のどちらに保存するかを選択します。">
     </EnumValue>
     <EnumValue Name="LineNumbers" Switch="Zd" DisplayName="Line Numbers Only" Description="Produces an .obj file or executable (.exe) file containing only global and external symbol and line-number information (no symbolic debugging information).">

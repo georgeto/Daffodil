@@ -4,7 +4,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 6 in Visual Studio 2010
 
-2.2  [2011-09-08]
+2.4  [2012-11-09]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -41,6 +41,8 @@ Credits
   <StringListProperty Subtype="folder" Name="AdditionalIncludeDirectories" DisplayName="Diretórios de Inclusão Adicionais" Description="Especifica um ou mais diretórios a serem adicionados no caminho de inclusão; separa por ponto e vírgula se houverem mais de um.     (/I[path])" Category="General" Switch="I" F1Keyword="VC.Project.VCCLCompilerTool.AdditionalIncludeDirectories">
   </StringListProperty>
   <EnumProperty Name="DebugInformationFormat" DisplayName="Formato de Informação de Depuração" Description="Especifica o tipo de informação de depuração gerada pelo compilador. Você deve também alterar adequadamente as configurações do vinculador para obter correspondência.    (/Z7, Zd, /Zi, /ZI)" Category="General" F1Keyword="VC.Project.VCCLCompilerTool.DebugInformationFormat">
+    <EnumValue Name="None" Switch="" DisplayName="None" Description="Generation of debug information is disabled.">
+    </EnumValue>
     <EnumValue Name="OldStyle" Switch="Z7" DisplayName="Compatível com C7" Description="Selecione o tipo de informação de depuração criada pelo seu programa e se essa informação é mantida em um arquivo objeto (.obj) ou em um banco de dados de programa (PDB).">
     </EnumValue>
     <EnumValue Name="LineNumbers" Switch="Zd" DisplayName="Line Numbers Only" Description="Produces an .obj file or executable (.exe) file containing only global and external symbol and line-number information (no symbolic debugging information).">
