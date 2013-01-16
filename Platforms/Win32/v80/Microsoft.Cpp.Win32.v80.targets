@@ -3,7 +3,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2005 in Visual Studio 2010
 
-2.3  [2012-02-23]
+2.5  [2013-01-15]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -135,7 +135,7 @@ Credits
         CreateHotPatchableImage        ="%(Link.CreateHotPatchableImage)"
         DataExecutionPrevention        ="%(Link.DataExecutionPrevention)"
         DelayLoadDLLs                  ="%(Link.DelayLoadDLLs)"
-        DelaySign                      ="%(Link.LinkDelaySign)"
+        DelaySign                      ="$(LinkDelaySign)" 
         Driver                         ="%(Link.Driver)"
         EmbedManagedResourceFile       ="@(_EmbedManagedResourceFile)"
         EnableCOMDATFolding            ="%(Link.EnableCOMDATFolding)"
@@ -156,7 +156,7 @@ Credits
         ImageHasSafeExceptionHandlers  ="%(Link.ImageHasSafeExceptionHandlers)"
         ImportLibrary                  ="%(Link.ImportLibrary)"
         KeyContainer                   ="%(Link.KeyContainer)"
-        KeyFile                        ="%(Link.LinkKeyFile)"
+        KeyFile                        ="$(LinkKeyFile)" 
         LargeAddressAware              ="%(Link.LargeAddressAware)"
         LinkDLL                        ="%(Link.LinkDLL)"
         LinkIncremental                ="$(LinkIncremental)"
@@ -256,7 +256,7 @@ Credits
         CreateHotPatchableImage        ="%(Link.CreateHotPatchableImage)"
         DataExecutionPrevention        ="%(Link.DataExecutionPrevention)"
         DelayLoadDLLs                  ="%(Link.DelayLoadDLLs)"
-        DelaySign                      ="%(Link.LinkDelaySign)"
+        DelaySign                      ="$(LinkDelaySign)" 
         Driver                         ="%(Link.Driver)"
         EmbedManagedResourceFile       ="@(_EmbedManagedResourceFile)"
         EnableCOMDATFolding            ="%(Link.EnableCOMDATFolding)"
@@ -277,7 +277,7 @@ Credits
         ImageHasSafeExceptionHandlers  ="%(Link.ImageHasSafeExceptionHandlers)"
         ImportLibrary                  ="%(Link.ImportLibrary)"
         KeyContainer                   ="%(Link.KeyContainer)"
-        KeyFile                        ="%(Link.LinkKeyFile)"
+        KeyFile                        ="$(LinkKeyFile)" 
         LargeAddressAware              ="%(Link.LargeAddressAware)"
         LinkIncremental                ="$(LinkIncremental)"
         LinkStatus                     ="%(Link.LinkStatus)"
