@@ -3,7 +3,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2002 in Visual Studio 2010
 
-2.2  [2011-09-08]
+2.6  [2013-07-16]
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -212,6 +212,7 @@ Credits
         <CompileAs                    Condition="'%(ClCompile.CompileAs)' == 'Default' and '%(ClCompile.Extension)' == '.c'">CompileAsC</CompileAs>
         <CompileAs                    Condition="'%(ClCompile.CompileAs)' == 'Default' and '%(ClCompile.Extension)' != '.c'">CompileAsCpp</CompileAs>
         <MinimalRebuildFromTracking   Condition="'$(BuildType)' != 'Build' or '$(ForceRebuild)' == 'true'">false</MinimalRebuildFromTracking>
+        <ProgramDataBaseFileName      Condition="'%(ClCompile.DebugInformationFormat)' == '' or '%(ClCompile.DebugInformationFormat)' == 'Disabled' or '%(ClCompile.DebugInformationFormat)' == 'OldStyle'"></ProgramDataBaseFileName>
       </ClCompile>
     </ItemGroup>
 
@@ -219,7 +220,7 @@ Credits
       <CLToolArchitecture Condition="'$(CLToolArchitecture)' == ''">$(DefaultToolArchitecture)</CLToolArchitecture>
     </PropertyGroup>
 
-    <Delete Condition="'%(ClCompile.DebugInformationFormat)' != '' and '%(ClCompile.DebugInformationFormat)' != 'OldStyle' and '%(ClCompile.ProgramDataBaseFileName)' != '' and !Exists(%(ClCompile.ProgramDataBaseFileName))"
+    <Delete Condition="'%(ClCompile.ProgramDataBaseFileName)' != '' and !Exists(%(ClCompile.ProgramDataBaseFileName))"
             Files="%(ClCompile.PrecompiledHeaderOutputFile)" />
 
     <!-- Precompiled headers - need to build them first -->
