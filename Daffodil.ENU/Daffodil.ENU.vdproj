@@ -352,13 +352,7 @@
         "Entry"
         {
         "MsmKey" = "8:_2482CF930EEFDA20C63EC4607DFA080A"
-        "OwnerKey" = "8:_4C6597877E844AA9B54565510CD2F0FC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2482CF930EEFDA20C63EC4607DFA080A"
-        "OwnerKey" = "8:_7FA86AC502DB42F39F628822FC33EA5B"
+        "OwnerKey" = "8:_F3AD15638D5549BA976195088382B930"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -370,7 +364,13 @@
         "Entry"
         {
         "MsmKey" = "8:_2482CF930EEFDA20C63EC4607DFA080A"
-        "OwnerKey" = "8:_F3AD15638D5549BA976195088382B930"
+        "OwnerKey" = "8:_7FA86AC502DB42F39F628822FC33EA5B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2482CF930EEFDA20C63EC4607DFA080A"
+        "OwnerKey" = "8:_4C6597877E844AA9B54565510CD2F0FC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -610,13 +610,13 @@
         "Entry"
         {
         "MsmKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
-        "OwnerKey" = "8:_4C6597877E844AA9B54565510CD2F0FC"
+        "OwnerKey" = "8:_2482CF930EEFDA20C63EC4607DFA080A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
-        "OwnerKey" = "8:_7FA86AC502DB42F39F628822FC33EA5B"
+        "OwnerKey" = "8:_F3AD15638D5549BA976195088382B930"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -628,7 +628,13 @@
         "Entry"
         {
         "MsmKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
-        "OwnerKey" = "8:_F3AD15638D5549BA976195088382B930"
+        "OwnerKey" = "8:_7FA86AC502DB42F39F628822FC33EA5B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
+        "OwnerKey" = "8:_4C6597877E844AA9B54565510CD2F0FC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2374,13 +2380,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0496EC2E87EC46F3B21E3081373AF690"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4C6597877E844AA9B54565510CD2F0FC"
+        "OwnerKey" = "8:_8C04E5A00ED74FD9A7099E8E2BC3B087"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2392,7 +2392,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8C04E5A00ED74FD9A7099E8E2BC3B087"
+        "OwnerKey" = "8:_4C6597877E844AA9B54565510CD2F0FC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0496EC2E87EC46F3B21E3081373AF690"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_2482CF930EEFDA20C63EC4607DFA080A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3C98116AE00C01C9BF8C97A46946F6A3"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -3580,6 +3598,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2482CF930EEFDA20C63EC4607DFA080A"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.Build.CPPTasks.Win32, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_2482CF930EEFDA20C63EC4607DFA080A"
+                    {
+                    "Name" = "8:Microsoft.Build.CPPTasks.Win32.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.Build.CPPTasks.Win32.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_45278CA363624261962F8A3DDE96BCC9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_259D5AA7A75A44789BD05CA8F2366DA0"
             {
             "SourcePath" = "8:..\\Platforms\\Win32\\v71\\1036\\context\\general_makefile_ps.xml"
@@ -4338,6 +4387,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3C98116AE00C01C9BF8C97A46946F6A3"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.Build.CPPTasks.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_3C98116AE00C01C9BF8C97A46946F6A3"
+                    {
+                    "Name" = "8:Microsoft.Build.CPPTasks.Common.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.Build.CPPTasks.Common.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_45278CA363624261962F8A3DDE96BCC9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3CA1C0D9592846878C1D0064C7095224"
@@ -11482,15 +11562,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Daffodil for Visual Studio"
-        "ProductCode" = "8:{AFB92E92-9D3B-4F5A-BB16-72EA42064F91}"
-        "PackageCode" = "8:{660D351B-48A2-40A0-9A8F-7DC016D91937}"
+        "ProductCode" = "8:{919CABC2-138A-4386-B17A-192CEE505DD5}"
+        "PackageCode" = "8:{FA957646-7505-4954-B7D5-295D779956A9}"
         "UpgradeCode" = "8:{4165456A-14E4-4309-9426-D4777998D3DB}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:2.6.1"
+        "ProductVersion" = "8:2.6.2"
         "Manufacturer" = "8:ManuSoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.manusoft.com"
