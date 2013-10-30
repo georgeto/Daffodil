@@ -82,7 +82,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1033", "1033", "{99E657A1-4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daffodil.CPPTasks.Win32.v80", "Platforms\Win32\v80\Daffodil.CPPTasks.Win32.v80\Daffodil.CPPTasks.Win32.v80.csproj", "{26AE62FE-E423-4682-BA0C-C35F41DB6EEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daffodil.CPPTasks.x64.v80", "Platforms\X64\v80\Daffodil.CPPTasks.Win32.v80\Daffodil.CPPTasks.x64.v80.csproj", "{3094649B-13B7-4A18-8D51-2BB6F30C7E64}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daffodil.CPPTasks.x64.v80", "Platforms\X64\v80\Daffodil.CPPTasks.X64.v80\Daffodil.CPPTasks.x64.v80.csproj", "{3094649B-13B7-4A18-8D51-2BB6F30C7E64}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "context", "context", "{CE6E5B00-4BC8-4F19-8B95-30DA5D50D7B2}"
 	ProjectSection(SolutionItems) = preProject
