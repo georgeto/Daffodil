@@ -41,5 +41,11 @@ Credits
     <UpgradeSubsetToProfile>false</UpgradeSubsetToProfile>
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <DefaultCharIsUnsigned>false</DefaultCharIsUnsigned>
+      <Detect64BitPortabilityProblems>true</Detect64BitPortabilityProblems>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Platforms\X64\PlatformToolsets\v80\ImportAfter\*.props" Condition="Exists('$(VCTargetsPath)\Platforms\X64\PlatformToolsets\v80\ImportAfter')" />
 </Project>

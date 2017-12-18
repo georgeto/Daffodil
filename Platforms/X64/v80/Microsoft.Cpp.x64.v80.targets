@@ -3,7 +3,7 @@
 Daffodil for Visual Studio  <http://daffodil.codeplex.com>
 - Native multi-targeting support for Visual Studio 2005 in Visual Studio 2010
 
-2.5  [2013-01-15]
+
 
 Owen Wengerd, ManuSoft
 http://www.manusoft.com
@@ -83,6 +83,212 @@ Credits
                         '$(TargetFrameworkVersion)' != 'v2.0' and
                         '$(DesignTimeBuild)'!='true'"
             Text="Specified platform toolset ($(PlatformToolset)) is not compatible with the targeted .NET Framework version ($(TargetFrameworkVersion)). Please ensure .NET Framework 2.0/3.0/3.5 is installed and no TargetFrameworkVersion override is in effect."/>
+  </Target>
+
+  
+  <!-- *******************************************************************************************
+        CLCompile
+       ******************************************************************************************* -->
+
+  <Target Name="ClCompile"
+          Condition="'@(ClCompile)' != ''"
+          DependsOnTargets="SelectClCompile">
+    <ItemGroup>
+      <ClCompile>
+        <PrecompiledHeaderOutputFile  Condition="'%(ClCompile.PrecompiledHeader)' == 'NotUsing' or '%(ClCompile.PrecompiledHeader)' == ''"></PrecompiledHeaderOutputFile>
+        <PrecompiledHeaderOutputFile  Condition="'%(ClCompile.PrecompiledHeader)' != 'NotUsing' and '$(RunCodeAnalysisOnce)'=='true' and '%(ClCompile.PrecompiledHeader)' != ''">%(ClCompile.PrecompiledHeaderOutputFile).codeanalysis</PrecompiledHeaderOutputFile>
+        <PrecompiledHeaderFile        Condition="'%(ClCompile.PrecompiledHeader)' == 'NotUsing' or '%(ClCompile.PrecompiledHeader)' == ''"></PrecompiledHeaderFile>
+        <AssemblerListingLocation     Condition="'%(ClCompile.AssemblerOutput)' == 'NoListing' or '%(ClCompile.AssemblerOutput)' == ''"></AssemblerListingLocation>
+        <CompileAs                    Condition="'%(ClCompile.CompileAs)' == 'Default' and '%(ClCompile.Extension)' == '.c'">CompileAsC</CompileAs>
+        <CompileAs                    Condition="'%(ClCompile.CompileAs)' == 'Default' and '%(ClCompile.Extension)' != '.c'">CompileAsCpp</CompileAs>
+        <MinimalRebuildFromTracking   Condition="'$(BuildType)' != 'Build' or '$(ForceRebuild)' == 'true'">false</MinimalRebuildFromTracking>
+        <ProgramDataBaseFileName      Condition="'%(ClCompile.DebugInformationFormat)' == '' or '%(ClCompile.DebugInformationFormat)' == 'Disabled' or '%(ClCompile.DebugInformationFormat)' == 'OldStyle'"></ProgramDataBaseFileName>
+      </ClCompile>
+    </ItemGroup>
+
+    <PropertyGroup>
+      <CLToolArchitecture Condition="'$(CLToolArchitecture)' == ''">$(DefaultToolArchitecture)</CLToolArchitecture>
+    </PropertyGroup>
+
+    <Delete Condition="'%(ClCompile.ProgramDataBaseFileName)' != '' and !Exists(%(ClCompile.ProgramDataBaseFileName))"
+            Files="%(ClCompile.PrecompiledHeaderOutputFile)" />
+
+    <!-- Precompiled headers - need to build them first -->
+    <CLA Condition="'%(ClCompile.PrecompiledHeader)' == 'Create' and '%(ClCompile.ExcludedFromBuild)'!='true'"
+        BuildingInIDE                      ="$(BuildingInsideVisualStudio)"
+        Sources                            ="@(ClCompile)"
+
+        AdditionalIncludeDirectories       ="%(ClCompile.AdditionalIncludeDirectories)"
+        AdditionalOptions                  ="%(ClCompile.AdditionalOptions)"
+        AdditionalUsingDirectories         ="%(ClCompile.AdditionalUsingDirectories)"
+        AssemblerListingLocation           ="%(ClCompile.AssemblerListingLocation)"
+        AssemblerOutput                    ="%(ClCompile.AssemblerOutput)"
+        BasicRuntimeChecks                 ="%(ClCompile.BasicRuntimeChecks)"
+        BrowseInformation                  ="%(ClCompile.BrowseInformation)"
+        BrowseInformationFile              ="%(ClCompile.BrowseInformationFile)"
+        BufferSecurityCheck                ="%(ClCompile.BufferSecurityCheck)"
+        CallingConvention                  ="%(ClCompile.CallingConvention)"
+        CompileAsManaged                   ="%(ClCompile.CompileAsManaged)"
+        CompileAs                          ="%(ClCompile.CompileAs)"
+        DebugInformationFormat             ="%(ClCompile.DebugInformationFormat)"
+        DisableLanguageExtensions          ="%(ClCompile.DisableLanguageExtensions)"
+        DisableSpecificWarnings            ="%(ClCompile.DisableSpecificWarnings)"
+        EnableFiberSafeOptimizations       ="%(ClCompile.EnableFiberSafeOptimizations)"
+        EnablePREfast                      ="%(ClCompile.EnablePREfast)"
+        ErrorReporting                     ="%(ClCompile.ErrorReporting)"
+        ExceptionHandling                  ="%(ClCompile.ExceptionHandling)"
+        ExcludedInputPaths                 ="$(ExcludePath)"
+        ExpandAttributedSource             ="%(ClCompile.ExpandAttributedSource)"
+        FavorSizeOrSpeed                   ="%(ClCompile.FavorSizeOrSpeed)"
+        FloatingPointExceptions            ="%(ClCompile.FloatingPointExceptions)"
+        FloatingPointModel                 ="%(ClCompile.FloatingPointModel)"
+        ForceConformanceInForLoopScope     ="%(ClCompile.ForceConformanceInForLoopScope)"
+        ForcedIncludeFiles                 ="%(ClCompile.ForcedIncludeFiles)"
+        ForcedUsingFiles                   ="%(ClCompile.ForcedUsingFiles)"
+        FunctionLevelLinking               ="%(ClCompile.FunctionLevelLinking)"
+        GenerateXMLDocumentationFiles      ="%(ClCompile.GenerateXMLDocumentationFiles)"
+        IgnoreStandardIncludePath          ="%(ClCompile.IgnoreStandardIncludePath)"
+        InlineFunctionExpansion            ="%(ClCompile.InlineFunctionExpansion)"
+        IntrinsicFunctions                 ="%(ClCompile.IntrinsicFunctions)"
+        MinimalRebuild                     ="%(ClCompile.MinimalRebuild)"
+        MultiProcessorCompilation          ="%(ClCompile.MultiProcessorCompilation)"
+        ObjectFileName                     ="%(ClCompile.ObjectFileName)"
+        OmitDefaultLibName                 ="%(ClCompile.OmitDefaultLibName)"
+        OmitFramePointers                  ="%(ClCompile.OmitFramePointers)"
+        OpenMPSupport                      ="%(ClCompile.OpenMPSupport)"
+        Optimization                       ="%(ClCompile.Optimization)"
+        PrecompiledHeader                  ="%(ClCompile.PrecompiledHeader)"
+        PrecompiledHeaderFile              ="%(ClCompile.PrecompiledHeaderFile)"
+        PrecompiledHeaderOutputFile        ="%(ClCompile.PrecompiledHeaderOutputFile)"
+        PreprocessKeepComments             ="%(ClCompile.PreprocessKeepComments)"
+        PreprocessorDefinitions            ="%(ClCompile.PreprocessorDefinitions)"
+        PreprocessSuppressLineNumbers      ="%(ClCompile.PreprocessSuppressLineNumbers)"
+        PreprocessToFile                   ="%(ClCompile.PreprocessToFile)"
+        ProcessorNumber                    ="%(ClCompile.ProcessorNumber)"
+        ProgramDataBaseFileName            ="%(ClCompile.ProgramDataBaseFileName)"
+        RuntimeLibrary                     ="%(ClCompile.RuntimeLibrary)"
+        RuntimeTypeInfo                    ="%(ClCompile.RuntimeTypeInfo)"
+        ShowIncludes                       ="%(ClCompile.ShowIncludes)"
+        SmallerTypeCheck                   ="%(ClCompile.SmallerTypeCheck)"
+        StringPooling                      ="%(ClCompile.StringPooling)"
+        StructMemberAlignment              ="%(ClCompile.StructMemberAlignment)"
+        SuppressStartupBanner              ="%(ClCompile.SuppressStartupBanner)"
+        TreatSpecificWarningsAsErrors      ="%(ClCompile.TreatSpecificWarningsAsErrors)"
+        TreatWarningAsError                ="%(ClCompile.TreatWarningAsError)"
+        TreatWChar_tAsBuiltInType          ="%(ClCompile.TreatWChar_tAsBuiltInType)"
+        UndefineAllPreprocessorDefinitions ="%(ClCompile.UndefineAllPreprocessorDefinitions)"
+        UndefinePreprocessorDefinitions    ="%(ClCompile.UndefinePreprocessorDefinitions)"
+        UseFullPaths                       ="%(ClCompile.UseFullPaths)"
+        UseUnicodeForAssemblerListing      ="%(ClCompile.UseUnicodeForAssemblerListing)"
+        WarningLevel                       ="%(ClCompile.WarningLevel)"
+        WholeProgramOptimization           ="%(ClCompile.WholeProgramOptimization)"
+        XMLDocumentationFileName           ="%(ClCompile.XMLDocumentationFileName)"
+
+        TrackerLogDirectory                ="%(ClCompile.TrackerLogDirectory)"
+
+        TLogReadFiles                      ="@(CLTLogReadFiles)"
+        TLogWriteFiles                     ="@(CLTLogWriteFiles)"
+        ToolExe                            ="$(CLToolExe)"
+        ToolPath                           ="$(CLToolPath)"
+        TrackFileAccess                    ="$(TrackFileAccess)"
+        MinimalRebuildFromTracking         ="%(ClCompile.MinimalRebuildFromTracking)"
+        ToolArchitecture                   ="$(CLToolArchitecture)"
+        TrackerFrameworkPath               ="$(CLTrackerFrameworkPath)"
+        TrackerSdkPath                     ="$(CLTrackerSdkPath)"
+
+        AcceptableNonZeroExitCodes         ="%(ClCompile.AcceptableNonZeroExitCodes)"
+        YieldDuringToolExecution           ="$(ClYieldDuringToolExecution)"
+      >
+    </CLA>
+
+    <!-- Rest of the sources -->
+    <CLA Condition="'%(ClCompile.PrecompiledHeader)' != 'Create' and '%(ClCompile.ExcludedFromBuild)'!='true'"
+        BuildingInIDE                      ="$(BuildingInsideVisualStudio)"
+        Sources                            ="@(ClCompile)"
+
+        AdditionalIncludeDirectories       ="%(ClCompile.AdditionalIncludeDirectories)"
+        AdditionalOptions                  ="%(ClCompile.AdditionalOptions)"
+        AdditionalUsingDirectories         ="%(ClCompile.AdditionalUsingDirectories)"
+        AssemblerListingLocation           ="%(ClCompile.AssemblerListingLocation)"
+        AssemblerOutput                    ="%(ClCompile.AssemblerOutput)"
+        BasicRuntimeChecks                 ="%(ClCompile.BasicRuntimeChecks)"
+        BrowseInformation                  ="%(ClCompile.BrowseInformation)"
+        BrowseInformationFile              ="%(ClCompile.BrowseInformationFile)"
+        BufferSecurityCheck                ="%(ClCompile.BufferSecurityCheck)"
+        CallingConvention                  ="%(ClCompile.CallingConvention)"
+        CompileAsManaged                   ="%(ClCompile.CompileAsManaged)"
+        CompileAs                          ="%(ClCompile.CompileAs)"
+        DebugInformationFormat             ="%(ClCompile.DebugInformationFormat)"
+        DisableLanguageExtensions          ="%(ClCompile.DisableLanguageExtensions)"
+        DisableSpecificWarnings            ="%(ClCompile.DisableSpecificWarnings)"
+        EnableFiberSafeOptimizations       ="%(ClCompile.EnableFiberSafeOptimizations)"
+        EnablePREfast                      ="%(ClCompile.EnablePREfast)"
+        ErrorReporting                     ="%(ClCompile.ErrorReporting)"
+        ExceptionHandling                  ="%(ClCompile.ExceptionHandling)"
+        ExcludedInputPaths                 ="$(ExcludePath)"
+        ExpandAttributedSource             ="%(ClCompile.ExpandAttributedSource)"
+        FavorSizeOrSpeed                   ="%(ClCompile.FavorSizeOrSpeed)"
+        FloatingPointExceptions            ="%(ClCompile.FloatingPointExceptions)"
+        FloatingPointModel                 ="%(ClCompile.FloatingPointModel)"
+        ForceConformanceInForLoopScope     ="%(ClCompile.ForceConformanceInForLoopScope)"
+        ForcedIncludeFiles                 ="%(ClCompile.ForcedIncludeFiles)"
+        ForcedUsingFiles                   ="%(ClCompile.ForcedUsingFiles)"
+        FunctionLevelLinking               ="%(ClCompile.FunctionLevelLinking)"
+        GenerateXMLDocumentationFiles      ="%(ClCompile.GenerateXMLDocumentationFiles)"
+        IgnoreStandardIncludePath          ="%(ClCompile.IgnoreStandardIncludePath)"
+        InlineFunctionExpansion            ="%(ClCompile.InlineFunctionExpansion)"
+        IntrinsicFunctions                 ="%(ClCompile.IntrinsicFunctions)"
+        MinimalRebuild                     ="%(ClCompile.MinimalRebuild)"
+        MultiProcessorCompilation          ="%(ClCompile.MultiProcessorCompilation)"
+        ObjectFileName                     ="%(ClCompile.ObjectFileName)"
+        OmitDefaultLibName                 ="%(ClCompile.OmitDefaultLibName)"
+        OmitFramePointers                  ="%(ClCompile.OmitFramePointers)"
+        OpenMPSupport                      ="%(ClCompile.OpenMPSupport)"
+        Optimization                       ="%(ClCompile.Optimization)"
+        PrecompiledHeader                  ="%(ClCompile.PrecompiledHeader)"
+        PrecompiledHeaderFile              ="%(ClCompile.PrecompiledHeaderFile)"
+        PrecompiledHeaderOutputFile        ="%(ClCompile.PrecompiledHeaderOutputFile)"
+        PreprocessKeepComments             ="%(ClCompile.PreprocessKeepComments)"
+        PreprocessorDefinitions            ="%(ClCompile.PreprocessorDefinitions)"
+        PreprocessSuppressLineNumbers      ="%(ClCompile.PreprocessSuppressLineNumbers)"
+        PreprocessToFile                   ="%(ClCompile.PreprocessToFile)"
+        ProcessorNumber                    ="%(ClCompile.ProcessorNumber)"
+        ProgramDataBaseFileName            ="%(ClCompile.ProgramDataBaseFileName)"
+        RuntimeLibrary                     ="%(ClCompile.RuntimeLibrary)"
+        RuntimeTypeInfo                    ="%(ClCompile.RuntimeTypeInfo)"
+        ShowIncludes                       ="%(ClCompile.ShowIncludes)"
+        SmallerTypeCheck                   ="%(ClCompile.SmallerTypeCheck)"
+        StringPooling                      ="%(ClCompile.StringPooling)"
+        StructMemberAlignment              ="%(ClCompile.StructMemberAlignment)"
+        SuppressStartupBanner              ="%(ClCompile.SuppressStartupBanner)"
+        TreatSpecificWarningsAsErrors      ="%(ClCompile.TreatSpecificWarningsAsErrors)"
+        TreatWarningAsError                ="%(ClCompile.TreatWarningAsError)"
+        TreatWChar_tAsBuiltInType          ="%(ClCompile.TreatWChar_tAsBuiltInType)"
+        UndefineAllPreprocessorDefinitions ="%(ClCompile.UndefineAllPreprocessorDefinitions)"
+        UndefinePreprocessorDefinitions    ="%(ClCompile.UndefinePreprocessorDefinitions)"
+        UseFullPaths                       ="%(ClCompile.UseFullPaths)"
+        UseUnicodeForAssemblerListing      ="%(ClCompile.UseUnicodeForAssemblerListing)"
+        WarningLevel                       ="%(ClCompile.WarningLevel)"
+        WholeProgramOptimization           ="%(ClCompile.WholeProgramOptimization)"
+        XMLDocumentationFileName           ="%(ClCompile.XMLDocumentationFileName)"
+
+        TrackerLogDirectory                ="%(ClCompile.TrackerLogDirectory)"
+
+        TLogReadFiles                      ="@(CLTLogReadFiles)"
+        TLogWriteFiles                     ="@(CLTLogWriteFiles)"
+        ToolExe                            ="$(CLToolExe)"
+        ToolPath                           ="$(CLToolPath)"
+        TrackFileAccess                    ="$(TrackFileAccess)"
+        MinimalRebuildFromTracking         ="%(ClCompile.MinimalRebuildFromTracking)"
+        ToolArchitecture                   ="$(CLToolArchitecture)"
+        TrackerFrameworkPath               ="$(CLTrackerFrameworkPath)"
+        TrackerSdkPath                     ="$(CLTrackerSdkPath)"
+
+        AcceptableNonZeroExitCodes         ="%(ClCompile.AcceptableNonZeroExitCodes)"
+        YieldDuringToolExecution           ="$(ClYieldDuringToolExecution)"
+      >
+    </CLA>
+
   </Target>
 
   <!-- *******************************************************************************************
@@ -218,7 +424,7 @@ Credits
       <Output TaskParameter="SkippedExecution" PropertyName="LinkSkippedExecution" />
     </Link>
 
-    <Message Text="$(MSBuildProjectFile) -&gt; $(TargetPath)" Importance="High" Condition="'$(EmbedManifestBy' != 'LINK'"/>
+    <Message Text="$(MSBuildProjectFile) -&gt; $(TargetPath)" Importance="High" Condition="'$(EmbedManifestBy)' != 'LINK'"/>
   </Target>
 
   <Target Name="LinkEmbedManifest"
@@ -339,6 +545,118 @@ Credits
     </Link>
 
     <Message Text="$(MSBuildProjectFile) -&gt; $(TargetPath)" Importance="High" />
+  </Target>
+
+  <!-- *******************************************************************************************
+        Lib
+       ******************************************************************************************* -->
+
+  <Target Name="Lib"
+          Condition="'@(Lib)' != ''">
+    <ItemGroup>
+      <Lib>
+        <MinimalRebuildFromTracking Condition="'$(BuildType)' != 'Build' or '$(ForceRebuild)' == 'true'">false</MinimalRebuildFromTracking>
+      </Lib>
+    </ItemGroup>
+
+    <PropertyGroup>
+      <LibToolArchitecture Condition="'$(LibToolArchitecture)' == ''">$(DefaultToolArchitecture)</LibToolArchitecture>
+    </PropertyGroup>
+
+    <LIBA
+      Sources                         ="@(Lib)"
+
+      AdditionalDependencies          ="%(Lib.AdditionalDependencies)"
+      AdditionalLibraryDirectories    ="%(Lib.AdditionalLibraryDirectories)"
+      AdditionalOptions               ="$(LibAdditionalOptions)"
+      DisplayLibrary                  ="%(Lib.DisplayLibrary)"
+      ErrorReporting                  ="%(Lib.LinkErrorReporting)"
+      ExportNamedFunctions            ="%(Lib.ExportNamedFunctions)"
+      ForceSymbolReferences           ="%(Lib.ForceSymbolReferences)"
+      IgnoreAllDefaultLibraries       ="%(Lib.IgnoreAllDefaultLibraries)"
+      IgnoreSpecificDefaultLibraries  ="%(Lib.IgnoreSpecificDefaultLibraries)"
+      LinkTimeCodeGeneration          ="%(Lib.LinkTimeCodeGeneration)"
+      ModuleDefinitionFile            ="%(Lib.ModuleDefinitionFile)"
+      Name                            ="%(Lib.Name)"
+      OutputFile                      ="%(Lib.OutputFile)"
+      RemoveObjects                   ="%(Lib.RemoveObjects)"
+      SubSystem                       ="%(Lib.SubSystem)"
+      SuppressStartupBanner           ="%(Lib.SuppressStartupBanner)"
+      TargetMachine                   ="%(Lib.TargetMachine)"
+      TreatLibWarningAsErrors         ="%(Lib.TreatLibWarningAsErrors)"
+      Verbose                         ="%(Lib.Verbose)"
+
+      TrackerLogDirectory             ="%(Lib.TrackerLogDirectory)"
+
+      TLogReadFiles                   ="@(LIBTLogReadFiles)"
+      TLogWriteFiles                  ="@(LIBTLogWriteFiles)"
+      ToolExe                         ="$(LIBToolExe)"
+      ToolPath                        ="$(LIBToolPath)"
+      TrackFileAccess                 ="$(TrackFileAccess)"
+      MinimalRebuildFromTracking      ="%(Lib.MinimalRebuildFromTracking)"
+      ToolArchitecture                ="$(LibToolArchitecture)"
+      TrackerFrameworkPath            ="$(LibTrackerFrameworkPath)"
+      TrackerSdkPath                  ="$(LibTrackerSdkPath)"
+
+      AcceptableNonZeroExitCodes      ="%(Lib.AcceptableNonZeroExitCodes)"
+      >
+    </LIBA>
+
+    <Message Text="$(MSBuildProjectFile) -&gt; $(TargetPath)" Importance="High" />
+  </Target>
+
+  <Target Name="ImpLib"
+          Condition="'@(ImpLib)' != '' and '$(IgnoreImportLibrary)' != 'true' and '$(GenerateImportLib)' == 'true'">
+    <ItemGroup>
+      <ImpLib>
+        <MinimalRebuildFromTracking Condition="'$(BuildType)' != 'Build' or '$(ForceRebuild)' == 'true'">false</MinimalRebuildFromTracking>
+      </ImpLib>
+    </ItemGroup>
+
+    <PropertyGroup>
+      <LibUseEmptyDef Condition="'%(ImpLib.ModuleDefinitionFile)' == ''">/DEF:</LibUseEmptyDef>
+      <LibToolArchitecture Condition="'$(LibToolArchitecture)' == ''">$(DefaultToolArchitecture)</LibToolArchitecture>
+    </PropertyGroup>
+
+    <LIBA
+      Sources                         ="@(ImpLib)"
+
+      AdditionalDependencies          ="%(ImpLib.AdditionalDependencies)"
+      AdditionalLibraryDirectories    ="%(ImpLib.AdditionalLibraryDirectories)"
+      AdditionalOptions               ="$(ImpLibAdditionalOptions) $(LibUseEmptyDef)"
+      DisplayLibrary                  ="%(ImpLib.DisplayLibrary)"
+      ErrorReporting                  ="%(ImpLib.LinkErrorReporting)"
+      ExportNamedFunctions            ="%(ImpLib.ExportNamedFunctions)"
+      ForceSymbolReferences           ="%(ImpLib.ForceSymbolReferences)"
+      IgnoreAllDefaultLibraries       ="%(ImpLib.IgnoreAllDefaultLibraries)"
+      IgnoreSpecificDefaultLibraries  ="%(ImpLib.IgnoreSpecificDefaultLibraries)"
+      LinkTimeCodeGeneration          ="%(ImpLib.LinkTimeCodeGeneration)"
+      ModuleDefinitionFile            ="%(ImpLib.ModuleDefinitionFile)"
+      Name                            ="%(ImpLib.Name)"
+      OutputFile                      ="%(ImpLib.OutputFile)"
+      RemoveObjects                   ="%(ImpLib.RemoveObjects)"
+      SubSystem                       ="%(ImpLib.SubSystem)"
+      SuppressStartupBanner           ="%(ImpLib.SuppressStartupBanner)"
+      TargetMachine                   ="%(ImpLib.TargetMachine)"
+      TreatLibWarningAsErrors         ="%(ImpLib.TreatLibWarningAsErrors)"
+      Verbose                         ="%(ImpLib.Verbose)"
+
+      TrackerLogDirectory             ="%(ImpLib.TrackerLogDirectory)"
+
+      TLogReadFiles                   ="@(LIBTLogReadFiles)"
+      TLogWriteFiles                  ="@(LIBTLogWriteFiles)"
+      ToolExe                         ="$(LIBToolExe)"
+      ToolPath                        ="$(LIBToolPath)"
+      TrackFileAccess                 ="$(TrackFileAccess)"
+      MinimalRebuildFromTracking      ="%(ImpLib.MinimalRebuildFromTracking)"
+      ToolArchitecture                ="$(LibToolArchitecture)"
+      TrackerFrameworkPath            ="$(LibTrackerFrameworkPath)"
+      TrackerSdkPath                  ="$(LibTrackerSdkPath)"
+
+      AcceptableNonZeroExitCodes      ="%(ImpLib.AcceptableNonZeroExitCodes)"
+      >
+    </LIBA>
+
   </Target>
 
   <!-- *******************************************************************************************
