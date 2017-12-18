@@ -11,6 +11,7 @@
     <Category Name="Output Files" DisplayName="Output Files" />
     <Category Name="Browse Information" DisplayName="Browse Information" />
     <Category Name="Advanced" DisplayName="Advanced" />
+    <Category Name="All Options" DisplayName="All Options" Subtype="Search" />
     <Category Name="Command Line" DisplayName="Command Line" Subtype="CommandLine" />
   </Rule.Categories>
   <Rule.DataSource>
