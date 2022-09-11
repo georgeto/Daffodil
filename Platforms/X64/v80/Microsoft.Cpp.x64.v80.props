@@ -19,7 +19,7 @@ Credits
   <PropertyGroup>
     <PlatformToolsetVersion>80</PlatformToolsetVersion>
     <VCInstallDir>$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\8.0\Setup\VC@ProductDir)</VCInstallDir>
-    <VCInstallDir Condition="'$(VCInstallDir)' == ''">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VisualStudio\8.0\Setup\VC@ProductDir) </VCInstallDir>
+    <VCInstallDir Condition="'$(VCInstallDir)' == ''">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VisualStudio\8.0\Setup\VC@ProductDir)</VCInstallDir>
     <VSInstallDir>$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\8.0\Setup\VS@ProductDir)</VSInstallDir>
     <VSInstallDir Condition="'$(VSInstallDir)' == ''">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VisualStudio\8.0\Setup\VS@ProductDir)</VSInstallDir>
     <WindowsSdkDir Condition="'$(WindowsSdkDir)' == ''">$(VCInstallDir)PlatformSDK\</WindowsSdkDir>
