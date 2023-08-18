@@ -1,3 +1,8 @@
+# NOTE: Daffodil officially recreated on Github
+In the meantime, the author of Daffodil has officially resurrected the project by [recreating the official repository on Github](https://github.com/manusoft-gh/manusoft-daffodil) himself. There he also provides a pre-built MSI installer for installing Daffodil. Definetly have a look [there](https://github.com/manusoft-gh/manusoft-daffodil) if you are interested in Daffodil!
+
+---
+
 # Daffodil
 Daffodil provides native multi-targeting platform toolsets for Visual 
 Studio 2010 C++ developers who need to target older versions of Visual 
